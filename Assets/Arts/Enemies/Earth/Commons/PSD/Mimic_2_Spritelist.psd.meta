@@ -1,0 +1,871 @@
+fileFormatVersion: 2
+guid: fe0395fd95bd19d4382fe152434907a7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6663704348675358502
+    second: Mimic_2_Spritelist_0
+  - first:
+      213: -5848038272303383152
+    second: Mimic_2_Spritelist_1
+  - first:
+      213: 422100126386135035
+    second: Mimic_2_Spritelist_2
+  - first:
+      213: 5754524550398892560
+    second: Mimic_2_Spritelist_3
+  - first:
+      213: 7791254137423677946
+    second: Mimic_2_Spritelist_4
+  - first:
+      213: 3572702442966533075
+    second: Mimic_2_Spritelist_5
+  - first:
+      213: 8679780721986304026
+    second: Mimic_2_Spritelist_6
+  - first:
+      213: 3916603742406556832
+    second: Mimic_2_Spritelist_7
+  - first:
+      213: -2968744814639713513
+    second: Mimic_2_Spritelist_8
+  - first:
+      213: -717495353208175099
+    second: Mimic_2_Spritelist_9
+  - first:
+      213: 3293021943594359158
+    second: Mimic_2_Spritelist_10
+  - first:
+      213: 6897276536610939237
+    second: Mimic_2_Spritelist_11
+  - first:
+      213: -5025315116539761335
+    second: Mimic_2_Spritelist_12
+  - first:
+      213: -164025727758832057
+    second: Mimic_2_Spritelist_13
+  - first:
+      213: -6544245847396648841
+    second: Mimic_2_Spritelist_14
+  - first:
+      213: -3939764134494519150
+    second: Mimic_2_Spritelist_15
+  - first:
+      213: -547426734619413839
+    second: Mimic_2_Spritelist_16
+  - first:
+      213: 2400491354031055422
+    second: Mimic_2_Spritelist_17
+  - first:
+      213: 8221484992698297046
+    second: Mimic_2_Spritelist_18
+  - first:
+      213: -6198511310062590861
+    second: Mimic_2_Spritelist_19
+  - first:
+      213: -2238427965519859942
+    second: Mimic_2_Spritelist_20
+  - first:
+      213: -1484249719587215297
+    second: Mimic_2_Spritelist_21
+  - first:
+      213: 3221605213372540285
+    second: Mimic_2_Spritelist_22
+  - first:
+      213: -1375462445425354567
+    second: Mimic_2_Spritelist_23
+  - first:
+      213: -5366011615269317003
+    second: Mimic_2_Spritelist_24
+  - first:
+      213: 855224620641965953
+    second: Mimic_2_Spritelist_25
+  - first:
+      213: -8485629767528141456
+    second: Mimic_2_Spritelist_26
+  - first:
+      213: 1161669028529059395
+    second: Mimic_2_Spritelist_27
+  - first:
+      213: -6402225464877536830
+    second: Mimic_2_Spritelist_28
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_0
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 639
+        width: 52
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad0caf06334c583a0800000000000000
+      internalID: -6663704348675358502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_1
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 511
+        width: 47
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09db772fc2897dea0800000000000000
+      internalID: -5848038272303383152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_2
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 511
+        width: 50
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bff94ec14d99bd500800000000000000
+      internalID: 422100126386135035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_3
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 511
+        width: 50
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01a5acdf69d2cdf40800000000000000
+      internalID: 5754524550398892560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_4
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 511
+        width: 49
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af94eefab58102c60800000000000000
+      internalID: 7791254137423677946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_5
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 511
+        width: 44
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d3c03161f9c49130800000000000000
+      internalID: 3572702442966533075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_6
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 511
+        width: 45
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a18f6464496c47870800000000000000
+      internalID: 8679780721986304026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_7
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 383
+        width: 32
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0acbb184a529a5630800000000000000
+      internalID: 3916603742406556832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_8
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 383
+        width: 26
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 713fd96f156ecc6d0800000000000000
+      internalID: -2968744814639713513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_9
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 383
+        width: 27
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 506880817c1fa06f0800000000000000
+      internalID: -717495353208175099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_10
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 383
+        width: 34
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6791281b20a23bd20800000000000000
+      internalID: 3293021943594359158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_11
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 383
+        width: 31
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 561e45a777c08bf50800000000000000
+      internalID: 6897276536610939237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_12
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 383
+        width: 27
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94d2f3ad68e724ab0800000000000000
+      internalID: -5025315116539761335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_13
+      rect:
+        serializedVersion: 2
+        x: 829
+        y: 383
+        width: 25
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74ee8ea387349bdf0800000000000000
+      internalID: -164025727758832057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_14
+      rect:
+        serializedVersion: 2
+        x: 956
+        y: 383
+        width: 30
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 778f81f131b2e25a0800000000000000
+      internalID: -6544245847396648841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_15
+      rect:
+        serializedVersion: 2
+        x: 1080
+        y: 383
+        width: 33
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29041a8b4652359c0800000000000000
+      internalID: -3939764134494519150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_16
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 255
+        width: 45
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b2357609462768f0800000000000000
+      internalID: -547426734619413839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_17
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 255
+        width: 51
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e32ea6b0b22405120800000000000000
+      internalID: 2400491354031055422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_18
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 255
+        width: 56
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6daacf3aa05981270800000000000000
+      internalID: 8221484992698297046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_19
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 299
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3746a7bfdc67af9a0800000000000000
+      internalID: -6198511310062590861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_20
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 255
+        width: 38
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1f63e300a18fe0e0800000000000000
+      internalID: -2238427965519859942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_21
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 127
+        width: 45
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f38e7027eb2e66be0800000000000000
+      internalID: -1484249719587215297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_22
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 127
+        width: 45
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d75ed9d6fd075bc20800000000000000
+      internalID: 3221605213372540285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_23
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 152
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b81882813069ece0800000000000000
+      internalID: -1375462445425354567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_24
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 127
+        width: 48
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5769043cdd81885b0800000000000000
+      internalID: -5366011615269317003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_25
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 50
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1875884e24e5edb00800000000000000
+      internalID: 855224620641965953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_26
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 50
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07d210b6facfc3a80800000000000000
+      internalID: -8485629767528141456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_27
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 0
+        width: 47
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3463c00a3d31f1010800000000000000
+      internalID: 1161669028529059395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mimic_2_Spritelist_28
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 0
+        width: 79
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c9a3023cd9b627a0800000000000000
+      internalID: -6402225464877536830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Mimic_2_Spritelist_0: -6663704348675358502
+      Mimic_2_Spritelist_1: -5848038272303383152
+      Mimic_2_Spritelist_10: 3293021943594359158
+      Mimic_2_Spritelist_11: 6897276536610939237
+      Mimic_2_Spritelist_12: -5025315116539761335
+      Mimic_2_Spritelist_13: -164025727758832057
+      Mimic_2_Spritelist_14: -6544245847396648841
+      Mimic_2_Spritelist_15: -3939764134494519150
+      Mimic_2_Spritelist_16: -547426734619413839
+      Mimic_2_Spritelist_17: 2400491354031055422
+      Mimic_2_Spritelist_18: 8221484992698297046
+      Mimic_2_Spritelist_19: -6198511310062590861
+      Mimic_2_Spritelist_2: 422100126386135035
+      Mimic_2_Spritelist_20: -2238427965519859942
+      Mimic_2_Spritelist_21: -1484249719587215297
+      Mimic_2_Spritelist_22: 3221605213372540285
+      Mimic_2_Spritelist_23: -1375462445425354567
+      Mimic_2_Spritelist_24: -5366011615269317003
+      Mimic_2_Spritelist_25: 855224620641965953
+      Mimic_2_Spritelist_26: -8485629767528141456
+      Mimic_2_Spritelist_27: 1161669028529059395
+      Mimic_2_Spritelist_28: -6402225464877536830
+      Mimic_2_Spritelist_3: 5754524550398892560
+      Mimic_2_Spritelist_4: 7791254137423677946
+      Mimic_2_Spritelist_5: 3572702442966533075
+      Mimic_2_Spritelist_6: 8679780721986304026
+      Mimic_2_Spritelist_7: 3916603742406556832
+      Mimic_2_Spritelist_8: -2968744814639713513
+      Mimic_2_Spritelist_9: -717495353208175099
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

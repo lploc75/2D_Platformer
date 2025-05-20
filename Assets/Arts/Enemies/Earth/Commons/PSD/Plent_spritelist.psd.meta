@@ -1,0 +1,2561 @@
+fileFormatVersion: 2
+guid: ea51e1c18d48b3a43817d24540da2835
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1950341664692521365
+    second: Plent_spritelist_0
+  - first:
+      213: -4627457155768730030
+    second: Plent_spritelist_1
+  - first:
+      213: 7402767819328518650
+    second: Plent_spritelist_2
+  - first:
+      213: -7469635442774909653
+    second: Plent_spritelist_3
+  - first:
+      213: -1096271089150602165
+    second: Plent_spritelist_4
+  - first:
+      213: 2025620517418792876
+    second: Plent_spritelist_5
+  - first:
+      213: -4603127252900536604
+    second: Plent_spritelist_6
+  - first:
+      213: 8989716950970038474
+    second: Plent_spritelist_7
+  - first:
+      213: -7710809394235692898
+    second: Plent_spritelist_8
+  - first:
+      213: 56274497726134150
+    second: Plent_spritelist_9
+  - first:
+      213: 2467256338806338232
+    second: Plent_spritelist_10
+  - first:
+      213: -1861776438321228646
+    second: Plent_spritelist_11
+  - first:
+      213: 7619202859657168489
+    second: Plent_spritelist_12
+  - first:
+      213: 4616888732357673951
+    second: Plent_spritelist_13
+  - first:
+      213: -4734630566676577728
+    second: Plent_spritelist_14
+  - first:
+      213: -6226707874044551668
+    second: Plent_spritelist_15
+  - first:
+      213: 5633305709830066585
+    second: Plent_spritelist_16
+  - first:
+      213: -6901644038482190340
+    second: Plent_spritelist_17
+  - first:
+      213: -2525931398137993889
+    second: Plent_spritelist_18
+  - first:
+      213: -8902254084247580775
+    second: Plent_spritelist_19
+  - first:
+      213: -9124538379623510747
+    second: Plent_spritelist_20
+  - first:
+      213: -8098268717562254546
+    second: Plent_spritelist_21
+  - first:
+      213: 6882567302898508906
+    second: Plent_spritelist_22
+  - first:
+      213: 6073150530548936867
+    second: Plent_spritelist_23
+  - first:
+      213: 4203511333460528714
+    second: Plent_spritelist_24
+  - first:
+      213: 170166643008945008
+    second: Plent_spritelist_25
+  - first:
+      213: 5697413693446859689
+    second: Plent_spritelist_26
+  - first:
+      213: 9080376677301557927
+    second: Plent_spritelist_27
+  - first:
+      213: -826619721963567358
+    second: Plent_spritelist_28
+  - first:
+      213: -9113788902746667803
+    second: Plent_spritelist_29
+  - first:
+      213: 3443490929041451565
+    second: Plent_spritelist_30
+  - first:
+      213: 3393798846507873659
+    second: Plent_spritelist_31
+  - first:
+      213: 7404027196672419686
+    second: Plent_spritelist_32
+  - first:
+      213: -292363877030886289
+    second: Plent_spritelist_33
+  - first:
+      213: 6560473171714944977
+    second: Plent_spritelist_34
+  - first:
+      213: 4917151451276745438
+    second: Plent_spritelist_35
+  - first:
+      213: -8377051824091455827
+    second: Plent_spritelist_36
+  - first:
+      213: -6277186030946299438
+    second: Plent_spritelist_37
+  - first:
+      213: 8882505293843110699
+    second: Plent_spritelist_38
+  - first:
+      213: 2534060363893217162
+    second: Plent_spritelist_39
+  - first:
+      213: -7252228006948569581
+    second: Plent_spritelist_40
+  - first:
+      213: -6690554492169750698
+    second: Plent_spritelist_41
+  - first:
+      213: -3361152762131026364
+    second: Plent_spritelist_42
+  - first:
+      213: -6354097984666476767
+    second: Plent_spritelist_43
+  - first:
+      213: -6915204129861135212
+    second: Plent_spritelist_44
+  - first:
+      213: -320082812797524982
+    second: Plent_spritelist_45
+  - first:
+      213: -5080104956088968274
+    second: Plent_spritelist_46
+  - first:
+      213: -2361223044326152116
+    second: Plent_spritelist_47
+  - first:
+      213: 8657805555343508354
+    second: Plent_spritelist_48
+  - first:
+      213: 6521152755092907791
+    second: Plent_spritelist_49
+  - first:
+      213: 8403623650263131983
+    second: Plent_spritelist_50
+  - first:
+      213: -6183280423547217767
+    second: Plent_spritelist_51
+  - first:
+      213: 2188702331955530526
+    second: Plent_spritelist_52
+  - first:
+      213: -5234916600039081621
+    second: Plent_spritelist_53
+  - first:
+      213: -1343685520355867494
+    second: Plent_spritelist_54
+  - first:
+      213: 2683104273932927248
+    second: Plent_spritelist_55
+  - first:
+      213: -7724721859427420378
+    second: Plent_spritelist_56
+  - first:
+      213: 3752127049212235881
+    second: Plent_spritelist_57
+  - first:
+      213: -2731448638547700091
+    second: Plent_spritelist_58
+  - first:
+      213: 1543697383984441227
+    second: Plent_spritelist_59
+  - first:
+      213: -7230513326662116290
+    second: Plent_spritelist_60
+  - first:
+      213: 7831641549106307587
+    second: Plent_spritelist_61
+  - first:
+      213: 2216594134024743442
+    second: Plent_spritelist_62
+  - first:
+      213: -5673682069111298516
+    second: Plent_spritelist_63
+  - first:
+      213: -3762005444873145884
+    second: Plent_spritelist_64
+  - first:
+      213: 4261615399348736937
+    second: Plent_spritelist_65
+  - first:
+      213: -5006771589188634984
+    second: Plent_spritelist_66
+  - first:
+      213: 8790745319602582048
+    second: Plent_spritelist_67
+  - first:
+      213: 681245223794944774
+    second: Plent_spritelist_68
+  - first:
+      213: -511727182216174895
+    second: Plent_spritelist_69
+  - first:
+      213: -3575886299263127554
+    second: Plent_spritelist_70
+  - first:
+      213: 3297784947600538823
+    second: Plent_spritelist_71
+  - first:
+      213: -196247483155344552
+    second: Plent_spritelist_72
+  - first:
+      213: -6972895587950886529
+    second: Plent_spritelist_73
+  - first:
+      213: -1100484669806979057
+    second: Plent_spritelist_74
+  - first:
+      213: -1114712534212253613
+    second: Plent_spritelist_75
+  - first:
+      213: 4595166909814474016
+    second: Plent_spritelist_76
+  - first:
+      213: 1989464443358378237
+    second: Plent_spritelist_77
+  - first:
+      213: 643159321886555831
+    second: Plent_spritelist_78
+  - first:
+      213: 4062012366507718437
+    second: Plent_spritelist_79
+  - first:
+      213: -1546826352653183308
+    second: Plent_spritelist_80
+  - first:
+      213: -6716006625442273749
+    second: Plent_spritelist_81
+  - first:
+      213: -7106510407600156176
+    second: Plent_spritelist_82
+  - first:
+      213: -1130668256580905232
+    second: Plent_spritelist_83
+  - first:
+      213: 4594961265588382890
+    second: Plent_spritelist_84
+  - first:
+      213: 1743654155817747526
+    second: Plent_spritelist_85
+  - first:
+      213: -3941357286492854816
+    second: Plent_spritelist_86
+  - first:
+      213: -6970970725115777164
+    second: Plent_spritelist_87
+  - first:
+      213: -6113682398832346895
+    second: Plent_spritelist_88
+  - first:
+      213: 4720247592649263253
+    second: Plent_spritelist_89
+  - first:
+      213: -8298197567450586296
+    second: Plent_spritelist_90
+  - first:
+      213: 6595762389206500672
+    second: Plent_spritelist_91
+  - first:
+      213: -7610313458419546562
+    second: Plent_spritelist_92
+  - first:
+      213: -2119423901469295865
+    second: Plent_spritelist_93
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Plent_spritelist_0
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 1153
+        width: 52
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b66bb5dd69efee4e0800000000000000
+      internalID: -1950341664692521365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_1
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 1153
+        width: 53
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25eb011fb38f7cfb0800000000000000
+      internalID: -4627457155768730030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_2
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 1153
+        width: 54
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af9f4c13c1aebb660800000000000000
+      internalID: 7402767819328518650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_3
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 1153
+        width: 54
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2ddbbff326865890800000000000000
+      internalID: -7469635442774909653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_4
+      rect:
+        serializedVersion: 2
+        x: 549
+        y: 1153
+        width: 53
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b44d5a1b04349c0f0800000000000000
+      internalID: -1096271089150602165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 1023
+        width: 51
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca77d7ed0237c1c10800000000000000
+      internalID: 2025620517418792876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_6
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 1023
+        width: 51
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ee91f2e6286e10c0800000000000000
+      internalID: -4603127252900536604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_7
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 1023
+        width: 51
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac870e5ffe3e1cc70800000000000000
+      internalID: 8989716950970038474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_8
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 1023
+        width: 56
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9826d5a5b3bdf490800000000000000
+      internalID: -7710809394235692898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_9
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 1023
+        width: 58
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68731e68b5de7c000800000000000000
+      internalID: 56274497726134150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_10
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 1023
+        width: 56
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b2f16c61947d3220800000000000000
+      internalID: 2467256338806338232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_11
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 1023
+        width: 52
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a94dba68134a926e0800000000000000
+      internalID: -1861776438321228646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_12
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 1023
+        width: 52
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9668181f1a8dcb960800000000000000
+      internalID: 7619202859657168489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_13
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 1023
+        width: 52
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd3ceab37db721040800000000000000
+      internalID: 4616888732357673951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_14
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 895
+        width: 53
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0424982b5963b4eb0800000000000000
+      internalID: -4734630566676577728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_15
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 895
+        width: 51
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0e5277dd2a4699a0800000000000000
+      internalID: -6226707874044551668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_16
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 895
+        width: 67
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 991d99152b58d2e40800000000000000
+      internalID: 5633305709830066585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_17
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 903
+        width: 46
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cff9310405f6830a0800000000000000
+      internalID: -6901644038482190340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_18
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 895
+        width: 56
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f55aafeb6c612fcd0800000000000000
+      internalID: -2525931398137993889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_19
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 895
+        width: 48
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99f07289317d47480800000000000000
+      internalID: -8902254084247580775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_20
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 895
+        width: 47
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52d4f1700b02f5180800000000000000
+      internalID: -9124538379623510747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_21
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 767
+        width: 55
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2b2b02028b2d9f80800000000000000
+      internalID: -8098268717562254546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_22
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 767
+        width: 87
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a64ebff1f7ac38f50800000000000000
+      internalID: 6882567302898508906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_23
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 790
+        width: 22
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a038d80b3a284450800000000000000
+      internalID: 6073150530548936867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_24
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 767
+        width: 70
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4e4e30694fd55a30800000000000000
+      internalID: 4203511333460528714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_25
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 767
+        width: 53
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07b3b2509ad8c5200800000000000000
+      internalID: 170166643008945008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_26
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 767
+        width: 53
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9aba8586197411f40800000000000000
+      internalID: 5697413693446859689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_27
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 639
+        width: 53
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7aa1d456a7af30e70800000000000000
+      internalID: 9080376677301557927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_28
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 639
+        width: 55
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20787041eb14784f0800000000000000
+      internalID: -826619721963567358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_29
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 639
+        width: 53
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e443e5a741558180800000000000000
+      internalID: -9113788902746667803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_30
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 639
+        width: 67
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2aabcc61ccb9cf20800000000000000
+      internalID: 3443490929041451565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_31
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 639
+        width: 87
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b757b3dd112391f20800000000000000
+      internalID: 3393798846507873659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_32
+      rect:
+        serializedVersion: 2
+        x: 664
+        y: 639
+        width: 68
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 667adf4d18360c660800000000000000
+      internalID: 7404027196672419686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_33
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 639
+        width: 53
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f640b645a9051fbf0800000000000000
+      internalID: -292363877030886289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_34
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 639
+        width: 53
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dfac8e379b7b0b50800000000000000
+      internalID: 6560473171714944977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_35
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 510
+        width: 55
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eda9528513b3d3440800000000000000
+      internalID: 4917151451276745438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_36
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 510
+        width: 54
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dae9dffdfbbbebb80800000000000000
+      internalID: -8377051824091455827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_37
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 510
+        width: 44
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d1d6641094f2e8a0800000000000000
+      internalID: -6277186030946299438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_38
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 510
+        width: 35
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2b9b03d08ff44b70800000000000000
+      internalID: 8882505293843110699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_39
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 510
+        width: 36
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a879045997aca2320800000000000000
+      internalID: 2534060363893217162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_40
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 510
+        width: 54
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31ef0b73d09ea5b90800000000000000
+      internalID: -7252228006948569581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_41
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 510
+        width: 64
+        height: 83
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 657f3df23206623a0800000000000000
+      internalID: -6690554492169750698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_42
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 538
+        width: 76
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44e6b59fe59ca51d0800000000000000
+      internalID: -3361152762131026364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_43
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 535
+        width: 91
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12fdde36c85b1d7a0800000000000000
+      internalID: -6354097984666476767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_44
+      rect:
+        serializedVersion: 2
+        x: 1157
+        y: 528
+        width: 101
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49410527b724800a0800000000000000
+      internalID: -6915204129861135212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_45
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 522
+        width: 127
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a04ee7ca066de8bf0800000000000000
+      internalID: -320082812797524982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_46
+      rect:
+        serializedVersion: 2
+        x: 1409
+        y: 515
+        width: 256
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eab9d9e3577df79b0800000000000000
+      internalID: -5080104956088968274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_47
+      rect:
+        serializedVersion: 2
+        x: 1665
+        y: 516
+        width: 100
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c482977c6204b3fd0800000000000000
+      internalID: -2361223044326152116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_48
+      rect:
+        serializedVersion: 2
+        x: 1794
+        y: 515
+        width: 95
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28347a41844b62870800000000000000
+      internalID: 8657805555343508354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_49
+      rect:
+        serializedVersion: 2
+        x: 1939
+        y: 550
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f076f5551e9cf7a50800000000000000
+      internalID: 6521152755092907791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_50
+      rect:
+        serializedVersion: 2
+        x: 1948
+        y: 536
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4761048f2baf9470800000000000000
+      internalID: 8403623650263131983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_51
+      rect:
+        serializedVersion: 2
+        x: 1958
+        y: 548
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99857d71733903aa0800000000000000
+      internalID: -6183280423547217767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_52
+      rect:
+        serializedVersion: 2
+        x: 1978
+        y: 554
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1b4747bc25df5e10800000000000000
+      internalID: 2188702331955530526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_53
+      rect:
+        serializedVersion: 2
+        x: 1734
+        y: 515
+        width: 59
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b69ffd98617d957b0800000000000000
+      internalID: -5234916600039081621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_54
+      rect:
+        serializedVersion: 2
+        x: 1890
+        y: 515
+        width: 30
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a944a5d63254a5de0800000000000000
+      internalID: -1343685520355867494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_55
+      rect:
+        serializedVersion: 2
+        x: 1933
+        y: 532
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 011ca171f1d4c3520800000000000000
+      internalID: 2683104273932927248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_56
+      rect:
+        serializedVersion: 2
+        x: 1942
+        y: 541
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 627322c65664cc490800000000000000
+      internalID: -7724721859427420378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_57
+      rect:
+        serializedVersion: 2
+        x: 1986
+        y: 537
+        width: 31
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9601e60fbab321430800000000000000
+      internalID: 3752127049212235881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_58
+      rect:
+        serializedVersion: 2
+        x: 2018
+        y: 510
+        width: 28
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 586d3216fe1f71ad0800000000000000
+      internalID: -2731448638547700091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_59
+      rect:
+        serializedVersion: 2
+        x: 1928
+        y: 534
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b87a71587905c6510800000000000000
+      internalID: 1543697383984441227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_60
+      rect:
+        serializedVersion: 2
+        x: 1938
+        y: 527
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3c9394307e08ab90800000000000000
+      internalID: -7230513326662116290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_61
+      rect:
+        serializedVersion: 2
+        x: 1867
+        y: 514
+        width: 23
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 302ebaebe749fac60800000000000000
+      internalID: 7831641549106307587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_62
+      rect:
+        serializedVersion: 2
+        x: 1922
+        y: 514
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21a62c1fe9ce2ce10800000000000000
+      internalID: 2216594134024743442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_63
+      rect:
+        serializedVersion: 2
+        x: 1940
+        y: 511
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c262e16f7380341b0800000000000000
+      internalID: -5673682069111298516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_64
+      rect:
+        serializedVersion: 2
+        x: 1966
+        y: 515
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e13047dafbaacbc0800000000000000
+      internalID: -3762005444873145884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_65
+      rect:
+        serializedVersion: 2
+        x: 1989
+        y: 510
+        width: 26
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a3148f60ac442b30800000000000000
+      internalID: 4261615399348736937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_66
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 383
+        width: 51
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 896b4e244cf548ab0800000000000000
+      internalID: -5006771589188634984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_67
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 383
+        width: 51
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 022f6d5fa400ff970800000000000000
+      internalID: 8790745319602582048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_68
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 383
+        width: 51
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60baa31fbe4447900800000000000000
+      internalID: 681245223794944774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_69
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 383
+        width: 52
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d2e71ac6daf5e8f0800000000000000
+      internalID: -511727182216174895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_70
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 383
+        width: 52
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eff2c3f4b56ef5ec0800000000000000
+      internalID: -3575886299263127554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_71
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 383
+        width: 51
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cc3c5bffe514cd20800000000000000
+      internalID: 3297784947600538823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_72
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 383
+        width: 51
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 853167e24f9c64df0800000000000000
+      internalID: -196247483155344552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_73
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 383
+        width: 51
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f718c40286c4b3f90800000000000000
+      internalID: -6972895587950886529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_74
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 383
+        width: 51
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f08546ff50b4ab0f0800000000000000
+      internalID: -1100484669806979057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_75
+      rect:
+        serializedVersion: 2
+        x: 1191
+        y: 383
+        width: 52
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3586a9b2bdeb780f0800000000000000
+      internalID: -1114712534212253613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_76
+      rect:
+        serializedVersion: 2
+        x: 1319
+        y: 383
+        width: 52
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0250f1f45ff45cf30800000000000000
+      internalID: 4595166909814474016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_77
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 255
+        width: 53
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df875afde5ffb9b10800000000000000
+      internalID: 1989464443358378237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_78
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 255
+        width: 52
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7be7703eef5fce800800000000000000
+      internalID: 643159321886555831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_79
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 255
+        width: 52
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 527bfe2d9ba2f5830800000000000000
+      internalID: 4062012366507718437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_80
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 255
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b6d4e0b0a1988ae0800000000000000
+      internalID: -1546826352653183308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_81
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 255
+        width: 52
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b26e75d9e83fbc2a0800000000000000
+      internalID: -6716006625442273749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_82
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 255
+        width: 20
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f1506aaf6a906d90800000000000000
+      internalID: -7106510407600156176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_83
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 279
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f65faf063f0f40f0800000000000000
+      internalID: -1130668256580905232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_84
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 255
+        width: 56
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aac23180de494cf30800000000000000
+      internalID: 4594961265588382890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_85
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 255
+        width: 55
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64486a86734b23810800000000000000
+      internalID: 1743654155817747526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_86
+      rect:
+        serializedVersion: 2
+        x: 799
+        y: 255
+        width: 52
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e522bd1e6c7d49c0800000000000000
+      internalID: -3941357286492854816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_87
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 255
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47fa3dd2f03224f90800000000000000
+      internalID: -6970970725115777164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_88
+      rect:
+        serializedVersion: 2
+        x: 846
+        y: 255
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f83a0cff36d72ba0800000000000000
+      internalID: -6113682398832346895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_89
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 127
+        width: 53
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59880c33d20b18140800000000000000
+      internalID: 4720247592649263253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_90
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 127
+        width: 54
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 843e8143741e6dc80800000000000000
+      internalID: -8298197567450586296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_91
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 127
+        width: 53
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 045098772fad88b50800000000000000
+      internalID: 6595762389206500672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_92
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 0
+        width: 50
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3647811b3cb26690800000000000000
+      internalID: -7610313458419546562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Plent_spritelist_93
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 0
+        width: 49
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70b3378d03b4692e0800000000000000
+      internalID: -2119423901469295865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Plent_spritelist_0: -1950341664692521365
+      Plent_spritelist_1: -4627457155768730030
+      Plent_spritelist_10: 2467256338806338232
+      Plent_spritelist_11: -1861776438321228646
+      Plent_spritelist_12: 7619202859657168489
+      Plent_spritelist_13: 4616888732357673951
+      Plent_spritelist_14: -4734630566676577728
+      Plent_spritelist_15: -6226707874044551668
+      Plent_spritelist_16: 5633305709830066585
+      Plent_spritelist_17: -6901644038482190340
+      Plent_spritelist_18: -2525931398137993889
+      Plent_spritelist_19: -8902254084247580775
+      Plent_spritelist_2: 7402767819328518650
+      Plent_spritelist_20: -9124538379623510747
+      Plent_spritelist_21: -8098268717562254546
+      Plent_spritelist_22: 6882567302898508906
+      Plent_spritelist_23: 6073150530548936867
+      Plent_spritelist_24: 4203511333460528714
+      Plent_spritelist_25: 170166643008945008
+      Plent_spritelist_26: 5697413693446859689
+      Plent_spritelist_27: 9080376677301557927
+      Plent_spritelist_28: -826619721963567358
+      Plent_spritelist_29: -9113788902746667803
+      Plent_spritelist_3: -7469635442774909653
+      Plent_spritelist_30: 3443490929041451565
+      Plent_spritelist_31: 3393798846507873659
+      Plent_spritelist_32: 7404027196672419686
+      Plent_spritelist_33: -292363877030886289
+      Plent_spritelist_34: 6560473171714944977
+      Plent_spritelist_35: 4917151451276745438
+      Plent_spritelist_36: -8377051824091455827
+      Plent_spritelist_37: -6277186030946299438
+      Plent_spritelist_38: 8882505293843110699
+      Plent_spritelist_39: 2534060363893217162
+      Plent_spritelist_4: -1096271089150602165
+      Plent_spritelist_40: -7252228006948569581
+      Plent_spritelist_41: -6690554492169750698
+      Plent_spritelist_42: -3361152762131026364
+      Plent_spritelist_43: -6354097984666476767
+      Plent_spritelist_44: -6915204129861135212
+      Plent_spritelist_45: -320082812797524982
+      Plent_spritelist_46: -5080104956088968274
+      Plent_spritelist_47: -2361223044326152116
+      Plent_spritelist_48: 8657805555343508354
+      Plent_spritelist_49: 6521152755092907791
+      Plent_spritelist_5: 2025620517418792876
+      Plent_spritelist_50: 8403623650263131983
+      Plent_spritelist_51: -6183280423547217767
+      Plent_spritelist_52: 2188702331955530526
+      Plent_spritelist_53: -5234916600039081621
+      Plent_spritelist_54: -1343685520355867494
+      Plent_spritelist_55: 2683104273932927248
+      Plent_spritelist_56: -7724721859427420378
+      Plent_spritelist_57: 3752127049212235881
+      Plent_spritelist_58: -2731448638547700091
+      Plent_spritelist_59: 1543697383984441227
+      Plent_spritelist_6: -4603127252900536604
+      Plent_spritelist_60: -7230513326662116290
+      Plent_spritelist_61: 7831641549106307587
+      Plent_spritelist_62: 2216594134024743442
+      Plent_spritelist_63: -5673682069111298516
+      Plent_spritelist_64: -3762005444873145884
+      Plent_spritelist_65: 4261615399348736937
+      Plent_spritelist_66: -5006771589188634984
+      Plent_spritelist_67: 8790745319602582048
+      Plent_spritelist_68: 681245223794944774
+      Plent_spritelist_69: -511727182216174895
+      Plent_spritelist_7: 8989716950970038474
+      Plent_spritelist_70: -3575886299263127554
+      Plent_spritelist_71: 3297784947600538823
+      Plent_spritelist_72: -196247483155344552
+      Plent_spritelist_73: -6972895587950886529
+      Plent_spritelist_74: -1100484669806979057
+      Plent_spritelist_75: -1114712534212253613
+      Plent_spritelist_76: 4595166909814474016
+      Plent_spritelist_77: 1989464443358378237
+      Plent_spritelist_78: 643159321886555831
+      Plent_spritelist_79: 4062012366507718437
+      Plent_spritelist_8: -7710809394235692898
+      Plent_spritelist_80: -1546826352653183308
+      Plent_spritelist_81: -6716006625442273749
+      Plent_spritelist_82: -7106510407600156176
+      Plent_spritelist_83: -1130668256580905232
+      Plent_spritelist_84: 4594961265588382890
+      Plent_spritelist_85: 1743654155817747526
+      Plent_spritelist_86: -3941357286492854816
+      Plent_spritelist_87: -6970970725115777164
+      Plent_spritelist_88: -6113682398832346895
+      Plent_spritelist_89: 4720247592649263253
+      Plent_spritelist_9: 56274497726134150
+      Plent_spritelist_90: -8298197567450586296
+      Plent_spritelist_91: 6595762389206500672
+      Plent_spritelist_92: -7610313458419546562
+      Plent_spritelist_93: -2119423901469295865
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
