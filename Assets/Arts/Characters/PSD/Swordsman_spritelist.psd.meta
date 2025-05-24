@@ -270,6 +270,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1584,7 +1597,66 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Swordsman_spritelist_0: -80973615606561604
+      Swordsman_spritelist_1: 6822831416211605766
+      Swordsman_spritelist_10: 3232552302230569957
+      Swordsman_spritelist_11: 3405218481844275854
+      Swordsman_spritelist_12: 1692958565844881894
+      Swordsman_spritelist_13: -4519056179565217947
+      Swordsman_spritelist_14: -781237893541010405
+      Swordsman_spritelist_15: 8428608065346898497
+      Swordsman_spritelist_16: -6951912659773128660
+      Swordsman_spritelist_17: 5756508748258599702
+      Swordsman_spritelist_18: -2742398918510872093
+      Swordsman_spritelist_19: 7222081338666009793
+      Swordsman_spritelist_2: -9108561743344294904
+      Swordsman_spritelist_20: -3968849217970910160
+      Swordsman_spritelist_21: 1136650150591518594
+      Swordsman_spritelist_22: 4896598926848159680
+      Swordsman_spritelist_23: -6846054779468215791
+      Swordsman_spritelist_24: 1304288931153988906
+      Swordsman_spritelist_25: -2798087884205768295
+      Swordsman_spritelist_26: -7108728327558936268
+      Swordsman_spritelist_27: -1779167778804403513
+      Swordsman_spritelist_28: 6276644075669533674
+      Swordsman_spritelist_29: 5523679795594340597
+      Swordsman_spritelist_3: 6934830690382304389
+      Swordsman_spritelist_30: 1528880809169215090
+      Swordsman_spritelist_31: -4626047162116034784
+      Swordsman_spritelist_32: -4030657895935010868
+      Swordsman_spritelist_33: 4571171602085452049
+      Swordsman_spritelist_34: -1895411550202236892
+      Swordsman_spritelist_35: -3964428106855756881
+      Swordsman_spritelist_36: 5908291391413928559
+      Swordsman_spritelist_37: 8362721412321982027
+      Swordsman_spritelist_38: 4882697485194628482
+      Swordsman_spritelist_39: 7615890967822118239
+      Swordsman_spritelist_4: -7150395141976112716
+      Swordsman_spritelist_40: 8011767472412341251
+      Swordsman_spritelist_41: 8007955001107059215
+      Swordsman_spritelist_42: 2149176037826510539
+      Swordsman_spritelist_43: -4683733682817419188
+      Swordsman_spritelist_44: -6394336814520532245
+      Swordsman_spritelist_45: -1406790286294798357
+      Swordsman_spritelist_46: -1142009892823884475
+      Swordsman_spritelist_47: -7060653456666028899
+      Swordsman_spritelist_48: 4184362900777932192
+      Swordsman_spritelist_49: 9089740854668681973
+      Swordsman_spritelist_5: 5671348300284653625
+      Swordsman_spritelist_50: 1784357375858321898
+      Swordsman_spritelist_51: 4305936731898795061
+      Swordsman_spritelist_52: 7336450569527075105
+      Swordsman_spritelist_53: 3797733230054691506
+      Swordsman_spritelist_54: -3040751508597009602
+      Swordsman_spritelist_55: 340727791892948495
+      Swordsman_spritelist_56: -808564931518642370
+      Swordsman_spritelist_57: -2321730687807749724
+      Swordsman_spritelist_58: 8907092648540564748
+      Swordsman_spritelist_6: 6909368097758411104
+      Swordsman_spritelist_7: 2618160878532501121
+      Swordsman_spritelist_8: 8913364659021283276
+      Swordsman_spritelist_9: 7947016277071440028
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

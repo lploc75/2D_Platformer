@@ -312,6 +312,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -1934,7 +1947,80 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Archer_spritelist_0: -2051160304210633820
+      Archer_spritelist_1: 5355710045091802846
+      Archer_spritelist_10: 7753039715999213767
+      Archer_spritelist_11: -4235598372281803243
+      Archer_spritelist_12: -2889117386925056305
+      Archer_spritelist_13: -3563146939859420614
+      Archer_spritelist_14: 2171633740826192301
+      Archer_spritelist_15: -5992431670680537893
+      Archer_spritelist_16: -2239137721411188086
+      Archer_spritelist_17: -6885397756794318989
+      Archer_spritelist_18: 5723957943954090459
+      Archer_spritelist_19: 9106382227864786638
+      Archer_spritelist_2: 7361649025253504638
+      Archer_spritelist_20: -8555838344940028025
+      Archer_spritelist_21: -4602060549445599821
+      Archer_spritelist_22: 4007158661457295685
+      Archer_spritelist_23: 4942711072024875029
+      Archer_spritelist_24: -4526246649799091347
+      Archer_spritelist_25: 3380787669095274177
+      Archer_spritelist_26: 7198247024931286422
+      Archer_spritelist_27: 6423102834667567577
+      Archer_spritelist_28: 5767285599879631934
+      Archer_spritelist_29: -1860910803714309117
+      Archer_spritelist_3: -1551446852454878186
+      Archer_spritelist_30: -5700986758165488701
+      Archer_spritelist_31: 2191088101782985662
+      Archer_spritelist_32: -6293871030928223152
+      Archer_spritelist_33: 37770782825761858
+      Archer_spritelist_34: 4611407734942873726
+      Archer_spritelist_35: 6982886633829984445
+      Archer_spritelist_36: 3350178776346445252
+      Archer_spritelist_37: -7632247474684112076
+      Archer_spritelist_38: -3305483990474304422
+      Archer_spritelist_39: -6698691738326725527
+      Archer_spritelist_4: 3993603719537237084
+      Archer_spritelist_40: -4993380231350050384
+      Archer_spritelist_41: -6364004445709879947
+      Archer_spritelist_42: 3921033663207990699
+      Archer_spritelist_43: -5065921913908906496
+      Archer_spritelist_44: 8898800515557546213
+      Archer_spritelist_45: -7504825922852885238
+      Archer_spritelist_46: -5607730002998977693
+      Archer_spritelist_47: -2240161558573055508
+      Archer_spritelist_48: 524351416619119471
+      Archer_spritelist_49: 91810022310168776
+      Archer_spritelist_5: -5415486596785196929
+      Archer_spritelist_50: 2171388009633801633
+      Archer_spritelist_51: -6596806980487618496
+      Archer_spritelist_52: 6925812721878520926
+      Archer_spritelist_53: -4230429949316323340
+      Archer_spritelist_54: 3685221511897789586
+      Archer_spritelist_55: -3910034577034236524
+      Archer_spritelist_56: -8600507528135973069
+      Archer_spritelist_57: 8154800357751361693
+      Archer_spritelist_58: -7932333252040163260
+      Archer_spritelist_59: -4764061972285439259
+      Archer_spritelist_6: -4119344744952318001
+      Archer_spritelist_60: 7337944000949715891
+      Archer_spritelist_61: -9152254261616514971
+      Archer_spritelist_62: -3463914172981346813
+      Archer_spritelist_63: 7252971533536454472
+      Archer_spritelist_64: -8426808792294068902
+      Archer_spritelist_65: 7450111422282988097
+      Archer_spritelist_66: -2361374801925752004
+      Archer_spritelist_67: 7735868696232775972
+      Archer_spritelist_68: 7077890348308370214
+      Archer_spritelist_69: 1987623768569593484
+      Archer_spritelist_7: -1648800773093454095
+      Archer_spritelist_70: -2275173385472968434
+      Archer_spritelist_71: -515773816143333566
+      Archer_spritelist_72: -224349200476020028
+      Archer_spritelist_8: 3008515824106342839
+      Archer_spritelist_9: 8665596900772693117
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

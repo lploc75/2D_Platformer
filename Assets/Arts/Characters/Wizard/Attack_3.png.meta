@@ -123,6 +123,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -359,7 +372,17 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Attack_3_0: -8910899737472627771
+      Attack_3_1: -5464336490339650859
+      Attack_3_2: -1132038362817505424
+      Attack_3_3: -6574224857763752514
+      Attack_3_4: -6827800710642968084
+      Attack_3_5: 5388459929022106953
+      Attack_3_6: -241614906349035404
+      Attack_3_7: -7294828852963927212
+      Attack_3_8: -6599260265685524675
+      Attack_3_9: -3510743571422996371
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
