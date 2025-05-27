@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float walkSpeed = 4f;
     public float runSpeed = 8f;
     public float jumpImpulse = 10f;
+    private bool canDoubleJump;
 
     Vector2 moveInput;
     TouchingDirections touchingDirections;
@@ -122,10 +123,29 @@ public class PlayerController : MonoBehaviour
     }
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.started && touchingDirections.IsGrounded)
+        if (context.started)
         {
-            animator.SetTrigger(AnimationStrings.jump);
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpImpulse);
+            if (touchingDirections.IsGrounded)
+            {
+                // Nhảy lần đầu
+                animator.SetTrigger(AnimationStrings.jump);
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpImpulse);
+                canDoubleJump = true;  // Cho phép nhảy thêm 1 lần nữa
+            }
+            else if (canDoubleJump)
+            {
+                // Nhảy lần 2 (double jump)
+                animator.SetTrigger(AnimationStrings.jump);
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpImpulse);
+                canDoubleJump = false;  // Đã dùng double jump rồi, khóa lại
+            }
+            else if (canDoubleJump == true && !touchingDirections.IsGrounded) // Trên không cho 1 lần nhảy
+            {
+                animator.SetTrigger(AnimationStrings.jump);
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpImpulse);
+                canDoubleJump = false; // Khóa nhảy cho đến khi chạm đất
+            }
+            
         }
     }
 
