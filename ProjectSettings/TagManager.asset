@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+
+  tags:
+  - Spike
+
   layers:
   - Default
   - TransparentFX
@@ -71,5 +74,6 @@ TagManager:
   - name: New Layer 10
     uniqueID: 747711257
     locked: 0
+
   m_RenderingLayers:
   - Default
