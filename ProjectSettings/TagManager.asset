@@ -3,8 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
+
   tags:
   - Spike
+
   layers:
   - Default
   - TransparentFX
@@ -12,7 +14,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Ground
   - 
   - 
   - 
@@ -42,5 +44,36 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: New Layer 1
+    uniqueID: 3214772357
+    locked: 0
+  - name: New Layer 2
+    uniqueID: 1484059921
+    locked: 0
+  - name: New Layer 3
+    uniqueID: 1409133139
+    locked: 0
+  - name: New Layer 4
+    uniqueID: 3935964627
+    locked: 0
+  - name: New Layer 5
+    uniqueID: 314354035
+    locked: 0
+  - name: New Layer 6
+    uniqueID: 1638227025
+    locked: 0
+  - name: New Layer 7
+    uniqueID: 2077088175
+    locked: 0
+  - name: New Layer 8
+    uniqueID: 3045916439
+    locked: 0
+  - name: New Layer 9
+    uniqueID: 2884046553
+    locked: 0
+  - name: New Layer 10
+    uniqueID: 747711257
+    locked: 0
+
   m_RenderingLayers:
   - Default
