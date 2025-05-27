@@ -314,8 +314,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.018055875, y: -0.04993373}
-  m_Size: {x: 0.32446408, y: 0.666178}
+  m_Offset: {x: 0.011214868, y: -0.049933642}
+  m_Size: {x: 0.26289657, y: 0.66617817}
   m_Direction: 0
 --- !u!95 &8292129678125604857
 Animator:
@@ -366,4 +366,6 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   groundDistance: 0.05
+  wallDistance: 0.05
   _isGrounded: 1
+  _isOnWall: 0

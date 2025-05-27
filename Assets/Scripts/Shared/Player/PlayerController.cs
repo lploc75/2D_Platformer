@@ -84,7 +84,24 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(moveInput.x * CurrentMoveSpeed, rb.linearVelocity.y);
+        float horizontalVelocity = moveInput.x * CurrentMoveSpeed;
+        float verticalVelocity = rb.linearVelocity.y;
+
+        // Nếu đang va vào tường và cố gắng đi về phía tường thì không đẩy vào nữa
+        if (touchingDirections.IsOnWall &&
+            ((moveInput.x > 0 && IsFacingRight) || (moveInput.x < 0 && !IsFacingRight)))
+        {
+            horizontalVelocity = 0;
+        }
+
+        rb.linearVelocity = new Vector2(horizontalVelocity, rb.linearVelocity.y);
+
+        // Nếu đang chạm tường và không đứng dưới đất → trượt tường
+        if (touchingDirections.IsOnWall && !touchingDirections.IsGrounded)
+        {
+            verticalVelocity = -2f;
+        }
+        rb.linearVelocity = new Vector2(horizontalVelocity, verticalVelocity);
 
         animator.SetFloat(AnimationStrings.yVelocity, rb.linearVelocity.y);
     }
@@ -135,7 +152,7 @@ public class PlayerController : MonoBehaviour
             else if (canDoubleJump)
             {
                 // Nhảy lần 2 (double jump)
-                animator.SetTrigger(AnimationStrings.jump);
+                //animator.SetTrigger(AnimationStrings.jump); // Dư vì đã gọi 1 lần rồi.
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpImpulse);
                 canDoubleJump = false;  // Đã dùng double jump rồi, khóa lại
             }
@@ -145,7 +162,6 @@ public class PlayerController : MonoBehaviour
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpImpulse);
                 canDoubleJump = false; // Khóa nhảy cho đến khi chạm đất
             }
-            
         }
     }
 

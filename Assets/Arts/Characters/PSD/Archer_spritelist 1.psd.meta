@@ -1,0 +1,3393 @@
+fileFormatVersion: 2
+guid: b96b6ba334c363d4e8777b00a1f270b9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2051160304210633820
+    second: Archer_spritelist_0
+  - first:
+      213: 5355710045091802846
+    second: Archer_spritelist_1
+  - first:
+      213: 7361649025253504638
+    second: Archer_spritelist_2
+  - first:
+      213: -1551446852454878186
+    second: Archer_spritelist_3
+  - first:
+      213: 3993603719537237084
+    second: Archer_spritelist_4
+  - first:
+      213: -5415486596785196929
+    second: Archer_spritelist_5
+  - first:
+      213: -4119344744952318001
+    second: Archer_spritelist_6
+  - first:
+      213: -1648800773093454095
+    second: Archer_spritelist_7
+  - first:
+      213: 3008515824106342839
+    second: Archer_spritelist_8
+  - first:
+      213: 8665596900772693117
+    second: Archer_spritelist_9
+  - first:
+      213: 7753039715999213767
+    second: Archer_spritelist_10
+  - first:
+      213: -4235598372281803243
+    second: Archer_spritelist_11
+  - first:
+      213: -2889117386925056305
+    second: Archer_spritelist_12
+  - first:
+      213: -3563146939859420614
+    second: Archer_spritelist_13
+  - first:
+      213: 2171633740826192301
+    second: Archer_spritelist_14
+  - first:
+      213: -5992431670680537893
+    second: Archer_spritelist_15
+  - first:
+      213: -2239137721411188086
+    second: Archer_spritelist_16
+  - first:
+      213: -6885397756794318989
+    second: Archer_spritelist_17
+  - first:
+      213: 5723957943954090459
+    second: Archer_spritelist_18
+  - first:
+      213: 9106382227864786638
+    second: Archer_spritelist_19
+  - first:
+      213: -8555838344940028025
+    second: Archer_spritelist_20
+  - first:
+      213: -4602060549445599821
+    second: Archer_spritelist_21
+  - first:
+      213: 4007158661457295685
+    second: Archer_spritelist_22
+  - first:
+      213: 4942711072024875029
+    second: Archer_spritelist_23
+  - first:
+      213: -4526246649799091347
+    second: Archer_spritelist_24
+  - first:
+      213: 3380787669095274177
+    second: Archer_spritelist_25
+  - first:
+      213: 7198247024931286422
+    second: Archer_spritelist_26
+  - first:
+      213: 6423102834667567577
+    second: Archer_spritelist_27
+  - first:
+      213: 5767285599879631934
+    second: Archer_spritelist_28
+  - first:
+      213: -1860910803714309117
+    second: Archer_spritelist_29
+  - first:
+      213: -5700986758165488701
+    second: Archer_spritelist_30
+  - first:
+      213: 2191088101782985662
+    second: Archer_spritelist_31
+  - first:
+      213: -6293871030928223152
+    second: Archer_spritelist_32
+  - first:
+      213: 37770782825761858
+    second: Archer_spritelist_33
+  - first:
+      213: 4611407734942873726
+    second: Archer_spritelist_34
+  - first:
+      213: 6982886633829984445
+    second: Archer_spritelist_35
+  - first:
+      213: 3350178776346445252
+    second: Archer_spritelist_36
+  - first:
+      213: -7632247474684112076
+    second: Archer_spritelist_37
+  - first:
+      213: -3305483990474304422
+    second: Archer_spritelist_38
+  - first:
+      213: -6698691738326725527
+    second: Archer_spritelist_39
+  - first:
+      213: -4993380231350050384
+    second: Archer_spritelist_40
+  - first:
+      213: -6364004445709879947
+    second: Archer_spritelist_41
+  - first:
+      213: 3921033663207990699
+    second: Archer_spritelist_42
+  - first:
+      213: -5065921913908906496
+    second: Archer_spritelist_43
+  - first:
+      213: 8898800515557546213
+    second: Archer_spritelist_44
+  - first:
+      213: -7504825922852885238
+    second: Archer_spritelist_45
+  - first:
+      213: -5607730002998977693
+    second: Archer_spritelist_46
+  - first:
+      213: -2240161558573055508
+    second: Archer_spritelist_47
+  - first:
+      213: 524351416619119471
+    second: Archer_spritelist_48
+  - first:
+      213: 91810022310168776
+    second: Archer_spritelist_49
+  - first:
+      213: 2171388009633801633
+    second: Archer_spritelist_50
+  - first:
+      213: -6596806980487618496
+    second: Archer_spritelist_51
+  - first:
+      213: 6925812721878520926
+    second: Archer_spritelist_52
+  - first:
+      213: -4230429949316323340
+    second: Archer_spritelist_53
+  - first:
+      213: 3685221511897789586
+    second: Archer_spritelist_54
+  - first:
+      213: -3910034577034236524
+    second: Archer_spritelist_55
+  - first:
+      213: -8600507528135973069
+    second: Archer_spritelist_56
+  - first:
+      213: 8154800357751361693
+    second: Archer_spritelist_57
+  - first:
+      213: -7932333252040163260
+    second: Archer_spritelist_58
+  - first:
+      213: -4764061972285439259
+    second: Archer_spritelist_59
+  - first:
+      213: 7337944000949715891
+    second: Archer_spritelist_60
+  - first:
+      213: -9152254261616514971
+    second: Archer_spritelist_61
+  - first:
+      213: -3463914172981346813
+    second: Archer_spritelist_62
+  - first:
+      213: 7252971533536454472
+    second: Archer_spritelist_63
+  - first:
+      213: -8426808792294068902
+    second: Archer_spritelist_64
+  - first:
+      213: 7450111422282988097
+    second: Archer_spritelist_65
+  - first:
+      213: -2361374801925752004
+    second: Archer_spritelist_66
+  - first:
+      213: 7735868696232775972
+    second: Archer_spritelist_67
+  - first:
+      213: 7077890348308370214
+    second: Archer_spritelist_68
+  - first:
+      213: 1987623768569593484
+    second: Archer_spritelist_69
+  - first:
+      213: -2275173385472968434
+    second: Archer_spritelist_70
+  - first:
+      213: -515773816143333566
+    second: Archer_spritelist_71
+  - first:
+      213: -224349200476020028
+    second: Archer_spritelist_72
+  - first:
+      213: -7930905571055333824
+    second: Archer_spritelist_73
+  - first:
+      213: 7917280020910493725
+    second: Archer_spritelist_74
+  - first:
+      213: 2576655754944090925
+    second: Archer_spritelist_75
+  - first:
+      213: -2889362539200897170
+    second: Archer_spritelist_76
+  - first:
+      213: -5499500700132334256
+    second: Archer_spritelist_77
+  - first:
+      213: -988184137896797565
+    second: Archer_spritelist_78
+  - first:
+      213: 2221980498447150437
+    second: Archer_spritelist_79
+  - first:
+      213: -1388634867505284893
+    second: Archer_spritelist_80
+  - first:
+      213: 1710122737082171151
+    second: Archer_spritelist_81
+  - first:
+      213: -6404524997290498135
+    second: Archer_spritelist_82
+  - first:
+      213: 1419784066248102882
+    second: Archer_spritelist_83
+  - first:
+      213: 962052477175279082
+    second: Archer_spritelist_84
+  - first:
+      213: -2585432025835795603
+    second: Archer_spritelist_85
+  - first:
+      213: 3397652948904579984
+    second: Archer_spritelist_86
+  - first:
+      213: -7694478572442155133
+    second: Archer_spritelist_87
+  - first:
+      213: -7224064990955927547
+    second: Archer_spritelist_88
+  - first:
+      213: -3521872115690319092
+    second: Archer_spritelist_89
+  - first:
+      213: 5887519741276516236
+    second: Archer_spritelist_90
+  - first:
+      213: -6300208456456032616
+    second: Archer_spritelist_91
+  - first:
+      213: 3792944098441675000
+    second: Archer_spritelist_92
+  - first:
+      213: -3328474095362682936
+    second: Archer_spritelist_93
+  - first:
+      213: -9011969458888419828
+    second: Archer_spritelist_94
+  - first:
+      213: -7009697114906437047
+    second: Archer_spritelist_95
+  - first:
+      213: 2398072270611028830
+    second: Archer_spritelist_96
+  - first:
+      213: -2187881559360602787
+    second: Archer_spritelist_97
+  - first:
+      213: 1168604533952611084
+    second: Archer_spritelist_98
+  - first:
+      213: 505175849456311020
+    second: Archer_spritelist_99
+  - first:
+      213: -1860542552778032688
+    second: Archer_spritelist_100
+  - first:
+      213: -178279687614285850
+    second: Archer_spritelist_101
+  - first:
+      213: 6796898563886360776
+    second: Archer_spritelist_102
+  - first:
+      213: 3800888209278237589
+    second: Archer_spritelist_103
+  - first:
+      213: 7221823789808865479
+    second: Archer_spritelist_104
+  - first:
+      213: -6276640822128477229
+    second: Archer_spritelist_105
+  - first:
+      213: -9158202840021121039
+    second: Archer_spritelist_106
+  - first:
+      213: 739173720367485070
+    second: Archer_spritelist_107
+  - first:
+      213: -8069759118936855964
+    second: Archer_spritelist_108
+  - first:
+      213: -5230693834955855359
+    second: Archer_spritelist_109
+  - first:
+      213: -7731558732311340930
+    second: Archer_spritelist_110
+  - first:
+      213: -7796564239602344364
+    second: Archer_spritelist_111
+  - first:
+      213: 4062655105339538402
+    second: Archer_spritelist_112
+  - first:
+      213: -7642642040657385862
+    second: Archer_spritelist_113
+  - first:
+      213: -4245933088995773329
+    second: Archer_spritelist_114
+  - first:
+      213: 8183601300079799715
+    second: Archer_spritelist_115
+  - first:
+      213: -3487396205415617563
+    second: Archer_spritelist_116
+  - first:
+      213: -2155874686868393408
+    second: Archer_spritelist_117
+  - first:
+      213: -8715626207770642897
+    second: Archer_spritelist_118
+  - first:
+      213: -3363272249288894670
+    second: Archer_spritelist_119
+  - first:
+      213: -9208170745313212176
+    second: Archer_spritelist_120
+  - first:
+      213: 1254709583489341327
+    second: Archer_spritelist_121
+  - first:
+      213: -3192881370468293879
+    second: Archer_spritelist_122
+  - first:
+      213: -417388096199497643
+    second: Archer_spritelist_123
+  - first:
+      213: 6953131511998712255
+    second: Archer_spritelist_124
+  - first:
+      213: -1624171967814097023
+    second: Archer_spritelist_125
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Archer_spritelist_0
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 1153
+        width: 46
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ab94222290d883e0800000000000000
+      internalID: -2051160304210633820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_1
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 1153
+        width: 46
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ede20b509ed435a40800000000000000
+      internalID: 5355710045091802846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_2
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 1153
+        width: 46
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e76f557e8c4d92660800000000000000
+      internalID: 7361649025253504638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_3
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 1153
+        width: 46
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 614778fbe47287ae0800000000000000
+      internalID: -1551446852454878186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_4
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 1153
+        width: 46
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5c12b48c612c6730800000000000000
+      internalID: 3993603719537237084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_5
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 1153
+        width: 46
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f70bab8f1a358d4b0800000000000000
+      internalID: -5415486596785196929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_6
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 1023
+        width: 46
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc7beb997c525d6c0800000000000000
+      internalID: -4119344744952318001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_7
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 1028
+        width: 46
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fe006ebe684e19e0800000000000000
+      internalID: -1648800773093454095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_8
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 1038
+        width: 46
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b90005c33560c920800000000000000
+      internalID: 3008515824106342839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_9
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 1042
+        width: 46
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d74484d0872624870800000000000000
+      internalID: 8665596900772693117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_10
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 1039
+        width: 46
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c8e0a95b84589b60800000000000000
+      internalID: 7753039715999213767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_11
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 1029
+        width: 46
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51e9be8b8b12835c0800000000000000
+      internalID: -4235598372281803243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_12
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 897
+        width: 46
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fce5de53b0bc7e7d0800000000000000
+      internalID: -2889117386925056305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_13
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 897
+        width: 46
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3ab82f8cb82d8ec0800000000000000
+      internalID: -3563146939859420614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_14
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 895
+        width: 46
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da9a238a161332e10800000000000000
+      internalID: 2171633740826192301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_15
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 896
+        width: 46
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd43940152b96dca0800000000000000
+      internalID: -5992431670680537893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_16
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 896
+        width: 46
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8acb181b1cfce0e0800000000000000
+      internalID: -2239137721411188086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_17
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 898
+        width: 46
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37fc00978372270a0800000000000000
+      internalID: -6885397756794318989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_18
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 767
+        width: 72
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd9a8a65c659f6f40800000000000000
+      internalID: 5723957943954090459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_19
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 776
+        width: 78
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec69fc8736e506e70800000000000000
+      internalID: 9106382227864786638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_20
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 773
+        width: 79
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78ffe262b5e834980800000000000000
+      internalID: -8555838344940028025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_21
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 769
+        width: 50
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bdb47320523220c0800000000000000
+      internalID: -4602060549445599821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_22
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 778
+        width: 88
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 549bace52994c9730800000000000000
+      internalID: 4007158661457295685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_23
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 775
+        width: 68
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 510de6b4889089440800000000000000
+      internalID: 4942711072024875029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_24
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 768
+        width: 66
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6b5ce037aa8f21c0800000000000000
+      internalID: -4526246649799091347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_25
+      rect:
+        serializedVersion: 2
+        x: 923
+        y: 767
+        width: 66
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c6d17d0978faee20800000000000000
+      internalID: 3380787669095274177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_26
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 767
+        width: 66
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69daa8ef78f45e360800000000000000
+      internalID: 7198247024931286422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_27
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 639
+        width: 66
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d93a204ff1732950800000000000000
+      internalID: 6423102834667567577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_28
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 639
+        width: 66
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e341d0b52b3890050800000000000000
+      internalID: 5767285599879631934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_29
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 639
+        width: 68
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3040ce9cb77bc26e0800000000000000
+      internalID: -1860910803714309117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_30
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 639
+        width: 68
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cb1752afb602e0b0800000000000000
+      internalID: -5700986758165488701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_31
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 639
+        width: 66
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebb1c5a050f486e10800000000000000
+      internalID: 2191088101782985662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_32
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 639
+        width: 66
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 054d66bc4ada7a8a0800000000000000
+      internalID: -6293871030928223152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_33
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 639
+        width: 68
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24cc73da350368000800000000000000
+      internalID: 37770782825761858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_34
+      rect:
+        serializedVersion: 2
+        x: 916
+        y: 639
+        width: 66
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7832c317e20fff30800000000000000
+      internalID: 4611407734942873726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_35
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 511
+        width: 68
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db86244856238e060800000000000000
+      internalID: 6982886633829984445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_36
+      rect:
+        serializedVersion: 2
+        x: 148
+        y: 511
+        width: 72
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c5ce2ad8d93e7e20800000000000000
+      internalID: 3350178776346445252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_37
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 511
+        width: 71
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 433d491fb5fc41690800000000000000
+      internalID: -7632247474684112076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_38
+      rect:
+        serializedVersion: 2
+        x: 404
+        y: 511
+        width: 66
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a54d909e2df8022d0800000000000000
+      internalID: -3305483990474304422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_39
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 511
+        width: 66
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96c013dea577903a0800000000000000
+      internalID: -6698691738326725527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_40
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 542
+        width: 45
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b12ce9b223f3bab0800000000000000
+      internalID: -4993380231350050384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_41
+      rect:
+        serializedVersion: 2
+        x: 1128
+        y: 542
+        width: 45
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 575b470bca38ea7a0800000000000000
+      internalID: -6364004445709879947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_42
+      rect:
+        serializedVersion: 2
+        x: 1256
+        y: 542
+        width: 45
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba56cd7975f4a6630800000000000000
+      internalID: 3921033663207990699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_43
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 537
+        width: 51
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 006b7951cda32b9b0800000000000000
+      internalID: -5065921913908906496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_44
+      rect:
+        serializedVersion: 2
+        x: 1512
+        y: 525
+        width: 60
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e8ded8cbe3ee7b70800000000000000
+      internalID: 8898800515557546213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_45
+      rect:
+        serializedVersion: 2
+        x: 1640
+        y: 512
+        width: 77
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0de53fd59089d790800000000000000
+      internalID: -7504825922852885238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_46
+      rect:
+        serializedVersion: 2
+        x: 1745
+        y: 511
+        width: 105
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36b12f6f5475d22b0800000000000000
+      internalID: -5607730002998977693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_47
+      rect:
+        serializedVersion: 2
+        x: 1869
+        y: 511
+        width: 111
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce184cd6ee859e0e0800000000000000
+      internalID: -2240161558573055508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_48
+      rect:
+        serializedVersion: 2
+        x: 1988
+        y: 511
+        width: 123
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f633e05d5ded64700800000000000000
+      internalID: 524351416619119471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_49
+      rect:
+        serializedVersion: 2
+        x: 2124
+        y: 511
+        width: 114
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c84e969abc264100800000000000000
+      internalID: 91810022310168776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_50
+      rect:
+        serializedVersion: 2
+        x: 2246
+        y: 511
+        width: 123
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a5e3c7e3e1522e10800000000000000
+      internalID: 2171388009633801633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_51
+      rect:
+        serializedVersion: 2
+        x: 2370
+        y: 511
+        width: 125
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 040e73ca00f6374a0800000000000000
+      internalID: -6596806980487618496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_52
+      rect:
+        serializedVersion: 2
+        x: 2498
+        y: 511
+        width: 125
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e54537cd9fd6d1060800000000000000
+      internalID: 6925812721878520926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_53
+      rect:
+        serializedVersion: 2
+        x: 2626
+        y: 511
+        width: 127
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f7a3d7ff5e7a45c0800000000000000
+      internalID: -4230429949316323340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_54
+      rect:
+        serializedVersion: 2
+        x: 2768
+        y: 511
+        width: 35
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 294bb4f9079842330800000000000000
+      internalID: 3685221511897789586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_55
+      rect:
+        serializedVersion: 2
+        x: 2755
+        y: 511
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49d2168b444ccb9c0800000000000000
+      internalID: -3910034577034236524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_56
+      rect:
+        serializedVersion: 2
+        x: 2801
+        y: 511
+        width: 33
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 337e16978fbd4a880800000000000000
+      internalID: -8600507528135973069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_57
+      rect:
+        serializedVersion: 2
+        x: 2833
+        y: 511
+        width: 34
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d909ff928bbab2170800000000000000
+      internalID: 8154800357751361693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_58
+      rect:
+        serializedVersion: 2
+        x: 1948
+        y: 423
+        width: 56
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44080204fe0bae190800000000000000
+      internalID: -7932333252040163260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_59
+      rect:
+        serializedVersion: 2
+        x: 2076
+        y: 419
+        width: 61
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e2caf590e6a2edb0800000000000000
+      internalID: -4764061972285439259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_60
+      rect:
+        serializedVersion: 2
+        x: 2204
+        y: 414
+        width: 64
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b30156d03d95d560800000000000000
+      internalID: 7337944000949715891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_61
+      rect:
+        serializedVersion: 2
+        x: 2329
+        y: 410
+        width: 68
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 568ea426d39acf080800000000000000
+      internalID: -9152254261616514971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_62
+      rect:
+        serializedVersion: 2
+        x: 2457
+        y: 289
+        width: 70
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30e710b8964bdefc0800000000000000
+      internalID: -3463914172981346813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_63
+      rect:
+        serializedVersion: 2
+        x: 2583
+        y: 408
+        width: 72
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 847e57e8e2bb7a460800000000000000
+      internalID: 7252971533536454472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_64
+      rect:
+        serializedVersion: 2
+        x: 2708
+        y: 431
+        width: 54
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5d6c21fc06fd0b80800000000000000
+      internalID: -8426808792294068902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_65
+      rect:
+        serializedVersion: 2
+        x: 2777
+        y: 458
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14af14ebddc146760800000000000000
+      internalID: 7450111422282988097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_66
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 383
+        width: 53
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3b38a5f026ba3fd0800000000000000
+      internalID: -2361374801925752004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_67
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 383
+        width: 53
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 421d404c7935b5b60800000000000000
+      internalID: 7735868696232775972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_68
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 383
+        width: 53
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 623161285c7b93260800000000000000
+      internalID: 7077890348308370214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_69
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 383
+        width: 53
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8eb6b06945759b10800000000000000
+      internalID: 1987623768569593484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_70
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 383
+        width: 53
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e09f57c3cd5fc60e0800000000000000
+      internalID: -2275173385472968434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_71
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 383
+        width: 72
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2473458627a97d8f0800000000000000
+      internalID: -515773816143333566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_72
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 383
+        width: 84
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c2ebff3793f2ecf0800000000000000
+      internalID: -224349200476020028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_73
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 383
+        width: 79
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04e84122763cfe190800000000000000
+      internalID: -7930905571055333824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_74
+      rect:
+        serializedVersion: 2
+        x: 1053
+        y: 383
+        width: 66
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d10daa14b34dfdd60800000000000000
+      internalID: 7917280020910493725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_75
+      rect:
+        serializedVersion: 2
+        x: 1181
+        y: 383
+        width: 57
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2398e5e1ce12c320800000000000000
+      internalID: 2576655754944090925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_76
+      rect:
+        serializedVersion: 2
+        x: 1308
+        y: 436
+        width: 45
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6f1c9f341ce6e7d0800000000000000
+      internalID: -2889362539200897170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_77
+      rect:
+        serializedVersion: 2
+        x: 1436
+        y: 436
+        width: 45
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 055a9963049dda3b0800000000000000
+      internalID: -5499500700132334256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_78
+      rect:
+        serializedVersion: 2
+        x: 1564
+        y: 436
+        width: 45
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38a5cff13c34942f0800000000000000
+      internalID: -988184137896797565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_79
+      rect:
+        serializedVersion: 2
+        x: 1692
+        y: 435
+        width: 49
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56da9c3ad7f06de10800000000000000
+      internalID: 2221980498447150437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_80
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 434
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e830aff1f39abce0800000000000000
+      internalID: -1388634867505284893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_81
+      rect:
+        serializedVersion: 2
+        x: 1820
+        y: 432
+        width: 49
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0ff91a91939bb710800000000000000
+      internalID: 1710122737082171151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_82
+      rect:
+        serializedVersion: 2
+        x: 2709
+        y: 431
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a7e365927e8e17a0800000000000000
+      internalID: -6404524997290498135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_83
+      rect:
+        serializedVersion: 2
+        x: 2777
+        y: 419
+        width: 8
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e35a7ef51614b310800000000000000
+      internalID: 1419784066248102882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_84
+      rect:
+        serializedVersion: 2
+        x: 2715
+        y: 410
+        width: 12
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aed215d71a5e95d00800000000000000
+      internalID: 962052477175279082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_85
+      rect:
+        serializedVersion: 2
+        x: 2729
+        y: 408
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6b832d4543be1cd0800000000000000
+      internalID: -2585432025835795603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_86
+      rect:
+        serializedVersion: 2
+        x: 2743
+        y: 406
+        width: 36
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09314810b53e62f20800000000000000
+      internalID: 3397652948904579984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_87
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 255
+        width: 54
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3870bb56188b73590800000000000000
+      internalID: -7694478572442155133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_88
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 255
+        width: 59
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5088cbb5a27febb90800000000000000
+      internalID: -7224064990955927547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_89
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 255
+        width: 60
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c03dcef68fbcf1fc0800000000000000
+      internalID: -3521872115690319092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_90
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 255
+        width: 62
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8fe2e2e20ca4b150800000000000000
+      internalID: 5887519741276516236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_91
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 255
+        width: 67
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89ea60ee9c92198a0800000000000000
+      internalID: -6300208456456032616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_92
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 255
+        width: 74
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f0c788cf8e33a430800000000000000
+      internalID: 3792944098441675000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_93
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 255
+        width: 89
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cf41ddf172eec1d0800000000000000
+      internalID: -3328474095362682936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_94
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 255
+        width: 53
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c06594c468d0fe280800000000000000
+      internalID: -9011969458888419828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_95
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 255
+        width: 53
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94adbeaec9d88be90800000000000000
+      internalID: -7009697114906437047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_96
+      rect:
+        serializedVersion: 2
+        x: 1192
+        y: 294
+        width: 45
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5b1c7b460aa74120800000000000000
+      internalID: 2398072270611028830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_97
+      rect:
+        serializedVersion: 2
+        x: 1321
+        y: 294
+        width: 43
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5dfeab405513a1e0800000000000000
+      internalID: -2187881559360602787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_98
+      rect:
+        serializedVersion: 2
+        x: 1445
+        y: 286
+        width: 47
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c030821d1a7b73010800000000000000
+      internalID: 1168604533952611084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_99
+      rect:
+        serializedVersion: 2
+        x: 1574
+        y: 294
+        width: 46
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cea13ff22ceb20700800000000000000
+      internalID: 505175849456311020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_100
+      rect:
+        serializedVersion: 2
+        x: 1701
+        y: 294
+        width: 47
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d9ba24e7660e26e0800000000000000
+      internalID: -1860542552778032688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_101
+      rect:
+        serializedVersion: 2
+        x: 1833
+        y: 285
+        width: 38
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e73515919f968df0800000000000000
+      internalID: -178279687614285850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_102
+      rect:
+        serializedVersion: 2
+        x: 1975
+        y: 286
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c82fca7b3f635e50800000000000000
+      internalID: 6796898563886360776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_103
+      rect:
+        serializedVersion: 2
+        x: 2114
+        y: 286
+        width: 27
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59bfff830b77fb430800000000000000
+      internalID: 3800888209278237589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_104
+      rect:
+        serializedVersion: 2
+        x: 2245
+        y: 287
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c0d5065972193460800000000000000
+      internalID: 7221823789808865479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_105
+      rect:
+        serializedVersion: 2
+        x: 2377
+        y: 296
+        width: 25
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dbf0566d64e4e8a0800000000000000
+      internalID: -6276640822128477229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_106
+      rect:
+        serializedVersion: 2
+        x: 2375
+        y: 286
+        width: 23
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f7419b0a0787e080800000000000000
+      internalID: -9158202840021121039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_107
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 127
+        width: 53
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e80dec51592124a00800000000000000
+      internalID: 739173720367485070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_108
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 127
+        width: 53
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46aacc436d4720090800000000000000
+      internalID: -8069759118936855964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_109
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 127
+        width: 53
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10a61a6aba7d867b0800000000000000
+      internalID: -5230693834955855359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_110
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 127
+        width: 53
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e785388eb4cf3b490800000000000000
+      internalID: -7731558732311340930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_111
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 127
+        width: 53
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45e1dfdc12a0dc390800000000000000
+      internalID: -7796564239602344364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_112
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 127
+        width: 71
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ebb0be1b43716830800000000000000
+      internalID: 4062655105339538402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_113
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 127
+        width: 82
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7666257e81efe590800000000000000
+      internalID: -7642642040657385862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_114
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 127
+        width: 80
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f64745af95a6315c0800000000000000
+      internalID: -4245933088995773329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_115
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 127
+        width: 68
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ad6eaa160ef19170800000000000000
+      internalID: 8183601300079799715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_116
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 163
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5eb2821d0a74a9fc0800000000000000
+      internalID: -3487396205415617563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_117
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 127
+        width: 76
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 042f3f4056bc412e0800000000000000
+      internalID: -2155874686868393408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_118
+      rect:
+        serializedVersion: 2
+        x: 1312
+        y: 127
+        width: 63
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f26feb23420eb0780800000000000000
+      internalID: -8715626207770642897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_119
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 127
+        width: 53
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 237d43a65b14351d0800000000000000
+      internalID: -3363272249288894670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_120
+      rect:
+        serializedVersion: 2
+        x: 1568
+        y: 127
+        width: 53
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f8467e7e71063080800000000000000
+      internalID: -9208170745313212176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_121
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 0
+        width: 66
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f87192ce7bf996110800000000000000
+      internalID: 1254709583489341327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_122
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 0
+        width: 66
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90366476f4b90b3d0800000000000000
+      internalID: -3192881370468293879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_123
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 0
+        width: 66
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5586d88ecb3253af0800000000000000
+      internalID: -417388096199497643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_124
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 0
+        width: 66
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb90249554c7e7060800000000000000
+      internalID: 6953131511998712255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Archer_spritelist_125
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 0
+        width: 66
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1872b445338c579e0800000000000000
+      internalID: -1624171967814097023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Archer_spritelist_0: -2051160304210633820
+      Archer_spritelist_1: 5355710045091802846
+      Archer_spritelist_10: 7753039715999213767
+      Archer_spritelist_100: -1860542552778032688
+      Archer_spritelist_101: -178279687614285850
+      Archer_spritelist_102: 6796898563886360776
+      Archer_spritelist_103: 3800888209278237589
+      Archer_spritelist_104: 7221823789808865479
+      Archer_spritelist_105: -6276640822128477229
+      Archer_spritelist_106: -9158202840021121039
+      Archer_spritelist_107: 739173720367485070
+      Archer_spritelist_108: -8069759118936855964
+      Archer_spritelist_109: -5230693834955855359
+      Archer_spritelist_11: -4235598372281803243
+      Archer_spritelist_110: -7731558732311340930
+      Archer_spritelist_111: -7796564239602344364
+      Archer_spritelist_112: 4062655105339538402
+      Archer_spritelist_113: -7642642040657385862
+      Archer_spritelist_114: -4245933088995773329
+      Archer_spritelist_115: 8183601300079799715
+      Archer_spritelist_116: -3487396205415617563
+      Archer_spritelist_117: -2155874686868393408
+      Archer_spritelist_118: -8715626207770642897
+      Archer_spritelist_119: -3363272249288894670
+      Archer_spritelist_12: -2889117386925056305
+      Archer_spritelist_120: -9208170745313212176
+      Archer_spritelist_121: 1254709583489341327
+      Archer_spritelist_122: -3192881370468293879
+      Archer_spritelist_123: -417388096199497643
+      Archer_spritelist_124: 6953131511998712255
+      Archer_spritelist_125: -1624171967814097023
+      Archer_spritelist_13: -3563146939859420614
+      Archer_spritelist_14: 2171633740826192301
+      Archer_spritelist_15: -5992431670680537893
+      Archer_spritelist_16: -2239137721411188086
+      Archer_spritelist_17: -6885397756794318989
+      Archer_spritelist_18: 5723957943954090459
+      Archer_spritelist_19: 9106382227864786638
+      Archer_spritelist_2: 7361649025253504638
+      Archer_spritelist_20: -8555838344940028025
+      Archer_spritelist_21: -4602060549445599821
+      Archer_spritelist_22: 4007158661457295685
+      Archer_spritelist_23: 4942711072024875029
+      Archer_spritelist_24: -4526246649799091347
+      Archer_spritelist_25: 3380787669095274177
+      Archer_spritelist_26: 7198247024931286422
+      Archer_spritelist_27: 6423102834667567577
+      Archer_spritelist_28: 5767285599879631934
+      Archer_spritelist_29: -1860910803714309117
+      Archer_spritelist_3: -1551446852454878186
+      Archer_spritelist_30: -5700986758165488701
+      Archer_spritelist_31: 2191088101782985662
+      Archer_spritelist_32: -6293871030928223152
+      Archer_spritelist_33: 37770782825761858
+      Archer_spritelist_34: 4611407734942873726
+      Archer_spritelist_35: 6982886633829984445
+      Archer_spritelist_36: 3350178776346445252
+      Archer_spritelist_37: -7632247474684112076
+      Archer_spritelist_38: -3305483990474304422
+      Archer_spritelist_39: -6698691738326725527
+      Archer_spritelist_4: 3993603719537237084
+      Archer_spritelist_40: -4993380231350050384
+      Archer_spritelist_41: -6364004445709879947
+      Archer_spritelist_42: 3921033663207990699
+      Archer_spritelist_43: -5065921913908906496
+      Archer_spritelist_44: 8898800515557546213
+      Archer_spritelist_45: -7504825922852885238
+      Archer_spritelist_46: -5607730002998977693
+      Archer_spritelist_47: -2240161558573055508
+      Archer_spritelist_48: 524351416619119471
+      Archer_spritelist_49: 91810022310168776
+      Archer_spritelist_5: -5415486596785196929
+      Archer_spritelist_50: 2171388009633801633
+      Archer_spritelist_51: -6596806980487618496
+      Archer_spritelist_52: 6925812721878520926
+      Archer_spritelist_53: -4230429949316323340
+      Archer_spritelist_54: 3685221511897789586
+      Archer_spritelist_55: -3910034577034236524
+      Archer_spritelist_56: -8600507528135973069
+      Archer_spritelist_57: 8154800357751361693
+      Archer_spritelist_58: -7932333252040163260
+      Archer_spritelist_59: -4764061972285439259
+      Archer_spritelist_6: -4119344744952318001
+      Archer_spritelist_60: 7337944000949715891
+      Archer_spritelist_61: -9152254261616514971
+      Archer_spritelist_62: -3463914172981346813
+      Archer_spritelist_63: 7252971533536454472
+      Archer_spritelist_64: -8426808792294068902
+      Archer_spritelist_65: 7450111422282988097
+      Archer_spritelist_66: -2361374801925752004
+      Archer_spritelist_67: 7735868696232775972
+      Archer_spritelist_68: 7077890348308370214
+      Archer_spritelist_69: 1987623768569593484
+      Archer_spritelist_7: -1648800773093454095
+      Archer_spritelist_70: -2275173385472968434
+      Archer_spritelist_71: -515773816143333566
+      Archer_spritelist_72: -224349200476020028
+      Archer_spritelist_73: -7930905571055333824
+      Archer_spritelist_74: 7917280020910493725
+      Archer_spritelist_75: 2576655754944090925
+      Archer_spritelist_76: -2889362539200897170
+      Archer_spritelist_77: -5499500700132334256
+      Archer_spritelist_78: -988184137896797565
+      Archer_spritelist_79: 2221980498447150437
+      Archer_spritelist_8: 3008515824106342839
+      Archer_spritelist_80: -1388634867505284893
+      Archer_spritelist_81: 1710122737082171151
+      Archer_spritelist_82: -6404524997290498135
+      Archer_spritelist_83: 1419784066248102882
+      Archer_spritelist_84: 962052477175279082
+      Archer_spritelist_85: -2585432025835795603
+      Archer_spritelist_86: 3397652948904579984
+      Archer_spritelist_87: -7694478572442155133
+      Archer_spritelist_88: -7224064990955927547
+      Archer_spritelist_89: -3521872115690319092
+      Archer_spritelist_9: 8665596900772693117
+      Archer_spritelist_90: 5887519741276516236
+      Archer_spritelist_91: -6300208456456032616
+      Archer_spritelist_92: 3792944098441675000
+      Archer_spritelist_93: -3328474095362682936
+      Archer_spritelist_94: -9011969458888419828
+      Archer_spritelist_95: -7009697114906437047
+      Archer_spritelist_96: 2398072270611028830
+      Archer_spritelist_97: -2187881559360602787
+      Archer_spritelist_98: 1168604533952611084
+      Archer_spritelist_99: 505175849456311020
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
