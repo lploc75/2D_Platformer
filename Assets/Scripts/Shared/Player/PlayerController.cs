@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float walkSpeed = 4f;
     public float runSpeed = 8f;
     public float jumpImpulse = 10f;
+    private bool canDoubleJump;
 
     Vector2 moveInput;
     TouchingDirections touchingDirections;
@@ -83,7 +84,24 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(moveInput.x * CurrentMoveSpeed, rb.linearVelocity.y);
+        float horizontalVelocity = moveInput.x * CurrentMoveSpeed;
+        float verticalVelocity = rb.linearVelocity.y;
+
+        // Nếu đang va vào tường và cố gắng đi về phía tường thì không đẩy vào nữa
+        if (touchingDirections.IsOnWall &&
+            ((moveInput.x > 0 && IsFacingRight) || (moveInput.x < 0 && !IsFacingRight)))
+        {
+            horizontalVelocity = 0;
+        }
+
+        rb.linearVelocity = new Vector2(horizontalVelocity, rb.linearVelocity.y);
+
+        // Nếu đang chạm tường và không đứng dưới đất → trượt tường
+        if (touchingDirections.IsOnWall && !touchingDirections.IsGrounded)
+        {
+            verticalVelocity = -2f;
+        }
+        rb.linearVelocity = new Vector2(horizontalVelocity, verticalVelocity);
 
         animator.SetFloat(AnimationStrings.yVelocity, rb.linearVelocity.y);
     }
@@ -122,10 +140,28 @@ public class PlayerController : MonoBehaviour
     }
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.started && touchingDirections.IsGrounded)
+        if (context.started)
         {
-            animator.SetTrigger(AnimationStrings.jump);
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpImpulse);
+            if (touchingDirections.IsGrounded)
+            {
+                // Nhảy lần đầu
+                animator.SetTrigger(AnimationStrings.jump);
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpImpulse);
+                canDoubleJump = true;  // Cho phép nhảy thêm 1 lần nữa
+            }
+            else if (canDoubleJump)
+            {
+                // Nhảy lần 2 (double jump)
+                //animator.SetTrigger(AnimationStrings.jump); // Dư vì đã gọi 1 lần rồi.
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpImpulse);
+                canDoubleJump = false;  // Đã dùng double jump rồi, khóa lại
+            }
+            else if (canDoubleJump == true && !touchingDirections.IsGrounded) // Trên không cho 1 lần nhảy
+            {
+                animator.SetTrigger(AnimationStrings.jump);
+                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpImpulse);
+                canDoubleJump = false; // Khóa nhảy cho đến khi chạm đất
+            }
         }
     }
 
