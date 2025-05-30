@@ -150,6 +150,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -584,7 +597,26 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fire_Arrow_0: -8878640824962185862
+      Fire_Arrow_1: -2117182551608397983
+      Fire_Arrow_10: -161545417462394325
+      Fire_Arrow_11: 7508086438087172388
+      Fire_Arrow_12: -88782764980733900
+      Fire_Arrow_13: -8556733348083263247
+      Fire_Arrow_14: 7687017480016126545
+      Fire_Arrow_15: -7683475520349420572
+      Fire_Arrow_16: 2830105086230742644
+      Fire_Arrow_17: 6824613991439020522
+      Fire_Arrow_18: -3218793153718918127
+      Fire_Arrow_2: -7368056304940519368
+      Fire_Arrow_3: -5716446314892560866
+      Fire_Arrow_4: 294327935335817306
+      Fire_Arrow_5: 8957348190928550803
+      Fire_Arrow_6: -5216563680827291306
+      Fire_Arrow_7: -9207017606701958632
+      Fire_Arrow_8: 2126798041163087253
+      Fire_Arrow_9: 3872462190024983223
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
