@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2907725574452873203}
   - component: {fileID: 6065480954073286896}
   - component: {fileID: 2960855996511202653}
+  - component: {fileID: -5196201378574102711}
   m_Layer: 0
   m_Name: Shadow
   m_TagString: Untagged
@@ -101,3 +102,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeTime: 0.3
+--- !u!210 &-5196201378574102711
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5179231484286479563}
+  m_Enabled: 1
+  m_SortingLayerID: 1630896005
+  m_SortingLayer: 5
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
