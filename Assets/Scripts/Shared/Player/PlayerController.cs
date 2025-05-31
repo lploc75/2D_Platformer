@@ -94,6 +94,12 @@ public class PlayerController : MonoBehaviour
             horizontalVelocity = 0;
         }
 
+
+        if (touchingDirections.IsGrounded)
+        {
+            canDoubleJump = true;  // Cho phép nhảy thêm 1 lần nữa
+        }
+
         rb.linearVelocity = new Vector2(horizontalVelocity, rb.linearVelocity.y);
 
         // Nếu đang chạm tường và không đứng dưới đất → trượt tường
@@ -145,7 +151,7 @@ public class PlayerController : MonoBehaviour
             if (touchingDirections.IsGrounded)
             {
                 // Nhảy lần đầu
-                animator.SetTrigger(AnimationStrings.jump);
+                //animator.SetTrigger(AnimationStrings.jump);
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpImpulse);
                 canDoubleJump = true;  // Cho phép nhảy thêm 1 lần nữa
             }
@@ -158,7 +164,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (canDoubleJump == true && !touchingDirections.IsGrounded) // Trên không cho 1 lần nhảy
             {
-                animator.SetTrigger(AnimationStrings.jump);
+                //animator.SetTrigger(AnimationStrings.jump);
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpImpulse);
                 canDoubleJump = false; // Khóa nhảy cho đến khi chạm đất
             }
