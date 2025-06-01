@@ -184,7 +184,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cc_char_info_button_bg_0: 1201734847561146150
+      cc_char_info_button_bg_1: -8341609083521122722
+      cc_char_info_button_bg_2: 8510113141771921539
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
