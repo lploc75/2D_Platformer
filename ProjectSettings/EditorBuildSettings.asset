@@ -5,15 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Fire/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f158274f6a02
-  - enabled: 1
-    path: Assets/Scenes/Air/Desert_1.unity
-    guid: 31e5797f9c939744cbf1553f492dd910
-  - enabled: 1
-    path: Assets/Scenes/Air/Desert_2.unity
-    guid: 485ae12fc14ddd140941342d12cdf765
   - enabled: 1
     path: Assets/Scenes/Fire/HuyTHCE181180_B4.unity
     guid: cfddcf3b271f8be4cb97ec1765f62e65

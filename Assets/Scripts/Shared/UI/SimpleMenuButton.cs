@@ -6,6 +6,7 @@ public class SimpleMenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExi
 {
     public Image imageHover;
     public Image imageSelected;
+    public GameObject contentPanel; // Gắn panel nội dung tương ứng vào đây
 
     private bool isHovering = false;
     private bool isSelected = false;
@@ -14,16 +15,14 @@ public class SimpleMenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExi
     {
         isSelected = selected;
         UpdateState();
+
+        if (contentPanel != null)
+            contentPanel.SetActive(selected); // Chỉ bật nếu được chọn
     }
 
     void UpdateState()
     {
-        // Selected bật khi nút được chọn
         imageSelected.enabled = isSelected;
-
-        // Hover bật nếu:
-        // - Đang hover (chưa selected)
-        // - HOẶC đang selected (hover luôn bật khi selected)
         imageHover.enabled = isHovering || isSelected;
     }
 
