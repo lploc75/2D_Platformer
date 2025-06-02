@@ -1,17 +1,20 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewWeapon", menuName = "Inventory/Weapon")]
 public class WeaponData : ItemData
 {
-    [Tooltip("Base attack power of the weapon")]
-    public int baseAttack;
+    [Tooltip("Sát thương cơ bản của vũ khí")]
+    public int baseDamage;
 
-    [Tooltip("Attack speed or other stats")]
-    public float attackSpeed;
+    [Tooltip("Sát thương chí mạng (hệ số, ví dụ: 2.0 = x2 dame)")]
+    public float critDamage;
+
+    [Tooltip("Tỷ lệ chí mạng (0-1, ví dụ: 0.2 = 20%)")]
+    public float critChance;
 
     public int GetAttackPower()
     {
-        return Mathf.RoundToInt(baseAttack * GetQualityMultiplier());
+        return Mathf.RoundToInt(baseDamage * GetQualityMultiplier());
     }
 
     private float GetQualityMultiplier()

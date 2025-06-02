@@ -1,7 +1,19 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public enum ItemType { Weapon, Armor, Potion, Misc }
-public enum ItemQuality { Common, Rare, Epic, Legendary }
+public enum ItemType
+{
+    Weapon,   // Vũ khí
+    Armor,    // Áo giáp
+    Potion    // Bình thuốc
+}
+
+public enum ItemQuality
+{
+    Common,
+    Rare,
+    Epic,
+    Legendary
+}
 
 [CreateAssetMenu(fileName = "NewItem", menuName = "Inventory/Item")]
 public class ItemData : ScriptableObject

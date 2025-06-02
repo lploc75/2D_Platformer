@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04c3c3d28d2f55f44b5b3e9457269dbb, type: 3}
-  m_Name: Icon_13_01
+  m_Name: Icon_13_06
   m_EditorClassIdentifier: 
-  itemName: Wooden stick
+  itemName: Small wand
   itemType: 0
-  quality: 0
-  icon: {fileID: 21300000, guid: d4886a7e25135ad45a862bde87239c6b, type: 3}
-  description: Made from old tree branches. Great for kindling.
-  baseDamage: 1
-  critDamage: 0
-  critChance: 0
+  quality: 1
+  icon: {fileID: 21300000, guid: c49346c7718b17c4abe3fb8533ad9fcb, type: 3}
+  description: A stick with a small design. Can do many things.
+  baseDamage: 3
+  critDamage: 1.1
+  critChance: 0.1
