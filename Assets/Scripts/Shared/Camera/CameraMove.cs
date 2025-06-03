@@ -8,6 +8,7 @@ public class SimpleCameraMove : MonoBehaviour
     public MonoBehaviour followCameraScript;
     public GameObject dialoguePanel;            // Kéo hộp thoại UI vào đây
     public float dialogueDelay = 1.5f;          // Thời gian delay trước khi show hộp thoại (giây)
+    public DialogueManager dialogueManager; // Kéo DialogueManager vào đây trong Inspector
 
     private float timer = 0f;
     private bool moving = false;
@@ -55,7 +56,7 @@ public class SimpleCameraMove : MonoBehaviour
         }
 
         cg.alpha = 0f;
-        float fadeDuration = 0.6f; // Thời gian fade-in (giây)
+        float fadeDuration = 0.6f;
         float fadeTimer = 0f;
 
         while (fadeTimer < fadeDuration)
@@ -65,5 +66,12 @@ public class SimpleCameraMove : MonoBehaviour
             yield return null;
         }
         cg.alpha = 1f;
+
+        // *** GỌI THOẠI Ở ĐÂY ***
+        if (dialogueManager != null)
+        {
+            dialogueManager.StartDialogue();
+        }
     }
+
 }
