@@ -1,45 +1,54 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
     [Header("UI References")]
-    public TextMeshProUGUI nameText;
-    public TextMeshProUGUI dialogueText;
-    public string characterName = "Alvin";
-    [TextArea(2, 5)]
-    public string[] sentences;
-    public GameObject healthUI; // Kéo object HealthUI vào đây trên Inspector
+    public TextMeshProUGUI nameText;        // Ô hiển thị tên nhân vật
+    public TextMeshProUGUI dialogueText;    // Ô hiển thị câu thoại
+    public Image avatarImage;               // Ô hiển thị avatar nhân vật (Sprite)
+    public GameObject healthUI;             // UI máu/Health, ẩn khi thoại
+    public PlayerController playerController; // Để khóa/mở di chuyển player khi thoại
 
-    // Thêm biến này:
-    public PlayerController playerController; // Kéo Player vào Inspector
+    // Nội dung thoại hiện tại
+    private string[] currentLines;
+    private string currentSpeaker;
+    private Sprite currentAvatar;
 
     private int index = 0;
     private bool isRunning = false;
 
-    public void StartDialogue()
+    // Khởi động một đoạn thoại mới (truyền đủ tên, avatar, thoại)
+    public void StartDialogueFromLines(string[] lines, string speakerName, Sprite avatar = null)
     {
-        if (sentences == null || sentences.Length == 0)
+        if (lines == null || lines.Length == 0)
         {
-            Debug.LogWarning("No sentences set for dialogue!");
+            Debug.LogWarning("No dialogue lines!");
             return;
         }
 
         if (healthUI != null)
-            healthUI.SetActive(false);   // Ẩn UI máu
+            healthUI.SetActive(false);
 
         if (playerController != null)
             playerController.canControl = false;
 
+        currentLines = lines;
+        currentSpeaker = speakerName;
+        currentAvatar = avatar;
+
         index = 0;
         isRunning = true;
         gameObject.SetActive(true);
+
         ShowNextSentence();
     }
 
     private void Update()
     {
         if (!isRunning) return;
+        // Nhấn Enter hoặc chuột phải để tiếp thoại
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(1))
         {
             ShowNextSentence();
@@ -48,10 +57,27 @@ public class DialogueManager : MonoBehaviour
 
     public void ShowNextSentence()
     {
-        if (index < sentences.Length)
+        if (currentLines != null && index < currentLines.Length)
         {
-            nameText.text = characterName;
-            dialogueText.text = sentences[index];
+            // Gán tên, avatar
+            if (nameText != null)
+                nameText.text = currentSpeaker;
+
+            if (avatarImage != null)
+            {
+                if (currentAvatar != null)
+                {
+                    avatarImage.gameObject.SetActive(true);
+                    avatarImage.sprite = currentAvatar;
+                }
+                else
+                {
+                    avatarImage.gameObject.SetActive(false); // Không có avatar thì ẩn luôn
+                }
+            }
+
+            if (dialogueText != null)
+                dialogueText.text = currentLines[index];
             index++;
         }
         else
@@ -65,11 +91,22 @@ public class DialogueManager : MonoBehaviour
         isRunning = false;
 
         if (healthUI != null)
-            healthUI.SetActive(true);    // Hiện lại UI máu
+            healthUI.SetActive(true);
 
         if (playerController != null)
             playerController.canControl = true;
 
         gameObject.SetActive(false);
     }
+
+    //// (Tuỳ chọn) Cho phép gọi nhanh bằng profile NPC
+    //public void StartDialogueByProfile(AdvancedDialogueProfile profile, string[] lines = null)
+    //{
+    //    // lines == null thì dùng defaultLines
+    //    StartDialogueFromLines(
+    //        lines ?? profile.defaultLines,
+    //        profile.characterName,
+    //        profile.avatar
+    //    );
+    //}
 }

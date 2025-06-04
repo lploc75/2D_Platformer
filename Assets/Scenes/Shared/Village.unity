@@ -447,6 +447,7 @@ MonoBehaviour:
   dialogueDelay: 1.5
   dialogueManager: {fileID: 1492051973}
   playerController: {fileID: 1799498632}
+  cutsceneProfile: {fileID: 11400000, guid: 1d0272bb59b46fd42a8e2135d2f6cd5f, type: 2}
 --- !u!1 &132150673
 GameObject:
   m_ObjectHideFlags: 0
@@ -8323,10 +8324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText: {fileID: 1088074628}
   dialogueText: {fileID: 584023060}
-  characterName: Alvin
-  sentences:
-  - What happened? Where is the sun?
-  - I should check this out.
+  avatarImage: {fileID: 2030977858}
   healthUI: {fileID: 1144005192}
   playerController: {fileID: 1799498632}
 --- !u!1 &1627472238
@@ -8344,6 +8342,7 @@ GameObject:
   - component: {fileID: 1627472244}
   - component: {fileID: 1627472243}
   - component: {fileID: 1627472245}
+  - component: {fileID: 1627472246}
   m_Layer: 0
   m_Name: NPC_Wizard
   m_TagString: NPC
@@ -8537,16 +8536,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1627472238}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0019d181a48be894e9d7874da6d7f9d5, type: 3}
+  m_Script: {fileID: 11500000, guid: d1677c653afdb4d41ba6ec3f8b7cad31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 1799498632}
+  profile: {fileID: 11400000, guid: 5a26852a7d9789543a1ce62a11b5abb9, type: 2}
   dialogueManager: {fileID: 1492051973}
-  npcName: Wizard
-  defaultSentences:
-  - Alvin, here you are...
-  - ...
-  quests: []
+--- !u!114 &1627472246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627472238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf66ade2a1f26f34dac9676002a0f53b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  npcController: {fileID: 1627472245}
 --- !u!1 &1743890209
 GameObject:
   m_ObjectHideFlags: 0
@@ -8884,7 +8891,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 614bed3e83e5c7c4a907fe6316066493, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

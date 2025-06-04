@@ -6,10 +6,12 @@ public class SimpleCameraMove : MonoBehaviour
     public Vector3 endPos;
     public float moveDuration = 2f;
     public MonoBehaviour followCameraScript;
-    public GameObject dialoguePanel;            // Kéo hộp thoại UI vào đây
-    public float dialogueDelay = 1.5f;          // Thời gian delay trước khi show hộp thoại (giây)
-    public DialogueManager dialogueManager; // Kéo DialogueManager vào đây trong Inspector
-    public PlayerController playerController; // Kéo player vào đây trong Inspector
+    public GameObject dialoguePanel;
+    public float dialogueDelay = 1.5f;
+    public DialogueManager dialogueManager;
+    public PlayerController playerController;
+
+    public AdvancedDialogueProfile cutsceneProfile; // Kéo asset thoại cutscene vào đây
 
     private float timer = 0f;
     private bool moving = false;
@@ -51,7 +53,6 @@ public class SimpleCameraMove : MonoBehaviour
     {
         yield return new WaitForSeconds(dialogueDelay);
 
-        // Bật hộp thoại (nếu dùng CanvasGroup, sẽ fade)
         dialoguePanel.SetActive(true);
 
         CanvasGroup cg = dialoguePanel.GetComponent<CanvasGroup>();
@@ -72,11 +73,13 @@ public class SimpleCameraMove : MonoBehaviour
         }
         cg.alpha = 1f;
 
-        // *** GỌI THOẠI Ở ĐÂY ***
-        if (dialogueManager != null)
+        // GỌI THOẠI CỦA CUTSCENE THEO PROFILE MỚI
+        if (dialogueManager != null && cutsceneProfile != null)
         {
-            dialogueManager.StartDialogue();
+            dialogueManager.StartDialogueFromLines(
+                cutsceneProfile.defaultLines, // hoặc cutsceneProfile.cutsceneLines nếu bạn bổ sung trường này
+                cutsceneProfile.characterName
+            );
         }
     }
-
 }
