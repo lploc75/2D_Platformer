@@ -9,6 +9,10 @@ public class DialogueManager : MonoBehaviour
     public string characterName = "Alvin";
     [TextArea(2, 5)]
     public string[] sentences;
+    public GameObject healthUI; // Kéo object HealthUI vào đây trên Inspector
+
+    // Thêm biến này:
+    public PlayerController playerController; // Kéo Player vào Inspector
 
     private int index = 0;
     private bool isRunning = false;
@@ -21,9 +25,15 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
+        if (healthUI != null)
+            healthUI.SetActive(false);   // Ẩn UI máu
+
+        if (playerController != null)
+            playerController.canControl = false;
+
         index = 0;
         isRunning = true;
-        gameObject.SetActive(true); // Bật Panel nếu chưa bật
+        gameObject.SetActive(true);
         ShowNextSentence();
     }
 
@@ -53,6 +63,13 @@ public class DialogueManager : MonoBehaviour
     private void EndDialogue()
     {
         isRunning = false;
-        gameObject.SetActive(false); // Ẩn luôn chính Panel!
+
+        if (healthUI != null)
+            healthUI.SetActive(true);    // Hiện lại UI máu
+
+        if (playerController != null)
+            playerController.canControl = true;
+
+        gameObject.SetActive(false);
     }
 }

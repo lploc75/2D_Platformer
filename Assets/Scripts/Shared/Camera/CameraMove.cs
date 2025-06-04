@@ -9,6 +9,7 @@ public class SimpleCameraMove : MonoBehaviour
     public GameObject dialoguePanel;            // Kéo hộp thoại UI vào đây
     public float dialogueDelay = 1.5f;          // Thời gian delay trước khi show hộp thoại (giây)
     public DialogueManager dialogueManager; // Kéo DialogueManager vào đây trong Inspector
+    public PlayerController playerController; // Kéo player vào đây trong Inspector
 
     private float timer = 0f;
     private bool moving = false;
@@ -20,7 +21,11 @@ public class SimpleCameraMove : MonoBehaviour
             followCameraScript.enabled = false;
         moving = true;
         if (dialoguePanel != null)
-            dialoguePanel.SetActive(false);     // Tắt hộp thoại lúc đầu
+            dialoguePanel.SetActive(false);
+
+        // KHÓA PLAYER NGAY TỪ ĐẦU
+        if (playerController != null)
+            playerController.canControl = false;
     }
 
     void Update()
