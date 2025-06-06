@@ -9,11 +9,14 @@ public class PlayerController : MonoBehaviour
     public float runSpeed = 8f;
     public float jumpImpulse = 10f;
     private bool canDoubleJump;
+    public bool canControl = true;
 
     Vector2 moveInput;
     TouchingDirections touchingDirections;
 
-    public float CurrentMoveSpeed { get
+    public float CurrentMoveSpeed
+    {
+        get
         {
             if (IsMoving)
             {
@@ -36,7 +39,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private bool _isMoving = false;
-    public bool IsMoving { get 
+    public bool IsMoving
+    {
+        get
         {
             return _isMoving;
         }
@@ -44,7 +49,7 @@ public class PlayerController : MonoBehaviour
         {
             _isMoving = value;
             animator.SetBool(AnimationStrings.isMoving, value);
-        } 
+        }
     }
 
     [SerializeField]
@@ -62,22 +67,25 @@ public class PlayerController : MonoBehaviour
         }
     }
     public bool _isFacingRight = true;
-    public bool IsFacingRight { get { return _isFacingRight; } private set
+    public bool IsFacingRight
+    {
+        get { return _isFacingRight; }
+        private set
         {
             if (_isFacingRight != value)
             {
-                transform.localScale *= new Vector2(-1,1);
+                transform.localScale *= new Vector2(-1, 1);
             }
             _isFacingRight = value;
         }
     }
 
-    Rigidbody2D rb; 
+    Rigidbody2D rb;
     Animator animator;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>(); 
+        rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         touchingDirections = GetComponent<TouchingDirections>();
     }
@@ -114,61 +122,59 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
+        if (!canControl) return; // <- THÊM DÒNG NÀY
         moveInput = context.ReadValue<Vector2>();
         IsMoving = moveInput != Vector2.zero;
-
         SetFacingDirection(moveInput);
     }
 
     private void SetFacingDirection(Vector2 moveInput)
     {
-        if(moveInput.x > 0 && !IsFacingRight)
+        if (moveInput.x > 0 && !IsFacingRight)
         {
             // face the right
             IsFacingRight = true;
 
-        }else if (moveInput.x < 0 && IsFacingRight)
+        }
+        else if (moveInput.x < 0 && IsFacingRight)
         {
             // face the left
-            IsFacingRight= false;
+            IsFacingRight = false;
         }
     }
 
     public void OnRun(InputAction.CallbackContext context)
     {
+        if (!canControl) return; // <- THÊM DÒNG NÀY
         if (context.started)
         {
             IsRunning = true;
-        }else if (context.canceled)
+        }
+        else if (context.canceled)
         {
             IsRunning = false;
         }
     }
     public void OnJump(InputAction.CallbackContext context)
     {
+        if (!canControl) return; // <- THÊM DÒNG NÀY
         if (context.started)
         {
             if (touchingDirections.IsGrounded)
             {
-                // Nhảy lần đầu
-                //animator.SetTrigger(AnimationStrings.jump);
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpImpulse);
-                canDoubleJump = true;  // Cho phép nhảy thêm 1 lần nữa
+                canDoubleJump = true;
             }
             else if (canDoubleJump)
             {
-                // Nhảy lần 2 (double jump)
-                //animator.SetTrigger(AnimationStrings.jump); // Dư vì đã gọi 1 lần rồi.
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpImpulse);
-                canDoubleJump = false;  // Đã dùng double jump rồi, khóa lại
+                canDoubleJump = false;
             }
-            else if (canDoubleJump == true && !touchingDirections.IsGrounded) // Trên không cho 1 lần nhảy
+            else if (canDoubleJump == true && !touchingDirections.IsGrounded)
             {
-                //animator.SetTrigger(AnimationStrings.jump);
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpImpulse);
-                canDoubleJump = false; // Khóa nhảy cho đến khi chạm đất
+                canDoubleJump = false;
             }
         }
     }
-
 }
