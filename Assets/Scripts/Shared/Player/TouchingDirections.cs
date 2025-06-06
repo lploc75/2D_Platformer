@@ -1,16 +1,19 @@
-﻿using UnityEngine;
+﻿using System.Runtime.CompilerServices;
+using UnityEngine;
 
 public class TouchingDirections : MonoBehaviour
 {
     public ContactFilter2D castFilter;
     public float groundDistance = 0.05f; // Khoảng cách kiểm tra mặt đất
-    public float wallDistance = 0.05f; // khoảng cách kiểm tra tường
+    public float wallDistance = 0.2f; // khoảng cách kiểm tra tường
+    public float cellingDistance = 0.05f; // khoảng cách kiểm tra tường
 
     CapsuleCollider2D touchingCol;
     Animator animator;
 
     RaycastHit2D[] groundHits = new RaycastHit2D[5];
     RaycastHit2D[] wallHits = new RaycastHit2D[5];
+    RaycastHit2D[] cellingHits = new RaycastHit2D[5];
 
     [SerializeField]
     public bool _isGrounded = true;
@@ -44,6 +47,21 @@ public class TouchingDirections : MonoBehaviour
     public bool IsOnLeftWall { get; private set; }
     public bool IsOnRightWall { get; private set; }
 
+
+    [SerializeField]
+    private bool _isOnCelling = false;
+    private Vector2 wallCheckDirection => gameObject.transform.localScale.x > 0 ?
+        Vector2.right : Vector2.up;
+    public bool IsOnCelling
+    {
+        get { return _isOnCelling; }
+        private set
+        {
+            _isOnCelling = value;
+            animator.SetBool(AnimationStrings.isOnCelling, value);
+        }
+    }
+
     private void Awake()
     {
         touchingCol = GetComponent<CapsuleCollider2D>();
@@ -60,5 +78,7 @@ public class TouchingDirections : MonoBehaviour
         IsOnRightWall = touchingCol.Cast(Vector2.right, castFilter, wallHits, wallDistance) > 0;
 
         IsOnWall = IsOnLeftWall || IsOnRightWall;
+
+        IsOnCelling = touchingCol.Cast(Vector2.up, castFilter, cellingHits, cellingDistance) > 0;
     }
 }

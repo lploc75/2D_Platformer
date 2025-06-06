@@ -9,28 +9,35 @@ public class PlayerController : MonoBehaviour
     public float runSpeed = 8f;
     public float jumpImpulse = 10f;
     private bool canDoubleJump;
-
+    
     Vector2 moveInput;
     TouchingDirections touchingDirections;
-
     public float CurrentMoveSpeed { get
         {
-            if (IsMoving)
+            if (CanMove)
             {
-                if (IsRunning)
+                if (IsMoving)
                 {
-                    return runSpeed;
+                    if (IsRunning)
+                    {
+                        return runSpeed;
+                    }
+                    else
+                    {
+                        return walkSpeed;
+                    }
                 }
                 else
                 {
-                    return walkSpeed;
+                    // idle speed is 0
+                    return 0;
                 }
             }
             else
             {
-                // idle speed is 0
-                return 0;
+                return 0; // khóa di chuyển
             }
+           
         }
     }
 
@@ -71,6 +78,26 @@ public class PlayerController : MonoBehaviour
             _isFacingRight = value;
         }
     }
+    public bool CanMove
+    {
+        get { return animator.GetBool(AnimationStrings.canMove); }
+    }
+    public bool IsAlive
+    {
+        get { return animator.GetBool(AnimationStrings.isAlive); }
+    }
+
+    public bool LockVelocity
+    {
+        get
+        {
+            return animator.GetBool(AnimationStrings.lockVelocity);
+        }
+        set
+        {
+            animator.SetBool (AnimationStrings.lockVelocity, value);
+        }
+    }
 
     Rigidbody2D rb; 
     Animator animator;
@@ -94,20 +121,19 @@ public class PlayerController : MonoBehaviour
             horizontalVelocity = 0;
         }
 
-
         if (touchingDirections.IsGrounded)
         {
             canDoubleJump = true;  // Cho phép nhảy thêm 1 lần nữa
         }
 
-        rb.linearVelocity = new Vector2(horizontalVelocity, rb.linearVelocity.y);
-
-        // Nếu đang chạm tường và không đứng dưới đất → trượt tường
+        // Nếu đang chạm tường và không đứng dưới đất -> trượt tường
         if (touchingDirections.IsOnWall && !touchingDirections.IsGrounded)
         {
             verticalVelocity = -2f;
         }
-        rb.linearVelocity = new Vector2(horizontalVelocity, verticalVelocity);
+
+        if(!LockVelocity)
+            rb.linearVelocity = new Vector2(horizontalVelocity, verticalVelocity);
 
         animator.SetFloat(AnimationStrings.yVelocity, rb.linearVelocity.y);
     }
@@ -115,22 +141,27 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
-        IsMoving = moveInput != Vector2.zero;
 
-        SetFacingDirection(moveInput);
+        if (IsAlive)
+        {
+            IsMoving = moveInput != Vector2.zero;
+
+            SetFacingDirection(moveInput);
+        }else
+        {
+            IsMoving=false;
+        }
     }
 
     private void SetFacingDirection(Vector2 moveInput)
     {
-        if(moveInput.x > 0 && !IsFacingRight)
-        {
-            // face the right
-            IsFacingRight = true;
 
+        if (moveInput.x > 0 && !IsFacingRight)
+        {
+            IsFacingRight = true;
         }else if (moveInput.x < 0 && IsFacingRight)
         {
-            // face the left
-            IsFacingRight= false;
+            IsFacingRight = false;
         }
     }
 
@@ -148,27 +179,62 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started)
         {
-            if (touchingDirections.IsGrounded)
+            if (touchingDirections.IsGrounded && CanMove && IsAlive)
             {
                 // Nhảy lần đầu
-                //animator.SetTrigger(AnimationStrings.jump);
+                //animator.SetTrigger(AnimationStrings.jumpTrigger);
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpImpulse);
                 canDoubleJump = true;  // Cho phép nhảy thêm 1 lần nữa
             }
-            else if (canDoubleJump)
+            else if (canDoubleJump && CanMove && IsAlive)
             {
                 // Nhảy lần 2 (double jump)
-                //animator.SetTrigger(AnimationStrings.jump); // Dư vì đã gọi 1 lần rồi.
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpImpulse);
                 canDoubleJump = false;  // Đã dùng double jump rồi, khóa lại
             }
             else if (canDoubleJump == true && !touchingDirections.IsGrounded) // Trên không cho 1 lần nhảy
             {
-                //animator.SetTrigger(AnimationStrings.jump);
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpImpulse);
                 canDoubleJump = false; // Khóa nhảy cho đến khi chạm đất
             }
         }
     }
 
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            animator.SetTrigger(AnimationStrings.attackTrigger); 
+        }
+    }
+
+    public void OnHit (int damage, Vector2 knockback)
+    {
+        LockVelocity = true;
+        rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocity.y + knockback.y);
+        Debug.Log("onhit");
+    }
+
+    public void OnSelectSkill1(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            animator.SetInteger(AnimationStrings.AttackIndex, 1); // 1 == default (attack animation 3)
+        }
+    }
+    public void OnSelectSkill2(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            animator.SetInteger(AnimationStrings.AttackIndex, 2); // 2 ==  attack animation ?
+        }
+    }
+    public void OnSelectSkill3(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            animator.SetInteger(AnimationStrings.AttackIndex, 3); // 3 ==  attack animation ?
+        }
+    }
 }
+
