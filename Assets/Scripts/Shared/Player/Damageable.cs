@@ -6,44 +6,50 @@ public class Damageable : MonoBehaviour
     public UnityEvent<int, Vector2> damageableHit;
 
     Animator animator;
-    [SerializeField]
-    private int _maxHealth = 100;
+
+    [SerializeField] private int _maxHealth = 100;
+    [SerializeField] private bool _isAlive = true;
+    [SerializeField] private bool isInvincible = false;
+
+    private int _health = 100;
+    private float timeSinceHit = 0;
+    public float invincibilityTime = 0.25f;
+
+    public HealthBar healthBar; // 🔥 Gán trong Inspector
 
     public int MaxHealth
     {
-        get { return _maxHealth;}
-        set {_maxHealth = value;}
+        get => _maxHealth;
+        set => _maxHealth = value;
     }
-    private int _health = 100;
+
     public int Health
     {
-        get {return _health;}
+        get => _health;
         set
         {
-            _health = value;
+            _health = Mathf.Clamp(value, 0, MaxHealth); // ngăn âm hoặc vượt max
 
-            if(_health <= 0)
+            if (healthBar != null)
+            {
+                healthBar.SetHealth(_health);
+                Debug.Log("Slider change: " + _health);
+            }
+
+            if (_health <= 0)
             {
                 IsAlive = false;
             }
         }
     }
-    [SerializeField]
-    private bool _isAlive = true;
-    [SerializeField]
-    private bool isInvincible = false;
-
-    private float timeSinceHit = 0;
-    public float invincibilityTime = 0.25f;
 
     public bool IsAlive
     {
-        get { return _isAlive; }
-        set 
+        get => _isAlive;
+        set
         {
             _isAlive = value;
             animator.SetBool(AnimationStrings.isAlive, value);
-
             Debug.Log("IsAlive set " + value);
         }
     }
@@ -52,6 +58,16 @@ public class Damageable : MonoBehaviour
     {
         animator = GetComponent<Animator>();
     }
+
+    private void Start()
+    {
+        if (healthBar != null)
+        {
+            healthBar.SetMaxHealth(MaxHealth);
+            healthBar.SetHealth(Health);
+        }
+    }
+
     public bool Hit(int damage, Vector2 knockback)
     {
         if (IsAlive && !isInvincible)
@@ -65,21 +81,14 @@ public class Damageable : MonoBehaviour
         }
         return false;
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (isInvincible)
         {
-            if(timeSinceHit > invincibilityTime)
+            if (timeSinceHit > invincibilityTime)
             {
-                // xóa bất tử
-                isInvincible=false;
+                isInvincible = false;
                 timeSinceHit = 0;
             }
             timeSinceHit += Time.deltaTime;

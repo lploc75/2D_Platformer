@@ -1,7 +1,9 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+/*
+ Máu của nhận vật được set ở bên Damageable
+ */
 [RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections))]
 public class PlayerController : MonoBehaviour
 {
@@ -9,7 +11,14 @@ public class PlayerController : MonoBehaviour
     public float runSpeed = 8f;
     public float jumpImpulse = 10f;
     private bool canDoubleJump;
-    
+    [SerializeField] private float maxMana = 100f;
+    [SerializeField] private float currentMana = 100f;
+    /*
+     Slider của mana min là 0 và max là 1, thay đổi bằng current mana / max mana
+     */
+    [SerializeField] private UnityEngine.UI.Slider manaSlider;
+    private float manaCost = 10f; // mana của skill default
+
     Vector2 moveInput;
     TouchingDirections touchingDirections;
     public float CurrentMoveSpeed { get
@@ -108,7 +117,11 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         touchingDirections = GetComponent<TouchingDirections>();
     }
-
+    private void Start()
+    {
+        currentMana = maxMana;
+        UpdateManaUI();
+    }
     private void FixedUpdate()
     {
         float horizontalVelocity = moveInput.x * CurrentMoveSpeed;
@@ -137,6 +150,31 @@ public class PlayerController : MonoBehaviour
 
         animator.SetFloat(AnimationStrings.yVelocity, rb.linearVelocity.y);
     }
+
+    private bool ConsumeMana(float amount)
+    {
+        if (currentMana >= amount)
+        {
+            currentMana -= amount;
+            UpdateManaUI();
+            Debug.Log("Consume "+ currentMana + "Mana");
+            return true;
+        }
+        else
+        {
+            Debug.Log("Not enough mana!");
+            return false;
+        }
+    }
+    private void UpdateManaUI()
+    {
+        if (manaSlider != null)
+        {
+            Debug.Log("Update ManaUI: " + currentMana);
+            manaSlider.value = currentMana / maxMana;
+        }
+    }
+
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -204,10 +242,16 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started)
         {
-            animator.SetTrigger(AnimationStrings.attackTrigger); 
+            if (ConsumeMana(manaCost))
+            {
+                Debug.Log(manaCost);
+                Debug.Log(currentMana);
+                animator.SetTrigger(AnimationStrings.attackTrigger);
+            }
         }
     }
 
+    // Bị tấn công -> nhận damage và knockback
     public void OnHit (int damage, Vector2 knockback)
     {
         LockVelocity = true;
@@ -219,13 +263,16 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started)
         {
-            animator.SetInteger(AnimationStrings.AttackIndex, 1); // 1 == default (attack animation 3)
+            manaCost = 10f;
+            animator.SetInteger(AnimationStrings.AttackIndex, 1);
         }
     }
+
     public void OnSelectSkill2(InputAction.CallbackContext context)
     {
         if (context.started)
         {
+            manaCost = 30f;
             animator.SetInteger(AnimationStrings.AttackIndex, 2); // 2 ==  attack animation ?
         }
     }
@@ -233,6 +280,7 @@ public class PlayerController : MonoBehaviour
     {
         if (context.started)
         {
+            manaCost = 50f;
             animator.SetInteger(AnimationStrings.AttackIndex, 3); // 3 ==  attack animation ?
         }
     }
