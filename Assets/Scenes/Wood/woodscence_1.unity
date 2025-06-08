@@ -201,7 +201,7 @@ Transform:
   m_GameObject: {fileID: 11636117}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.43, y: -20.029999, z: 0}
+  m_LocalPosition: {x: 43.39, y: -20.22, z: 0}
   m_LocalScale: {x: 0.32991526, y: 0.29267752, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1454,6 +1454,19 @@ Tilemap:
       m_TileIndex: 10
       m_TileSpriteIndex: 20
       m_TileMatrixIndex: 4
+<<<<<<< HEAD
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: -4, y: 7, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 22
+      m_TileSpriteIndex: 21
+      m_TileMatrixIndex: 5
+=======
+>>>>>>> c1a3bc86884130c2742d924e7f444092f9cc0068
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
@@ -1549,8 +1562,13 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 5cbe07966ce75c04bba3411095abea6f, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 8c17d103507ee75468866f891705205b, type: 3}
+<<<<<<< HEAD
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: bc7993e738cfe7e49b05088b0dab1146, type: 3}
+=======
   - m_RefCount: 0
     m_Data: {fileID: 0}
+>>>>>>> c1a3bc86884130c2742d924e7f444092f9cc0068
   m_TileMatrixArray:
   - m_RefCount: 24
     m_Data:
@@ -1594,10 +1612,49 @@ Tilemap:
       e01: 0
       e02: 0
       e03: 0.20531368
+<<<<<<< HEAD
       e10: 0
       e11: 2
       e12: 0
       e13: 1.5251935
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+  - m_RefCount: 1
+    m_Data:
+      e00: 2
+      e01: 0
+      e02: 0
+      e03: -0.7738304
+=======
+>>>>>>> c1a3bc86884130c2742d924e7f444092f9cc0068
+      e10: 0
+      e11: 2
+      e12: 0
+      e13: 1.5209775
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+  - m_RefCount: 1
+    m_Data:
+      e00: 2
+      e01: 0
+      e02: 0
+      e03: -0.27864075
+      e10: 0
+      e11: 2
+      e12: 0
+      e13: 0.54790735
       e20: 0
       e21: 0
       e22: 1
@@ -10308,11 +10365,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6181813944620618782, guid: f552e0f4aa1a2b449905d8c56172dc5d, type: 3}
       propertyPath: m_LocalPosition.x
+<<<<<<< HEAD
+      value: 15.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 6181813944620618782, guid: f552e0f4aa1a2b449905d8c56172dc5d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -18.74
+=======
       value: -4.66
       objectReference: {fileID: 0}
     - target: {fileID: 6181813944620618782, guid: f552e0f4aa1a2b449905d8c56172dc5d, type: 3}
       propertyPath: m_LocalPosition.y
       value: -20.95
+>>>>>>> c1a3bc86884130c2742d924e7f444092f9cc0068
       objectReference: {fileID: 0}
     - target: {fileID: 6181813944620618782, guid: f552e0f4aa1a2b449905d8c56172dc5d, type: 3}
       propertyPath: m_LocalPosition.z
