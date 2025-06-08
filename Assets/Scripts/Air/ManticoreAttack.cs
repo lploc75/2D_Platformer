@@ -91,7 +91,6 @@ public class ManticorePatrolAndChase2D : MonoBehaviour
         rb2d.MovePosition(new Vector2(newX, fixedY));
         FlipSprite(moveDirection);
 
-        Debug.Log($"Patrol: position x = {newX}, y = {fixedY}, direction = {moveDirection}");
     }
 
     void ChasePlayer()
@@ -111,8 +110,6 @@ public class ManticorePatrolAndChase2D : MonoBehaviour
 
         rb2d.MovePosition(new Vector2(newX, fixedY));
         FlipSprite(direction);
-
-        Debug.Log($"ChasePlayer moving to attack position: {newX}");
     }
 
     void Attack()
@@ -121,14 +118,12 @@ public class ManticorePatrolAndChase2D : MonoBehaviour
         lastAttackTime = Time.time;
 
         animator.SetTrigger("AttackTrigger");
-        Debug.Log("Attack triggered");
     }
 
     // Gọi từ animation event khi attack kết thúc
     public void OnAttackFinished()
     {
         isAttacking = false;
-        Debug.Log("Attack finished");
     }
 
     void FlipSprite(float dir)
@@ -147,7 +142,6 @@ public class ManticorePatrolAndChase2D : MonoBehaviour
         {
             playerInRange = true;
             playerTransform = other.transform;
-            Debug.Log("Player detected - Start chasing");
         }
     }
 
@@ -162,8 +156,6 @@ public class ManticorePatrolAndChase2D : MonoBehaviour
 
             // Reset hướng di chuyển patrol để quái đi theo hướng cố định, tránh rung lắc
             moveDirection = 1;  // hoặc giá trị bạn muốn mặc định
-
-            Debug.Log("Player lost - Resume patrol");
         }
     }
 
