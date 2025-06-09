@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Fire/HuyTHCE181180_B4.unity
     guid: cfddcf3b271f8be4cb97ec1765f62e65
   - enabled: 1
-    path: Assets/Scenes/Air/Desert_2.unity
-    guid: 485ae12fc14ddd140941342d12cdf765
+    path: Assets/Scenes/Shared/Village.unity
+    guid: 63264c46ba59fe949a91e7b310e162a9
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
