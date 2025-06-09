@@ -9,8 +9,15 @@ internal class AnimationStrings
 
     internal static string isRunning = "IsRunning";
     internal static string isGrounded = "IsGrounded";
+    internal static string isOnCelling = "IsOnCelling";
     internal static string yVelocity = "yVelocity";
-    internal static string jump = "jump";
+    internal static string jumpTrigger = "jump";
     internal static string isOnWall= "IsOnWall";
+    internal static string attackTrigger = "attack";
+    internal static string canMove = "canMove";
+    internal static string AttackIndex = "AttackIndex";
+    internal static string isAlive = "IsAlive";
+    internal static string hitTrigger = "hit";
+    internal static string lockVelocity = "lockVelocity";
 }
 

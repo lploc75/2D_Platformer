@@ -1,39 +1,53 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+/*
+ Máu của nhận vật được set ở bên Damageable
+ */
 [RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections))]
 public class PlayerController : MonoBehaviour
 {
+    public bool canControl = true;
     public float walkSpeed = 4f;
     public float runSpeed = 8f;
     public float jumpImpulse = 10f;
     private bool canDoubleJump;
-    public bool canControl = true;
+    [SerializeField] private float maxMana = 100f;
+    [SerializeField] private float currentMana = 100f;
+    /*
+     Slider của mana min là 0 và max là 1, thay đổi bằng current mana / max mana
+     */
+    [SerializeField] private UnityEngine.UI.Slider manaSlider;
+    private float manaCost = 10f; // mana của skill default
 
     Vector2 moveInput;
     TouchingDirections touchingDirections;
-
-    public float CurrentMoveSpeed
-    {
-        get
+    public float CurrentMoveSpeed { get
         {
-            if (IsMoving)
+            if (CanMove)
             {
-                if (IsRunning)
+                if (IsMoving)
                 {
-                    return runSpeed;
+                    if (IsRunning)
+                    {
+                        return runSpeed;
+                    }
+                    else
+                    {
+                        return walkSpeed;
+                    }
                 }
                 else
                 {
-                    return walkSpeed;
+                    // idle speed is 0
+                    return 0;
                 }
             }
             else
             {
-                // idle speed is 0
-                return 0;
+                return 0; // khóa di chuyển
             }
+           
         }
     }
 
@@ -79,6 +93,26 @@ public class PlayerController : MonoBehaviour
             _isFacingRight = value;
         }
     }
+    public bool CanMove
+    {
+        get { return animator.GetBool(AnimationStrings.canMove); }
+    }
+    public bool IsAlive
+    {
+        get { return animator.GetBool(AnimationStrings.isAlive); }
+    }
+
+    public bool LockVelocity
+    {
+        get
+        {
+            return animator.GetBool(AnimationStrings.lockVelocity);
+        }
+        set
+        {
+            animator.SetBool (AnimationStrings.lockVelocity, value);
+        }
+    }
 
     Rigidbody2D rb;
     Animator animator;
@@ -89,7 +123,11 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
         touchingDirections = GetComponent<TouchingDirections>();
     }
-
+    private void Start()
+    {
+        currentMana = maxMana;
+        UpdateManaUI();
+    }
     private void FixedUpdate()
     {
         float horizontalVelocity = moveInput.x * CurrentMoveSpeed;
@@ -102,43 +140,71 @@ public class PlayerController : MonoBehaviour
             horizontalVelocity = 0;
         }
 
-
         if (touchingDirections.IsGrounded)
         {
             canDoubleJump = true;  // Cho phép nhảy thêm 1 lần nữa
         }
 
-        rb.linearVelocity = new Vector2(horizontalVelocity, rb.linearVelocity.y);
-
-        // Nếu đang chạm tường và không đứng dưới đất → trượt tường
+        // Nếu đang chạm tường và không đứng dưới đất -> trượt tường
         if (touchingDirections.IsOnWall && !touchingDirections.IsGrounded)
         {
             verticalVelocity = -2f;
         }
-        rb.linearVelocity = new Vector2(horizontalVelocity, verticalVelocity);
+
+        if(!LockVelocity)
+            rb.linearVelocity = new Vector2(horizontalVelocity, verticalVelocity);
 
         animator.SetFloat(AnimationStrings.yVelocity, rb.linearVelocity.y);
     }
+
+    private bool ConsumeMana(float amount)
+    {
+        if (currentMana >= amount)
+        {
+            currentMana -= amount;
+            UpdateManaUI();
+            Debug.Log("Consume "+ currentMana + "Mana");
+            return true;
+        }
+        else
+        {
+            Debug.Log("Not enough mana!");
+            return false;
+        }
+    }
+    private void UpdateManaUI()
+    {
+        if (manaSlider != null)
+        {
+            Debug.Log("Update ManaUI: " + currentMana);
+            manaSlider.value = currentMana / maxMana;
+        }
+    }
+
 
     public void OnMove(InputAction.CallbackContext context)
     {
         if (!canControl) return; // <- THÊM DÒNG NÀY
         moveInput = context.ReadValue<Vector2>();
-        IsMoving = moveInput != Vector2.zero;
-        SetFacingDirection(moveInput);
+
+        if (IsAlive)
+        {
+            IsMoving = moveInput != Vector2.zero;
+
+            SetFacingDirection(moveInput);
+        }else
+        {
+            IsMoving=false;
+        }
     }
 
     private void SetFacingDirection(Vector2 moveInput)
     {
         if (moveInput.x > 0 && !IsFacingRight)
         {
-            // face the right
             IsFacingRight = true;
-
-        }
-        else if (moveInput.x < 0 && IsFacingRight)
+        }else if (moveInput.x < 0 && IsFacingRight)
         {
-            // face the left
             IsFacingRight = false;
         }
     }
@@ -160,13 +226,16 @@ public class PlayerController : MonoBehaviour
         if (!canControl) return; // <- THÊM DÒNG NÀY
         if (context.started)
         {
-            if (touchingDirections.IsGrounded)
+            if (touchingDirections.IsGrounded && CanMove && IsAlive)
             {
+                // Nhảy lần đầu
+                //animator.SetTrigger(AnimationStrings.jumpTrigger);
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpImpulse);
                 canDoubleJump = true;
             }
-            else if (canDoubleJump)
+            else if (canDoubleJump && CanMove && IsAlive)
             {
+                // Nhảy lần 2 (double jump)
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpImpulse);
                 canDoubleJump = false;
             }
@@ -177,4 +246,52 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            if (ConsumeMana(manaCost))
+            {
+                Debug.Log(manaCost);
+                Debug.Log(currentMana);
+                animator.SetTrigger(AnimationStrings.attackTrigger);
+            }
+        }
+    }
+
+    // Bị tấn công -> nhận damage và knockback
+    public void OnHit (int damage, Vector2 knockback)
+    {
+        LockVelocity = true;
+        rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocity.y + knockback.y);
+        Debug.Log("onhit");
+    }
+
+    public void OnSelectSkill1(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            manaCost = 10f;
+            animator.SetInteger(AnimationStrings.AttackIndex, 1);
+        }
+    }
+
+    public void OnSelectSkill2(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            manaCost = 30f;
+            animator.SetInteger(AnimationStrings.AttackIndex, 2); // 2 ==  attack animation ?
+        }
+    }
+    public void OnSelectSkill3(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            manaCost = 50f;
+            animator.SetInteger(AnimationStrings.AttackIndex, 3); // 3 ==  attack animation ?
+        }
+    }
 }
+
