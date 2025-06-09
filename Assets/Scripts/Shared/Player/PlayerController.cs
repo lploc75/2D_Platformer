@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections))]
 public class PlayerController : MonoBehaviour
 {
+    public bool canControl = true;
     public float walkSpeed = 4f;
     public float runSpeed = 8f;
     public float jumpImpulse = 10f;
