@@ -2,25 +2,35 @@
 using UnityEngine.UI;
 using TMPro;
 
+/// <summary>
+/// Quản lý hiển thị thoại, hỗ trợ callback khi kết thúc thoại.
+/// </summary>
 public class DialogueManager : MonoBehaviour
 {
     [Header("UI References")]
-    public TextMeshProUGUI nameText;        // Ô hiển thị tên nhân vật
-    public TextMeshProUGUI dialogueText;    // Ô hiển thị câu thoại
-    public Image avatarImage;               // Ô hiển thị avatar nhân vật (Sprite)
-    public GameObject healthUI;             // UI máu/Health, ẩn khi thoại
-    public PlayerController playerController; // Để khóa/mở di chuyển player khi thoại
+    public TextMeshProUGUI nameText;        // Ô tên nhân vật
+    public TextMeshProUGUI dialogueText;    // Ô thoại
+    public Image avatarImage;               // Ảnh đại diện NPC
+    public GameObject healthUI;             // UI máu, sẽ ẩn khi thoại
+    public PlayerController playerController; // Để khóa/mở điều khiển player khi thoại
 
-    // Nội dung thoại hiện tại
+    // Dữ liệu thoại hiện tại
     private string[] currentLines;
     private string currentSpeaker;
     private Sprite currentAvatar;
+    private System.Action onDialogueFinish; // Callback khi thoại xong
 
     private int index = 0;
     private bool isRunning = false;
 
-    // Khởi động một đoạn thoại mới (truyền đủ tên, avatar, thoại)
-    public void StartDialogueFromLines(string[] lines, string speakerName, Sprite avatar = null)
+    /// <summary>
+    /// Bắt đầu đoạn thoại mới, có callback khi thoại xong.
+    /// </summary>
+    public void StartDialogueFromLines(
+        string[] lines,
+        string speakerName,
+        Sprite avatar = null,
+        System.Action onFinish = null)
     {
         if (lines == null || lines.Length == 0)
         {
@@ -37,6 +47,7 @@ public class DialogueManager : MonoBehaviour
         currentLines = lines;
         currentSpeaker = speakerName;
         currentAvatar = avatar;
+        onDialogueFinish = onFinish;
 
         index = 0;
         isRunning = true;
@@ -48,8 +59,9 @@ public class DialogueManager : MonoBehaviour
     private void Update()
     {
         if (!isRunning) return;
-        // Nhấn Enter hoặc chuột phải để tiếp thoại
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(1))
+
+        // Nhấn Enter, Space hoặc chuột phải để tiếp thoại
+        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(1))
         {
             ShowNextSentence();
         }
@@ -78,6 +90,7 @@ public class DialogueManager : MonoBehaviour
 
             if (dialogueText != null)
                 dialogueText.text = currentLines[index];
+
             index++;
         }
         else
@@ -97,16 +110,20 @@ public class DialogueManager : MonoBehaviour
             playerController.canControl = true;
 
         gameObject.SetActive(false);
+
+        // Gọi callback khi kết thúc thoại
+        onDialogueFinish?.Invoke();
+        onDialogueFinish = null;
     }
 
-    //// (Tuỳ chọn) Cho phép gọi nhanh bằng profile NPC
-    //public void StartDialogueByProfile(AdvancedDialogueProfile profile, string[] lines = null)
-    //{
-    //    // lines == null thì dùng defaultLines
-    //    StartDialogueFromLines(
-    //        lines ?? profile.defaultLines,
-    //        profile.characterName,
-    //        profile.avatar
-    //    );
-    //}
+    // (Tuỳ chọn) Cho phép gọi nhanh bằng profile NPC
+    public void StartDialogueByProfile(AdvancedDialogueProfile profile, string[] lines = null, System.Action onFinish = null)
+    {
+        StartDialogueFromLines(
+            lines ?? profile.defaultLines,
+            profile.characterName,
+            profile.avatar,
+            onFinish
+        );
+    }
 }
