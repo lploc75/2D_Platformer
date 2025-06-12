@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 078e16a7ea9caef45be5bc420879386e, type: 3}
-  m_Name: NPC__Blacksmith
+  m_Name: NPC_Healer
   m_EditorClassIdentifier: 
-  npcId: blacksmith
-  characterName: Blacksmith
+  npcId: healer
+  characterName: Healer
   avatar: {fileID: 6373048116405451881, guid: 3357c6188c95e8c4cb05dd374c7f3f19, type: 3}
   isQuestGiver: 0
   defaultLines:
-  - '"If you want strong armor or good weapons, just stop by my forge!"'
+  - '"If you feel tired or injured, Arin, just come here. I have a lot of good medicine!"'
   questId: main_1_crystal
   questOfferLines: []
   questInProgressLines:
