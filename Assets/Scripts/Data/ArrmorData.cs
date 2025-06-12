@@ -3,20 +3,12 @@
 [CreateAssetMenu(fileName = "NewArmor", menuName = "Inventory/Armor")]
 public class ArmorData : ItemData
 {
-    [Tooltip("Phòng thủ cơ bản của giáp")]
-    public int defense; // Lượng phòng thủ cơ bản của giáp
 
     [Tooltip("Tăng HP từ giáp")]
     public float healthBonus; // Tăng HP từ giáp
 
     [Tooltip("Tỷ lệ chí mạng (0-1, ví dụ: 0.2 = 20%)")]
     public float critChance; // Tỷ lệ chí mạng
-
-    // Tính toán điểm phòng thủ với hệ số phẩm chất
-    public int GetDefensePower()
-    {
-        return Mathf.RoundToInt(defense * GetQualityMultiplier());
-    }
 
     // Tính toán tỷ lệ chí mạng với hệ số phẩm chất
     public float GetCritChance()
