@@ -209,7 +209,7 @@ Transform:
   m_GameObject: {fileID: 4058758944372118435}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.11, y: -1.79, z: -98}
+  m_LocalPosition: {x: 1.1, y: -1.79, z: -98}
   m_LocalScale: {x: 2.7, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -311,9 +311,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b34fa87629f982f4186b735d69c5d6d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canControl: 1
   walkSpeed: 4
   runSpeed: 8
   jumpImpulse: 10
+  maxMana: 100
+  currentMana: 0
+  manaSlider: {fileID: 0}
   _isMoving: 0
   _isRunning: 0
   _isFacingRight: 1
@@ -641,3 +645,4 @@ MonoBehaviour:
   _isAlive: 1
   isInvincible: 0
   invincibilityTime: 0.25
+  healthBar: {fileID: 0}

@@ -64,9 +64,10 @@ public class Damageable : MonoBehaviour
         if (healthBar != null)
         {
             healthBar.SetMaxHealth(MaxHealth);
-            healthBar.SetHealth(Health);
+            Health = MaxHealth; // Gán trước để trigger setter và cập nhật đúng
         }
     }
+
 
     public bool Hit(int damage, Vector2 knockback)
     {
