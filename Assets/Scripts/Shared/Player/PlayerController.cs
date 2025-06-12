@@ -20,6 +20,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private UnityEngine.UI.Slider manaSlider;
     private float manaCost = 10f; // mana của skill default
 
+    public StaminaManager staminaManager;
+    public float runStaminaDrain = 20f;
+
+
     Vector2 moveInput;
     TouchingDirections touchingDirections;
     public float CurrentMoveSpeed { get
@@ -151,7 +155,17 @@ public class PlayerController : MonoBehaviour
             verticalVelocity = -2f;
         }
 
-        if(!LockVelocity)
+        if (IsRunning && staminaManager.HasStamina(1f))
+        {
+            staminaManager.SetUsingStamina(true);
+        }
+        else
+        {
+            IsRunning = false;
+            staminaManager.SetUsingStamina(false);
+        }
+
+        if (!LockVelocity)
             rb.linearVelocity = new Vector2(horizontalVelocity, verticalVelocity);
 
         animator.SetFloat(AnimationStrings.yVelocity, rb.linearVelocity.y);
@@ -209,18 +223,37 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //public void OnRun(InputAction.CallbackContext context)
+    //{
+    //    if (!canControl) return; // <- THÊM DÒNG NÀY
+    //    if (context.started)
+    //    {
+    //        IsRunning = true;
+    //    }
+    //    else if (context.canceled)
+    //    {
+    //        IsRunning = false;
+    //    }
+    //}
+
+
     public void OnRun(InputAction.CallbackContext context)
     {
-        if (!canControl) return; // <- THÊM DÒNG NÀY
+        if (!canControl || staminaManager.currentStamina <= 0f) return;
+
         if (context.started)
         {
-            IsRunning = true;
+            if (staminaManager.HasStamina(1f)) // chỉ cần có một ít
+            {
+                IsRunning = true;
+            }
         }
         else if (context.canceled)
         {
             IsRunning = false;
         }
     }
+
     public void OnJump(InputAction.CallbackContext context)
     {
         if (!canControl) return; // <- THÊM DÒNG NÀY

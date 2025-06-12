@@ -318,6 +318,8 @@ MonoBehaviour:
   maxMana: 100
   currentMana: 0
   manaSlider: {fileID: 0}
+  staminaManager: {fileID: 0}
+  runStaminaDrain: 20
   _isMoving: 0
   _isRunning: 0
   _isFacingRight: 1
