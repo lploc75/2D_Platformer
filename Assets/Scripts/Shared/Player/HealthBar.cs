@@ -10,14 +10,15 @@ public class HealthBar : MonoBehaviour
     public void SetMaxHealth(int maxHealth)
     {
         healthSlider.maxValue = maxHealth;
-        healthSlider.value = maxHealth;
+         // Bỏ dòng gán value ở đây
+         // healthSlider.value = maxHealth;
     }
 
     public void SetHealth(int currentHealth)
     {
         if (healthSlider != null)
         {
-            Debug.Log("Slider value set to " + currentHealth);
+            Debug.Log("Health slider value set to " + currentHealth);
             healthSlider.value = currentHealth;
         }
     }

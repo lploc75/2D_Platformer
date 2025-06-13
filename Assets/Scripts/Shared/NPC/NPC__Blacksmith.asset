@@ -12,14 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078e16a7ea9caef45be5bc420879386e, type: 3}
   m_Name: NPC__Blacksmith
   m_EditorClassIdentifier: 
-  characterName: Wizard
+  npcId: blacksmith
+  characterName: Blacksmith
   avatar: {fileID: 6373048116405451881, guid: 3357c6188c95e8c4cb05dd374c7f3f19, type: 3}
+  isQuestGiver: 0
   defaultLines:
-  - Hello Alvin...
-  - ...
+  - '"If you want strong armor or good weapons, just stop by my forge!"'
+  questId: main_1_crystal
   questOfferLines: []
-  questId: 
-  questInProgressLines: []
+  questInProgressLines:
+  - Thats all I know.
+  questSpecialLines:
+  - Here what I know
+  - ...
+  rewardItem: {fileID: 0}
   questCompletedLines: []
   unlockAfterQuestId: 
   unlockedLines: []
