@@ -4,6 +4,8 @@ public enum CurrencyType
 {
     Coin,
     Gem,
-    // Thêm loại tiền mới ở đây nếu cần
+    BlueSoul,
+    PurpleSoul
+    // Đã chuẩn hóa tên biến (xóa dấu cách, viết PascalCase)
 }
 

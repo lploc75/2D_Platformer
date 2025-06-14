@@ -12,6 +12,9 @@ public class CurrencyManager : MonoBehaviour
     // UI cho từng loại tiền (kéo vào Inspector)
     public Text coinText;
     public Text gemText;
+    public Text blueSoulText;
+    public Text purpleSoulText;
+
     // Nếu thêm loại mới, khai báo UI ở đây
 
     void Awake()
@@ -52,7 +55,13 @@ public class CurrencyManager : MonoBehaviour
             case CurrencyType.Gem:
                 if (gemText != null) gemText.text = currencyAmounts[type].ToString();
                 break;
-                // Thêm UI cho loại mới tại đây nếu cần
+            case CurrencyType.BlueSoul:
+                if (blueSoulText != null) blueSoulText.text = currencyAmounts[type].ToString();
+                break;
+            case CurrencyType.PurpleSoul:
+                if (purpleSoulText != null) purpleSoulText.text = currencyAmounts[type].ToString();
+                break;
         }
     }
+
 }
