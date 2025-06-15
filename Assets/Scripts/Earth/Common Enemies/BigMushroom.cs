@@ -92,9 +92,10 @@ public class BigMushroom : MonoBehaviour
         }
         if (!damageable.LockVelocity)
         {
-            if (CanMove && IsAlive)
+            if (CanMove && IsAlive && touchingDirections.IsGrounded)
             {
-                rb.linearVelocity = new Vector2(walkSpeed * walkDirectionVector.x, rb.linearVelocity.y);
+                rb.linearVelocity = new Vector2(walkSpeed * walkDirectionVector.x,
+                    rb.linearVelocity.y);
             }
             else
             {

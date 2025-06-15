@@ -90,6 +90,9 @@ public class Damageable : MonoBehaviour
             animator.SetTrigger(AnimationStrings.hitTrigger);
             LockVelocity = true;
             damageableHit?.Invoke(damage, knockback);
+
+            // Sau một khoảng thời gian, tắt lock lại
+            StartCoroutine(UnlockVelocityAfterDelay(0.3f));
             return true;
         }
         return false;
@@ -106,5 +109,11 @@ public class Damageable : MonoBehaviour
             }
             timeSinceHit += Time.deltaTime;
         }
+    }
+    // Tắt Lockvelocity cho phép di chuyển
+    private System.Collections.IEnumerator UnlockVelocityAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        LockVelocity = false;
     }
 }
