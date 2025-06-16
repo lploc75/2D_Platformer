@@ -1,9 +1,12 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DetectionZone : MonoBehaviour
 {
+    public UnityEvent CliffColliderTrigger; // Khi cliff detection zone nhận được layerground thì đổi hướng (có vực phía trước)
+
     public List<Collider2D> detectedColliders = new List<Collider2D>();
     Collider2D col;
 
@@ -21,17 +24,10 @@ public class DetectionZone : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         detectedColliders.Remove(collision);
+        if (detectedColliders.Count <= 0)
+        {
+            CliffColliderTrigger.Invoke();
+        }
     }
 
-    //// Start is called once before the first execution of Update after the MonoBehaviour is created
-    //void Start()
-    //{
-        
-    //}
-
-    //// Update is called once per frame
-    //void Update()
-    //{
-        
-    //}
 }

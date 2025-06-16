@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 /*
  Máu của nhận vật được set ở bên Damageable
  */
-[RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections))]
+[RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections), typeof(Damageable))]
 public class PlayerController : MonoBehaviour
 {
     public bool canControl = true;
@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
     Vector2 moveInput;
     TouchingDirections touchingDirections;
+    Damageable damageable;
     public float CurrentMoveSpeed { get
         {
             if (CanMove)
@@ -106,18 +107,6 @@ public class PlayerController : MonoBehaviour
         get { return animator.GetBool(AnimationStrings.isAlive); }
     }
 
-    public bool LockVelocity
-    {
-        get
-        {
-            return animator.GetBool(AnimationStrings.lockVelocity);
-        }
-        set
-        {
-            animator.SetBool (AnimationStrings.lockVelocity, value);
-        }
-    }
-
     Rigidbody2D rb;
     Animator animator;
 
@@ -126,6 +115,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         touchingDirections = GetComponent<TouchingDirections>();
+        damageable = GetComponent<Damageable>();
     }
     private void Start()
     {
@@ -165,7 +155,7 @@ public class PlayerController : MonoBehaviour
             staminaManager.SetUsingStamina(false);
         }
 
-        if (!LockVelocity)
+        if (!damageable.LockVelocity)
             rb.linearVelocity = new Vector2(horizontalVelocity, verticalVelocity);
 
         animator.SetFloat(AnimationStrings.yVelocity, rb.linearVelocity.y);
@@ -296,7 +286,6 @@ public class PlayerController : MonoBehaviour
     // Bị tấn công -> nhận damage và knockback
     public void OnHit (int damage, Vector2 knockback)
     {
-        LockVelocity = true;
         rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocity.y + knockback.y);
         Debug.Log("onhit");
     }
