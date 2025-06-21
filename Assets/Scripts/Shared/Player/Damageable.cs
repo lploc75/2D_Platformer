@@ -54,6 +54,17 @@ public class Damageable : MonoBehaviour
         }
     }
 
+    public bool LockVelocity
+    {
+        get
+        {
+            return animator.GetBool(AnimationStrings.lockVelocity);
+        }
+        set
+        {
+            animator.SetBool(AnimationStrings.lockVelocity, value);
+        }
+    }
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -77,7 +88,11 @@ public class Damageable : MonoBehaviour
             isInvincible = true;
 
             animator.SetTrigger(AnimationStrings.hitTrigger);
+            LockVelocity = true;
             damageableHit?.Invoke(damage, knockback);
+
+            // Sau một khoảng thời gian, tắt lock lại
+            StartCoroutine(UnlockVelocityAfterDelay(0.3f));
             return true;
         }
         return false;
@@ -94,5 +109,11 @@ public class Damageable : MonoBehaviour
             }
             timeSinceHit += Time.deltaTime;
         }
+    }
+    // Tắt Lockvelocity cho phép di chuyển
+    private System.Collections.IEnumerator UnlockVelocityAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        LockVelocity = false;
     }
 }

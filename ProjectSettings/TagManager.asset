@@ -6,7 +6,9 @@ TagManager:
   tags:
   - Spike
   - NPC
-  - Coin
+  - Ice
+  - Sand
+  - Concrete
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - Enemy
   - PlayerHitbox
   - EnemyHitbox
-  - 
+  - GroundDetection
   - 
   - 
   - 

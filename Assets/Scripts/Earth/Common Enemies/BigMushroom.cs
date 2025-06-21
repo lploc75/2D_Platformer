@@ -2,19 +2,23 @@
 using System.Collections;
 using Assets.Scripts.Earth.Common_Enemies;
 using UnityEngine;
+using UnityEngine.XR;
 using static UnityEngine.Rendering.DebugUI;
 
-[RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections))]
+[RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections), typeof(Damageable))]
 public class BigMushroom : MonoBehaviour
 {
+
     public float walkSpeed = 4f;
     private bool canFlip = true;
     public float flipCooldown = 0.2f;
 
     Rigidbody2D rb;
     Animator animator;
+    Damageable damageable;
     TouchingDirections touchingDirections;
     public DetectionZone attackZone;
+    public DetectionZone cliffDetectionzone;
     public enum WalkableDirection {Right, Left }
     private WalkableDirection _walkDireciton;
     private Vector2 walkDirectionVector = Vector2.right;
@@ -73,8 +77,12 @@ public class BigMushroom : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         touchingDirections = GetComponent<TouchingDirections>();
         animator = GetComponent<Animator>();
+        damageable = GetComponent<Damageable>();
     }
-
+    void Update()
+    {
+        HasTarget = attackZone.detectedColliders.Count > 0;
+    }
     private void FixedUpdate()
     {
         if (touchingDirections.IsGrounded && touchingDirections.IsOnWall && canFlip)
@@ -82,16 +90,19 @@ public class BigMushroom : MonoBehaviour
             FlipDirection();
             StartCoroutine(FlipCooldown());
         }
-        if (CanMove && IsAlive)
+        if (!damageable.LockVelocity)
         {
-            rb.linearVelocity = new Vector2(walkSpeed * walkDirectionVector.x, rb.linearVelocity.y);
-        }else
-        {
-            rb.linearVelocity= Vector2.zero;
+            if (CanMove && IsAlive && touchingDirections.IsGrounded)
+            {
+                rb.linearVelocity = new Vector2(walkSpeed * walkDirectionVector.x,
+                    rb.linearVelocity.y);
+            }
+            else
+            {
+                rb.linearVelocity = Vector2.zero;
+            }
         }
-
     }
-
     private void FlipDirection()
     {
         if(WalkDirection == WalkableDirection.Right)
@@ -107,15 +118,17 @@ public class BigMushroom : MonoBehaviour
         }
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    //void Start()
-    //{
-        
-    //}
-
-    // Update is called once per frame
-    void Update()
+    public void OnHit(int damage, Vector2 knockback)
     {
-        HasTarget = attackZone.detectedColliders.Count > 0;
+        rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocity.y + knockback.y);
     }
+
+    public void OnCliffDetected()
+    {
+        if (touchingDirections.IsGrounded)
+        {
+            FlipDirection();
+        }
+    }
+        
 }
