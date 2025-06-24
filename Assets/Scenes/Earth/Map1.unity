@@ -26033,6 +26033,63 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1001 &93735147
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1246889255976619546, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.295349
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246889255976619546, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.6277344
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246889255976619546, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246889255976619546, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246889255976619546, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246889255976619546, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246889255976619546, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246889255976619546, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246889255976619546, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1246889255976619546, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341476448709006985, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
+      propertyPath: m_Name
+      value: Coin_Earth
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
 --- !u!1 &149237489
 GameObject:
   m_ObjectHideFlags: 0
@@ -35143,3 +35200,4 @@ SceneRoots:
   - {fileID: 6619506973067255809}
   - {fileID: 8613764955826013519}
   - {fileID: 2098032308}
+  - {fileID: 93735147}
