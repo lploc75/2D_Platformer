@@ -7,11 +7,15 @@ public class Projectile : MonoBehaviour
     public Vector2 knockback = new Vector2 (2,2);
 
     [SerializeField] private float lifetime = 1.4f;
+    [SerializeField] private float destroyDelayAfterCollide = 0.2f; // cho clip kịp phát
 
     Rigidbody2D rb;
+    private Animator animator;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,7 +38,11 @@ public class Projectile : MonoBehaviour
             if (gotHit)
             {
                 Debug.Log(collision.name + "hit for " + damage);
-                Destroy(gameObject); //
+                rb.linearVelocity = Vector2.zero;               // đứng lại
+                rb.isKinematic = true;                    // ngừng vật lý
+                GetComponent<Collider2D>().enabled = false; // không gây hit tiếp
+                animator.SetTrigger(AnimationStrings.collideTrigger);
+                Destroy(gameObject, destroyDelayAfterCollide);
             }
 
         }
