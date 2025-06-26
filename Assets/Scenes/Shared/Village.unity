@@ -1665,15 +1665,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba7ed06382a3c34288341afd3e31bd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPos: {x: -60, y: 7, z: -10}
-  endPos: {x: -75, y: 1, z: -10}
-  moveDuration: 7
+  startPos: {x: -50, y: 12, z: -10}
+  endPos: {x: -74.81, y: 1, z: -10}
+  moveDuration: 6
   followCameraScript: {fileID: 89241912}
-  dialoguePanel: {fileID: 1492051969}
+  dialoguePanel: {fileID: 225166085}
   dialogueDelay: 1.5
   dialogueManager: {fileID: 1492051973}
-  playerController: {fileID: 1557302185}
   cutsceneProfile: {fileID: 11400000, guid: 1d0272bb59b46fd42a8e2135d2f6cd5f, type: 2}
+  playerInput: {fileID: 1557302195}
+  actionMapName: Player
 --- !u!1 &92499949
 GameObject:
   m_ObjectHideFlags: 0
@@ -2418,8 +2419,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -9.1, y: 75.3}
-  m_SizeDelta: {x: -30.8503, y: -163.4933}
+  m_AnchoredPosition: {x: 0.47499847, y: 60.05088}
+  m_SizeDelta: {x: -11.7003, y: -132.9951}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &128638199
 MonoBehaviour:
@@ -9554,7 +9555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf66ade2a1f26f34dac9676002a0f53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcController: {fileID: 192493114}
+  npcController: {fileID: 0}
 --- !u!114 &192493114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9568,7 +9569,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 0}
-  dialogueManager: {fileID: 1492051973}
+  dialogueManager: {fileID: 0}
 --- !u!61 &192493115
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11608,7 +11609,7 @@ Transform:
   m_GameObject: {fileID: 332005110}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.65, y: 4.93, z: 9}
+  m_LocalPosition: {x: 10.53, y: 5.37, z: 9}
   m_LocalScale: {x: 0.16414393, y: 0.16606207, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11681,7 +11682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8ca05a704a1683489993e1b9a4462d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDuration: 5
+  fadeDuration: 3
   fadeOut: 1
 --- !u!1 &334518585
 GameObject:
@@ -12079,8 +12080,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 79.94151}
-  m_SizeDelta: {x: 0, y: -175.2626}
+  m_AnchoredPosition: {x: 0, y: 97.31839}
+  m_SizeDelta: {x: 0, y: -210.0164}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &343181257
 MonoBehaviour:
@@ -16420,7 +16421,7 @@ MonoBehaviour:
   spritesToFade:
   - {fileID: 913177137}
   targetColor: {r: 0.3, g: 0.3, b: 0.3, a: 1}
-  duration: 2
+  duration: 5
 --- !u!4 &639012357
 Transform:
   m_ObjectHideFlags: 0
@@ -16527,7 +16528,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &656120186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25746,6 +25747,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthUI
       objectReference: {fileID: 0}
+    - target: {fileID: 8931383967319241844, guid: 158b5881c5f69d84cb91275b3671bbe7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27158,7 +27163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf66ade2a1f26f34dac9676002a0f53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcController: {fileID: 1200192584}
+  npcController: {fileID: 0}
 --- !u!114 &1200192584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27171,8 +27176,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1677c653afdb4d41ba6ec3f8b7cad31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: dd22f13d058c24f4090bc0cfab833a9e, type: 2}
-  dialogueManager: {fileID: 1492051973}
+  profile: {fileID: 0}
+  dialogueManager: {fileID: 0}
 --- !u!1 &1204587939
 GameObject:
   m_ObjectHideFlags: 0
@@ -28922,7 +28927,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1333697052
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29447,6 +29452,10 @@ PrefabInstance:
     - target: {fileID: 7160861495648243519, guid: 14c936f0f293ca64fa77cf577f180f8f, type: 3}
       propertyPath: m_Name
       value: InventoryManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 7160861495648243519, guid: 14c936f0f293ca64fa77cf577f180f8f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32045,7 +32054,8 @@ MonoBehaviour:
   dialogueText: {fileID: 584023060}
   avatarImage: {fileID: 2030977858}
   healthUI: {fileID: 1934416844}
-  playerController: {fileID: 1557302185}
+  playerInput: {fileID: 0}
+  actionMapName: Player
 --- !u!1 &1494441272
 GameObject:
   m_ObjectHideFlags: 0
@@ -32898,17 +32908,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4058758944372118435, guid: 83a62524dea5c504fa259f7a3b71c077, type: 3}
   m_PrefabInstance: {fileID: 175561844}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1557302185 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4342867000900514535, guid: 83a62524dea5c504fa259f7a3b71c077, type: 3}
-  m_PrefabInstance: {fileID: 175561844}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1557302178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b34fa87629f982f4186b735d69c5d6d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1557302188 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4728735450234679552, guid: 83a62524dea5c504fa259f7a3b71c077, type: 3}
@@ -32926,6 +32925,17 @@ SortingGroup:
   m_SortingLayer: 14
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!114 &1557302195 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4608482900243350559, guid: 83a62524dea5c504fa259f7a3b71c077, type: 3}
+  m_PrefabInstance: {fileID: 175561844}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1557302178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1561183633
 GameObject:
   m_ObjectHideFlags: 0
@@ -33396,7 +33406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf66ade2a1f26f34dac9676002a0f53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcController: {fileID: 1585551833}
+  npcController: {fileID: 0}
 --- !u!114 &1585551833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33409,8 +33419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1677c653afdb4d41ba6ec3f8b7cad31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: bbd4cd4b54948174d8794c7d37a02228, type: 2}
-  dialogueManager: {fileID: 1492051973}
+  profile: {fileID: 0}
+  dialogueManager: {fileID: 0}
 --- !u!1 &1586302757
 GameObject:
   m_ObjectHideFlags: 0
@@ -34653,8 +34663,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1677c653afdb4d41ba6ec3f8b7cad31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: 5a26852a7d9789543a1ce62a11b5abb9, type: 2}
-  dialogueManager: {fileID: 1492051973}
+  profile: {fileID: 0}
+  dialogueManager: {fileID: 0}
 --- !u!114 &1627472246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34667,7 +34677,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf66ade2a1f26f34dac9676002a0f53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcController: {fileID: 1627472245}
+  npcController: {fileID: 0}
 --- !u!1 &1630703170
 GameObject:
   m_ObjectHideFlags: 0
@@ -37370,6 +37380,10 @@ PrefabInstance:
     - target: {fileID: 7605690676531450638, guid: 26723cdcbebe5844eb8789f256d9a810, type: 3}
       propertyPath: m_Name
       value: Inventory_Toggle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7605690676531450638, guid: 26723cdcbebe5844eb8789f256d9a810, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
