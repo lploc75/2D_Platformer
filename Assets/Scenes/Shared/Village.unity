@@ -26838,7 +26838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf66ade2a1f26f34dac9676002a0f53b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcController: {fileID: 0}
+  npcController: {fileID: 1200192584}
 --- !u!114 &1200192584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26851,8 +26851,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1677c653afdb4d41ba6ec3f8b7cad31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profile: {fileID: 0}
-  dialogueManager: {fileID: 0}
+  profile: {fileID: 11400000, guid: dd22f13d058c24f4090bc0cfab833a9e, type: 2}
+  dialogueManager: {fileID: 1492051973}
 --- !u!1 &1204587939
 GameObject:
   m_ObjectHideFlags: 0
