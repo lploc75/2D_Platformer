@@ -218,19 +218,6 @@
             }
         }
 
-        //public void OnRun(InputAction.CallbackContext context)
-        //{
-        //    if (!canControl) return; // <- THÊM DÒNG NÀY
-        //    if (context.started)
-        //    {
-        //        IsRunning = true;
-        //    }
-        //    else if (context.canceled)
-        //    {
-        //        IsRunning = false;
-        //    }
-        //}
-
 
         public void OnRun(InputAction.CallbackContext context)
         {
