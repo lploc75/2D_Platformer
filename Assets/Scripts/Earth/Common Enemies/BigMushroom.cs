@@ -8,7 +8,13 @@ using static UnityEngine.Rendering.DebugUI;
 [RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections), typeof(Damageable))]
 public class BigMushroom : MonoBehaviour
 {
+    [Header("Coin Drop Settings")]
+    public GameObject coinPrefab; // Gán từ Inspector
+    public int coinCount = 1; // Số lượng coin rớt
+    public float coinSpread = 0.5f; // Phạm vi random vị trí rớt
+    private bool hasDroppedCoin = false;
 
+    [Header("Moving Settings")]
     public float walkSpeed = 4f;
     private bool canFlip = true;
     public float flipCooldown = 0.2f;
@@ -82,6 +88,12 @@ public class BigMushroom : MonoBehaviour
     void Update()
     {
         HasTarget = attackZone.detectedColliders.Count > 0;
+
+        if (!IsAlive && !hasDroppedCoin)
+        {
+            DropCoins();
+            hasDroppedCoin = true;
+        }
     }
     private void FixedUpdate()
     {
@@ -130,5 +142,24 @@ public class BigMushroom : MonoBehaviour
             FlipDirection();
         }
     }
-        
+    void DropCoins()
+    {
+        for (int i = 0; i < coinCount; i++)
+        {
+            Vector2 dropOffset = new Vector2(UnityEngine.Random.Range(-coinSpread, coinSpread), 0.5f);
+            Vector3 dropPosition = transform.position + (Vector3)dropOffset;
+
+            GameObject coin = Instantiate(coinPrefab, dropPosition, Quaternion.identity);
+
+            // Coin bay nhẹ ra ngoài
+            Rigidbody2D rb = coin.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                float forceX = UnityEngine.Random.Range(-2f, 2f);
+                float forceY = UnityEngine.Random.Range(2f, 4f);
+                rb.AddForce(new Vector2(forceX, forceY), ForceMode2D.Impulse);
+            }
+        }
+    }
+
 }

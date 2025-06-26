@@ -5,9 +5,9 @@ public class CurrencyPickup : MonoBehaviour
     public CurrencyType currencyType;
     public int amount = 1;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             CurrencyManager.Instance.AddCurrency(currencyType, amount);
             Destroy(gameObject);
