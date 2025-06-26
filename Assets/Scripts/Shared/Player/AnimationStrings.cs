@@ -19,5 +19,6 @@ internal class AnimationStrings
     internal static string isAlive = "IsAlive";
     internal static string hitTrigger = "hit";
     internal static string lockVelocity = "lockVelocity";
+    internal static string collideTrigger = "CollideTrigger";   // Trigger của projectile khi va chạm
 }
 
