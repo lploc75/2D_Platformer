@@ -32,7 +32,8 @@ public class NPCController : MonoBehaviour
                         profile.questOfferLines,
                         profile.characterName,
                         profile.avatar,
-                        () => {
+                        () =>
+                        {
                             QuestManager.Instance.AcceptQuest(profile.questId);
                             FindObjectOfType<QuestUIController>()?.BuildQuestList();
                         }
@@ -70,7 +71,8 @@ public class NPCController : MonoBehaviour
                             profile.questSpecialLines,
                             profile.characterName,
                             profile.avatar,
-                            () => {
+                            () =>
+                            {
                                 QuestManager.Instance.MarkTalkedWithNpc(profile.questId, profile.npcId);
                                 //if (profile.rewardItem != null)
                                 //{

@@ -1,31 +1,52 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.InputSystem;
 
-/// <summary>
-/// Quản lý hiển thị thoại, hỗ trợ callback khi kết thúc thoại.
-/// </summary>
 public class DialogueManager : MonoBehaviour
 {
     [Header("UI References")]
-    public TextMeshProUGUI nameText;        // Ô tên nhân vật
-    public TextMeshProUGUI dialogueText;    // Ô thoại
-    public Image avatarImage;               // Ảnh đại diện NPC
-    public GameObject healthUI;             // UI máu, sẽ ẩn khi thoại
-    public PlayerController playerController; // Để khóa/mở điều khiển player khi thoại
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI dialogueText;
+    public Image avatarImage;
+    public GameObject healthUI;
+
+    [Header("Input System")]
+    public PlayerInput playerInput;        // Kéo PlayerInput (trên Player) vào đây
+    public string actionMapName = "Player"; // Hoặc "Gameplay", tuỳ tên bạn đặt
 
     // Dữ liệu thoại hiện tại
     private string[] currentLines;
     private string currentSpeaker;
     private Sprite currentAvatar;
-    private System.Action onDialogueFinish; // Callback khi thoại xong
+    private System.Action onDialogueFinish;
 
     private int index = 0;
     private bool isRunning = false;
 
-    /// <summary>
-    /// Bắt đầu đoạn thoại mới, có callback khi thoại xong.
-    /// </summary>
+    // Input Action để next thoại
+    private InputAction nextAction;
+
+    private void Awake()
+    {
+        // Tạo input action và add event 1 lần duy nhất
+        nextAction = new InputAction(type: InputActionType.Button);
+        nextAction.AddBinding("<Keyboard>/enter");
+        nextAction.AddBinding("<Keyboard>/space");
+        nextAction.AddBinding("<Mouse>/rightButton");
+        nextAction.performed += OnNext;
+    }
+
+    private void OnEnable()
+    {
+        nextAction.Enable();
+    }
+
+    private void OnDisable()
+    {
+        nextAction.Disable();
+    }
+
     public void StartDialogueFromLines(
         string[] lines,
         string speakerName,
@@ -41,8 +62,12 @@ public class DialogueManager : MonoBehaviour
         if (healthUI != null)
             healthUI.SetActive(false);
 
-        if (playerController != null)
-            playerController.canControl = false;
+        // Disable action map khi thoại bắt đầu
+        if (playerInput != null)
+        {
+            var map = playerInput.actions.FindActionMap(actionMapName);
+            if (map != null) map.Disable();
+        }
 
         currentLines = lines;
         currentSpeaker = speakerName;
@@ -56,22 +81,16 @@ public class DialogueManager : MonoBehaviour
         ShowNextSentence();
     }
 
-    private void Update()
+    private void OnNext(InputAction.CallbackContext ctx)
     {
-        if (!isRunning) return;
-
-        // Nhấn Enter, Space hoặc chuột phải để tiếp thoại
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(1))
-        {
+        if (isRunning)
             ShowNextSentence();
-        }
     }
 
     public void ShowNextSentence()
     {
         if (currentLines != null && index < currentLines.Length)
         {
-            // Gán tên, avatar
             if (nameText != null)
                 nameText.text = currentSpeaker;
 
@@ -84,7 +103,7 @@ public class DialogueManager : MonoBehaviour
                 }
                 else
                 {
-                    avatarImage.gameObject.SetActive(false); // Không có avatar thì ẩn luôn
+                    avatarImage.gameObject.SetActive(false);
                 }
             }
 
@@ -106,17 +125,19 @@ public class DialogueManager : MonoBehaviour
         if (healthUI != null)
             healthUI.SetActive(true);
 
-        if (playerController != null)
-            playerController.canControl = true;
+        // Enable action map lại khi thoại kết thúc
+        if (playerInput != null)
+        {
+            var map = playerInput.actions.FindActionMap(actionMapName);
+            if (map != null) map.Enable();
+        }
 
         gameObject.SetActive(false);
 
-        // Gọi callback khi kết thúc thoại
         onDialogueFinish?.Invoke();
         onDialogueFinish = null;
     }
 
-    // (Tuỳ chọn) Cho phép gọi nhanh bằng profile NPC
     public void StartDialogueByProfile(AdvancedDialogueProfile profile, string[] lines = null, System.Action onFinish = null)
     {
         StartDialogueFromLines(
