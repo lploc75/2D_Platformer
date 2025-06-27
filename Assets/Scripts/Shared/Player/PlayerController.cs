@@ -141,11 +141,11 @@
                 canDoubleJump = true;  // Cho phép nhảy thêm 1 lần nữa
             }
 
-            // Nếu đang chạm tường và không đứng dưới đất -> trượt tường
-            if (touchingDirections.IsOnWall && !touchingDirections.IsGrounded)
-            {
-                verticalVelocity = -2f;
-            }
+            //// Nếu đang chạm tường và không đứng dưới đất -> trượt tường
+            //if (touchingDirections.IsOnWall && !touchingDirections.IsGrounded)
+            //{
+            //    verticalVelocity = -2f;
+            //}
 
             if (IsRunning && staminaManager.HasStamina(1f))
             {
