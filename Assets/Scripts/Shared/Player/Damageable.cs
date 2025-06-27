@@ -15,7 +15,7 @@ public class Damageable : MonoBehaviour
     private float timeSinceHit = 0;
     public float invincibilityTime = 0.25f;
 
-    public HealthBar healthBar; // 🔥 Gán trong Inspector
+    public HealthBar healthBar; // Gán trong Inspector
 
     public int MaxHealth
     {
