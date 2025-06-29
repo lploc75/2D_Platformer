@@ -75,6 +75,17 @@ public class PlayerStatsManager : MonoBehaviour
         if (buttonDUR != null) buttonDUR.onClick.AddListener(OnAddDUR);
         if (buttonPER != null) buttonPER.onClick.AddListener(OnAddPER);
         if (buttonVIT != null) buttonVIT.onClick.AddListener(OnAddVIT);
+
+        // Load Firebase khi bắt đầu
+        PlayerStatsFirebase.LoadStats(success =>
+        {
+            if (success)
+            {
+                UpdateAllStatsUI();
+                UpdateDerivedStats();
+                UpdateButtonInteractable();
+            }
+        });
     }
 
     private int GetPointNeededForLevel(int level)
@@ -96,9 +107,7 @@ public class PlayerStatsManager : MonoBehaviour
             currentSTR += need;
             totalPoint -= need;
             strLevel += 1;
-            UpdateAllStatsUI();
-            UpdateDerivedStats();
-            UpdateButtonInteractable();
+            OnStatChanged();
         }
     }
     public void OnAddINT()
@@ -110,9 +119,7 @@ public class PlayerStatsManager : MonoBehaviour
             currentINT += need;
             totalPoint -= need;
             intLevel += 1;
-            UpdateAllStatsUI();
-            UpdateDerivedStats();
-            UpdateButtonInteractable();
+            OnStatChanged();
         }
     }
     public void OnAddDUR()
@@ -124,9 +131,7 @@ public class PlayerStatsManager : MonoBehaviour
             currentDUR += need;
             totalPoint -= need;
             durLevel += 1;
-            UpdateAllStatsUI();
-            UpdateDerivedStats();
-            UpdateButtonInteractable();
+            OnStatChanged();
         }
     }
     public void OnAddPER()
@@ -138,9 +143,7 @@ public class PlayerStatsManager : MonoBehaviour
             currentPER += need;
             totalPoint -= need;
             perLevel += 1;
-            UpdateAllStatsUI();
-            UpdateDerivedStats();
-            UpdateButtonInteractable();
+            OnStatChanged();
         }
     }
     public void OnAddVIT()
@@ -152,9 +155,7 @@ public class PlayerStatsManager : MonoBehaviour
             currentVIT += need;
             totalPoint -= need;
             vitLevel += 1;
-            UpdateAllStatsUI();
-            UpdateDerivedStats();
-            UpdateButtonInteractable();
+            OnStatChanged();
         }
     }
 
@@ -201,4 +202,15 @@ public class PlayerStatsManager : MonoBehaviour
         if (critDamageText != null) critDamageText.text = critDamage.ToString("0.00");
         if (baseDamageText != null) baseDamageText.text = baseDamage.ToString("0.0");
     }
+
+    private void OnStatChanged()
+    {
+        UpdateAllStatsUI();
+        UpdateDerivedStats();
+        UpdateButtonInteractable();
+
+        // Lưu Firebase mỗi lần thay đổi
+        PlayerStatsFirebase.SaveStats(this);
+    }
+
 }
