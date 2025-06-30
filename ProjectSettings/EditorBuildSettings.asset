@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Earth/Map1.unity
     guid: 240cf9214bda80243bb5e968d257f325
   - enabled: 1

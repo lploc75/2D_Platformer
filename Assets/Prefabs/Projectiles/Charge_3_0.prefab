@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2121527596021130322}
   - component: {fileID: 2175506608942714105}
   - component: {fileID: 2446040260556138615}
+  - component: {fileID: 7344212684435737690}
   m_Layer: 9
   m_Name: Charge_3_0
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1169267155618189968}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.348, y: -0.039, z: 0}
+  m_LocalPosition: {x: 0.348, y: -0.039, z: 2}
   m_LocalScale: {x: 1.0080742, y: 0.97852004, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -107,7 +108,7 @@ MonoBehaviour:
   moveSpeed: {x: 15, y: 0}
   knockback: {x: 2, y: 2}
   lifetime: 1.4
-  acceleration: -2000
+  destroyDelayAfterCollide: 0.25
 --- !u!50 &2121527596021130322
 Rigidbody2D:
   serializedVersion: 5
@@ -193,3 +194,15 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -0.16987176, y: 0.28226158}
   m_Radius: 0.21345215
+--- !u!210 &7344212684435737690
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169267155618189968}
+  m_Enabled: 1
+  m_SortingLayerID: -247178623
+  m_SortingLayer: 15
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
