@@ -7,11 +7,11 @@ public class Damageable : MonoBehaviour
 
     Animator animator;
 
-    [SerializeField] private int _maxHealth = 100;
+    [SerializeField] private int _maxHealth;
     [SerializeField] private bool _isAlive = true;
     [SerializeField] private bool isInvincible = false;
 
-    private int _health = 100;
+    private int _health;
     private float timeSinceHit = 0;
     public float invincibilityTime = 0.25f;
 
@@ -115,5 +115,26 @@ public class Damageable : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         LockVelocity = false;
+    }
+
+    public void SetMaxHealth(int newMax, bool fill = true)
+    {
+        MaxHealth = Mathf.Max(newMax, 1); // an toàn
+        if (fill)
+        {
+            Health = MaxHealth;
+        }
+        else
+        {
+            Health = Mathf.Clamp(Health, 0, MaxHealth);
+        }
+
+        if (healthBar != null)
+        {
+            healthBar.SetMaxHealth(MaxHealth);
+            healthBar.SetHealth(Health); // cập nhật UI
+        }
+
+        Debug.Log($"[Damageable] 🔁 SetMaxHealth = {MaxHealth}, currentHealth = {Health}");
     }
 }

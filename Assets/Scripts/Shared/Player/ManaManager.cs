@@ -94,8 +94,7 @@ namespace Assets.Scripts.Shared.Player
         public void SetMaxMana(float newMax)
         {
             maxMana = Mathf.Max(newMax, 1f);
-            //currentMana = Mathf.Clamp(currentMana, 0f, maxMana);
-            currentMana = maxMana;
+            currentMana = Mathf.Clamp(maxMana, 0f, maxMana);
             if (manaSlider != null)
             {
                 manaSlider.maxValue = maxMana;
