@@ -9,23 +9,14 @@ public class Attack : MonoBehaviour
         Damageable damageable = collision.GetComponent<Damageable>();
         if (damageable != null)
         {
-            bool gotHit = damageable.Hit(attackDamage, knockback);
+            Vector2 deliveredKnockback = transform.parent.localScale.x > 0 ? 
+                knockback : new Vector2(-knockback.x, knockback.y); 
+
+            bool gotHit = damageable.Hit(attackDamage, deliveredKnockback);
             if (gotHit)
             {
                 Debug.Log(collision.name + " hit for" + attackDamage);
             }
         }
     }
-
-    //// Start is called once before the first execution of Update after the MonoBehaviour is created
-    //void Start()
-    //{
-
-    //}
-
-    //// Update is called once per frame
-    //void Update()
-    //{
-
-    //}
 }

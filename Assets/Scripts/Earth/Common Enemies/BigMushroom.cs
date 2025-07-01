@@ -2,19 +2,29 @@
 using System.Collections;
 using Assets.Scripts.Earth.Common_Enemies;
 using UnityEngine;
+using UnityEngine.XR;
 using static UnityEngine.Rendering.DebugUI;
 
-[RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections))]
+[RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections), typeof(Damageable))]
 public class BigMushroom : MonoBehaviour
 {
+    [Header("Coin Drop Settings")]
+    public GameObject coinPrefab; // Gán từ Inspector
+    public int coinCount = 1; // Số lượng coin rớt
+    public float coinSpread = 0.5f; // Phạm vi random vị trí rớt
+    private bool hasDroppedCoin = false;
+
+    [Header("Moving Settings")]
     public float walkSpeed = 4f;
     private bool canFlip = true;
     public float flipCooldown = 0.2f;
 
     Rigidbody2D rb;
     Animator animator;
+    Damageable damageable;
     TouchingDirections touchingDirections;
     public DetectionZone attackZone;
+    public DetectionZone cliffDetectionzone;
     public enum WalkableDirection {Right, Left }
     private WalkableDirection _walkDireciton;
     private Vector2 walkDirectionVector = Vector2.right;
@@ -73,8 +83,18 @@ public class BigMushroom : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         touchingDirections = GetComponent<TouchingDirections>();
         animator = GetComponent<Animator>();
+        damageable = GetComponent<Damageable>();
     }
+    void Update()
+    {
+        HasTarget = attackZone.detectedColliders.Count > 0;
 
+        if (!IsAlive && !hasDroppedCoin)
+        {
+            DropCoins();
+            hasDroppedCoin = true;
+        }
+    }
     private void FixedUpdate()
     {
         if (touchingDirections.IsGrounded && touchingDirections.IsOnWall && canFlip)
@@ -82,16 +102,19 @@ public class BigMushroom : MonoBehaviour
             FlipDirection();
             StartCoroutine(FlipCooldown());
         }
-        if (CanMove && IsAlive)
+        if (!damageable.LockVelocity)
         {
-            rb.linearVelocity = new Vector2(walkSpeed * walkDirectionVector.x, rb.linearVelocity.y);
-        }else
-        {
-            rb.linearVelocity= Vector2.zero;
+            if (CanMove && IsAlive && touchingDirections.IsGrounded)
+            {
+                rb.linearVelocity = new Vector2(walkSpeed * walkDirectionVector.x,
+                    rb.linearVelocity.y);
+            }
+            else
+            {
+                rb.linearVelocity = Vector2.zero;
+            }
         }
-
     }
-
     private void FlipDirection()
     {
         if(WalkDirection == WalkableDirection.Right)
@@ -107,15 +130,36 @@ public class BigMushroom : MonoBehaviour
         }
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    //void Start()
-    //{
-        
-    //}
-
-    // Update is called once per frame
-    void Update()
+    public void OnHit(int damage, Vector2 knockback)
     {
-        HasTarget = attackZone.detectedColliders.Count > 0;
+        rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocity.y + knockback.y);
     }
+
+    public void OnCliffDetected()
+    {
+        if (touchingDirections.IsGrounded)
+        {
+            FlipDirection();
+        }
+    }
+    void DropCoins()
+    {
+        for (int i = 0; i < coinCount; i++)
+        {
+            Vector2 dropOffset = new Vector2(UnityEngine.Random.Range(-coinSpread, coinSpread), 0.5f);
+            Vector3 dropPosition = transform.position + (Vector3)dropOffset;
+
+            GameObject coin = Instantiate(coinPrefab, dropPosition, Quaternion.identity);
+
+            // Coin bay nhẹ ra ngoài
+            Rigidbody2D rb = coin.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                float forceX = UnityEngine.Random.Range(-2f, 2f);
+                float forceY = UnityEngine.Random.Range(2f, 4f);
+                rb.AddForce(new Vector2(forceX, forceY), ForceMode2D.Impulse);
+            }
+        }
+    }
+
 }

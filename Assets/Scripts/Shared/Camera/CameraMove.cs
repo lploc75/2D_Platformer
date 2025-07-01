@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SimpleCameraMove : MonoBehaviour
 {
@@ -9,9 +10,11 @@ public class SimpleCameraMove : MonoBehaviour
     public GameObject dialoguePanel;
     public float dialogueDelay = 1.5f;
     public DialogueManager dialogueManager;
-    public PlayerController playerController;
-
     public AdvancedDialogueProfile cutsceneProfile; // Kéo asset thoại cutscene vào đây
+
+    [Header("Input System")]
+    public PlayerInput playerInput;           // Kéo PlayerInput (trên Player) vào đây
+    public string actionMapName = "Player";   // Đặt đúng tên ActionMap điều khiển
 
     private float timer = 0f;
     private bool moving = false;
@@ -25,9 +28,12 @@ public class SimpleCameraMove : MonoBehaviour
         if (dialoguePanel != null)
             dialoguePanel.SetActive(false);
 
-        // KHÓA PLAYER NGAY TỪ ĐẦU
-        if (playerController != null)
-            playerController.canControl = false;
+        // KHÓA INPUT bằng PlayerInput
+        if (playerInput != null)
+        {
+            var map = playerInput.actions.FindActionMap(actionMapName);
+            if (map != null) map.Disable();
+        }
     }
 
     void Update()
@@ -73,13 +79,32 @@ public class SimpleCameraMove : MonoBehaviour
         }
         cg.alpha = 1f;
 
-        // GỌI THOẠI CỦA CUTSCENE THEO PROFILE MỚI
+        // GỌI THOẠI CỦA CUTSCENE
         if (dialogueManager != null && cutsceneProfile != null)
         {
             dialogueManager.StartDialogueFromLines(
-                cutsceneProfile.defaultLines, // hoặc cutsceneProfile.cutsceneLines nếu bạn bổ sung trường này
-                cutsceneProfile.characterName
+                cutsceneProfile.defaultLines,
+                cutsceneProfile.characterName,
+                null,
+                () =>
+                {
+                    // MỞ LẠI INPUT khi kết thúc thoại
+                    if (playerInput != null)
+                    {
+                        var map = playerInput.actions.FindActionMap(actionMapName);
+                        if (map != null) map.Enable();
+                    }
+                }
             );
+        }
+        else
+        {
+            // Nếu không có dialogueManager thì bật input luôn
+            if (playerInput != null)
+            {
+                var map = playerInput.actions.FindActionMap(actionMapName);
+                if (map != null) map.Enable();
+            }
         }
     }
 }

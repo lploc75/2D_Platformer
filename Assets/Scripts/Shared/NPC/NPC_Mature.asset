@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 078e16a7ea9caef45be5bc420879386e, type: 3}
+  m_Name: NPC_Mature
+  m_EditorClassIdentifier: 
+  npcId: mature
+  characterName: OldMan
+  avatar: {fileID: 6373048116405451881, guid: 3357c6188c95e8c4cb05dd374c7f3f19, type: 3}
+  isQuestGiver: 1
+  defaultLines:
+  - Hello, Arin. Our village always welcomes brave young people like you!
+  - If you have any questions, just come ask me.
+  questId: main_1_crystal
+  questOfferLines:
+  - Are you awake, Arin? The crystal of light has broken, the whole village is in
+    darkness.
+  - Go and talk with NPCs to get information.
+  questInProgressLines:
+  - Go ask the NPCs in the village to see if anyone knows anything about the light
+    crystal piece.
+  questSpecialLines: []
+  rewardItem: {fileID: 0}
+  questCompletedLines:
+  - Good job, Arin! You found a clue about the light crystal. There's hope for our
+    village!
+  unlockAfterQuestId: 
+  unlockedLines: []

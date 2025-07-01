@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc72dac7726285d408291e3ca3c7b90a, type: 3}
+  m_Name: Icons_25_54
+  m_EditorClassIdentifier: 
+  itemName: Sand cloak
+  itemType: 0
+  quality: 0
+  icon: {fileID: 3080355479415885870, guid: 6213fbe4f38260a42a0694b97787109f, type: 3}
+  description: "\xC1o cho\xE0ng c\xE1t t\u0103ng r\u1EA5t nhi\u1EC1u sinh l\u1EF1c"
+  healthBonus: 80
+  critChance: 0.15
