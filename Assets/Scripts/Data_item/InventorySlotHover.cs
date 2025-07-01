@@ -1,28 +1,34 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class InventorySlotHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    string description;
+    ItemData itemData;
     InventoryTooltipUI tooltipUI;
 
-    public void Setup(string desc, InventoryTooltipUI tooltip)
+    public void Setup(ItemData data, InventoryTooltipUI tooltip)
     {
-        description = desc;
+        itemData = data;
         tooltipUI = tooltip;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Pointer Enter: " + gameObject.name);
-        if (!string.IsNullOrEmpty(description) && tooltipUI != null)
-            tooltipUI.ShowTooltip(description, Input.mousePosition);
+        if (itemData != null && tooltipUI != null)
+        {
+            tooltipUI.ShowTooltip(itemData, Input.mousePosition);
+            Debug.Log("Pointer enter slot: " + itemData.itemName);
+        }
+        else
+        {
+            Debug.Log("Pointer enter slot: itemData is null (slot trống)");
+        }
     }
+
+
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("Pointer Exit: " + gameObject.name);
         if (tooltipUI != null)
             tooltipUI.HideTooltip();
     }
-
 }
