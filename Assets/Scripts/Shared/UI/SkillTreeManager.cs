@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class SkillTreeManager : MonoBehaviour
 {
     public List<Skill> skills;
-    public int playerSouls = 0;
+    public int playerSouls = 200;
 
     
 
