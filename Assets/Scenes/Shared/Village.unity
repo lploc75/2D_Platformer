@@ -16144,7 +16144,11 @@ GameObject:
   - component: {fileID: 553857370}
   - component: {fileID: 553857369}
   m_Layer: 5
+<<<<<<< HEAD
   m_Name: Canvas
+=======
+  m_Name: Attribute
+>>>>>>> 434bead692ea2ffe43ad0c7bf587bcb0b49d99a7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46086,12 +46090,16 @@ GameObject:
   - component: {fileID: 2046624330}
   - component: {fileID: 2046624332}
   m_Layer: 5
+<<<<<<< HEAD
   m_Name: InventoryPanel
+=======
+  m_Name: TooltipPanel
+>>>>>>> 434bead692ea2ffe43ad0c7bf587bcb0b49d99a7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2046624329
 RectTransform:
   m_ObjectHideFlags: 0
@@ -46117,8 +46125,13 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
+<<<<<<< HEAD
   m_AnchoredPosition: {x: 294.19067, y: 37.72874}
   m_SizeDelta: {x: -625.7731, y: -205.9972}
+=======
+  m_AnchoredPosition: {x: 530, y: 0}
+  m_SizeDelta: {x: -621.10016, y: -203.19348}
+>>>>>>> 434bead692ea2ffe43ad0c7bf587bcb0b49d99a7
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2046624330
 MonoBehaviour:
@@ -46175,6 +46188,7 @@ MonoBehaviour:
   typeText: {fileID: 1733453791}
   qualityText: {fileID: 667654009}
   descText: {fileID: 674538009}
+<<<<<<< HEAD
   weaponPanel: {fileID: 1890742567}
   baseDamageRow: {fileID: 1501815133}
   critChanceRow: {fileID: 29360856}
@@ -46187,6 +46201,8 @@ MonoBehaviour:
   armorCritChanceRow: {fileID: 809624849}
   healthBonusValue: {fileID: 453292980}
   armorCritChanceValue: {fileID: 1543297402}
+=======
+>>>>>>> 434bead692ea2ffe43ad0c7bf587bcb0b49d99a7
 --- !u!1 &2054081227
 GameObject:
   m_ObjectHideFlags: 0

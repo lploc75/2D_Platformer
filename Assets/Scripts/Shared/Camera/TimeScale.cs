@@ -7,13 +7,11 @@ public class DebugSpeedUp : MonoBehaviour
     void Update()
     {
 
-            Time.timeScale = speedUpScale;
-            Debug.Log("Game speed up!");
+            Time.timeScale = speedUpScale;           
         
         if (Input.GetKeyDown(KeyCode.F2))
         {
             Time.timeScale = 1f;
-            Debug.Log("Game normal speed.");
         }
     }
 }

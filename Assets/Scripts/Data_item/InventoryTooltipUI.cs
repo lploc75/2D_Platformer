@@ -7,6 +7,7 @@ public class InventoryTooltipUI : MonoBehaviour
     public GameObject tooltipPanel;
     public TextMeshProUGUI nameText, typeText, qualityText, descText;
 
+<<<<<<< HEAD
     [Header("Weapon Panel")]
     public GameObject weaponPanel;
     public GameObject baseDamageRow, critChanceRow, critDamageRow;
@@ -153,6 +154,28 @@ public class InventoryTooltipUI : MonoBehaviour
         localPoint.y = Mathf.Clamp(localPoint.y, minY, maxY);
 
         tooltipRect.anchoredPosition = localPoint;
+=======
+    public void ShowTooltip(ItemData item, Vector2 pos)
+    {
+        if (item == null)
+        {
+            Debug.LogWarning("ShowTooltip: ItemData is null!");
+            tooltipPanel?.SetActive(false);
+            return;
+        }
+
+        if (nameText) nameText.text = item.itemName;
+        if (typeText) typeText.text = item.itemType.ToString();
+        if (qualityText) qualityText.text = item.quality.ToString();
+        if (descText) descText.text = item.description;
+
+        if (tooltipPanel)
+        {
+            tooltipPanel.SetActive(true);
+            Vector2 offset = new Vector2(20, -20);
+            tooltipPanel.transform.position = pos + offset;
+        }
+>>>>>>> 434bead692ea2ffe43ad0c7bf587bcb0b49d99a7
     }
 
     public void HideTooltip()
