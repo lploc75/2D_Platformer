@@ -4,21 +4,34 @@ using TMPro;
 
 public class InventoryTooltipUI : MonoBehaviour
 {
-    public GameObject tooltipPanel;        // Kéo TooltipPanel vào
-    public TextMeshProUGUI descriptionText;    // Kéo Text vào
+    [Header("Main Panel")]
+    public GameObject tooltipPanel;
+    public TextMeshProUGUI nameText, typeText, qualityText, descText;
 
-    public void ShowTooltip(string desc, Vector2 pos)
+    public void ShowTooltip(ItemData item, Vector2 pos)
     {
-        Debug.Log("ShowTooltip: " + desc); // Xem desc có đúng không
-        descriptionText.text = desc;
-        tooltipPanel.SetActive(true);
-        Vector2 offset = new Vector2(20, -20); // lệch sang phải, xuống dưới 1 chút
-        tooltipPanel.transform.position = pos + offset;
-    }
+        if (item == null)
+        {
+            Debug.LogWarning("ShowTooltip: ItemData is null!");
+            tooltipPanel?.SetActive(false);
+            return;
+        }
 
+        if (nameText) nameText.text = item.itemName;
+        if (typeText) typeText.text = item.itemType.ToString();
+        if (qualityText) qualityText.text = item.quality.ToString();
+        if (descText) descText.text = item.description;
+
+        if (tooltipPanel)
+        {
+            tooltipPanel.SetActive(true);
+            Vector2 offset = new Vector2(20, -20);
+            tooltipPanel.transform.position = pos + offset;
+        }
+    }
 
     public void HideTooltip()
     {
-        tooltipPanel.SetActive(false);
+        if (tooltipPanel) tooltipPanel.SetActive(false);
     }
 }

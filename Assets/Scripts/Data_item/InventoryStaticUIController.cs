@@ -41,7 +41,7 @@ public class InventoryStaticUIController : MonoBehaviour
                 btn.onClick.AddListener(() => OnClickWeapon(weaponList[weaponIndex]));
 
                 // **Gắn mô tả vào hover**
-                hover.Setup(weapon.description, tooltipUI);
+                hover.Setup(weapon, tooltipUI);
             }
             else
             {
@@ -54,7 +54,7 @@ public class InventoryStaticUIController : MonoBehaviour
                 }
                 btn.onClick.RemoveAllListeners();
 
-                // **Slot trống, không mô tả**
+                // Slot trống truyền null như cũ:
                 hover.Setup(null, tooltipUI);
             }
         }
