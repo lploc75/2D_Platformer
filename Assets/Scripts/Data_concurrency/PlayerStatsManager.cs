@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Assets.Scripts.Shared.Player;
 
 public class PlayerStatsManager : MonoBehaviour
 {
     public static PlayerStatsManager Instance { get; private set; }
+    [SerializeField] private ManaManager manaManager;
 
     public int totalPoint = 60;
 
@@ -193,8 +195,17 @@ public class PlayerStatsManager : MonoBehaviour
         if (critChanceText != null) critChanceText.text = (critChance * 100).ToString("0.##") + "%";
         if (critDamageText != null) critDamageText.text = critDamage.ToString("0.00");
         if (baseDamageText != null) baseDamageText.text = baseDamage.ToString("0.0");
-    }
 
+        if (manaManager != null)
+        {
+            Debug.Log("✅ UpdateDerivedStats từ PlayerStatsManager: " + maxMP);
+            manaManager.SetMaxMana(maxMP);
+        }
+        else
+        {
+            Debug.LogWarning("❌ ManaManager chưa được gán trong Inspector");
+        }
+    }
     private void OnStatChanged()
     {
         UpdateAllStatsUI();

@@ -5,7 +5,6 @@ using Assets.Scripts.Data_concurrency;
 public static class PlayerStatsFileHandler
 {
     private static string SavePath => Path.Combine(Application.persistentDataPath, "player_data.json");
-
     public static void Save(PlayerStatsManager manager)
     {
         PlayerStatsDataModel data = new PlayerStatsDataModel

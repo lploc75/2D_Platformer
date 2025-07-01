@@ -14,8 +14,6 @@ using UnityEngine;
         public float runSpeed = 8f;
         public float jumpImpulse = 10f;
         private bool canDoubleJump;
-        [SerializeField] private float maxMana = 100f;
-        [SerializeField] private float currentMana = 100f;
     /*
      Slider của mana min là 0 và max là 1, thay đổi bằng current mana / max mana
      */
@@ -120,10 +118,7 @@ using UnityEngine;
             touchingDirections = GetComponent<TouchingDirections>();
             damageable = GetComponent<Damageable>();
         }
-        private void Start()
-        {
-            currentMana = maxMana;
-        }
+
         private void FixedUpdate()
         {
             float horizontalVelocity = moveInput.x * CurrentMoveSpeed;
@@ -239,16 +234,10 @@ using UnityEngine;
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        Debug.Log("ATtack");
-
         if (context.started && manaManager != null)
         {
-            Debug.Log("ATtack2");
-
             if (manaManager.ConsumeMana(manaCost))
             {
-                Debug.Log(manaCost);
-                Debug.Log(currentMana);
                 animator.SetTrigger(AnimationStrings.attackTrigger);
             }
         }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace Assets.Scripts.Shared.Player
@@ -12,20 +7,21 @@ namespace Assets.Scripts.Shared.Player
     {
         [Header("UI")]
         public Slider manaSlider;
+
         [Header("Thiết lập")]
-        public float maxMana = 100f;
+        private float maxMana; // Không còn public
         public float manaRegenRate = 5f;   // Mana hồi mỗi giây
-        public float regenDelay = 2f;   // Trễ trước khi hồi
+        public float regenDelay = 2f;      // Trễ trước khi hồi
 
         [HideInInspector]
         public float currentMana;
 
         private float regenTimer = 0f;
         private bool consumedThisFrame = false;
-        // ────────────────────────────────────────────────────────────
+
         void Start()
         {
-            currentMana = maxMana;
+            Debug.Log($"[ManaManager] Start -> currentMana = {currentMana}");
 
             if (manaSlider != null)
             {
@@ -36,7 +32,6 @@ namespace Assets.Scripts.Shared.Player
 
         void Update()
         {
-            // Nếu frame trước có tiêu hao, reset timer và bỏ cờ
             if (consumedThisFrame)
             {
                 regenTimer = 0f;
@@ -44,10 +39,11 @@ namespace Assets.Scripts.Shared.Player
             }
             else
             {
-                // Đếm ngược và hồi mana
                 if (regenTimer >= regenDelay)
                 {
-                    currentMana += manaRegenRate * Time.deltaTime;
+                    float regenAmount = manaRegenRate * Time.deltaTime;
+                    currentMana += regenAmount;
+                    Debug.Log($"[ManaManager] Regen +{regenAmount:F2} -> currentMana = {currentMana:F2}");
                 }
                 else
                 {
@@ -61,13 +57,18 @@ namespace Assets.Scripts.Shared.Player
                 manaSlider.value = currentMana;
         }
 
-        // ────────────────────────────────────────────────────────────
-        public bool HasMana(float cost) => currentMana >= cost;
+        public bool HasMana(float cost)
+        {
+            return currentMana >= cost;
+        }
 
-        /// <summary>Tiêu hao mana, trả về true nếu thành công.</summary>
         public bool ConsumeMana(float cost)
         {
-            if (!HasMana(cost)) return false;
+            if (!HasMana(cost))
+            {
+                Debug.LogWarning($"[ManaManager] ❌ Không đủ mana! Yêu cầu {cost}, hiện tại {currentMana}");
+                return false;
+            }
 
             currentMana -= cost;
             consumedThisFrame = true;
@@ -75,16 +76,33 @@ namespace Assets.Scripts.Shared.Player
             if (manaSlider != null)
                 manaSlider.value = currentMana;
 
+            Debug.Log($"[ManaManager] ✅ Tiêu hao {cost} mana → còn lại: {currentMana}");
+
             return true;
         }
 
-        /// <summary>Hồi mana ngay lập tức (item, hiệu ứng…)</summary>
         public void AddMana(float amount)
         {
             currentMana = Mathf.Clamp(currentMana + amount, 0f, maxMana);
 
             if (manaSlider != null)
                 manaSlider.value = currentMana;
+
+            Debug.Log($"[ManaManager] 💧 Hồi {amount} mana → currentMana = {currentMana}");
+        }
+
+        public void SetMaxMana(float newMax)
+        {
+            maxMana = Mathf.Max(newMax, 1f);
+            //currentMana = Mathf.Clamp(currentMana, 0f, maxMana);
+            currentMana = maxMana;
+            if (manaSlider != null)
+            {
+                manaSlider.maxValue = maxMana;
+                manaSlider.value = currentMana;
+            }
+
+            Debug.Log($"[ManaManager] 🔁 SetMaxMana = {maxMana}, currentMana = {currentMana}");
         }
     }
 }
