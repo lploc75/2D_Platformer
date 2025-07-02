@@ -1,0 +1,56 @@
+[33mcommit 545288d6ed12c3604b36279d752925556396b585[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mKhanh[m[33m)[m
+Author: KhanhPoi <khanhlcce181175@fpt.edu.vn>
+Date:   Tue Jul 1 14:16:05 2025 +0700
+
+    Thêm hover vào trang bị
+
+[33mcommit c33e69196e0c658ad5192f76abf2c9ab91336112[m
+Merge: 650a485 65eafe6
+Author: huyth96 <huyth.work@gmail.com>
+Date:   Tue Jul 1 09:39:50 2025 +0700
+
+    Merge pull request #29 from lploc75/Huy
+    
+    Add reward UI
+
+[33mcommit 65eafe69e77d78d7017b0443cd14ee946f6640b6[m[33m ([m[1;31morigin/Huy[m[33m)[m
+Author: Huy <Huyth.work@gmail.com>
+Date:   Mon Jun 30 23:31:27 2025 +0700
+
+    Add reward UI
+
+[33mcommit 650a4851acd9aba75fb0e7c900d7a8db31759b38[m
+Merge: b5e660c 32b3110
+Author: lploc75 <147076873+lploc75@users.noreply.github.com>
+Date:   Mon Jun 30 21:01:48 2025 +0700
+
+    Merge pull request #28 from lploc75/Khanh
+    
+    Khanh
+
+[33mcommit b5e660ce43d3072a596dc7d18f450526d1c880c1[m
+Merge: affafbe 43d4de8
+Author: lploc75 <147076873+lploc75@users.noreply.github.com>
+Date:   Mon Jun 30 21:01:24 2025 +0700
+
+    Merge pull request #27 from lploc75/Huy
+    
+    Huy
+
+[33mcommit affafbe59468bdcc32dc99a83656ca829f5d3037[m
+Author: lploc75 <lpl070524@gmail.com>
+Date:   Sun Jun 29 22:39:26 2025 +0700
+
+    Thêm phần lưu và load chỉ số người chơi lên firebase
+
+[33mcommit 1de5fb4552884a009357f824e32be4cdac1610e7[m
+Author: lploc75 <lpl070524@gmail.com>
+Date:   Sun Jun 29 22:13:05 2025 +0700
+
+    Thêm phần kết nối Firebase, chỉnh gitignore cho phần Firebase Assests
+
+[33mcommit 7e1cac2abb186a693b7dd3bdda4005284ec829ef[m
+Author: lploc75 <147076873+lploc75@users.noreply.github.com>
+Date:   Sun Jun 29 21:49:20 2025 +0700
+
+    Update .gitignore thêm phần firebase

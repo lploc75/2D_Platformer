@@ -187,7 +187,7 @@ public class PlayerStatsManager : MonoBehaviour
 
         manaRegen = currentINT * 0.2f;
         critChance = currentPER * 0.0075f + bonusArmorCritChance + bonusWeaponCritChance;
-        critDamage = 0.2f + (currentINT / 25.0f) + bonusWeaponCritDamage;
+        critDamage = 0.2f + (currentPER / 25.0f) + bonusWeaponCritDamage;
         baseDamage = 10 + (currentSTR / 3.0f);
 
         if (hpText != null) hpText.text = maxHP.ToString();

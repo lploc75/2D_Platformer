@@ -12,6 +12,15 @@ public class WeaponData : ItemData
     [Tooltip("Tỷ lệ chí mạng (0-1, ví dụ: 0.2 = 20%)")]
     public float critChance;
 
+    [Tooltip("Bonus HP từ vũ khí")]
+    public float hp;
+
+    [Tooltip("Bonus SP (Stamina) từ vũ khí")]
+    public float sp;
+
+    [Tooltip("Bonus MP (Mana) từ vũ khí")]
+    public float mp;
+
     public int GetAttackPower()
     {
         return Mathf.RoundToInt(baseDamage * GetQualityMultiplier());
