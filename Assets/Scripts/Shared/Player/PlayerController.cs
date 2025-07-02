@@ -14,10 +14,8 @@ using UnityEngine;
         public float runSpeed = 8f;
         public float jumpImpulse = 10f;
         private bool canDoubleJump;
-    /*
-     Slider của mana min là 0 và max là 1, thay đổi bằng current mana / max mana
-     */
-    private float manaCost = 1f; // mana của skill default
+
+        private float manaCost = 1f; // mana của skill default
 
     [Header("Manager tham chiếu")]
         public ManaManager manaManager;

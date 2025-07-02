@@ -59,4 +59,14 @@ public class StaminaManager : MonoBehaviour
     {
         isUsingStamina = value;
     }
+    public void SetMaxStamina(float newMaxStamina)
+    {
+        maxStamina = newMaxStamina;
+        currentStamina = Mathf.Clamp(maxStamina, 0, maxStamina); // đảm bảo không vượt quá giới hạn mới
+        staminaSlider.maxValue = maxStamina;
+        staminaSlider.value = currentStamina;
+        Debug.Log($"[StaminaManager] 🔁 SetMaxMana = {maxStamina}, currentMana = {currentStamina}");
+
+    }
+
 }

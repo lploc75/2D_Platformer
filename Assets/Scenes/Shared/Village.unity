@@ -12790,7 +12790,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &402719959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15469,7 +15469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &553857369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16024,6 +16024,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d6d4a7149aeacb448c990da4e043982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manaManager: {fileID: 1541745904}
+  damageable: {fileID: 1275586792}
   totalPoint: 60
   currentSTR: 0
   currentINT: 0
@@ -17026,7 +17028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21593e1f426a3454a99eea442fcdb472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedUpScale: 5
+  speedUpScale: 1
 --- !u!4 &656120187
 Transform:
   m_ObjectHideFlags: 0
@@ -29902,11 +29904,8 @@ MonoBehaviour:
   walkSpeed: 4
   runSpeed: 8
   jumpImpulse: 10
-  maxMana: 100
-  currentMana: 0
-  manaSlider: {fileID: 1426747083}
+  manaManager: {fileID: 1541745904}
   staminaManager: {fileID: 1541745899}
-  runStaminaDrain: 20
   _isMoving: 0
   _isRunning: 1
   _isFacingRight: 1
@@ -31869,7 +31868,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8195410549015336070, guid: 77192ba4046e5634e9d60aa81c41c2ed, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8195410549015336070, guid: 77192ba4046e5634e9d60aa81c41c2ed, type: 3}
       propertyPath: m_AnchorMin.x
@@ -31877,15 +31876,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8195410549015336070, guid: 77192ba4046e5634e9d60aa81c41c2ed, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8195410549015336070, guid: 77192ba4046e5634e9d60aa81c41c2ed, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8195410549015336070, guid: 77192ba4046e5634e9d60aa81c41c2ed, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 8195410549015336070, guid: 77192ba4046e5634e9d60aa81c41c2ed, type: 3}
       propertyPath: m_LocalPosition.x
@@ -31917,11 +31916,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8195410549015336070, guid: 77192ba4046e5634e9d60aa81c41c2ed, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 340.5
       objectReference: {fileID: 0}
     - target: {fileID: 8195410549015336070, guid: 77192ba4046e5634e9d60aa81c41c2ed, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -50
       objectReference: {fileID: 0}
     - target: {fileID: 8195410549015336070, guid: 77192ba4046e5634e9d60aa81c41c2ed, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -35227,6 +35226,7 @@ GameObject:
   - component: {fileID: 1541745900}
   - component: {fileID: 1541745899}
   - component: {fileID: 1541745898}
+  - component: {fileID: 1541745904}
   m_Layer: 5
   m_Name: Health
   m_TagString: Untagged
@@ -35348,6 +35348,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1541745904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541745897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7efe4f4bd42154f45a1cdc54c6dbafb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manaSlider: {fileID: 1426747083}
+  manaRegenRate: 5
+  regenDelay: 2
+  currentMana: 0
 --- !u!1 &1556795332
 GameObject:
   m_ObjectHideFlags: 0

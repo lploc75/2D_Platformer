@@ -8,6 +8,7 @@ public class PlayerStatsManager : MonoBehaviour
     public static PlayerStatsManager Instance { get; private set; }
     [SerializeField] private ManaManager manaManager;
     [SerializeField] private Damageable damageable;
+    [SerializeField] private StaminaManager staminaManager;
 
     public int totalPoint = 60;
 
@@ -213,7 +214,14 @@ public class PlayerStatsManager : MonoBehaviour
         {
             Debug.LogWarning("❌ Damageable chưa được gán trong Inspector");
         }
-
+        if (staminaManager != null)
+        {
+            staminaManager.SetMaxStamina(maxSP);
+        }
+        else
+        {
+            Debug.LogWarning("❌ StaminaManager chưa được gán trong Inspector");
+        }
     }
     private void OnStatChanged()
     {
