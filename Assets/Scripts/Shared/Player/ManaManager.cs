@@ -44,7 +44,7 @@ namespace Assets.Scripts.Shared.Player
                 {
                     float regenAmount = manaRegenRate * Time.deltaTime;
                     currentMana += regenAmount;
-                    Debug.Log($"[ManaManager] Regen +{regenAmount:F2} -> currentMana = {currentMana:F2}");
+                    //Debug.Log($"[ManaManager] Regen +{regenAmount:F2} -> currentMana = {currentMana:F2}");
                 }
                 else
                 {

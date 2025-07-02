@@ -16025,6 +16025,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manaManager: {fileID: 1541745904}
   damageable: {fileID: 1275586792}
+  staminaManager: {fileID: 1541745899}
   totalPoint: 60
   currentSTR: 0
   currentINT: 0
@@ -29904,8 +29905,25 @@ MonoBehaviour:
   walkSpeed: 4
   runSpeed: 8
   jumpImpulse: 10
+  skills:
+  - skillName: Fireball
+    manaCost: 5
+    animationIndex: 1
+    magicDamage: 10
+    knockback: {x: 5, y: 5}
+  - skillName: Skill2
+    manaCost: 20
+    animationIndex: 2
+    magicDamage: 30
+    knockback: {x: 5, y: 5}
+  - skillName: Skill3
+    manaCost: 50
+    animationIndex: 3
+    magicDamage: 80
+    knockback: {x: 5, y: 5}
   manaManager: {fileID: 1541745904}
   staminaManager: {fileID: 1541745899}
+  projectileLauncher: {fileID: 1275586791}
   _isMoving: 0
   _isRunning: 1
   _isFacingRight: 1
@@ -30000,7 +30018,7 @@ Transform:
   m_GameObject: {fileID: 1275586789}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -74.7248, y: -3.0383666, z: 0}
+  m_LocalPosition: {x: -76.31, y: -2.79, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -44718,7 +44736,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2046624329
 RectTransform:
   m_ObjectHideFlags: 0
@@ -45405,7 +45423,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2069114904
 RectTransform:
   m_ObjectHideFlags: 0

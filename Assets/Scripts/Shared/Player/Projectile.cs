@@ -2,7 +2,8 @@
 
 public class Projectile : MonoBehaviour
 {
-    public int damage = 10;
+    // Damage này được chỉnh theo từng phép + với base damage
+    public int damage { get; private set; }      // bỏ “=10” mặc định
     public Vector2 moveSpeed = new Vector2(15f,0);
     public Vector2 knockback = new Vector2 (2,2);
 
@@ -24,6 +25,12 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject, lifetime);
     }
 
+    // Hàm khởi tạo (setter) – gọi ngay sau Instantiate
+    public void Init(int setDamage, Vector2 newKnockback)
+    {
+        damage = setDamage;
+        knockback = newKnockback;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Damageable damageable = collision.GetComponent<Damageable>();
@@ -34,7 +41,7 @@ public class Projectile : MonoBehaviour
                 knockback : new Vector2(-knockback.x, knockback.y);
             bool gotHit = damageable.Hit(damage, deliveredKnockback);
             //bool gotHit = damageable.Hit(damage);
-
+            Debug.Log("Damge và knockback từ Projectile " + damage + " -- " + deliveredKnockback);
             if (gotHit)
             {
                 Debug.Log(collision.name + "hit for " + damage);

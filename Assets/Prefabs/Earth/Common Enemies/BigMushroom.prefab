@@ -133,7 +133,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -194,6 +194,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c8aecbe0c3d148b78196cdac93788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinPrefab: {fileID: 6341476448709006985, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
+  coinCount: 1
+  coinSpread: 0.5
   walkSpeed: 4
   flipCooldown: 0.2
   attackZone: {fileID: 3105572303196759124}
