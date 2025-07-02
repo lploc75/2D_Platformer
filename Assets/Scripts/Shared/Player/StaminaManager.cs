@@ -3,7 +3,9 @@ using UnityEngine.UI;
 
 public class StaminaManager : MonoBehaviour
 {
+    [Header("UI")]
     public Slider staminaSlider;
+    [Header("Thiết lập")]
     public float maxStamina = 100f;
     public float currentStamina;
     public float staminaDrainRate = 20f; // thể lực mất mỗi giây khi hành động
@@ -57,4 +59,14 @@ public class StaminaManager : MonoBehaviour
     {
         isUsingStamina = value;
     }
+    public void SetMaxStamina(float newMaxStamina)
+    {
+        maxStamina = newMaxStamina;
+        currentStamina = Mathf.Clamp(maxStamina, 0, maxStamina); // đảm bảo không vượt quá giới hạn mới
+        staminaSlider.maxValue = maxStamina;
+        staminaSlider.value = currentStamina;
+        Debug.Log($"[StaminaManager] 🔁 SetMaxMana = {maxStamina}, currentMana = {currentStamina}");
+
+    }
+
 }

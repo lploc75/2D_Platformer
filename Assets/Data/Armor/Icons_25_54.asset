@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Icons_25_54
   m_EditorClassIdentifier: 
   itemName: Sand cloak
-  itemType: 0
+  itemType: 1
   quality: 0
   icon: {fileID: 3080355479415885870, guid: 6213fbe4f38260a42a0694b97787109f, type: 3}
   description: "\xC1o cho\xE0ng c\xE1t t\u0103ng r\u1EA5t nhi\u1EC1u sinh l\u1EF1c"
-  healthBonus: 80
-  critChance: 0.15
+  healthBonus: 20
+  critChance: 0

@@ -1,5 +1,6 @@
 ﻿    using System;
-    using UnityEngine;
+using Assets.Scripts.Shared.Player;
+using UnityEngine;
     using UnityEngine.InputSystem;
     /*
      Máu của nhận vật được set ở bên Damageable
@@ -7,22 +8,18 @@
     [RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections), typeof(Damageable))]
     public class PlayerController : MonoBehaviour
     {
+        [Header("Điều khiển")]
         public bool canControl = true;
         public float walkSpeed = 4f;
         public float runSpeed = 8f;
         public float jumpImpulse = 10f;
         private bool canDoubleJump;
-        [SerializeField] private float maxMana = 100f;
-        [SerializeField] private float currentMana = 100f;
-        /*
-         Slider của mana min là 0 và max là 1, thay đổi bằng current mana / max mana
-         */
-        [SerializeField] private UnityEngine.UI.Slider manaSlider;
+
         private float manaCost = 1f; // mana của skill default
 
+    [Header("Manager tham chiếu")]
+        public ManaManager manaManager;
         public StaminaManager staminaManager;
-        public float runStaminaDrain = 20f;
-
 
         Vector2 moveInput;
         TouchingDirections touchingDirections;
@@ -119,11 +116,7 @@
             touchingDirections = GetComponent<TouchingDirections>();
             damageable = GetComponent<Damageable>();
         }
-        private void Start()
-        {
-            currentMana = maxMana;
-            UpdateManaUI();
-        }
+
         private void FixedUpdate()
         {
             float horizontalVelocity = moveInput.x * CurrentMoveSpeed;
@@ -162,31 +155,6 @@
 
             animator.SetFloat(AnimationStrings.yVelocity, rb.linearVelocity.y);
         }
-
-        private bool ConsumeMana(float amount)
-        {
-            if (currentMana >= amount)
-            {
-                currentMana -= amount;
-                UpdateManaUI();
-                Debug.Log("Consume " + currentMana + "Mana");
-                return true;
-            }
-            else
-            {
-                Debug.Log("Not enough mana!");
-                return false;
-            }
-        }
-        private void UpdateManaUI()
-        {
-            if (manaSlider != null)
-            {
-                Debug.Log("Update ManaUI: " + currentMana);
-                manaSlider.value = currentMana / maxMana;
-            }
-        }
-
 
         public void OnMove(InputAction.CallbackContext context)
         {
@@ -262,21 +230,19 @@
             }
         }
 
-        public void OnAttack(InputAction.CallbackContext context)
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (context.started && manaManager != null)
         {
-            if (context.started)
+            if (manaManager.ConsumeMana(manaCost))
             {
-                if (ConsumeMana(manaCost))
-                {
-                    Debug.Log(manaCost);
-                    Debug.Log(currentMana);
-                    animator.SetTrigger(AnimationStrings.attackTrigger);
-                }
+                animator.SetTrigger(AnimationStrings.attackTrigger);
             }
         }
+    }
 
-        // Bị tấn công -> nhận damage và knockback
-        public void OnHit(int damage, Vector2 knockback)
+    // Bị tấn công -> nhận damage và knockback
+    public void OnHit(int damage, Vector2 knockback)
         {
             rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocity.y + knockback.y);
             Debug.Log("onhit");
