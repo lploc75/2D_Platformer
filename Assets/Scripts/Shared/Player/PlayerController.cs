@@ -1,5 +1,6 @@
 ﻿    using System;
-    using UnityEngine;
+using Assets.Scripts.Shared.Player;
+using UnityEngine;
     using UnityEngine.InputSystem;
     /*
      Máu của nhận vật được set ở bên Damageable
@@ -7,24 +8,26 @@
     [RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections), typeof(Damageable))]
     public class PlayerController : MonoBehaviour
     {
+        [Header("Điều khiển")]
         public bool canControl = true;
         public float walkSpeed = 4f;
         public float runSpeed = 8f;
         public float jumpImpulse = 10f;
         private bool canDoubleJump;
-        [SerializeField] private float maxMana = 100f;
-        [SerializeField] private float currentMana = 100f;
-        /*
-         Slider của mana min là 0 và max là 1, thay đổi bằng current mana / max mana
-         */
-        [SerializeField] private UnityEngine.UI.Slider manaSlider;
+
         private float manaCost = 1f; // mana của skill default
+        [Header("Skill")]
+        public SkillData[] skills; // Set từ Inspector, 0 = Skill1, 1 = Skill2, 2 = Skill3...
+        private SkillData currentSkillData; // Skill hiện tại được lựa chọn
 
+    [Header("Manager tham chiếu")]
+        public ManaManager manaManager;
         public StaminaManager staminaManager;
-        public float runStaminaDrain = 20f;
+    
+        [SerializeField]
+        private ProjectileLauncher projectileLauncher;
 
-
-        Vector2 moveInput;
+    Vector2 moveInput;
         TouchingDirections touchingDirections;
         Damageable damageable;
         public float CurrentMoveSpeed
@@ -121,10 +124,9 @@
         }
         private void Start()
         {
-            currentMana = maxMana;
-            UpdateManaUI();
+            currentSkillData = skills[0]; // Mặc định chọn skill đầu tiên
         }
-        private void FixedUpdate()
+    private void FixedUpdate()
         {
             float horizontalVelocity = moveInput.x * CurrentMoveSpeed;
             float verticalVelocity = rb.linearVelocity.y;
@@ -162,31 +164,6 @@
 
             animator.SetFloat(AnimationStrings.yVelocity, rb.linearVelocity.y);
         }
-
-        private bool ConsumeMana(float amount)
-        {
-            if (currentMana >= amount)
-            {
-                currentMana -= amount;
-                UpdateManaUI();
-                Debug.Log("Consume " + currentMana + "Mana");
-                return true;
-            }
-            else
-            {
-                Debug.Log("Not enough mana!");
-                return false;
-            }
-        }
-        private void UpdateManaUI()
-        {
-            if (manaSlider != null)
-            {
-                Debug.Log("Update ManaUI: " + currentMana);
-                manaSlider.value = currentMana / maxMana;
-            }
-        }
-
 
         public void OnMove(InputAction.CallbackContext context)
         {
@@ -262,50 +239,79 @@
             }
         }
 
-        public void OnAttack(InputAction.CallbackContext context)
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (context.started && manaManager != null)
         {
-            if (context.started)
+            if (manaManager.ConsumeMana(manaCost))
             {
-                if (ConsumeMana(manaCost))
-                {
-                    Debug.Log(manaCost);
-                    Debug.Log(currentMana);
-                    animator.SetTrigger(AnimationStrings.attackTrigger);
-                }
+                // Gọi hàm bắn vật thể được đặt cố định trong animation
+                animator.SetTrigger(AnimationStrings.attackTrigger);
+                // Truyền sẵn dữ liệu cho Launcher, đợi animation gọi FireProjectile()
+
+                projectileLauncher.SetSkillData(currentSkillData);
             }
         }
+    }
 
-        // Bị tấn công -> nhận damage và knockback
-        public void OnHit(int damage, Vector2 knockback)
+    // Bị tấn công -> nhận damage và knockback
+    public void OnHit(int damage, Vector2 knockback)
         {
             rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocity.y + knockback.y);
             Debug.Log("onhit");
         }
+    public void OnSelectSkill1(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            currentSkillData = skills[0];
+            manaCost = currentSkillData.manaCost;
+            animator.SetInteger(AnimationStrings.AttackIndex, currentSkillData.animationIndex);
+        }
+    }
+    public void OnSelectSkill2(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            currentSkillData = skills[1];
+            manaCost = currentSkillData.manaCost;
+            animator.SetInteger(AnimationStrings.AttackIndex, currentSkillData.animationIndex);
+        }
+    }
+    public void OnSelectSkill3(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            currentSkillData = skills[2];
+            manaCost = currentSkillData.manaCost;
+            animator.SetInteger(AnimationStrings.AttackIndex, currentSkillData.animationIndex);
+        }
+    }
 
-        public void OnSelectSkill1(InputAction.CallbackContext context)
-        {
-            if (context.started)
-            {
-                manaCost = 10f;
-                animator.SetInteger(AnimationStrings.AttackIndex, 1);
-            }
-        }
+    //public void OnSelectSkill1(InputAction.CallbackContext context)
+    //    {
+    //        if (context.started)
+    //        {
+    //            manaCost = 10f;
+    //            animator.SetInteger(AnimationStrings.AttackIndex, 1);
+    //        }
+    //    }
 
-        public void OnSelectSkill2(InputAction.CallbackContext context)
-        {
-            if (context.started)
-            {
-                manaCost = 30f;
-                animator.SetInteger(AnimationStrings.AttackIndex, 2); // 2 ==  attack animation ?
-            }
-        }
-        public void OnSelectSkill3(InputAction.CallbackContext context)
-        {
-            if (context.started)
-            {
-                manaCost = 50f;
-                animator.SetInteger(AnimationStrings.AttackIndex, 3); // 3 ==  attack animation ?
-            }
-        }
+    //    public void OnSelectSkill2(InputAction.CallbackContext context)
+    //    {
+    //        if (context.started)
+    //        {
+    //            manaCost = 30f;
+    //            animator.SetInteger(AnimationStrings.AttackIndex, 2); // 2 ==  attack animation ?
+    //        }
+    //    }
+    //    public void OnSelectSkill3(InputAction.CallbackContext context)
+    //    {
+    //        if (context.started)
+    //        {
+    //            manaCost = 50f;
+    //            animator.SetInteger(AnimationStrings.AttackIndex, 3); // 3 ==  attack animation ?
+    //        }
+    //    }
     }
 

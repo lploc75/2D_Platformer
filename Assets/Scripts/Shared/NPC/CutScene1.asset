@@ -12,14 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078e16a7ea9caef45be5bc420879386e, type: 3}
   m_Name: CutScene1
   m_EditorClassIdentifier: 
+  npcId: 
   characterName: Alvin
-  avatar: {fileID: 21300000, guid: 614bed3e83e5c7c4a907fe6316066493, type: 3}
+  avatar: {fileID: 21300000, guid: fe9ac768ef6b2d649b0a5c85bab6c3cd, type: 3}
+  isQuestGiver: 0
   defaultLines:
   - What happened? Where is the sun?
   - I must check this out.
-  questOfferLines: []
   questId: 
+  questOfferLines: []
   questInProgressLines: []
+  questSpecialLines: []
+  rewardItem: {fileID: 0}
   questCompletedLines: []
   unlockAfterQuestId: 
   unlockedLines: []

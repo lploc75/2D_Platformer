@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class SimpleCameraMove : MonoBehaviour
 {
@@ -55,9 +56,19 @@ public class SimpleCameraMove : MonoBehaviour
         }
     }
 
-    System.Collections.IEnumerator ShowDialogueWithFadeIn()
+    IEnumerator ShowDialogueWithFadeIn()
     {
         yield return new WaitForSeconds(dialogueDelay);
+
+        // === PREBIND: cập nhật nội dung UI trước khi hiện panel ===
+        if (dialogueManager != null && cutsceneProfile != null)
+        {
+            dialogueManager.PreBindDialogue(
+                cutsceneProfile.defaultLines,
+                cutsceneProfile.characterName,
+                cutsceneProfile.avatar
+            );
+        }
 
         dialoguePanel.SetActive(true);
 
@@ -79,13 +90,13 @@ public class SimpleCameraMove : MonoBehaviour
         }
         cg.alpha = 1f;
 
-        // GỌI THOẠI CỦA CUTSCENE
+        // GỌI THOẠI CỦA CUTSCENE (đã truyền avatar đúng)
         if (dialogueManager != null && cutsceneProfile != null)
         {
             dialogueManager.StartDialogueFromLines(
                 cutsceneProfile.defaultLines,
                 cutsceneProfile.characterName,
-                null,
+                cutsceneProfile.avatar,
                 () =>
                 {
                     // MỞ LẠI INPUT khi kết thúc thoại
