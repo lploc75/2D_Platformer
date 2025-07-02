@@ -47,6 +47,38 @@ public class DialogueManager : MonoBehaviour
         nextAction.Disable();
     }
 
+    // === PREBIND: CẬP NHẬT TOÀN BỘ UI TRƯỚC KHI PANEL HIỆN ===
+    public void PreBindDialogue(string[] lines, string speakerName, Sprite avatar = null)
+    {
+        // Lưu dữ liệu thoại
+        currentLines = lines;
+        currentSpeaker = speakerName;
+        currentAvatar = avatar;
+        index = 0;
+
+        // Cập nhật UI
+        if (nameText != null)
+            nameText.text = currentSpeaker;
+
+        if (avatarImage != null)
+        {
+            if (currentAvatar != null)
+            {
+                avatarImage.gameObject.SetActive(true);
+                avatarImage.sprite = currentAvatar;
+            }
+            else
+            {
+                avatarImage.gameObject.SetActive(false);
+            }
+        }
+
+        if (dialogueText != null && currentLines != null && currentLines.Length > 0)
+            dialogueText.text = currentLines[0];
+        else if (dialogueText != null)
+            dialogueText.text = "";
+    }
+
     public void StartDialogueFromLines(
         string[] lines,
         string speakerName,
