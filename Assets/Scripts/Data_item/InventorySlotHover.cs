@@ -31,3 +31,4 @@ public class InventorySlotHover : MonoBehaviour, IPointerEnterHandler, IPointerE
             tooltipUI.HideTooltip();
     }
 }
+    
