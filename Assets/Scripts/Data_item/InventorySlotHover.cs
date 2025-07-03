@@ -3,8 +3,8 @@ using UnityEngine.EventSystems;
 
 public class InventorySlotHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    ItemData itemData;
-    InventoryTooltipUI tooltipUI;
+    public ItemData itemData;
+    public InventoryTooltipUI tooltipUI;
 
     public void Setup(ItemData data, InventoryTooltipUI tooltip)
     {
@@ -16,18 +16,20 @@ public class InventorySlotHover : MonoBehaviour, IPointerEnterHandler, IPointerE
     {
         if (itemData != null && tooltipUI != null)
         {
-            tooltipUI.ShowTooltip(itemData, Input.mousePosition);
-            Debug.Log("Pointer enter slot: " + itemData.itemName);
-        }
-        else
-        {
-            Debug.Log("Pointer enter slot: itemData is null (slot trống)");
+            // Lấy vị trí slot center (có thể thay đổi tuỳ ý)
+            RectTransform slotRect = GetComponent<RectTransform>();
+            Vector3[] corners = new Vector3[4];
+            slotRect.GetWorldCorners(corners);
+            Vector3 slotCenter = (corners[0] + corners[2]) * 0.5f;
+            Vector2 slotScreenPos = RectTransformUtility.WorldToScreenPoint(null, slotCenter);
+
+            tooltipUI.OnSlotPointerEnter(itemData, slotScreenPos);
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         if (tooltipUI != null)
-            tooltipUI.HideTooltip();
+            tooltipUI.OnSlotPointerExit();
     }
 }

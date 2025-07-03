@@ -5,7 +5,14 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
 
-    public List<ItemData> inventoryItems = new List<ItemData>();
+    [System.Serializable]
+    public class InventorySlot
+    {
+        public ItemData item;
+        public int amount;
+    }
+
+    public List<InventorySlot> inventoryItems = new List<InventorySlot>();
     public int maxInventorySize = 20;
 
     public InventoryStaticUIController uiController;
@@ -19,25 +26,43 @@ public class InventoryManager : MonoBehaviour
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject); // Giữ lại khi chuyển scene
+        DontDestroyOnLoad(gameObject);
     }
 
-    public void PickUpItem(ItemData item)
+    // Thêm item, cộng dồn số lượng nếu đã có
+    public void AddItem(ItemData item, int amount = 1)
     {
-        if (inventoryItems.Count >= maxInventorySize)
+        // Kiểm tra đã có item chưa
+        InventorySlot slot = inventoryItems.Find(x => x.item == item);
+        if (slot != null)
         {
-            Debug.Log("Túi đồ đầy rồi!");
-            return;
+            slot.amount += amount;
+        }
+        else
+        {
+            if (inventoryItems.Count >= maxInventorySize)
+            {
+                Debug.Log("Túi đồ đầy rồi!");
+                return;
+            }
+            slot = new InventorySlot { item = item, amount = amount };
+            inventoryItems.Add(slot);
         }
 
-        inventoryItems.Add(item);
-
-        if (item is WeaponData weapon)
+        // Nếu là vũ khí, có thể add vào weaponList
+        if (item is WeaponData weapon && !uiController.weaponList.Contains(weapon))
         {
             uiController.weaponList.Add(weapon);
-            uiController.UpdateInventorySlots();
         }
 
-        Debug.Log("Đã nhặt: " + item.itemName);
+        // Cập nhật UI
+        uiController.UpdateInventorySlots();
+        Debug.Log($"Đã nhận: {item.itemName} x{amount}");
+    }
+
+    // Nếu cần hàm nhặt 1 item
+    public void PickUpItem(ItemData item)
+    {
+        AddItem(item, 1);
     }
 }

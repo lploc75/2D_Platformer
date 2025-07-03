@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using TMPro; // Thêm dòng này nếu chưa có
+using TMPro;
 
 public class RewardIconUI : MonoBehaviour
 {

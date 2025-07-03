@@ -25,7 +25,9 @@ MonoBehaviour:
   questSpecialLines:
   - Here what I know
   - ...
-  rewardItem: {fileID: 0}
+  rewardList:
+  - item: {fileID: 11400000, guid: 6fc95c4be75353b4ea72fa8565111067, type: 2}
+    amount: 1
   questCompletedLines: []
   unlockAfterQuestId: 
   unlockedLines: []
