@@ -17,14 +17,21 @@ MonoBehaviour:
   avatar: {fileID: 21300000, guid: 5996aa6087c5b9641b99bd80885f55bb, type: 3}
   isQuestGiver: 0
   defaultLines:
-  - '"If you feel tired or injured, Arin, just come here. I have a lot of good medicine!"'
+  - If you feel tired or injured, Arin, just come here. I have a lot of good medicine!
   questId: main_1_crystal
   questOfferLines: []
   questInProgressLines:
-  - Thats all I know.
+  - 'If you run out of potions, come back and I''ll brew more for you.
+
+'
   questSpecialLines:
-  - Here what I know
-  - ...
+  - "I've never seen the herbs wilt overnight like this, not even in the coldest
+    winters.\r"
+  - 'Some villagers are feeling weak, but I''m doing what I can.
+
+'
+  - "Here, take these potions\u2014one for your health, one for your magic. Stay
+    safe, Arin.\r\n"
   rewardList:
   - item: {fileID: 11400000, guid: 6fc95c4be75353b4ea72fa8565111067, type: 2}
     amount: 1

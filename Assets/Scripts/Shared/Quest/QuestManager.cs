@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections.Generic;
 
 /// <summary>
@@ -19,6 +20,13 @@ public class QuestManager : MonoBehaviour
     // (Tuỳ chọn) Nếu quest yêu cầu gặp nhiều NPC, quản lý tiến trình qua từ điển
     private Dictionary<string, HashSet<string>> questNpcTalkedWith = new Dictionary<string, HashSet<string>>();
 
+    // === BỔ SUNG: Quest mở đầu tự nhận khi start game ===
+    [Header("ID nhiệm vụ mở đầu (nhận tự động)")]
+    public string autoStartQuestId = "main_1_crystal";
+
+    // === BỔ SUNG: Event cho NPC marker (và UI, nếu muốn) ===
+    public event Action OnQuestChanged;
+
     void Awake()
     {
         // Singleton pattern
@@ -26,6 +34,13 @@ public class QuestManager : MonoBehaviour
             Instance = this;
         else
             Destroy(gameObject);
+    }
+
+    void Start()
+    {
+        // Tự động nhận quest mở đầu nếu chưa có
+        if (!string.IsNullOrEmpty(autoStartQuestId) && !IsQuestAccepted(autoStartQuestId))
+            AcceptQuest(autoStartQuestId);
     }
 
     // Lấy QuestData từ questId
@@ -42,9 +57,9 @@ public class QuestManager : MonoBehaviour
         {
             acceptedQuests.Add(questId);
             Debug.Log($"[QuestManager] Accepted quest: {questId}");
-            // Reset tiến trình (nếu quest nhiều bước)
             if (!questNpcTalkedWith.ContainsKey(questId))
                 questNpcTalkedWith[questId] = new HashSet<string>();
+            OnQuestChanged?.Invoke(); // Gọi event update marker
         }
     }
 
@@ -55,6 +70,7 @@ public class QuestManager : MonoBehaviour
         {
             completedQuests.Add(questId);
             Debug.Log($"[QuestManager] Completed quest: {questId}");
+            OnQuestChanged?.Invoke(); // Gọi event update marker
         }
     }
 
@@ -107,6 +123,8 @@ public class QuestManager : MonoBehaviour
                 readyToCompleteQuests.Add(questId); // Quest đã xong các bước, chờ gặp lại questgiver để hoàn thành chính thức
             }
         }
+
+        OnQuestChanged?.Invoke(); // Gọi event update marker
     }
 
     // Kiểm tra đã nói chuyện với NPC nào chưa trong 1 quest
@@ -120,5 +138,7 @@ public class QuestManager : MonoBehaviour
     {
         if (readyToCompleteQuests.Contains(questId))
             readyToCompleteQuests.Remove(questId);
+
+        OnQuestChanged?.Invoke(); // Gọi event update marker
     }
 }

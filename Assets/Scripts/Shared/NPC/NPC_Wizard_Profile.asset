@@ -22,10 +22,15 @@ MonoBehaviour:
   questId: main_1_crystal
   questOfferLines: []
   questInProgressLines:
-  - Thats all I know.
+  - Let me know if you discover anything unusual with magic, Arin.
   questSpecialLines:
-  - Here what I know
-  - ...
+  - The magic in the village has changed ever since the sun disappeared. Even simple
+    spells feel unstable now.
+  - 'I tried scrying for answers, but there''s only silence in the ether.
+
+'
+  - Here, take this wand and a spellbook. It's not much, but it should help if anything
+    strange happens.
   rewardList:
   - item: {fileID: 11400000, guid: 8769d9897027f8e4ba026609a4bd32cb, type: 2}
     amount: 1

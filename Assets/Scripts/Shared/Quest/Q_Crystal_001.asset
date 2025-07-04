@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: Q_Crystal_001
   m_EditorClassIdentifier: 
   questId: main_1_crystal
-  questName: Get Information
-  questDescription: Go ask the NPCs in the village about the light crystal piece.
+  questName: The Fading Dawn
+  questDescription: "The sun has vanished, shrouding the village in darkness. Speak
+    to the Village Chief to learn what happened. Then, seek out the Wizard, Blacksmith,
+    and Healer for further clues. Once you\u2019ve gathered their information, return
+    to the Chief and report what you have learned."
   requiredNpcIds:
   - wizard
   - blacksmith

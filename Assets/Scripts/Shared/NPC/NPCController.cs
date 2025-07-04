@@ -9,6 +9,7 @@ public class NPCController : MonoBehaviour
 
     // Đặt đúng quest ID đầu tiên của bạn
     private const string firstQuestId = "main_1_crystal";
+    private const string chiefId = "chief"; // Đổi nếu npcId của trưởng làng khác!
 
     public void Interact()
     {
@@ -27,7 +28,7 @@ public class NPCController : MonoBehaviour
         // 2. Nếu NPC này có liên quan đến quest
         if (!string.IsNullOrEmpty(profile.questId))
         {
-            // a. Chưa nhận quest: hiện thoại mời nhận, xong tự nhận
+            // a. Chưa nhận quest: hiện thoại mời nhận, xong tự nhận (chỉ dùng nếu KHÔNG auto nhận quest)
             if (!QuestManager.Instance.IsQuestAccepted(profile.questId))
             {
                 if (profile.isQuestGiver)
@@ -60,6 +61,35 @@ public class NPCController : MonoBehaviour
             {
                 QuestData questData = QuestManager.Instance.GetQuestById(profile.questId);
 
+                // ======= THOẠI OFFER CHO CHIEF LẦN ĐẦU =======
+                if (profile.npcId == chiefId && !QuestManager.Instance.HasTalkedWithNpc(profile.questId, chiefId))
+                {
+                    dialogueManager.StartDialogueFromLines(
+                        profile.questOfferLines,
+                        profile.characterName,
+                        profile.avatar,
+                        () =>
+                        {
+                            QuestManager.Instance.MarkTalkedWithNpc(profile.questId, chiefId);
+                            FindObjectOfType<QuestUIController>()?.BuildQuestList();
+                        }
+                    );
+                    return;
+                }
+                // ======= KHOÁC CHIEF TRƯỚC KHI GẶP NPC KHÁC =======
+                if (profile.npcId != chiefId && !QuestManager.Instance.HasTalkedWithNpc(profile.questId, chiefId))
+                {
+                    // Chưa gặp trưởng làng, chỉ hiện thoại mặc định, không tick, không thưởng
+                    dialogueManager.StartDialogueFromLines(
+                        profile.defaultLines,
+                        profile.characterName,
+                        profile.avatar
+                    );
+                    return;
+                }
+                // ======= END =======
+
+                // ĐÃ GẶP CHIEF, ĐẾN NPC PHỤ
                 if (questData != null && questData.requiredNpcIds != null &&
                     System.Array.Exists(questData.requiredNpcIds, id => id == profile.npcId))
                 {
