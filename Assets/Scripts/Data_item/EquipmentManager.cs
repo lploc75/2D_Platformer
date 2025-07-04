@@ -15,13 +15,12 @@ public class EquipmentManager : MonoBehaviour
         switch (item.itemType)
         {
             case ItemType.Weapon:
-                // Kiểm tra slot có item cũ không
                 ItemData oldWeapon = weaponSlotUI.GetCurrentItem();
                 weaponSlotUI.SetItem(item);
                 if (oldWeapon != null)
                 {
-                    // Trả lại inventory!
                     InventoryStaticUIController.Instance.inventoryItems.Add(oldWeapon);
+                    InventoryStaticUIController.Instance.UpdateInventorySlots();
                 }
                 break;
 
@@ -31,6 +30,7 @@ public class EquipmentManager : MonoBehaviour
                 if (oldArmor != null)
                 {
                     InventoryStaticUIController.Instance.inventoryItems.Add(oldArmor);
+                    InventoryStaticUIController.Instance.UpdateInventorySlots();
                 }
                 break;
             // ... các loại khác tương tự
@@ -41,5 +41,6 @@ public class EquipmentManager : MonoBehaviour
         InventoryStaticUIController.Instance.UpdateInventorySlots();
         Debug.Log($"Đã trang bị: {item.itemName} vào slot {item.itemType}");
     }
+
 }
 

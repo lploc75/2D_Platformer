@@ -124,19 +124,20 @@ public class InventoryStaticUIController : MonoBehaviour
                 rightClick.UpdateItem(item);
             }
             else
-            {
-                // Slot trống
-                iconImg.sprite = null;
-                iconImg.enabled = false;
-                if (qualityUI != null)
-                {
-                    qualityUI.itemData = null;
-                    qualityUI.qualityFrameImage.enabled = false;
-                }
+{
+    // Slot trống
+    iconImg.sprite = null;
+    iconImg.enabled = false;
+    if (qualityUI != null)
+    {
+        qualityUI.itemData = null;
+        qualityUI.UpdateQualityFrame(); // Để script tự lo bật/tắt
+    }
 
-                hover.Setup(null, tooltipUI);
-                rightClick.UpdateItem(null);
-            }
+    hover.Setup(null, tooltipUI);
+    rightClick.UpdateItem(null);
+}
+
         }
     }
 
