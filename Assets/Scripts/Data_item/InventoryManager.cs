@@ -34,8 +34,9 @@ public class InventoryManager : MonoBehaviour
 
         if (item is WeaponData weapon)
         {
-            uiController.weaponList.Add(weapon);
+            inventoryItems.Add(item);
             uiController.UpdateInventorySlots();
+
         }
 
         Debug.Log("Đã nhặt: " + item.itemName);
