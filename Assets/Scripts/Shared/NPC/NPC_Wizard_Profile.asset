@@ -34,6 +34,8 @@ MonoBehaviour:
   rewardList:
   - item: {fileID: 11400000, guid: 8769d9897027f8e4ba026609a4bd32cb, type: 2}
     amount: 1
+  - item: {fileID: 11400000, guid: a8e3d47183f14d04e87e619a7d348ae2, type: 2}
+    amount: 1
   questCompletedLines: []
   unlockAfterQuestId: 
   unlockedLines: []

@@ -20,40 +20,66 @@ public class EquipmentManager : MonoBehaviour
     /// </summary>
     public void Equip(ItemData item)
     {
-        if (item == null) return;
+        if (item == null)
+        {
+            Debug.LogWarning("Item null khi gọi Equip");
+            return;
+        }
+
+        Debug.Log("Đang trang bị item: " + item.itemName);
+        Debug.Log("Item type: " + item.itemType);
 
         switch (item.itemType)
         {
             case ItemType.Weapon:
-                // Lấy item đang trang bị cũ (nếu có)
+                if (weaponSlotUI == null)
+                {
+                    Debug.LogError("weaponSlotUI là null!");
+                    return;
+                }
+
+                Debug.Log("Lấy vũ khí cũ...");
                 ItemData oldWeapon = weaponSlotUI.GetCurrentItem();
-                // Trang bị item mới
                 weaponSlotUI.SetItem(item);
-                // Nếu có trang bị cũ, add lại vào inventory (stack)
                 if (oldWeapon != null)
                 {
+                    Debug.Log("Thêm vũ khí cũ lại vào inventory: " + oldWeapon.itemName);
                     InventoryManager.Instance.AddItem(oldWeapon, 1);
                 }
                 break;
 
             case ItemType.Armor:
+                if (armorSlotUI == null)
+                {
+                    Debug.LogError("armorSlotUI là null!");
+                    return;
+                }
+
+                Debug.Log("Lấy giáp cũ...");
                 ItemData oldArmor = armorSlotUI.GetCurrentItem();
                 armorSlotUI.SetItem(item);
                 if (oldArmor != null)
                 {
+                    Debug.Log("Thêm giáp cũ lại vào inventory: " + oldArmor.itemName);
                     InventoryManager.Instance.AddItem(oldArmor, 1);
                 }
                 break;
 
-            // ... các loại khác tương tự
             default:
                 Debug.LogWarning("Loại item không hợp lệ khi trang bị: " + item.itemType);
                 break;
         }
-        // Sau khi trang bị xong, update UI inventory
+
+        if (InventoryManager.Instance == null || InventoryManager.Instance.uiController == null)
+        {
+            Debug.LogError("InventoryManager hoặc uiController là null!");
+            return;
+        }
+
         InventoryManager.Instance.uiController.UpdateInventorySlots();
         Debug.Log($"Đã trang bị: {item.itemName} vào slot {item.itemType}");
     }
+
 
     /// <summary>
     /// Tháo trang bị khỏi slot (ví dụ khi bấm nút "unequip" trên UI)
