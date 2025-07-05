@@ -21,12 +21,13 @@ MonoBehaviour:
   - If you have any questions, just come ask me.
   questId: main_1_crystal
   questOfferLines:
-  - Are you awake, Arin? The crystal of light has broken, the whole village is in
-    darkness.
-  - Go and talk with NPCs to get information.
+  - Arin, something terrible has happened. The sun vanished from our sky, and darkness
+    covers our village..
+  - "We need your help. Please, talk to the others and see if anyone knows what\u2019s
+    going on. Every bit of information could help us!"
   questInProgressLines:
-  - Go ask the NPCs in the village to see if anyone knows anything about the light
-    crystal piece.
+  - Have you spoken to everyone in the village yet? Maybe the Wizard, the Blacksmith,
+    or the Herbalist have noticed something strange.
   questSpecialLines: []
   rewardList: []
   questCompletedLines:
