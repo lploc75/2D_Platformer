@@ -12,23 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 078e16a7ea9caef45be5bc420879386e, type: 3}
   m_Name: NPC_Mature
   m_EditorClassIdentifier: 
-  npcId: mature
-  characterName: OldMan
-  avatar: {fileID: 6373048116405451881, guid: 3357c6188c95e8c4cb05dd374c7f3f19, type: 3}
+  npcId: chief
+  characterName: Chief
+  avatar: {fileID: 21300000, guid: 93f70001305088d448250b70f73f894f, type: 3}
   isQuestGiver: 1
   defaultLines:
   - Hello, Arin. Our village always welcomes brave young people like you!
   - If you have any questions, just come ask me.
   questId: main_1_crystal
   questOfferLines:
-  - Are you awake, Arin? The crystal of light has broken, the whole village is in
-    darkness.
-  - Go and talk with NPCs to get information.
+  - Arin, something terrible has happened. The sun vanished from our sky, and darkness
+    covers our village..
+  - "We need your help. Please, talk to the others and see if anyone knows what\u2019s
+    going on. Every bit of information could help us!"
   questInProgressLines:
-  - Go ask the NPCs in the village to see if anyone knows anything about the light
-    crystal piece.
+  - Have you spoken to everyone in the village yet? Maybe the Wizard, the Blacksmith,
+    or the Herbalist have noticed something strange.
   questSpecialLines: []
-  rewardItem: {fileID: 0}
+  rewardList: []
   questCompletedLines:
   - Good job, Arin! You found a clue about the light crystal. There's hope for our
     village!

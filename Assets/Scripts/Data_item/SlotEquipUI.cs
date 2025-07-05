@@ -8,7 +8,6 @@ public class SlotEquipUI : MonoBehaviour
     private ItemData currentItem;
     public GameObject unequipPanel; // Popup hiện nút bỏ trang bị
 
-
     public void SetItem(ItemData item)
     {
         currentItem = item;
@@ -50,16 +49,19 @@ public class SlotEquipUI : MonoBehaviour
         }
     }
 
-
     public void UnequipItem()
     {
         if (currentItem != null)
         {
-            InventoryStaticUIController.Instance.inventoryItems.Add(currentItem); // Thêm lại vào kho
-            InventoryStaticUIController.Instance.UpdateInventorySlots();
+            // Đúng chuẩn: Dùng InventoryManager để add lại vào inventory (stack)
+            InventoryManager.Instance.AddItem(currentItem, 1);
             SetItem(null);
             if (unequipPanel != null)
                 unequipPanel.SetActive(false);
+
+            // Tùy ý: update inventory UI ở InventoryManager
+            if (InventoryManager.Instance.uiController != null)
+                InventoryManager.Instance.uiController.UpdateInventorySlots();
         }
     }
     public void CloseUnequipPanel()
@@ -67,7 +69,4 @@ public class SlotEquipUI : MonoBehaviour
         if (unequipPanel != null)
             unequipPanel.SetActive(false);
     }
-
-
-
 }

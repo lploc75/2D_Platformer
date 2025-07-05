@@ -1,20 +1,27 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
+
+[System.Serializable]
+public class RewardInfo
+{
+    public ItemData item;
+    public int amount = 1;
+}
 
 [CreateAssetMenu(menuName = "Dialogue/AdvancedDialogueProfile")]
 public class AdvancedDialogueProfile : ScriptableObject
 {
     [Header("Thông tin NPC")]
-    public string npcId;            // Đặt id duy nhất cho NPC này (ví dụ: "wizard", "blacksmith")
+    public string npcId;
     public string characterName;
-    public Sprite avatar;           // Ảnh đại diện NPC
-    public bool isQuestGiver; // Chỉ tick cho trưởng làng (quest giver)
-
+    public Sprite avatar;
+    public bool isQuestGiver;
 
     [Header("Thoại mặc định (không liên quan quest)")]
     [TextArea(2, 5)] public string[] defaultLines;
 
     [Header("Quest liên quan NPC này")]
-    public string questId;          // Nếu NPC có nhiệm vụ liên quan, điền questId
+    public string questId;
 
     [Header("Thoại mời nhận nhiệm vụ")]
     [TextArea(2, 5)] public string[] questOfferLines;
@@ -23,13 +30,15 @@ public class AdvancedDialogueProfile : ScriptableObject
     [TextArea(2, 5)] public string[] questInProgressLines;
 
     [Header("Thoại đặc biệt khi nói chuyện lần đầu với NPC này trong quest")]
-    [TextArea(2, 5)] public string[] questSpecialLines;   // VD: "Here is what I know about the crystal!"
-    public ItemData rewardItem;     // Nếu muốn tặng đồ cho player khi nói chuyện lần đầu
+    [TextArea(2, 5)] public string[] questSpecialLines;
+
+    [Header("Phần thưởng khi nói chuyện (nếu có)")]
+    public List<RewardInfo> rewardList;
 
     [Header("Thoại khi hoàn thành nhiệm vụ")]
     [TextArea(2, 5)] public string[] questCompletedLines;
 
     [Header("Thoại đặc biệt chỉ hiện khi đã hoàn thành quest khác")]
-    public string unlockAfterQuestId; // ID nhiệm vụ cần hoàn thành trước để mở thoại này
+    public string unlockAfterQuestId;
     [TextArea(2, 5)] public string[] unlockedLines;
 }

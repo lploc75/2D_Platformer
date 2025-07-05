@@ -17,14 +17,58 @@ public class InventoryTooltipUI : MonoBehaviour
     public GameObject healthBonusRow, armorCritChanceRow;
     public TextMeshProUGUI healthBonusValue, armorCritChanceValue;
 
+    [Header("Tooltip Offset")]
+    public Vector2 tooltipOffset = new Vector2(12, 8);
+    public float tooltipHideDelay = 0.1f;
+
+    // --- Internal state ---
+    private bool pointerOnSlot = false;
+    private bool pointerOnTooltip = false;
+    private float hideTooltipTimer = -1f;
+
+    // --- Update function dùng cho timer ---
+    void Update()
+    {
+        if (hideTooltipTimer >= 0f)
+        {
+            hideTooltipTimer -= Time.unscaledDeltaTime;
+            if (hideTooltipTimer <= 0f)
+            {
+                if (!pointerOnSlot && !pointerOnTooltip)
+                    tooltipPanel.SetActive(false);
+                hideTooltipTimer = -1f;
+            }
+        }
+    }
+
+    public void OnSlotPointerEnter(ItemData item, Vector2 pos)
+    {
+        pointerOnSlot = true;
+        ShowTooltip(item, pos);
+        hideTooltipTimer = -1f;
+    }
+    public void OnSlotPointerExit()
+    {
+        pointerOnSlot = false;
+        TryHideTooltip();
+    }
+    public void OnTooltipPointerEnter() { pointerOnTooltip = true; }
+    public void OnTooltipPointerExit() { pointerOnTooltip = false; TryHideTooltip(); }
+
+    private void TryHideTooltip()
+    {
+        if (!pointerOnSlot && !pointerOnTooltip)
+            hideTooltipTimer = tooltipHideDelay; // Bắt đầu đếm lùi
+    }
+
     private Color GetQualityColor(ItemQuality quality)
     {
         switch (quality)
         {
-            case ItemQuality.Legendary: return new Color(0.7f, 0.4f, 1.0f);    // tím (Legendary)
-            case ItemQuality.Epic: return new Color(0.15f, 0.55f, 1.0f);   // xanh dương (Epic)
-            case ItemQuality.Rare: return new Color(0.1f, 0.85f, 0.2f);    // xanh lá (Rare)
-            default: return Color.white; // thường (Common)
+            case ItemQuality.Legendary: return new Color(0.7f, 0.4f, 1.0f);
+            case ItemQuality.Epic: return new Color(0.15f, 0.55f, 1.0f);
+            case ItemQuality.Rare: return new Color(0.1f, 0.85f, 0.2f);
+            default: return Color.white;
         }
     }
 
@@ -38,7 +82,6 @@ public class InventoryTooltipUI : MonoBehaviour
 
         tooltipPanel.SetActive(true);
 
-        // --- Set các trường cơ bản ---
         if (nameText)
         {
             nameText.text = item.itemName;
@@ -52,84 +95,57 @@ public class InventoryTooltipUI : MonoBehaviour
         }
         if (descText) descText.text = item.description;
 
-        // Ẩn panel con
         if (weaponPanel) weaponPanel.SetActive(false);
         if (armorPanel) armorPanel.SetActive(false);
 
-        // --- Weapon ---
         if (item.itemType == ItemType.Weapon)
         {
             WeaponData weapon = item as WeaponData;
             if (weaponPanel && weapon != null)
             {
                 weaponPanel.SetActive(true);
-
-                // Base Damage
                 if (baseDamageRow && baseDamageValue)
                 {
                     bool show = weapon.baseDamage != 0;
                     baseDamageRow.SetActive(show);
-                    if (show)
-                        baseDamageValue.text = weapon.baseDamage.ToString();
-                    else
-                        baseDamageValue.text = ""; // clear text khi ẩn row
+                    baseDamageValue.text = show ? weapon.baseDamage.ToString() : "";
                 }
-
-                // Crit Chance
                 if (critChanceRow && critChanceValue)
                 {
                     bool show = weapon.critChance != 0f;
                     critChanceRow.SetActive(show);
-                    if (show)
-                        critChanceValue.text = (weapon.critChance * 100).ToString("F0") + "%";
-                    else
-                        critChanceValue.text = "";
+                    critChanceValue.text = show ? (weapon.critChance * 100).ToString("F0") + "%" : "";
                 }
-
-                // Crit Damage
                 if (critDamageRow && critDamageValue)
                 {
                     bool show = weapon.critDamage != 0f;
                     critDamageRow.SetActive(show);
-                    if (show)
-                        critDamageValue.text = weapon.critDamage.ToString("F1") + "x";
-                    else
-                        critDamageValue.text = "";
+                    critDamageValue.text = show ? weapon.critDamage.ToString("F1") + "x" : "";
                 }
             }
         }
-
-        // --- Armor ---
         else if (item.itemType == ItemType.Armor)
         {
             ArmorData armor = item as ArmorData;
             if (armorPanel && armor != null)
             {
                 armorPanel.SetActive(true);
-
-                // Health Bonus
                 if (healthBonusRow && healthBonusValue)
                 {
                     bool show = armor.healthBonus != 0f;
                     healthBonusRow.SetActive(show);
-                    if (show)
-                        healthBonusValue.text = armor.healthBonus.ToString("F0");
-                    else
-                        healthBonusValue.text = "";
+                    healthBonusValue.text = show ? armor.healthBonus.ToString("F0") : "";
                 }
-
-
-                // Crit Chance
                 if (armorCritChanceRow && armorCritChanceValue)
                 {
                     bool show = armor.critChance != 0f;
                     armorCritChanceRow.SetActive(show);
-                    if (show) armorCritChanceValue.text = (armor.critChance * 100).ToString("F0") + "%";
+                    armorCritChanceValue.text = show ? (armor.critChance * 100).ToString("F0") + "%" : "";
                 }
             }
         }
 
-        // --- Vị trí tooltip dưới chuột, clamp ---
+        // Vị trí tooltip (trên canvas riêng)
         Canvas canvas = tooltipPanel.GetComponentInParent<Canvas>();
         RectTransform canvasRect = canvas.GetComponent<RectTransform>();
         RectTransform tooltipRect = tooltipPanel.GetComponent<RectTransform>();
@@ -137,11 +153,13 @@ public class InventoryTooltipUI : MonoBehaviour
         float tooltipHeight = tooltipRect.rect.height;
         float tooltipWidth = tooltipRect.rect.width;
 
-        Vector2 offset = new Vector2(0, -tooltipHeight - 10);
-
-        Vector2 localPoint;
+        Vector2 offset = tooltipOffset;
+        Vector2 anchoredPos;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            canvasRect, pos + offset, canvas.renderMode == RenderMode.ScreenSpaceCamera ? canvas.worldCamera : null, out localPoint
+            canvasRect,
+            pos + offset,
+            canvas.renderMode == RenderMode.ScreenSpaceCamera ? canvas.worldCamera : null,
+            out anchoredPos
         );
 
         float minX = -canvasRect.rect.width / 2f;
@@ -149,14 +167,17 @@ public class InventoryTooltipUI : MonoBehaviour
         float minY = -canvasRect.rect.height / 2f;
         float maxY = canvasRect.rect.height / 2f - tooltipHeight;
 
-        localPoint.x = Mathf.Clamp(localPoint.x, minX, maxX);
-        localPoint.y = Mathf.Clamp(localPoint.y, minY, maxY);
+        anchoredPos.x = Mathf.Clamp(anchoredPos.x, minX, maxX);
+        anchoredPos.y = Mathf.Clamp(anchoredPos.y, minY, maxY);
 
-        tooltipRect.anchoredPosition = localPoint;
+        tooltipRect.anchoredPosition = anchoredPos;
     }
-
-    public void HideTooltip()
+    public void HideTooltipImmediate()
     {
-        if (tooltipPanel) tooltipPanel.SetActive(false);
+        tooltipPanel.SetActive(false);
+        pointerOnSlot = false;
+        pointerOnTooltip = false;
+        hideTooltipTimer = -1f;
     }
+
 }
