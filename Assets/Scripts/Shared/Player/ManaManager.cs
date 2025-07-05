@@ -21,13 +21,13 @@ namespace Assets.Scripts.Shared.Player
 
         void Start()
         {
-            Debug.Log($"[ManaManager] Start -> currentMana = {currentMana}");
 
             if (manaSlider != null)
             {
                 currentMana = maxMana;
                 manaSlider.maxValue = maxMana;
                 manaSlider.value = currentMana;
+                Debug.Log($"[ManaManager] Start -> currentMana = {currentMana}");
             }
         }
 
