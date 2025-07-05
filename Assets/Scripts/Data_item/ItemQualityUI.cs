@@ -37,14 +37,17 @@ public class ItemQualityUI : MonoBehaviour
 
     public void UpdateQualityFrame()
     {
-        // Kiểm tra nếu itemData không null
+        if (qualityFrameImage == null)
+            return;
+
         if (itemData == null)
         {
-            Debug.LogWarning("ItemData is null in UpdateQualityFrame.");
-            return; // Nếu không có item thì không làm gì
+            qualityFrameImage.enabled = false; // Không có item thì ẩn khung
+            return;
         }
 
-        // Kiểm tra phẩm chất của vật phẩm và cập nhật frame
+        qualityFrameImage.enabled = true;
+
         switch (itemData.quality)
         {
             case ItemQuality.Common:
@@ -63,8 +66,7 @@ public class ItemQualityUI : MonoBehaviour
                 qualityFrameImage.sprite = commonFrame;
                 break;
         }
-
-        // Đảm bảo Image có màu bình thường khi có item
-        qualityFrameImage.color = Color.white;  // Hoặc chọn màu khác
+        qualityFrameImage.color = Color.white;
     }
+
 }
