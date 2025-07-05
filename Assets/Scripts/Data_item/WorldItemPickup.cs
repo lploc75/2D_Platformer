@@ -5,13 +5,16 @@ public class WorldItemPickup : MonoBehaviour
     public ItemData itemData; // Kéo asset vào đây
     private SpriteRenderer spriteRenderer;
 
+    [Header("Số lượng khi nhặt")]
+    public int amount = 1; // Nếu muốn nhặt nhiều hơn 1 (ví dụ túi potion rơi ra 3 bình)
+
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         if (itemData != null)
         {
-            spriteRenderer.sprite = itemData.icon; // Gán icon vũ khí/giáp tự động từ ScriptableObject
+            spriteRenderer.sprite = itemData.icon; // Gán icon tự động
         }
     }
 
@@ -27,11 +30,10 @@ public class WorldItemPickup : MonoBehaviour
             }
             else
             {
-                InventoryManager.Instance.PickUpItem(itemData);
+                // Sử dụng AddItem để cộng dồn stack đúng chuẩn
+                InventoryManager.Instance.AddItem(itemData, amount);
                 Destroy(gameObject);
             }
         }
     }
-
-
 }

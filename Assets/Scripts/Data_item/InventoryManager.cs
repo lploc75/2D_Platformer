@@ -29,10 +29,11 @@ public class InventoryManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    // Thêm item, cộng dồn số lượng nếu đã có
+    /// <summary>
+    /// Thêm item, nếu đã có thì cộng dồn số lượng, không thì add slot mới
+    /// </summary>
     public void AddItem(ItemData item, int amount = 1)
     {
-        // Kiểm tra đã có item chưa
         InventorySlot slot = inventoryItems.Find(x => x.item == item);
         if (slot != null)
         {
@@ -49,20 +50,25 @@ public class InventoryManager : MonoBehaviour
             inventoryItems.Add(slot);
         }
 
-        // Nếu là vũ khí, có thể add vào weaponList
-        if (item is WeaponData weapon && !uiController.weaponList.Contains(weapon))
-        {
-            uiController.weaponList.Add(weapon);
-        }
-
-        // Cập nhật UI
-        uiController.UpdateInventorySlots();
+        if (uiController != null)
+            uiController.UpdateInventorySlots();
         Debug.Log($"Đã nhận: {item.itemName} x{amount}");
     }
 
-    // Nếu cần hàm nhặt 1 item
-    public void PickUpItem(ItemData item)
+    /// <summary>
+    /// Xóa 1 số lượng item khỏi slot (ví dụ khi dùng hoặc vứt)
+    /// </summary>
+    public void RemoveItem(ItemData item, int amount = 1)
     {
-        AddItem(item, 1);
+        InventorySlot slot = inventoryItems.Find(x => x.item == item);
+        if (slot != null)
+        {
+            slot.amount -= amount;
+            if (slot.amount <= 0)
+                inventoryItems.Remove(slot);
+
+            if (uiController != null)
+                uiController.UpdateInventorySlots();
+        }
     }
 }
