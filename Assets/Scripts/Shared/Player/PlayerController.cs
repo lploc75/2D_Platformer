@@ -260,58 +260,34 @@ using UnityEngine;
             rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocity.y + knockback.y);
             Debug.Log("onhit");
         }
-    public void OnSelectSkill1(InputAction.CallbackContext context)
-    {
-        if (context.started)
+        public void OnSelectSkill1(InputAction.CallbackContext context)
         {
-            currentSkillData = skills[0];
-            manaCost = currentSkillData.manaCost;
-            animator.SetInteger(AnimationStrings.AttackIndex, currentSkillData.animationIndex);
+            if (context.started)
+            {
+                currentSkillData = skills[0];
+                manaCost = currentSkillData.manaCost;
+                animator.SetInteger(AnimationStrings.AttackIndex, currentSkillData.animationIndex);
+            }
         }
-    }
-    public void OnSelectSkill2(InputAction.CallbackContext context)
-    {
-        if (context.started)
+        public void OnSelectSkill2(InputAction.CallbackContext context)
         {
-            currentSkillData = skills[1];
-            manaCost = currentSkillData.manaCost;
-            animator.SetInteger(AnimationStrings.AttackIndex, currentSkillData.animationIndex);
+            if (context.started)
+            {
+                currentSkillData = skills[1];
+                manaCost = currentSkillData.manaCost;
+                animator.SetInteger(AnimationStrings.AttackIndex, currentSkillData.animationIndex);
+            }
         }
-    }
-    public void OnSelectSkill3(InputAction.CallbackContext context)
-    {
-        if (context.started)
+        public void OnSelectSkill3(InputAction.CallbackContext context)
         {
-            currentSkillData = skills[2];
-            manaCost = currentSkillData.manaCost;
-            animator.SetInteger(AnimationStrings.AttackIndex, currentSkillData.animationIndex);
+            if (context.started)
+            {
+                currentSkillData = skills[2];
+                manaCost = currentSkillData.manaCost;
+                animator.SetInteger(AnimationStrings.AttackIndex, currentSkillData.animationIndex);
+            }
         }
+
     }
 
-    //public void OnSelectSkill1(InputAction.CallbackContext context)
-    //    {
-    //        if (context.started)
-    //        {
-    //            manaCost = 10f;
-    //            animator.SetInteger(AnimationStrings.AttackIndex, 1);
-    //        }
-    //    }
-
-    //    public void OnSelectSkill2(InputAction.CallbackContext context)
-    //    {
-    //        if (context.started)
-    //        {
-    //            manaCost = 30f;
-    //            animator.SetInteger(AnimationStrings.AttackIndex, 2); // 2 ==  attack animation ?
-    //        }
-    //    }
-    //    public void OnSelectSkill3(InputAction.CallbackContext context)
-    //    {
-    //        if (context.started)
-    //        {
-    //            manaCost = 50f;
-    //            animator.SetInteger(AnimationStrings.AttackIndex, 3); // 3 ==  attack animation ?
-    //        }
-    //    }
-    }
 

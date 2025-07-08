@@ -1,12 +1,43 @@
 ﻿using Assets.Scripts.Shared.Player;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
+[System.Serializable]
+public class SkillPrefab
+{
+    public string skillName;
+    public GameObject prefab;
+}
 public class ProjectileLauncher : MonoBehaviour
 {
     public Transform luanchPoint;   // Điểm xuất phát của đạn    
     public GameObject projectPrefab;     // Kỹ năng hiện tại, được set từ PlayerController
+    [Header("Danh sách prefab ứng với từng kỹ năng")]
+    public SkillPrefab[] skillPrefabs; // Gán từ Inspector
 
     private SkillData currentSkillData;  // Kỹ năng hiện tại, được set từ PlayerController
+
+    /// <summary>
+    /// Được gọi từ PlayerController khi người chơi chọn skill.
+    /// Lưu lại dữ liệu kỹ năng để sử dụng khi animation gọi FireProjectile().
+    /// </summary>
+    /// <param name="skillData">Kỹ năng được chọn</param>
+    public void SetSkillData(SkillData skillData)
+    {
+        currentSkillData = skillData;
+    }
+    private GameObject GetPrefabForCurrentSkill()
+    {
+        foreach (var item in skillPrefabs)
+        {
+            if (item.skillName == currentSkillData.skillName)
+            {
+                return item.prefab;
+            }
+        }
+
+        Debug.LogWarning($"⚠️ Không tìm thấy prefab cho skill: {currentSkillData.skillName}");
+        return null;
+    }
 
     // Hàm được animation gọi
     public void FireProjectile()
@@ -35,19 +66,43 @@ public class ProjectileLauncher : MonoBehaviour
             ? currentSkillData.knockback
             : new Vector2(-currentSkillData.knockback.x, currentSkillData.knockback.y);
         // Gửi thông tin vào script Projectile
-        projectile.GetComponent<Projectile>().Init(Mathf.RoundToInt(finalDamage), kb);
+        projectile.GetComponent<Projectile>().Init(Mathf.RoundToInt(finalDamage), kb, true); // AutoMove = true
         Debug.Log($"✅ Đã bắn Projectile với damage: {finalDamage}, knockback: {kb} từ skill {currentSkillData.skillName}");
     }
-
-    /// <summary>
-    /// Được gọi từ PlayerController khi người chơi chọn skill.
-    /// Lưu lại dữ liệu kỹ năng để sử dụng khi animation gọi FireProjectile().
-    /// </summary>
-    /// <param name="skillData">Kỹ năng được chọn</param>
-    public void SetSkillData(SkillData skillData)
+    public void SpawnProjectileAtMouse()
     {
-        currentSkillData = skillData;
+        if (currentSkillData == null)
+        {
+            Debug.LogWarning("❌ SkillData chưa được set!");
+            return;
+        }
+
+        GameObject prefab = GetPrefabForCurrentSkill();
+        if (prefab == null) return;
+
+        Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+        mouseWorldPos.z = 0;
+
+        GameObject projectile = Instantiate(prefab, mouseWorldPos, Quaternion.identity);
+
+        Vector3 origScale = projectile.transform.localScale;
+        projectile.transform.localScale = new Vector3(
+            transform.localScale.x > 0 ? Mathf.Abs(origScale.x) : -Mathf.Abs(origScale.x),
+            origScale.y,
+            origScale.z
+        );
+
+        int rolledDamage = RollDamage();
+        float finalDamage = rolledDamage + currentSkillData.magicDamage;
+        Vector2 kb = transform.localScale.x > 0
+            ? currentSkillData.knockback
+            : new Vector2(-currentSkillData.knockback.x, currentSkillData.knockback.y);
+
+        projectile.GetComponent<Projectile>().Init(Mathf.RoundToInt(finalDamage), kb, false); // AutoMove = false
+
+        Debug.Log($"✅ Spawned {prefab.name} with damage {finalDamage} at {mouseWorldPos}");
     }
+
     private int RollDamage()
     {
         float baseDamage = PlayerStatsManager.Instance.baseDamage;
@@ -70,4 +125,5 @@ public class ProjectileLauncher : MonoBehaviour
 
         return Mathf.RoundToInt(damageAfterRolling);
     }
+
 }

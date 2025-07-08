@@ -32267,6 +32267,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   luanchPoint: {fileID: 474243832}
   projectPrefab: {fileID: 1169267155618189968, guid: 5e6123aecc03d3f488450d132462dd5f, type: 3}
+  skillPrefabs:
+  - skillName: FireBall
+    prefab: {fileID: 1169267155618189968, guid: 5e6123aecc03d3f488450d132462dd5f, type: 3}
+  - skillName: Lighting Bolt
+    prefab: {fileID: 3131187305250211410, guid: ecb3cc7ad47e1a64d859f38498ddc5d7, type: 3}
 --- !u!114 &1275586792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32631,7 +32636,7 @@ MonoBehaviour:
     animationIndex: 2
     magicDamage: 30
     knockback: {x: 5, y: 5}
-  - skillName: Skill3
+  - skillName: Lighting Bolt
     manaCost: 1
     animationIndex: 3
     magicDamage: 80
