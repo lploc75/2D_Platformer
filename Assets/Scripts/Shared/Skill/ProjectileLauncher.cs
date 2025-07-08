@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Shared.Player;
+using Assets.Scripts.Shared.Skill;
 using UnityEngine;
 using UnityEngine.InputSystem;
 [System.Serializable]
@@ -9,7 +10,8 @@ public class SkillPrefab
 }
 public class ProjectileLauncher : MonoBehaviour
 {
-    public Transform luanchPoint;   // Điểm xuất phát của đạn    
+    public Transform luanchPoint;   // Điểm xuất phát của phép  
+    public Transform groundLuanchPoint;   // Điểm xuất phát của phép dưới đất   
     [Header("Danh sách prefab ứng với từng kỹ năng")]
     public SkillPrefab[] skillPrefabs; // Gán từ Inspector
 
@@ -109,6 +111,39 @@ public class ProjectileLauncher : MonoBehaviour
         projectile.GetComponent<Projectile>().Init(Mathf.RoundToInt(finalDamage), kb, false); // AutoMove = false
 
         Debug.Log($"✅ Spawned {prefab.name} with damage {finalDamage} at {mouseWorldPos}");
+    }
+    public void FireSpike()
+    {
+        if (currentSkillData == null)
+        {
+            Debug.LogWarning("❌ SkillData chưa được set!");
+            return;
+        }
+
+        GameObject prefab = GetPrefabForCurrentSkill();
+        if (prefab == null) return;
+
+        Vector3 spawnPos = groundLuanchPoint.position;
+        Quaternion rotation = prefab.transform.rotation;
+
+        GameObject spikeObject = Instantiate(prefab, spawnPos, rotation);
+
+        // Không cần xoay hướng nếu spike chỉ trồi lên theo animation
+        int rolledDamage = RollDamage();
+        float finalDamage = rolledDamage + currentSkillData.magicDamage;
+
+        Vector2 kb = transform.localScale.x > 0
+            ? currentSkillData.knockback
+            : new Vector2(-currentSkillData.knockback.x, currentSkillData.knockback.y);
+
+        Spike spike = spikeObject.GetComponent<Spike>();
+        if (spike != null)
+        {
+            spike.spawnMultiple = true; // ✅ thêm dòng này
+            spike.Init(Mathf.RoundToInt(finalDamage), kb);
+        }
+
+        Debug.Log($"🪨 Spike skill {currentSkillData.skillName} spawned with {finalDamage} damage at {spawnPos}");
     }
 
     private int RollDamage()

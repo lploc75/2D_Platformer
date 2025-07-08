@@ -56,7 +56,10 @@ public class Projectile : MonoBehaviour
                 rb.linearVelocity = Vector2.zero;               // đứng lại
                 rb.isKinematic = true;                    // ngừng vật lý
                 GetComponent<Collider2D>().enabled = false; // không gây hit tiếp
-                animator.SetTrigger(AnimationStrings.collideTrigger);
+                if (autoMove)
+                {
+                    animator.SetTrigger(AnimationStrings.collideTrigger);
+                }
                 Destroy(gameObject, destroyDelayAfterCollide);
             }
 

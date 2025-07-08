@@ -5,7 +5,8 @@ using UnityEngine;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets.Scripts.Shared.Player
+namespace Assets.Scripts.Shared.Skill
+
 {
     [System.Serializable]
     public class SkillData

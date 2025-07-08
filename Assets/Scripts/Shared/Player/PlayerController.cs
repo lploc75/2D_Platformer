@@ -1,5 +1,6 @@
 ﻿    using System;
 using Assets.Scripts.Shared.Player;
+using Assets.Scripts.Shared.Skill;
 using UnityEngine;
     using UnityEngine.InputSystem;
     /*
@@ -287,9 +288,21 @@ using UnityEngine;
                 currentSkillData = skills[2];
                 manaCost = currentSkillData.manaCost;
                 animator.SetInteger(AnimationStrings.AttackIndex, currentSkillData.animationIndex);
+                animator.SetInteger(AnimationStrings.SkillID, currentSkillData.skillID);
+            }
+        }
+        public void OnSelectSkill4(InputAction.CallbackContext context)
+        {
+            if (context.started)
+            {
+                currentSkillData = skills[3];
+                manaCost = currentSkillData.manaCost;
+                animator.SetInteger(AnimationStrings.AttackIndex, currentSkillData.animationIndex);
+                animator.SetInteger(AnimationStrings.SkillID, currentSkillData.skillID);
             }
         }
 
-    }
+
+}
 
 

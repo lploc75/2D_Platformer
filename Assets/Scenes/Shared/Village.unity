@@ -15404,6 +15404,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 453292978}
   m_CullTransparentMesh: 1
+--- !u!1 &473441489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 473441490}
+  m_Layer: 7
+  m_Name: SpellAttackGround
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &473441490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473441489}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.4, y: 0.18, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1275586800}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &474243831
 GameObject:
   m_ObjectHideFlags: 0
@@ -15429,7 +15460,7 @@ Transform:
   m_GameObject: {fileID: 474243831}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.279, y: -0.061, z: 0}
+  m_LocalPosition: {x: 0.847, y: -0.305, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -32249,8 +32280,8 @@ GameObject:
   - component: {fileID: 1275586794}
   - component: {fileID: 1275586793}
   - component: {fileID: 1275586792}
-  - component: {fileID: 1275586791}
   - component: {fileID: 1275586790}
+  - component: {fileID: 1275586801}
   m_Layer: 7
   m_Name: Wizard 2
   m_TagString: Player
@@ -32270,26 +32301,6 @@ SortingGroup:
   m_SortingLayer: 14
   m_SortingOrder: 0
   m_SortAtRoot: 0
---- !u!114 &1275586791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1275586789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2df3ae8dee264104fb5d02440eba7c76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  luanchPoint: {fileID: 474243832}
-  skillPrefabs:
-  - skillName: Fireball
-    prefab: {fileID: 1169267155618189968, guid: 5e6123aecc03d3f488450d132462dd5f, type: 3}
-  - skillName: Lighting Bolt
-    prefab: {fileID: 3131187305250211410, guid: ecb3cc7ad47e1a64d859f38498ddc5d7, type: 3}
-  - skillName: Explosion
-    prefab: {fileID: 5130456855862703593, guid: 869ad7e276f97bd408d7bb990c8a659c, type: 3}
 --- !u!114 &1275586792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32622,6 +32633,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: acbe6249-5119-4a28-8ec4-f67705230ede
     m_ActionName: 'Player/Select Skill 3[/Keyboard/3]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1275586797}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnSelectSkill4
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: dd600634-7aaf-49ce-9b3d-d0655f6d55ec
+    m_ActionName: 'Player/Select Skill 4[/Keyboard/4]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -32662,9 +32689,15 @@ MonoBehaviour:
     animationIndex: 3
     magicDamage: 80
     knockback: {x: 5, y: 5}
+  - skillID: 4
+    skillName: Spike
+    manaCost: 1
+    animationIndex: 3
+    magicDamage: 80
+    knockback: {x: 5, y: 5}
   manaManager: {fileID: 1541745904}
   staminaManager: {fileID: 1541745899}
-  projectileLauncher: {fileID: 1275586791}
+  projectileLauncher: {fileID: 1275586801}
   _isMoving: 0
   _isRunning: 1
   _isFacingRight: 1
@@ -32764,9 +32797,33 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 474243832}
+  - {fileID: 473441490}
   - {fileID: 2119864934}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1275586801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275586789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b5dba3fe3424b249b9f027837ff6fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  luanchPoint: {fileID: 474243832}
+  groundLuanchPoint: {fileID: 473441490}
+  skillPrefabs:
+  - skillName: Fireball
+    prefab: {fileID: 573951642884682776, guid: 5e6123aecc03d3f488450d132462dd5f, type: 3}
+  - skillName: Explosion
+    prefab: {fileID: 5130456855862703593, guid: 869ad7e276f97bd408d7bb990c8a659c, type: 3}
+  - skillName: Lighting Bolt
+    prefab: {fileID: 3131187305250211410, guid: ecb3cc7ad47e1a64d859f38498ddc5d7, type: 3}
+  - skillName: Spike
+    prefab: {fileID: 2228479599984988000, guid: 3924e70ad6c8e264c90e5b3e76adae24, type: 3}
 --- !u!1 &1275873961
 GameObject:
   m_ObjectHideFlags: 0
