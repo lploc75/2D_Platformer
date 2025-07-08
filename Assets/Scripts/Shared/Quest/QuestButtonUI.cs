@@ -7,6 +7,7 @@ public class QuestListButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public Image selectedHighlight;
     public Image hoverHighlight;
     public GameObject questDetailPanel; // Panel hiện chi tiết quest này
+    public Image completedTick; // Kéo icon tick vào Inspector
 
     private bool isHovering = false;
     private bool isSelected = false;
@@ -16,7 +17,11 @@ public class QuestListButton : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         manager = GetComponentInParent<QuestListUIManager>();
     }
-
+    public void SetCompleted(bool completed)
+    {
+        if (completedTick != null)
+            completedTick.gameObject.SetActive(completed);
+    }
     public void SetSelected(bool selected)
     {
         isSelected = selected;

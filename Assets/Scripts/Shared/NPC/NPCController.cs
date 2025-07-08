@@ -1,9 +1,15 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class NPCController : MonoBehaviour
 {
     public AdvancedDialogueProfile profile;
     public DialogueManager dialogueManager;
+    public RewardPanelUI rewardPanel; // Kéo panel này vào Inspector
+
+    // Đặt đúng quest ID đầu tiên của bạn
+    private const string firstQuestId = "main_1_crystal";
+    private const string chiefId = "chief"; // Đổi nếu npcId của trưởng làng khác!
 
     public void Interact()
     {
@@ -22,10 +28,9 @@ public class NPCController : MonoBehaviour
         // 2. Nếu NPC này có liên quan đến quest
         if (!string.IsNullOrEmpty(profile.questId))
         {
-            // a. Chưa nhận quest: hiện thoại mời nhận, xong tự nhận
+            // a. Chưa nhận quest: hiện thoại mời nhận, xong tự nhận (chỉ dùng nếu KHÔNG auto nhận quest)
             if (!QuestManager.Instance.IsQuestAccepted(profile.questId))
             {
-                // Chỉ NPC giao quest mới được cho nhận quest!
                 if (profile.isQuestGiver)
                 {
                     dialogueManager.StartDialogueFromLines(
@@ -42,7 +47,6 @@ public class NPCController : MonoBehaviour
                 }
                 else
                 {
-                    // NPC phụ, chưa nhận quest, chỉ hiện thoại mặc định
                     dialogueManager.StartDialogueFromLines(
                         profile.defaultLines,
                         profile.characterName,
@@ -52,39 +56,83 @@ public class NPCController : MonoBehaviour
                 }
             }
 
-
             // b. Đang làm quest này
             else if (QuestManager.Instance.IsQuestInProgress(profile.questId))
             {
-                // Lấy dữ liệu quest
                 QuestData questData = QuestManager.Instance.GetQuestById(profile.questId);
 
-                // Nếu quest yêu cầu phải nói chuyện với NPC này (nằm trong requiredNpcIds)
+                // ======= THOẠI OFFER CHO CHIEF LẦN ĐẦU =======
+                if (profile.npcId == chiefId && !QuestManager.Instance.HasTalkedWithNpc(profile.questId, chiefId))
+                {
+                    dialogueManager.StartDialogueFromLines(
+                        profile.questOfferLines,
+                        profile.characterName,
+                        profile.avatar,
+                        () =>
+                        {
+                            QuestManager.Instance.MarkTalkedWithNpc(profile.questId, chiefId);
+                            FindObjectOfType<QuestUIController>()?.BuildQuestList();
+                        }
+                    );
+                    return;
+                }
+                // ======= KHOÁC CHIEF TRƯỚC KHI GẶP NPC KHÁC =======
+                if (profile.npcId != chiefId && !QuestManager.Instance.HasTalkedWithNpc(profile.questId, chiefId))
+                {
+                    // Chưa gặp trưởng làng, chỉ hiện thoại mặc định, không tick, không thưởng
+                    dialogueManager.StartDialogueFromLines(
+                        profile.defaultLines,
+                        profile.characterName,
+                        profile.avatar
+                    );
+                    return;
+                }
+                // ======= END =======
+
+                // ĐÃ GẶP CHIEF, ĐẾN NPC PHỤ
                 if (questData != null && questData.requiredNpcIds != null &&
                     System.Array.Exists(questData.requiredNpcIds, id => id == profile.npcId))
                 {
-                    // Nếu chưa nói chuyện với NPC này trong quest này
                     if (!QuestManager.Instance.HasTalkedWithNpc(profile.questId, profile.npcId))
                     {
-                        // Thoại đặc biệt + đánh dấu đã nói chuyện + tặng item nếu có
                         dialogueManager.StartDialogueFromLines(
                             profile.questSpecialLines,
                             profile.characterName,
                             profile.avatar,
                             () =>
                             {
+                                // --- CODE TRAO THƯỞNG ĐẶT Ở ĐÂY ---
+                                if (profile.rewardList != null && profile.rewardList.Count > 0)
+                                {
+                                    Debug.Log($"[DEBUG] Trao thưởng khi kết thúc đối thoại NPC: {profile.characterName}");
+                                    foreach (var reward in profile.rewardList)
+                                    {
+                                        if (reward.item != null && reward.amount > 0)
+                                        {
+                                            InventoryManager.Instance.AddItem(reward.item, reward.amount);
+                                            Debug.Log($"[DEBUG] Add item: {reward.item?.itemName} x{reward.amount}");
+                                        }
+                                    }
+
+                                    var rewardPairs = new List<(ItemData, int)>();
+                                    foreach (var reward in profile.rewardList)
+                                    {
+                                        if (reward.item != null && reward.amount > 0)
+                                            rewardPairs.Add((reward.item, reward.amount));
+                                    }
+                                    Debug.Log("[DEBUG] Call ShowRewards()");
+                                    rewardPanel.ShowRewards(rewardPairs);
+                                }
+                                // Đánh dấu đã nói chuyện NPC này
                                 QuestManager.Instance.MarkTalkedWithNpc(profile.questId, profile.npcId);
-                                //if (profile.rewardItem != null)
-                                //{
-                                //    InventoryManager.Instance.AddItem(profile.rewardItem);
-                                //}
+                                FindObjectOfType<QuestUIController>()?.BuildQuestList();
                             }
                         );
                         return;
                     }
                 }
 
-                // Đã nói chuyện rồi hoặc không thuộc danh sách NPC required, hiện thoại in-progress
+                // Các trường hợp khác
                 dialogueManager.StartDialogueFromLines(
                     profile.questInProgressLines,
                     profile.characterName,
@@ -93,7 +141,35 @@ public class NPCController : MonoBehaviour
                 return;
             }
 
-            // c. Đã hoàn thành quest này
+            // c. Đã đủ điều kiện hoàn thành nhưng chưa hoàn thành (readyToComplete)
+            else if (QuestManager.Instance.IsQuestReadyToComplete(profile.questId))
+            {
+                if (profile.isQuestGiver)
+                {
+                    dialogueManager.StartDialogueFromLines(
+                        profile.questCompletedLines.Length > 0 ? profile.questCompletedLines : profile.defaultLines,
+                        profile.characterName,
+                        profile.avatar,
+                        () =>
+                        {
+                            QuestManager.Instance.CompleteQuest(profile.questId);
+                            QuestManager.Instance.RemoveReadyToComplete(profile.questId);
+                            FindObjectOfType<QuestUIController>()?.BuildQuestList();
+                        }
+                    );
+                }
+                else
+                {
+                    dialogueManager.StartDialogueFromLines(
+                        profile.questInProgressLines,
+                        profile.characterName,
+                        profile.avatar
+                    );
+                }
+                return;
+            }
+
+            // d. Đã hoàn thành quest này
             else if (QuestManager.Instance.IsQuestCompleted(profile.questId))
             {
                 dialogueManager.StartDialogueFromLines(
@@ -105,11 +181,38 @@ public class NPCController : MonoBehaviour
             }
         }
 
-        // 3. Thoại mặc định (không liên quan quest)
+        // 3. Thoại mặc định (không liên quan quest, NPC phụ ngoài quest)
         dialogueManager.StartDialogueFromLines(
             profile.defaultLines,
             profile.characterName,
-            profile.avatar
+            profile.avatar,
+            () =>
+            {
+                // Nếu NPC này không liên quan quest, vẫn có thể trao thưởng
+                if (QuestManager.Instance.IsQuestInProgress(firstQuestId)
+                    && profile.rewardList != null
+                    && profile.rewardList.Count > 0)
+                {
+                    Debug.Log($"[DEBUG] Trao thưởng NPC ngoài quest: {profile.characterName}");
+                    foreach (var reward in profile.rewardList)
+                    {
+                        if (reward.item != null && reward.amount > 0)
+                        {
+                            InventoryManager.Instance.AddItem(reward.item, reward.amount);
+                            Debug.Log($"[DEBUG] Add item: {reward.item?.itemName} x{reward.amount}");
+                        }
+                    }
+
+                    var rewardPairs = new List<(ItemData, int)>();
+                    foreach (var reward in profile.rewardList)
+                    {
+                        if (reward.item != null && reward.amount > 0)
+                            rewardPairs.Add((reward.item, reward.amount));
+                    }
+                    Debug.Log("[DEBUG] Call ShowRewards()");
+                    rewardPanel.ShowRewards(rewardPairs);
+                }
+            }
         );
     }
 }

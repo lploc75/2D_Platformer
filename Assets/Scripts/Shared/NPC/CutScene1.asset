@@ -17,13 +17,14 @@ MonoBehaviour:
   avatar: {fileID: 21300000, guid: fe9ac768ef6b2d649b0a5c85bab6c3cd, type: 3}
   isQuestGiver: 0
   defaultLines:
-  - What happened? Where is the sun?
-  - I must check this out.
+  - "The sun disappeared so suddenly\u2014I've never seen anything like this before."
+  - Something feels wrong in the air; I should talk to the chief and find out what's
+    happening.
   questId: 
   questOfferLines: []
   questInProgressLines: []
   questSpecialLines: []
-  rewardItem: {fileID: 0}
+  rewardList: []
   questCompletedLines: []
   unlockAfterQuestId: 
   unlockedLines: []

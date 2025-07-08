@@ -17,15 +17,21 @@ MonoBehaviour:
   avatar: {fileID: 21300000, guid: f41672609f717684989e2bd67d8963d6, type: 3}
   isQuestGiver: 0
   defaultLines:
-  - '"If you want strong armor or good weapons, just stop by my forge!"'
+  - If you want strong armor or good weapons, just stop by my forge!
   questId: main_1_crystal
   questOfferLines: []
   questInProgressLines:
-  - Thats all I know.
+  - "If you need repairs or better gear, you know where to find me.\r"
   questSpecialLines:
-  - Here what I know
-  - ...
-  rewardItem: {fileID: 0}
+  - 'You notice it too, don''t you? The forge barely stays hot, and the tools seem
+    heavier.
+
+'
+  - The whole village feels off.
+  - "Take these boots and a cloak\u2014just to be safe while you're looking around.\r\n"
+  rewardList:
+  - item: {fileID: 11400000, guid: 8769d9897027f8e4ba026609a4bd32cb, type: 2}
+    amount: 1
   questCompletedLines: []
   unlockAfterQuestId: 
   unlockedLines: []

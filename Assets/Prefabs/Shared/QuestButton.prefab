@@ -507,6 +507,7 @@ MonoBehaviour:
   selectedHighlight: {fileID: 7573440045550493526}
   hoverHighlight: {fileID: 6935200411698237246}
   questDetailPanel: {fileID: 0}
+  completedTick: {fileID: 874027247253948162}
 --- !u!1 &6267896706619584195
 GameObject:
   m_ObjectHideFlags: 0

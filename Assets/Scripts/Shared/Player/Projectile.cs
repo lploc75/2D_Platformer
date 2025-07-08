@@ -7,8 +7,11 @@ public class Projectile : MonoBehaviour
     public Vector2 moveSpeed = new Vector2(15f,0);
     public Vector2 knockback = new Vector2 (2,2);
 
-    [SerializeField] private float lifetime = 1.4f;
+    [SerializeField] private float lifetime = 1.2f;
     [SerializeField] private float destroyDelayAfterCollide = 0.2f; // cho clip kịp phát
+    [SerializeField] private bool autoMove = true;
+
+    [SerializeField] private BoxCollider2D lightingBoltCollider;
 
     Rigidbody2D rb;
     private Animator animator;
@@ -21,16 +24,21 @@ public class Projectile : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rb.linearVelocity = new Vector2 (moveSpeed.x * transform.localScale.x , moveSpeed.y);
+        if (autoMove)
+        {
+            rb.linearVelocity = new Vector2(moveSpeed.x * transform.localScale.x, moveSpeed.y);
+        }
         Destroy(gameObject, lifetime);
     }
 
-    // Hàm khởi tạo (setter) – gọi ngay sau Instantiate
-    public void Init(int setDamage, Vector2 newKnockback)
+    // Hàm khởi tạo mở rộng: damage, knockback, autoMove
+    public void Init(int setDamage, Vector2 newKnockback, bool setAutoMove)
     {
         damage = setDamage;
         knockback = newKnockback;
+        autoMove = setAutoMove;
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Damageable damageable = collision.GetComponent<Damageable>();
@@ -54,5 +62,35 @@ public class Projectile : MonoBehaviour
 
         }
     }
+    public void DisableCollider()
+    {
+        if (lightingBoltCollider != null)
+        {
+            lightingBoltCollider.enabled = false;
+            Debug.Log("❌ Collider đã bị tắt bởi animation");
+        }
+    }
 
+    //public void SetColliderSize(Vector2 newSize)
+    //{
+    //    if (lightingBoltCollider != null)
+    //    {
+    //        lightingBoltCollider.size = newSize;
+    //        Debug.Log($"✅ Đổi collider size thành {newSize}");
+    //    }
+    //}
+    //public void SetColliderSize_Small()
+    //{
+    //    SetColliderSize(new Vector2(1f, 1f));
+    //}
+
+    //public void SetColliderSize_Medium()
+    //{
+    //    SetColliderSize(new Vector2(2f, 2f));
+    //}
+
+    //public void SetColliderSize_Large()
+    //{
+    //    SetColliderSize(new Vector2(3f, 3f));
+    //}
 }
