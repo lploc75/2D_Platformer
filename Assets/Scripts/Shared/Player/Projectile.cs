@@ -3,7 +3,7 @@
 public class Projectile : MonoBehaviour
 {
     // Damage này được chỉnh theo từng phép + với base damage
-    public int damage { get; private set; }      // bỏ “=10” mặc định
+    public int damage { get; private set; }
     public Vector2 moveSpeed = new Vector2(15f,0);
     public Vector2 knockback = new Vector2 (2,2);
 
@@ -11,7 +11,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float destroyDelayAfterCollide = 0.2f; // cho clip kịp phát
     [SerializeField] private bool autoMove = true;
 
-    [SerializeField] private BoxCollider2D lightingBoltCollider;
+    [SerializeField] private BoxCollider2D lightingBoltCollider; // cái này cho riêng LightningBolt có thể tối ưu sau
 
     Rigidbody2D rb;
     private Animator animator;

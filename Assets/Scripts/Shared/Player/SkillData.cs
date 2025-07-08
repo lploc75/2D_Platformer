@@ -10,6 +10,7 @@ namespace Assets.Scripts.Shared.Player
     [System.Serializable]
     public class SkillData
     {
+        public int skillID;
         public string skillName;
         public float manaCost;
         public int animationIndex;

@@ -21031,6 +21031,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 702007519}
   m_CullTransparentMesh: 1
+--- !u!1 &709051137 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5266629926043923616, guid: 7819e40bed618b9448daea0105755178, type: 3}
+  m_PrefabInstance: {fileID: 1685797927}
+  m_PrefabAsset: {fileID: 0}
+--- !u!210 &709051138
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709051137}
+  m_Enabled: 1
+  m_SortingLayerID: -247178623
+  m_SortingLayer: 15
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &716415769
 GameObject:
   m_ObjectHideFlags: 0
@@ -32266,12 +32283,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   luanchPoint: {fileID: 474243832}
-  projectPrefab: {fileID: 1169267155618189968, guid: 5e6123aecc03d3f488450d132462dd5f, type: 3}
   skillPrefabs:
-  - skillName: FireBall
+  - skillName: Fireball
     prefab: {fileID: 1169267155618189968, guid: 5e6123aecc03d3f488450d132462dd5f, type: 3}
   - skillName: Lighting Bolt
     prefab: {fileID: 3131187305250211410, guid: ecb3cc7ad47e1a64d859f38498ddc5d7, type: 3}
+  - skillName: Explosion
+    prefab: {fileID: 5130456855862703593, guid: 869ad7e276f97bd408d7bb990c8a659c, type: 3}
 --- !u!114 &1275586792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32626,17 +32644,20 @@ MonoBehaviour:
   runSpeed: 8
   jumpImpulse: 10
   skills:
-  - skillName: Fireball
+  - skillID: 1
+    skillName: Fireball
     manaCost: 5
     animationIndex: 1
     magicDamage: 10
     knockback: {x: 5, y: 5}
-  - skillName: Skill2
+  - skillID: 2
+    skillName: Explosion
     manaCost: 1
-    animationIndex: 2
+    animationIndex: 1
     magicDamage: 30
     knockback: {x: 5, y: 5}
-  - skillName: Lighting Bolt
+  - skillID: 3
+    skillName: Lighting Bolt
     manaCost: 1
     animationIndex: 3
     magicDamage: 80
@@ -41614,6 +41635,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1685200278}
   m_CullTransparentMesh: 1
+--- !u!1001 &1685797927
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4002237247890647953, guid: 7819e40bed618b9448daea0105755178, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -48.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002237247890647953, guid: 7819e40bed618b9448daea0105755178, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002237247890647953, guid: 7819e40bed618b9448daea0105755178, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002237247890647953, guid: 7819e40bed618b9448daea0105755178, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002237247890647953, guid: 7819e40bed618b9448daea0105755178, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002237247890647953, guid: 7819e40bed618b9448daea0105755178, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002237247890647953, guid: 7819e40bed618b9448daea0105755178, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002237247890647953, guid: 7819e40bed618b9448daea0105755178, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002237247890647953, guid: 7819e40bed618b9448daea0105755178, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002237247890647953, guid: 7819e40bed618b9448daea0105755178, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5266629926043923616, guid: 7819e40bed618b9448daea0105755178, type: 3}
+      propertyPath: m_Name
+      value: BigMushroom
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5266629926043923616, guid: 7819e40bed618b9448daea0105755178, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 709051138}
+  m_SourcePrefab: {fileID: 100100000, guid: 7819e40bed618b9448daea0105755178, type: 3}
 --- !u!1 &1690294427
 GameObject:
   m_ObjectHideFlags: 0
@@ -51517,3 +51598,4 @@ SceneRoots:
   - {fileID: 1092845170}
   - {fileID: 575607752}
   - {fileID: 2068866137}
+  - {fileID: 1685797927}

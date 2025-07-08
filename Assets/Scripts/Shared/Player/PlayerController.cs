@@ -256,10 +256,10 @@ using UnityEngine;
 
     // Bị tấn công -> nhận damage và knockback
     public void OnHit(int damage, Vector2 knockback)
-        {
-            rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocity.y + knockback.y);
-            Debug.Log("onhit");
-        }
+    {
+        rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocity.y + knockback.y);
+        Debug.Log("onhit");
+    }
         public void OnSelectSkill1(InputAction.CallbackContext context)
         {
             if (context.started)
@@ -267,6 +267,7 @@ using UnityEngine;
                 currentSkillData = skills[0];
                 manaCost = currentSkillData.manaCost;
                 animator.SetInteger(AnimationStrings.AttackIndex, currentSkillData.animationIndex);
+                animator.SetInteger(AnimationStrings.SkillID, currentSkillData.skillID);
             }
         }
         public void OnSelectSkill2(InputAction.CallbackContext context)
@@ -276,8 +277,9 @@ using UnityEngine;
                 currentSkillData = skills[1];
                 manaCost = currentSkillData.manaCost;
                 animator.SetInteger(AnimationStrings.AttackIndex, currentSkillData.animationIndex);
-            }
+                animator.SetInteger(AnimationStrings.SkillID, currentSkillData.skillID);
         }
+    }
         public void OnSelectSkill3(InputAction.CallbackContext context)
         {
             if (context.started)
