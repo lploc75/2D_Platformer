@@ -21,10 +21,10 @@ public class WeaponData : ItemData
     [Tooltip("Bonus MP (Mana) từ vũ khí")]
     public float mp;
 
-    public int GetAttackPower()
-    {
-        return Mathf.RoundToInt(baseDamage * GetQualityMultiplier());
-    }
+    //public int GetAttackPower()
+    //{
+    //    return Mathf.RoundToInt(baseDamage * GetQualityMultiplier());
+    //}
 
     private float GetQualityMultiplier()
     {

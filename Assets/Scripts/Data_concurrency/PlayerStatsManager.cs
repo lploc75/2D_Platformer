@@ -180,49 +180,89 @@ public class PlayerStatsManager : MonoBehaviour
     }
 
     public void UpdateDerivedStats()
-    {
-        maxHP = 75 + (currentVIT * 4) + Mathf.RoundToInt(bonusArmorHealth);
-        maxMP = 85 + (currentINT * 1) + Mathf.RoundToInt(bonusAccessoryMP);
-        maxSP = 75 + Mathf.RoundToInt(currentDUR * 1.25f) + Mathf.RoundToInt(bonusEquipSP);
+{
+    // ==== Tổng hợp base + bonus từ trang bị ====
+    int totalSTR = currentSTR;
+    int totalINT = currentINT;
+    int totalDUR = currentDUR;
+    int totalPER = currentPER;
+    int totalVIT = currentVIT;
 
-        manaRegen = currentINT * 0.2f;
-        critChance = currentPER * 0.0075f + bonusArmorCritChance + bonusWeaponCritChance;
-        critDamage = 0.2f + (currentPER / 25.0f) + bonusWeaponCritDamage;
-        baseDamage = 10 + (currentSTR / 3.0f);
+    float totalBonusHP = 0f;
+    float totalBonusMP = 0f;
+    float totalBonusSP = 0f;
+    float totalCritChance = 0f;
+    float totalCritDamage = 0f;
+    float totalBaseDamage = 0f;
 
-        if (hpText != null) hpText.text = maxHP.ToString();
-        if (mpText != null) mpText.text = maxMP.ToString();
-        if (spText != null) spText.text = maxSP.ToString();
-        if (manaRegenText != null) manaRegenText.text = manaRegen.ToString("0.00") + "/s";
-        if (critChanceText != null) critChanceText.text = (critChance * 100).ToString("0.##") + "%";
-        if (critDamageText != null) critDamageText.text = critDamage.ToString("0.00");
-        if (baseDamageText != null) baseDamageText.text = baseDamage.ToString("0.0");
+        void ApplyItemBonus(ItemData item)
+        {
+            if (item == null) return;
 
-        if (manaManager != null)
-        {
-            manaManager.SetMaxMana(maxMP);
+            // ⚔️ Nếu là vũ khí
+            if (item is WeaponData weapon)
+            {
+                totalBonusHP += weapon.hp;
+                totalBonusMP += weapon.mp;
+                totalBonusSP += weapon.sp;
+
+                totalCritChance += weapon.critChance;
+                totalCritDamage += weapon.critDamage;
+                totalBaseDamage += weapon.baseDamage; // hoặc weapon.baseDamage nếu chưa cần nhân hệ số
+            }
+
+            // 🛡️ Nếu là giáp
+            else if (item is ArmorData armor)
+            {
+                totalBonusHP += armor.GetHealthBonus();
+                totalBonusMP += armor.GetMp();
+                totalBonusSP += armor.GetSp();
+
+                totalCritChance += armor.GetCritChance();
+                totalCritDamage += armor.GetCritDamage();
+                totalBaseDamage += armor.GetBaseDamage(); // nếu giáp cũng cộng dame
+            }
+
+            // 📌 Nếu bạn có bonus stat như STR, INT từ item: hãy thêm block riêng
+            // if (item is SomeStatItem) { totalSTR += ... }
         }
-        else
-        {
-            Debug.LogWarning("❌ ManaManager chưa được gán trong Inspector");
-        }
-        if (damageable != null)
-        {
-            damageable.SetMaxHealth(maxHP, true); // hoặc false nếu không muốn hồi đầy
-        }
-        else
-        {
-            Debug.LogWarning("❌ Damageable chưa được gán trong Inspector");
-        }
-        if (staminaManager != null)
-        {
-            staminaManager.SetMaxStamina(maxSP);
-        }
-        else
-        {
-            Debug.LogWarning("❌ StaminaManager chưa được gán trong Inspector");
-        }
-    }
+
+
+    // ==== Lấy các item đang trang bị ====
+    ApplyItemBonus(EquipmentManager.Instance.weaponSlotUI?.GetCurrentItem());
+    ApplyItemBonus(EquipmentManager.Instance.armorSlotUI?.GetCurrentItem());
+    // Apply thêm slot khác nếu có, ví dụ: boots, ring, v.v...
+
+    // ==== Tính chỉ số từ tổng ====
+    maxHP = 75 + (totalVIT * 4) + Mathf.RoundToInt(totalBonusHP);
+    maxMP = 85 + (totalINT * 1) + Mathf.RoundToInt(totalBonusMP);
+    maxSP = 75 + Mathf.RoundToInt(totalDUR * 1.25f) + Mathf.RoundToInt(totalBonusSP);
+
+    manaRegen = totalINT * 0.2f;
+    critChance = totalPER * 0.0075f + totalCritChance;
+    critDamage = 0.2f + (totalPER / 25.0f) + totalCritDamage;
+    baseDamage = 10 + (totalSTR / 3.0f) + totalBaseDamage;
+
+    // ==== Cập nhật UI ====
+    if (hpText != null) hpText.text = maxHP.ToString();
+    if (mpText != null) mpText.text = maxMP.ToString();
+    if (spText != null) spText.text = maxSP.ToString();
+    if (manaRegenText != null) manaRegenText.text = manaRegen.ToString("0.00") + "/s";
+    if (critChanceText != null) critChanceText.text = (critChance * 100).ToString("0.##") + "%";
+    if (critDamageText != null) critDamageText.text = critDamage.ToString("0.00");
+    if (baseDamageText != null) baseDamageText.text = baseDamage.ToString("0.0");
+
+    // ==== Gửi sang hệ thống khác ====
+    if (manaManager != null) manaManager.SetMaxMana(maxMP);
+    else Debug.LogWarning("❌ ManaManager chưa được gán trong Inspector");
+
+    if (damageable != null) damageable.SetMaxHealth(maxHP, true);
+    else Debug.LogWarning("❌ Damageable chưa được gán trong Inspector");
+
+    if (staminaManager != null) staminaManager.SetMaxStamina(maxSP);
+    else Debug.LogWarning("❌ StaminaManager chưa được gán trong Inspector");
+}
+
     private void OnStatChanged()
     {
         UpdateAllStatsUI();

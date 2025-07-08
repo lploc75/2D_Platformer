@@ -78,6 +78,8 @@ public class EquipmentManager : MonoBehaviour
 
         InventoryManager.Instance.uiController.UpdateInventorySlots();
         Debug.Log($"Đã trang bị: {item.itemName} vào slot {item.itemType}");
+        PlayerStatsManager.Instance.UpdateDerivedStats();
+
     }
 
 
@@ -108,5 +110,7 @@ public class EquipmentManager : MonoBehaviour
                 // ... các loại khác tương tự
         }
         InventoryManager.Instance.uiController.UpdateInventorySlots();
+        PlayerStatsManager.Instance.UpdateDerivedStats();
+
     }
 }
