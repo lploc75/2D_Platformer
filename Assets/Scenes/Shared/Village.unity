@@ -18829,7 +18829,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &656120186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32627,12 +32627,12 @@ MonoBehaviour:
     magicDamage: 10
     knockback: {x: 5, y: 5}
   - skillName: Skill2
-    manaCost: 20
+    manaCost: 1
     animationIndex: 2
     magicDamage: 30
     knockback: {x: 5, y: 5}
   - skillName: Skill3
-    manaCost: 50
+    manaCost: 1
     animationIndex: 3
     magicDamage: 80
     knockback: {x: 5, y: 5}
@@ -45551,7 +45551,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1856489182
 MonoBehaviour:
   m_ObjectHideFlags: 0
