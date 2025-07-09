@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Shared.Player;
+using Assets.Scripts.Shared.Skill;
 using UnityEngine;
 using UnityEngine.InputSystem;
 [System.Serializable]
@@ -9,8 +10,8 @@ public class SkillPrefab
 }
 public class ProjectileLauncher : MonoBehaviour
 {
-    public Transform luanchPoint;   // Điểm xuất phát của đạn    
-    public GameObject projectPrefab;     // Kỹ năng hiện tại, được set từ PlayerController
+    public Transform luanchPoint;   // Điểm xuất phát của phép  
+    public Transform groundLuanchPoint;   // Điểm xuất phát của phép dưới đất   
     [Header("Danh sách prefab ứng với từng kỹ năng")]
     public SkillPrefab[] skillPrefabs; // Gán từ Inspector
 
@@ -42,18 +43,22 @@ public class ProjectileLauncher : MonoBehaviour
     // Hàm được animation gọi
     public void FireProjectile()
     {
-        // Kiểm tra nếu chưa có dữ liệu kỹ năng
         if (currentSkillData == null)
         {
             Debug.LogWarning("❌ SkillData chưa được set!");
             return;
         }
+
+        GameObject prefab = GetPrefabForCurrentSkill();
+        if (prefab == null) return;
+
         // Tạo đạn tại vị trí launchPoint
-        GameObject projectile = Instantiate(projectPrefab, luanchPoint.position, projectPrefab.transform.rotation);
+        GameObject projectile = Instantiate(prefab, luanchPoint.position, prefab.transform.rotation);
+
         // Xoay hướng đạn theo hướng của nhân vật
         Vector3 origScale = projectile.transform.localScale;
         projectile.transform.localScale = new Vector3(
-            origScale.x * transform.localScale.x > 0 ? 1 : -1,
+            transform.localScale.x > 0 ? Mathf.Abs(origScale.x) : -Mathf.Abs(origScale.x),
             origScale.y,
             origScale.z
         );
@@ -61,14 +66,19 @@ public class ProjectileLauncher : MonoBehaviour
         // 🎯 Tính sát thương cuối cùng
         int rolledDamage = RollDamage();
         float finalDamage = rolledDamage + currentSkillData.magicDamage;
+
         // Knockback theo hướng nhân vật
         Vector2 kb = transform.localScale.x > 0
             ? currentSkillData.knockback
             : new Vector2(-currentSkillData.knockback.x, currentSkillData.knockback.y);
-        // Gửi thông tin vào script Projectile
-        projectile.GetComponent<Projectile>().Init(Mathf.RoundToInt(finalDamage), kb, true); // AutoMove = true
-        Debug.Log($"✅ Đã bắn Projectile với damage: {finalDamage}, knockback: {kb} từ skill {currentSkillData.skillName}");
+
+        // Gửi dữ liệu vào Projectile
+        projectile.GetComponent<Projectile>().Init(Mathf.RoundToInt(finalDamage), kb, true);
+
+        Debug.Log($"✅ Bắn {prefab.name} với damage {finalDamage}, knockback: {kb}, từ skill {currentSkillData.skillName}");
     }
+
+    // Hàm được animation gọi
     public void SpawnProjectileAtMouse()
     {
         if (currentSkillData == null)
@@ -101,6 +111,39 @@ public class ProjectileLauncher : MonoBehaviour
         projectile.GetComponent<Projectile>().Init(Mathf.RoundToInt(finalDamage), kb, false); // AutoMove = false
 
         Debug.Log($"✅ Spawned {prefab.name} with damage {finalDamage} at {mouseWorldPos}");
+    }
+    public void FireSpike()
+    {
+        if (currentSkillData == null)
+        {
+            Debug.LogWarning("❌ SkillData chưa được set!");
+            return;
+        }
+
+        GameObject prefab = GetPrefabForCurrentSkill();
+        if (prefab == null) return;
+
+        Vector3 spawnPos = groundLuanchPoint.position;
+        Quaternion rotation = prefab.transform.rotation;
+
+        GameObject spikeObject = Instantiate(prefab, spawnPos, rotation);
+
+        // Không cần xoay hướng nếu spike chỉ trồi lên theo animation
+        int rolledDamage = RollDamage();
+        float finalDamage = rolledDamage + currentSkillData.magicDamage;
+
+        Vector2 kb = transform.localScale.x > 0
+            ? currentSkillData.knockback
+            : new Vector2(-currentSkillData.knockback.x, currentSkillData.knockback.y);
+
+        Spike spike = spikeObject.GetComponent<Spike>();
+        if (spike != null)
+        {
+            spike.spawnMultiple = true; // ✅ thêm dòng này
+            spike.Init(Mathf.RoundToInt(finalDamage), kb);
+        }
+
+        Debug.Log($"🪨 Spike skill {currentSkillData.skillName} spawned with {finalDamage} damage at {spawnPos}");
     }
 
     private int RollDamage()
