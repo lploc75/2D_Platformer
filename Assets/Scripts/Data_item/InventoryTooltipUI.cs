@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class InventoryTooltipUI : MonoBehaviour
 {
@@ -21,12 +22,11 @@ public class InventoryTooltipUI : MonoBehaviour
     public Vector2 tooltipOffset = new Vector2(12, 8);
     public float tooltipHideDelay = 0.1f;
 
-    // --- Internal state ---
+    // Internal state
     private bool pointerOnSlot = false;
     private bool pointerOnTooltip = false;
     private float hideTooltipTimer = -1f;
 
-    // --- Update function dùng cho timer ---
     void Update()
     {
         if (hideTooltipTimer >= 0f)
@@ -47,34 +47,38 @@ public class InventoryTooltipUI : MonoBehaviour
         ShowTooltip(item, pos);
         hideTooltipTimer = -1f;
     }
+
     public void OnSlotPointerExit()
     {
         pointerOnSlot = false;
         TryHideTooltip();
     }
-    public void OnTooltipPointerEnter() { pointerOnTooltip = true; }
-    public void OnTooltipPointerExit() { pointerOnTooltip = false; TryHideTooltip(); }
+
+    public void OnTooltipPointerEnter() => pointerOnTooltip = true;
+
+    public void OnTooltipPointerExit()
+    {
+        pointerOnTooltip = false;
+        TryHideTooltip();
+    }
 
     private void TryHideTooltip()
     {
         if (!pointerOnSlot && !pointerOnTooltip)
-            hideTooltipTimer = tooltipHideDelay; // Bắt đầu đếm lùi
+            hideTooltipTimer = tooltipHideDelay;
     }
 
-    private Color GetQualityColor(ItemQuality quality)
+    public void HideTooltipImmediate()
     {
-        switch (quality)
-        {
-            case ItemQuality.Legendary: return new Color(0.7f, 0.4f, 1.0f);
-            case ItemQuality.Epic: return new Color(0.15f, 0.55f, 1.0f);
-            case ItemQuality.Rare: return new Color(0.1f, 0.85f, 0.2f);
-            default: return Color.white;
-        }
+        tooltipPanel?.SetActive(false);
+        pointerOnSlot = false;
+        pointerOnTooltip = false;
+        hideTooltipTimer = -1f;
     }
 
     public void ShowTooltip(ItemData item, Vector2 pos)
     {
-        if (item == null)
+        if (item == null || tooltipPanel == null)
         {
             tooltipPanel?.SetActive(false);
             return;
@@ -95,60 +99,49 @@ public class InventoryTooltipUI : MonoBehaviour
         }
         if (descText) descText.text = item.description;
 
-        if (weaponPanel) weaponPanel.SetActive(false);
-        if (armorPanel) armorPanel.SetActive(false);
+        weaponPanel?.SetActive(false);
+        armorPanel?.SetActive(false);
 
-        if (item.itemType == ItemType.Weapon)
-        {
-            WeaponData weapon = item as WeaponData;
-            if (weaponPanel && weapon != null)
-            {
-                weaponPanel.SetActive(true);
-                if (baseDamageRow && baseDamageValue)
-                {
-                    bool show = weapon.baseDamage != 0;
-                    baseDamageRow.SetActive(show);
-                    baseDamageValue.text = show ? weapon.baseDamage.ToString() : "";
-                }
-                if (critChanceRow && critChanceValue)
-                {
-                    bool show = weapon.critChance != 0f;
-                    critChanceRow.SetActive(show);
-                    critChanceValue.text = show ? (weapon.critChance * 100).ToString("F0") + "%" : "";
-                }
-                if (critDamageRow && critDamageValue)
-                {
-                    bool show = weapon.critDamage != 0f;
-                    critDamageRow.SetActive(show);
-                    critDamageValue.text = show ? weapon.critDamage.ToString("F1") + "x" : "";
-                }
-            }
-        }
-        else if (item.itemType == ItemType.Armor)
-        {
-            ArmorData armor = item as ArmorData;
-            if (armorPanel && armor != null)
-            {
-                armorPanel.SetActive(true);
-                if (healthBonusRow && healthBonusValue)
-                {
-                    bool show = armor.healthBonus != 0f;
-                    healthBonusRow.SetActive(show);
-                    healthBonusValue.text = show ? armor.healthBonus.ToString("F0") : "";
-                }
-                if (armorCritChanceRow && armorCritChanceValue)
-                {
-                    bool show = armor.critChance != 0f;
-                    armorCritChanceRow.SetActive(show);
-                    armorCritChanceValue.text = show ? (armor.critChance * 100).ToString("F0") + "%" : "";
-                }
-            }
-        }
+        if (item is WeaponData weapon) SetupWeaponTooltip(weapon);
+        else if (item is ArmorData armor) SetupArmorTooltip(armor);
 
-        // Vị trí tooltip (trên canvas riêng)
         Canvas canvas = tooltipPanel.GetComponentInParent<Canvas>();
-        RectTransform canvasRect = canvas.GetComponent<RectTransform>();
         RectTransform tooltipRect = tooltipPanel.GetComponent<RectTransform>();
+        if (canvas && tooltipRect)
+            PositionTooltip(canvas, tooltipRect, pos);
+    }
+
+    private void SetupWeaponTooltip(WeaponData weapon)
+    {
+        if (!weaponPanel || weapon == null) return;
+
+        weaponPanel.SetActive(true);
+
+        SetRowActive(baseDamageRow, baseDamageValue, weapon.baseDamage != 0, weapon.baseDamage.ToString());
+        SetRowActive(critChanceRow, critChanceValue, weapon.critChance != 0f, (weapon.critChance * 100).ToString("F0") + "%");
+        SetRowActive(critDamageRow, critDamageValue, weapon.critDamage != 0f, weapon.critDamage.ToString("F1") + "x");
+    }
+
+    private void SetupArmorTooltip(ArmorData armor)
+    {
+        if (!armorPanel || armor == null) return;
+
+        armorPanel.SetActive(true);
+
+        SetRowActive(healthBonusRow, healthBonusValue, armor.healthBonus != 0f, armor.healthBonus.ToString("F0"));
+        SetRowActive(armorCritChanceRow, armorCritChanceValue, armor.critChance != 0f, (armor.critChance * 100).ToString("F0") + "%");
+    }
+
+    private void SetRowActive(GameObject row, TextMeshProUGUI valueText, bool condition, string value)
+    {
+        if (row) row.SetActive(condition);
+        if (valueText) valueText.text = condition ? value : "";
+    }
+
+    private void PositionTooltip(Canvas canvas, RectTransform tooltipRect, Vector2 pos)
+    {
+        RectTransform canvasRect = canvas.GetComponent<RectTransform>();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(tooltipPanel.GetComponent<RectTransform>());
 
         float tooltipHeight = tooltipRect.rect.height;
         float tooltipWidth = tooltipRect.rect.width;
@@ -172,12 +165,15 @@ public class InventoryTooltipUI : MonoBehaviour
 
         tooltipRect.anchoredPosition = anchoredPos;
     }
-    public void HideTooltipImmediate()
-    {
-        tooltipPanel.SetActive(false);
-        pointerOnSlot = false;
-        pointerOnTooltip = false;
-        hideTooltipTimer = -1f;
-    }
 
+    private Color GetQualityColor(ItemQuality quality)
+    {
+        return quality switch
+        {
+            ItemQuality.Legendary => new Color(0.7f, 0.4f, 1.0f),
+            ItemQuality.Epic => new Color(0.15f, 0.55f, 1.0f),
+            ItemQuality.Rare => new Color(0.1f, 0.85f, 0.2f),
+            _ => Color.white
+        };
+    }
 }
