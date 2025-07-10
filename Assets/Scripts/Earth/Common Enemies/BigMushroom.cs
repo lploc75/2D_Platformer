@@ -15,7 +15,7 @@ public class BigMushroom : MonoBehaviour
     private bool hasDroppedCoin = false;
 
     [Header("Moving Settings")]
-    public float walkSpeed = 4f;
+    public float walkSpeed = 2f;
     private bool canFlip = true;
     public float flipCooldown = 0.2f;
 

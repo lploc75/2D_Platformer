@@ -69,7 +69,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -114,6 +114,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -121,12 +134,12 @@ TextureImporter:
       name: Attack_3_0
       rect:
         serializedVersion: 2
-        x: 35
+        x: 36
         y: 0
-        width: 37
-        height: 70
+        width: 35
+        height: 69
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -143,12 +156,12 @@ TextureImporter:
       name: Attack_3_1
       rect:
         serializedVersion: 2
-        x: 166
+        x: 167
         y: 0
-        width: 36
-        height: 70
+        width: 34
+        height: 69
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -165,12 +178,12 @@ TextureImporter:
       name: Attack_3_2
       rect:
         serializedVersion: 2
-        x: 291
+        x: 292
         y: 0
-        width: 38
-        height: 70
+        width: 36
+        height: 69
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -187,12 +200,12 @@ TextureImporter:
       name: Attack_3_3
       rect:
         serializedVersion: 2
-        x: 427
+        x: 428
         y: 0
-        width: 66
-        height: 68
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 64
+        height: 67
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -209,12 +222,12 @@ TextureImporter:
       name: Attack_3_4
       rect:
         serializedVersion: 2
-        x: 556
+        x: 557
         y: 0
-        width: 62
-        height: 68
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 60
+        height: 67
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -231,12 +244,12 @@ TextureImporter:
       name: Attack_3_5
       rect:
         serializedVersion: 2
-        x: 684
+        x: 685
         y: 0
-        width: 54
-        height: 68
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 52
+        height: 67
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -253,12 +266,12 @@ TextureImporter:
       name: Attack_3_6
       rect:
         serializedVersion: 2
-        x: 812
+        x: 813
         y: 0
-        width: 49
-        height: 68
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 47
+        height: 67
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -275,7 +288,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e9bb55470dd5f8c4e8ff408e732397a1
     internalID: 0
     vertices: []
     indices: 
@@ -283,7 +296,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":1.0},"gridSpriteSize":{"x":128.0,"y":128.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       Attack_3_0: -8910899737472627771
       Attack_3_1: -5464336490339650859
