@@ -197,7 +197,7 @@ MonoBehaviour:
   coinPrefab: {fileID: 6341476448709006985, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
   coinCount: 1
   coinSpread: 0.5
-  walkSpeed: 4
+  walkSpeed: 3
   flipCooldown: 0.2
   attackZone: {fileID: 3105572303196759124}
   cliffDetectionzone: {fileID: 8161904380470640945}
