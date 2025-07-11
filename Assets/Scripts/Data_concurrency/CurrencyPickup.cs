@@ -12,9 +12,12 @@ public class CurrencyPickup : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            InventoryManager.Instance.AddCurrency(currencyType, amount);
+            CurrencyManager.Instance.AddCurrency(currencyType, amount);
+            InventoryManager.Instance.AddCurrency(currencyType, amount); // <-- THÊM DÒNG NÀY!
+
             Destroy(gameObject);
         }
     }
+
 
 }
