@@ -36,6 +36,8 @@ public class CurrencyManager : MonoBehaviour
 
     public void AddCurrency(CurrencyType type, int amount)
     {
+        if (!currencyAmounts.ContainsKey(type))
+            currencyAmounts[type] = 0;
         currencyAmounts[type] += amount;
         UpdateCurrencyUI(type);
     }

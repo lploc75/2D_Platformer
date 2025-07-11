@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9dbfc48981af1e4d97432f47d079a70, type: 3}
+  m_Script: {fileID: 11500000, guid: 846de4534ae3f4c459cc0b66ac003dd2, type: 3}
   m_Name: Coin
   m_EditorClassIdentifier: 
   itemName: Coin
   itemType: 3
   quality: 0
   icon: {fileID: -3338749442709606003, guid: 4a190ab1d0b3df44098345380b0064ff, type: 3}
-  description: Coin use in shop
+  description: Use to buy in shop
   currencyType: 0

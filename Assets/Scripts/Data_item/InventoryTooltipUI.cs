@@ -8,6 +8,11 @@ public class InventoryTooltipUI : MonoBehaviour
     public GameObject tooltipPanel;
     public TextMeshProUGUI nameText, typeText, qualityText, descText;
 
+    [Header("Stat & Rarity/Amount Titles")]
+    public GameObject statTitle;           // Stat title ở trên
+    public GameObject rarityObj;           // Rarity obj ở trên (chứa qualityText)
+    public TextMeshProUGUI amountTitleText; // Amount title ở dưới (Text TMP)
+
     [Header("Weapon Panel")]
     public GameObject weaponPanel;
     public GameObject baseDamageRow, critChanceRow, critDamageRow;
@@ -17,6 +22,10 @@ public class InventoryTooltipUI : MonoBehaviour
     public GameObject armorPanel;
     public GameObject healthBonusRow, armorCritChanceRow;
     public TextMeshProUGUI healthBonusValue, armorCritChanceValue;
+
+    [Header("Currency Panel")]
+    public GameObject currencyPanel;
+    public TextMeshProUGUI currencyNameText, currencyDescText, currencyAmountText, currencyTypeText;
 
     [Header("Tooltip Offset")]
     public Vector2 tooltipOffset = new Vector2(12, 8);
@@ -78,6 +87,7 @@ public class InventoryTooltipUI : MonoBehaviour
 
     public void ShowTooltip(ItemData item, Vector2 pos)
     {
+
         if (item == null || tooltipPanel == null)
         {
             tooltipPanel?.SetActive(false);
@@ -85,6 +95,11 @@ public class InventoryTooltipUI : MonoBehaviour
         }
 
         tooltipPanel.SetActive(true);
+
+        // Mặc định hiện lại các thành phần
+        statTitle?.SetActive(true);
+        rarityObj?.SetActive(true);
+        amountTitleText?.gameObject.SetActive(false);
 
         if (nameText)
         {
@@ -101,9 +116,33 @@ public class InventoryTooltipUI : MonoBehaviour
 
         weaponPanel?.SetActive(false);
         armorPanel?.SetActive(false);
+        currencyPanel?.SetActive(false);
 
-        if (item is WeaponData weapon) SetupWeaponTooltip(weapon);
-        else if (item is ArmorData armor) SetupArmorTooltip(armor);
+        // Chỉ bật đúng 1 panel, đồng thời ẩn/hiện các trường đặc biệt theo yêu cầu
+        if (item is WeaponData weapon)
+        {
+            SetupWeaponTooltip(weapon);
+        }
+        else if (item is ArmorData armor)
+        {
+            SetupArmorTooltip(armor);
+        }
+        else if (item is CurrencyData currency)
+        {
+            SetupCurrencyTooltip(currency);
+
+            // Ẩn stat và rarity trên, hiện amount title dưới
+            statTitle?.SetActive(false);
+            rarityObj?.SetActive(false);
+            if (amountTitleText)
+            {
+                amountTitleText.gameObject.SetActive(true);
+                amountTitleText.text = "Amount:"; // Tùy bạn set
+            }
+
+            // Thay qualityText trên thành amount value
+            if (qualityText) qualityText.text = currency.amount.ToString();
+        }
 
         Canvas canvas = tooltipPanel.GetComponentInParent<Canvas>();
         RectTransform tooltipRect = tooltipPanel.GetComponent<RectTransform>();
@@ -130,6 +169,19 @@ public class InventoryTooltipUI : MonoBehaviour
 
         SetRowActive(healthBonusRow, healthBonusValue, armor.healthBonus != 0f, armor.healthBonus.ToString("F0"));
         SetRowActive(armorCritChanceRow, armorCritChanceValue, armor.critChance != 0f, (armor.critChance * 100).ToString("F0") + "%");
+    }
+
+    private void SetupCurrencyTooltip(CurrencyData currency)
+    {
+        Debug.Log($"CurrencyManager.Instance.GetCurrency({currency.currencyType}) = {currency.amount}");
+
+        if (!currencyPanel || currency == null) return;
+        currencyPanel.SetActive(true);
+
+        if (currencyNameText) currencyNameText.text = currency.itemName;
+        if (currencyDescText) currencyDescText.text = currency.description;
+        if (currencyAmountText) currencyAmountText.text = currency.amount.ToString();
+        if (currencyTypeText) currencyTypeText.text = currency.currencyType.ToString();
     }
 
     private void SetRowActive(GameObject row, TextMeshProUGUI valueText, bool condition, string value)
