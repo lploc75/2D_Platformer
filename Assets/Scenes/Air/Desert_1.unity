@@ -8046,11 +8046,11 @@ PrefabInstance:
     - target: {fileID: 240765422075376258, guid: 14c936f0f293ca64fa77cf577f180f8f, type: 3}
       propertyPath: 'currencyItemDataList.Array.data[0]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 57d8bd4c5ad769e428d9a56a80966719, type: 2}
     - target: {fileID: 240765422075376258, guid: 14c936f0f293ca64fa77cf577f180f8f, type: 3}
       propertyPath: 'currencyItemDataList.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: 98a6e0b09dc4ace4eb426ea8b679d38e, type: 2}
+      objectReference: {fileID: 11400000, guid: ad9213488c986d24e9df1ed09ff50137, type: 2}
     - target: {fileID: 240765422075376258, guid: 14c936f0f293ca64fa77cf577f180f8f, type: 3}
       propertyPath: 'currencyItemDataList.Array.data[2]'
       value: 
