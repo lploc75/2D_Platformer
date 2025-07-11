@@ -11,5 +11,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Shared/Village.unity
     guid: 63264c46ba59fe949a91e7b310e162a9
+  - enabled: 1
+    path: Assets/Scenes/Air/Desert_2.unity
+    guid: 485ae12fc14ddd140941342d12cdf765
+  - enabled: 1
+    path: Assets/Scenes/Air/Desert_1.unity
+    guid: 31e5797f9c939744cbf1553f492dd910
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

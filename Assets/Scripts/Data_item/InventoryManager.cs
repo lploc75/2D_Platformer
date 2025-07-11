@@ -16,6 +16,7 @@ public class InventoryManager : MonoBehaviour
     public int maxInventorySize = 20;
 
     public InventoryStaticUIController uiController;
+    public List<ItemData> currencyItemDataList; // Kéo asset Coin, Gem,... vào Inspector
 
     private void Awake()
     {
@@ -71,4 +72,26 @@ public class InventoryManager : MonoBehaviour
                 uiController.UpdateInventorySlots();
         }
     }
+
+    private ItemData FindCurrencyItem(CurrencyType type)
+    {
+        foreach (var item in currencyItemDataList)
+        {
+            if (item.itemType == ItemType.Currency && item.currencyType == type)
+                return item;
+        }
+        return null;
+    }
+
+    public void AddCurrency(CurrencyType type, int amount)
+    {
+        ItemData currencyItem = FindCurrencyItem(type);
+        if (currencyItem == null)
+        {
+            Debug.LogError("Chưa có ItemData cho loại tiền: " + type);
+            return;
+        }
+        AddItem(currencyItem, amount); // Gọi AddItem để thêm vào inventory như item bình thường
+    }
+
 }
