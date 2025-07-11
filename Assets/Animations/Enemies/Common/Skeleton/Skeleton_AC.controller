@@ -160,7 +160,7 @@ AnimatorStateTransition:
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
+  m_CanTransitionToSelf: 0
 --- !u!114 &-2480944677144521281
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e9e56d25bdd5294bb36a54a9182236c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTime: 0.5
+  fadeTime: 2
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -330,7 +330,7 @@ AnimatorStateTransition:
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
-  m_CanTransitionToSelf: 1
+  m_CanTransitionToSelf: 0
 --- !u!1102 &1272950304645137197
 AnimatorState:
   serializedVersion: 6
@@ -457,7 +457,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: -1560081980400262041}
-    m_Position: {x: 30, y: -20, z: 0}
+    m_Position: {x: 30, y: -30, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6995396590070232234}
     m_Position: {x: 290, y: 0, z: 0}

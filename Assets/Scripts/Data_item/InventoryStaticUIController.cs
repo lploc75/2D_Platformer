@@ -106,6 +106,12 @@
 
     public void ShowEquipMenu(int slotIndex, Vector3 screenPosition)
     {
+        var slot = inventoryManager.inventoryItems[slotIndex];
+        if (slot != null && slot.item.itemType == ItemType.Currency)
+        {
+            equipMenuPanel.SetActive(false); // Không hiện menu Equip cho currency
+            return;
+        }
         lastRightClickSlot = slotIndex;
 
         equipMenuPanel.SetActive(true);
