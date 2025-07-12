@@ -11006,7 +11006,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00004005432, y: -0.00013828278}
+  m_AnchoredPosition: {x: -0.000045776367, y: -0.0001373291}
   m_SizeDelta: {x: 58.216, y: 19.784}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &321890692
@@ -15753,7 +15753,6 @@ MonoBehaviour:
   manaManager: {fileID: 1541745904}
   damageable: {fileID: 1275586792}
   staminaManager: {fileID: 1541745899}
-  totalPoint: 60
   currentSTR: 0
   currentINT: 0
   currentDUR: 0
@@ -17251,7 +17250,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &656120186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29150,6 +29149,8 @@ GameObject:
   - component: {fileID: 1275586792}
   - component: {fileID: 1275586790}
   - component: {fileID: 1275586801}
+  - component: {fileID: 1275586802}
+  - component: {fileID: 1275586803}
   m_Layer: 7
   m_Name: Wizard 2
   m_TagString: Player
@@ -29545,27 +29546,32 @@ MonoBehaviour:
     animationIndex: 1
     magicDamage: 10
     knockback: {x: 5, y: 5}
+    shootSFX: {fileID: 8300000, guid: a652877b012108e41871f867ada9f176, type: 3}
   - skillID: 2
     skillName: Explosion
     manaCost: 1
     animationIndex: 1
     magicDamage: 30
     knockback: {x: 5, y: 5}
+    shootSFX: {fileID: 8300000, guid: a652877b012108e41871f867ada9f176, type: 3}
   - skillID: 3
     skillName: Lighting Bolt
     manaCost: 1
     animationIndex: 3
     magicDamage: 80
     knockback: {x: 5, y: 5}
+    shootSFX: {fileID: 8300000, guid: f1cb5d83282f2904a85f73111d068616, type: 3}
   - skillID: 4
     skillName: Spike
     manaCost: 1
     animationIndex: 3
     magicDamage: 80
     knockback: {x: 5, y: 5}
+    shootSFX: {fileID: 8300000, guid: b7f8695cf65a4f24eb37544298821146, type: 3}
   manaManager: {fileID: 1541745904}
   staminaManager: {fileID: 1541745899}
   projectileLauncher: {fileID: 1275586801}
+  touchingDirections: {fileID: 0}
   _isMoving: 0
   _isRunning: 1
   _isFacingRight: 1
@@ -29692,6 +29698,155 @@ MonoBehaviour:
     prefab: {fileID: 3131187305250211410, guid: ecb3cc7ad47e1a64d859f38498ddc5d7, type: 3}
   - skillName: Spike
     prefab: {fileID: 2228479599984988000, guid: 3924e70ad6c8e264c90e5b3e76adae24, type: 3}
+--- !u!114 &1275586802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275586789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b20e9ef28adac6479aacf06a6b44bb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walkClips:
+  - {fileID: 8300000, guid: 551d550ab98e3cc4bb7793e752fe8628, type: 3}
+  - {fileID: 8300000, guid: 18e761ff5ef14fd4588d9283fcc9b829, type: 3}
+  - {fileID: 8300000, guid: 9c0c1f9411026f749bcb3746cd557bec, type: 3}
+  - {fileID: 8300000, guid: 38cb68a2a49e89c46bea091d75b27976, type: 3}
+  - {fileID: 8300000, guid: a62172e6f7275ff4f94c17edc8dfdd0d, type: 3}
+  - {fileID: 8300000, guid: 6a0b4267ac8ee8448b619bc9a3bca6d9, type: 3}
+  - {fileID: 8300000, guid: fc32c6fd07980144996b811e5d1f2971, type: 3}
+  - {fileID: 8300000, guid: 030e6a43a7d08bd4581668d53a9808f4, type: 3}
+  - {fileID: 8300000, guid: 56ea356e65429294f9098ef523fdb70b, type: 3}
+  - {fileID: 8300000, guid: 5799109e817d3704889f0499d06a23be, type: 3}
+  - {fileID: 8300000, guid: d3f3cc8ad058cad408e97b1875afec82, type: 3}
+  runClips:
+  - {fileID: 8300000, guid: 9a30499e47789df48aa9bdb1ec7b0982, type: 3}
+  - {fileID: 8300000, guid: 1d7e7e6569aab5a45a837f470eaddc8b, type: 3}
+  - {fileID: 8300000, guid: 31be579b280d0bc459635877e8c45aee, type: 3}
+  - {fileID: 8300000, guid: c3f3efc1106f84643a38bd21f6826aaf, type: 3}
+  - {fileID: 8300000, guid: 2de8329adc6f9b944a5ab0875fb59924, type: 3}
+  - {fileID: 8300000, guid: f39f1d43c5b9fbf449e7b39d056e5aad, type: 3}
+  - {fileID: 8300000, guid: d3ea0567dbe95714eb0ca07f43a37a96, type: 3}
+  - {fileID: 8300000, guid: 161d5a427e88d594f9906708ccdc5663, type: 3}
+  - {fileID: 8300000, guid: 7a5ff4a806216b14ab9dba35a4fb258c, type: 3}
+  - {fileID: 8300000, guid: bd5653e52c4636e4aa3b0ced8f49a18d, type: 3}
+  - {fileID: 8300000, guid: 6c8508d96905ea749ae50b49916fde55, type: 3}
+  pitchVariance: 0.05
+  walkInterval: 0.56
+  runInterval: 0.25
+  landClips:
+  - {fileID: 8300000, guid: 6aeefb601c305f64487cebdfacae5b6c, type: 3}
+  - {fileID: 8300000, guid: a967f92e38352bb4291945423de63499, type: 3}
+  - {fileID: 8300000, guid: 856b6d74addb9ad4ab2b7b47bae3e839, type: 3}
+  - {fileID: 8300000, guid: f2bc9c36f73ea50419060ec6eb40c246, type: 3}
+  - {fileID: 8300000, guid: 09226248e570c904a900ec2ecb767a68, type: 3}
+  - {fileID: 8300000, guid: ccfb18eb53b37384b9632ae00f725881, type: 3}
+  - {fileID: 8300000, guid: 8e0c586341010324fadd73453569f0aa, type: 3}
+  - {fileID: 8300000, guid: eb491a4de6595a246bbef0f211e2bd73, type: 3}
+  - {fileID: 8300000, guid: 54cd8769272b7ca4c9a1386d106f621d, type: 3}
+  - {fileID: 8300000, guid: 7d65afb5fe7bb7e41a03b001f5acfbde, type: 3}
+  - {fileID: 8300000, guid: 984d316ed8be3ac4da9e31768a8b1fa9, type: 3}
+  minLandVelocity: 0
+--- !u!82 &1275586803
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275586789}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1275873961
 GameObject:
   m_ObjectHideFlags: 0
@@ -44409,6 +44564,9 @@ MonoBehaviour:
   typeText: {fileID: 1733453791}
   qualityText: {fileID: 667654009}
   descText: {fileID: 674538009}
+  statTitle: {fileID: 0}
+  rarityObj: {fileID: 0}
+  amountTitleText: {fileID: 0}
   weaponPanel: {fileID: 1890742567}
   baseDamageRow: {fileID: 1501815133}
   critChanceRow: {fileID: 29360856}
@@ -44421,6 +44579,11 @@ MonoBehaviour:
   armorCritChanceRow: {fileID: 809624849}
   healthBonusValue: {fileID: 453292980}
   armorCritChanceValue: {fileID: 1543297402}
+  currencyPanel: {fileID: 0}
+  currencyNameText: {fileID: 0}
+  currencyDescText: {fileID: 0}
+  currencyAmountText: {fileID: 0}
+  currencyTypeText: {fileID: 0}
   tooltipOffset: {x: 0, y: -40}
   tooltipHideDelay: 0.12
 --- !u!114 &2046624333

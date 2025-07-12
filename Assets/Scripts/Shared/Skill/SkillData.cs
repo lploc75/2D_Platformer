@@ -17,6 +17,7 @@ namespace Assets.Scripts.Shared.Skill
         public int animationIndex;
         public int magicDamage;
         public Vector2 knockback;     // nếu skill có knockback
+        public AudioClip shootSFX;
     }
 
 }
