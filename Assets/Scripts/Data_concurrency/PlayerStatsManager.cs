@@ -10,7 +10,7 @@ public class PlayerStatsManager : MonoBehaviour
     [SerializeField] private Damageable damageable;
     [SerializeField] private StaminaManager staminaManager;
 
-    public int totalPoint = 60;
+    //public int totalPoint = 60;
 
     // Chỉ số thực tế đã cộng
     public int currentSTR = 0;
@@ -84,7 +84,7 @@ public class PlayerStatsManager : MonoBehaviour
         if (buttonVIT != null) buttonVIT.onClick.AddListener(OnAddVIT);
     }
 
-    private int GetPointNeededForLevel(int level)
+    public int GetPurpleSoulNeededForLevel(int level)
     {
         if (level >= 0 && level < 6) return 2;
         if (level >= 6 && level < 12) return 4;
@@ -96,12 +96,13 @@ public class PlayerStatsManager : MonoBehaviour
     public void OnAddSTR()
     {
         if (strLevel >= 15) return;
+        int need = GetPurpleSoulNeededForLevel(strLevel);
+        int purpleSoul = CurrencyManager.Instance.GetCurrency(CurrencyType.PurpleSoul);
 
-        int need = GetPointNeededForLevel(strLevel);
-        if (totalPoint >= need)
+        if (purpleSoul >= need)
         {
+            CurrencyManager.Instance.AddCurrency(CurrencyType.PurpleSoul, -need);
             currentSTR += need;
-            totalPoint -= need;
             strLevel += 1;
             OnStatChanged();
         }
@@ -109,47 +110,58 @@ public class PlayerStatsManager : MonoBehaviour
     public void OnAddINT()
     {
         if (intLevel >= 15) return;
-        int need = GetPointNeededForLevel(intLevel);
-        if (totalPoint >= need)
+        int need = GetPurpleSoulNeededForLevel(intLevel);
+        int purpleSoul = CurrencyManager.Instance.GetCurrency(CurrencyType.PurpleSoul);
+
+        if (purpleSoul >= need)
         {
+            CurrencyManager.Instance.AddCurrency(CurrencyType.PurpleSoul, -need);
             currentINT += need;
-            totalPoint -= need;
             intLevel += 1;
             OnStatChanged();
         }
     }
+
     public void OnAddDUR()
     {
         if (durLevel >= 15) return;
-        int need = GetPointNeededForLevel(durLevel);
-        if (totalPoint >= need)
+        int need = GetPurpleSoulNeededForLevel(durLevel);
+        int purpleSoul = CurrencyManager.Instance.GetCurrency(CurrencyType.PurpleSoul);
+
+        if (purpleSoul >= need)
         {
+            CurrencyManager.Instance.AddCurrency(CurrencyType.PurpleSoul, -need);
             currentDUR += need;
-            totalPoint -= need;
             durLevel += 1;
             OnStatChanged();
         }
     }
+
     public void OnAddPER()
     {
         if (perLevel >= 15) return;
-        int need = GetPointNeededForLevel(perLevel);
-        if (totalPoint >= need)
+        int need = GetPurpleSoulNeededForLevel(perLevel);
+        int purpleSoul = CurrencyManager.Instance.GetCurrency(CurrencyType.PurpleSoul);
+
+        if (purpleSoul >= need)
         {
+            CurrencyManager.Instance.AddCurrency(CurrencyType.PurpleSoul, -need);
             currentPER += need;
-            totalPoint -= need;
             perLevel += 1;
             OnStatChanged();
         }
     }
+
     public void OnAddVIT()
     {
         if (vitLevel >= 15) return;
-        int need = GetPointNeededForLevel(vitLevel);
-        if (totalPoint >= need)
+        int need = GetPurpleSoulNeededForLevel(vitLevel);
+        int purpleSoul = CurrencyManager.Instance.GetCurrency(CurrencyType.PurpleSoul);
+
+        if (purpleSoul >= need)
         {
+            CurrencyManager.Instance.AddCurrency(CurrencyType.PurpleSoul, -need);
             currentVIT += need;
-            totalPoint -= need;
             vitLevel += 1;
             OnStatChanged();
         }
@@ -172,12 +184,15 @@ public class PlayerStatsManager : MonoBehaviour
 
     private void UpdateButtonInteractable()
     {
-        if (buttonSTR != null) buttonSTR.interactable = (totalPoint >= GetPointNeededForLevel(strLevel) && strLevel < 15);
-        if (buttonINT != null) buttonINT.interactable = (totalPoint >= GetPointNeededForLevel(intLevel) && intLevel < 15);
-        if (buttonDUR != null) buttonDUR.interactable = (totalPoint >= GetPointNeededForLevel(durLevel) && durLevel < 15);
-        if (buttonPER != null) buttonPER.interactable = (totalPoint >= GetPointNeededForLevel(perLevel) && perLevel < 15);
-        if (buttonVIT != null) buttonVIT.interactable = (totalPoint >= GetPointNeededForLevel(vitLevel) && vitLevel < 15);
+        int purpleSoul = CurrencyManager.Instance.GetCurrency(CurrencyType.PurpleSoul);
+
+        if (buttonSTR != null) buttonSTR.interactable = (purpleSoul >= GetPurpleSoulNeededForLevel(strLevel) && strLevel < 15);
+        if (buttonINT != null) buttonINT.interactable = (purpleSoul >= GetPurpleSoulNeededForLevel(intLevel) && intLevel < 15);
+        if (buttonDUR != null) buttonDUR.interactable = (purpleSoul >= GetPurpleSoulNeededForLevel(durLevel) && durLevel < 15);
+        if (buttonPER != null) buttonPER.interactable = (purpleSoul >= GetPurpleSoulNeededForLevel(perLevel) && perLevel < 15);
+        if (buttonVIT != null) buttonVIT.interactable = (purpleSoul >= GetPurpleSoulNeededForLevel(vitLevel) && vitLevel < 15);
     }
+
 
     public void UpdateDerivedStats()
 {
