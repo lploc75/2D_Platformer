@@ -25,6 +25,7 @@ public class HugeMushroom : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private float chaseSpeed = 2.5f;
     [SerializeField] private float stopDistance = 1.0f;
+    [SerializeField] private bool canChase = false;
 
     /*=========== 4. FLIP WALL ======================*/
     [SerializeField] private float flipCooldown = 0.2f;
@@ -133,14 +134,18 @@ public class HugeMushroom : MonoBehaviour
     /*=========== C. CHASE + MOVEMENT ==============*/
     private void UpdateHasTargetFlag()
     {
-        if (player != null)
-            HasTarget = Mathf.Abs(player.position.x - transform.position.x) <= stopDistance;
-        else
+        if (!canChase || player == null)
+        {
             HasTarget = false;
+            return;
+        }
+
+        HasTarget = Mathf.Abs(player.position.x - transform.position.x) <= stopDistance;
     }
 
     private void ChasePlayer()
     {
+        if (!canChase) return;
         if (damageable.LockVelocity || !CanMove || !IsAlive || !touchingDirections.IsGrounded) return;
 
         if (player != null)
@@ -197,5 +202,10 @@ public class HugeMushroom : MonoBehaviour
     {
         if (touchingDirections.IsGrounded) FlipDirection();
     }
-
+    /*=========== PUBLIC API =======================*/
+    public void ActivateChase()
+    {
+        canChase = true;
+        Debug.Log(name + " canChase = TRUE");
+    }
 }

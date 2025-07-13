@@ -132,13 +132,12 @@ public class PlayerController : MonoBehaviour
     {
         float horizontalVelocity = moveInput.x * CurrentMoveSpeed;
         float verticalVelocity = rb.linearVelocity.y;
-
-        // Nếu đang va vào tường và cố gắng đi về phía tường thì không đẩy vào nữa
-        if (touchingDirections.IsOnWall &&
-            ((moveInput.x > 0 && IsFacingRight) || (moveInput.x < 0 && !IsFacingRight)))
-        {
-            horizontalVelocity = 0;
-        }
+        // Chặn khi ép vào tường
+        bool pushingIntoLeftWall = touchingDirections.IsOnLeftWall && moveInput.x < 0;
+        bool pushingIntoRightWall = touchingDirections.IsOnRightWall && moveInput.x > 0;
+        //// Nếu đang va vào tường và cố gắng đi về phía tường thì không đẩy vào nữa
+        if (pushingIntoLeftWall || pushingIntoRightWall)
+            horizontalVelocity = 0f;
 
         if (touchingDirections.IsGrounded)
         {

@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Air/Desert_1.unity
     guid: 31e5797f9c939744cbf1553f492dd910
+  - enabled: 1
+    path: Assets/Scenes/Earth/BossMap1.unity
+    guid: 1b835b93fb03b984291a83ec29dec1f4
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
