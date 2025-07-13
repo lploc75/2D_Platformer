@@ -12,7 +12,15 @@ public class BigMushroom : MonoBehaviour
     public GameObject coinPrefab; // Gán từ Inspector
     public int coinCount = 1; // Số lượng coin rớt
     public float coinSpread = 0.5f; // Phạm vi random vị trí rớt
-    private bool hasDroppedCoin = false;
+
+    [Header("Soul Drop Settings")]
+    public GameObject soulPrefab;
+    public int soulCount = 1;                 // số soul muốn rớt
+    public float soulSpread = 0.4f;           // phạm vi random vị trí soul
+    [Range(0f, 1f)]
+    public float soulDropChance = 1f;         // 1 = luôn rớt, <1 = % rớt
+
+    private bool hasDroppedLoot = false;      // đảm bảo chỉ rớt 1 lần
 
     [Header("Moving Settings")]
     public float walkSpeed = 2f;
@@ -89,10 +97,11 @@ public class BigMushroom : MonoBehaviour
     {
         HasTarget = attackZone.detectedColliders.Count > 0;
 
-        if (!IsAlive && !hasDroppedCoin)
+        if (!IsAlive && !hasDroppedLoot)
         {
             DropCoins();
-            hasDroppedCoin = true;
+            DropSouls();
+            hasDroppedLoot = true;
         }
     }
     private void FixedUpdate()
@@ -142,24 +151,42 @@ public class BigMushroom : MonoBehaviour
             FlipDirection();
         }
     }
+    /* ───────────── Item‑Drop helpers ───────────── */
     void DropCoins()
     {
         for (int i = 0; i < coinCount; i++)
         {
-            Vector2 dropOffset = new Vector2(UnityEngine.Random.Range(-coinSpread, coinSpread), 0.5f);
-            Vector3 dropPosition = transform.position + (Vector3)dropOffset;
+            Vector3 pos = transform.position + (Vector3)new Vector2(
+                UnityEngine.Random.Range(-coinSpread, coinSpread), 0.5f);
 
-            GameObject coin = Instantiate(coinPrefab, dropPosition, Quaternion.identity);
-
-            // Coin bay nhẹ ra ngoài
-            Rigidbody2D rb = coin.GetComponent<Rigidbody2D>();
-            if (rb != null)
-            {
-                float forceX = UnityEngine.Random.Range(-2f, 2f);
-                float forceY = UnityEngine.Random.Range(2f, 4f);
-                rb.AddForce(new Vector2(forceX, forceY), ForceMode2D.Impulse);
-            }
+            SpawnWithImpulse(coinPrefab, pos);
         }
     }
+    void DropSouls()
+    {
+        if (soulPrefab == null) return;                          // quên gán Prefab
+        if (UnityEngine.Random.value > soulDropChance) return;   // rớt theo % 
 
+        for (int i = 0; i < soulCount; i++)
+        {
+            Vector3 pos = transform.position + (Vector3)new Vector2(
+                UnityEngine.Random.Range(-soulSpread, soulSpread), 0.6f);
+
+            SpawnWithImpulse(soulPrefab, pos);
+        }
+    }
+    /* ───────────── tiện ích chung ───────────── */
+    void SpawnWithImpulse(GameObject prefab, Vector3 position)
+    {
+        GameObject obj = Instantiate(prefab, position, Quaternion.identity);
+
+        Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.AddForce(new Vector2(
+                UnityEngine.Random.Range(-2f, 2f),              // X force
+                UnityEngine.Random.Range(2f, 4f)),              // Y force
+                ForceMode2D.Impulse);
+        }
+    }
 }

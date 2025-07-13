@@ -126,9 +126,16 @@ public class ProjectileLauncher : MonoBehaviour
         Vector3 spawnPos = groundLuanchPoint.position;
         Quaternion rotation = prefab.transform.rotation;
 
+        /*―― Spawn spike gốc ――*/
         GameObject spikeObject = Instantiate(prefab, spawnPos, rotation);
 
-        // Không cần xoay hướng nếu spike chỉ trồi lên theo animation
+        /*──────🔑 LẬT SCALE THEO HƯỚNG NGƯỜI CHƠI 🔑──────*/
+        float dirX = transform.localScale.x > 0 ? 1f : -1f;   // nhân vật đang nhìn phải hay trái
+        Vector3 localScale = spikeObject.transform.localScale;
+        localScale.x = Mathf.Abs(localScale.x) * dirX;        // +1 hoặc -1
+        spikeObject.transform.localScale = localScale;
+        /*──────────────────────────────────────────────────*/
+
         int rolledDamage = RollDamage();
         float finalDamage = rolledDamage + currentSkillData.magicDamage;
 
@@ -139,12 +146,13 @@ public class ProjectileLauncher : MonoBehaviour
         Spike spike = spikeObject.GetComponent<Spike>();
         if (spike != null)
         {
-            spike.spawnMultiple = true; // ✅ thêm dòng này
+            spike.spawnMultiple = true;
             spike.Init(Mathf.RoundToInt(finalDamage), kb);
         }
 
         Debug.Log($"🪨 Spike skill {currentSkillData.skillName} spawned with {finalDamage} damage at {spawnPos}");
     }
+
 
     private int RollDamage()
     {
