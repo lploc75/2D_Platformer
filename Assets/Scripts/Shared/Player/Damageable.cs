@@ -95,7 +95,7 @@ public class Damageable : MonoBehaviour
             damageableHit?.Invoke(damage, knockback);
 
             // Sau một khoảng thời gian, tắt lock lại
-            StartCoroutine(UnlockVelocityAfterDelay(0.3f));
+            StartCoroutine(UnlockVelocityAfterDelay(0.5f));
             return true;
         }
         return false;

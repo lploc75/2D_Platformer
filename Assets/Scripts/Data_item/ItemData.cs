@@ -4,7 +4,8 @@ public enum ItemType
 {
     Weapon,   // Vũ khí
     Armor,    // Áo giáp
-    Potion    // Bình thuốc
+    Potion,    // Bình thuốc
+    Currency
 }
 
 public enum ItemQuality
@@ -23,4 +24,7 @@ public class ItemData : ScriptableObject
     public ItemQuality quality;
     public Sprite icon;
     public string description;
+
+    // Thêm trường này để lưu loại tiền nếu là ItemType.Currency
+    public CurrencyType currencyType;
 }
