@@ -2054,7 +2054,6 @@ MonoBehaviour:
   actionMapName: Player
   healthUI: {fileID: 560524604}
   otherUIs: []
-<<<<<<< HEAD
 --- !u!1 &96684527
 GameObject:
   m_ObjectHideFlags: 0
@@ -2085,9 +2084,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 590422754}
-  m_Father: {fileID: 311575732}
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2335,8 +2333,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 101986253}
   m_CullTransparentMesh: 1
-=======
->>>>>>> main
 --- !u!1 &106801140
 GameObject:
   m_ObjectHideFlags: 0
@@ -48177,3 +48173,4 @@ SceneRoots:
   - {fileID: 1885576152}
   - {fileID: 2082421952}
   - {fileID: 1275586800}
+  - {fileID: 96684528}
