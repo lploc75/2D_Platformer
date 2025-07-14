@@ -5,12 +5,20 @@ using Assets.Scripts.Earth.Common_Enemies;
 [RequireComponent(typeof(Rigidbody2D), typeof(TouchingDirections), typeof(Damageable))]
 public class HugeMushroom : MonoBehaviour
 {
-    /*=========== 1. DROP COIN (khi chết) ===========*/
-    [Header("Coin Drop")]
-    [SerializeField] private GameObject coinPrefab;
-    [SerializeField] private int coinCount = 1;
-    [SerializeField] private float coinSpread = 0.5f;
-    private bool hasDroppedCoin;
+    /*=========== 1. DROP (khi chết) ===========*/
+    [Header("Coin Drop Settings")]
+    public GameObject coinPrefab; // Gán từ Inspector
+    public int coinCount = 1; // Số lượng coin rớt
+    public float coinSpread = 0.5f; // Phạm vi random vị trí rớt
+
+    [Header("Soul Drop Settings")]
+    public GameObject soulPrefab;
+    public int soulCount = 1;                 // số soul muốn rớt
+    public float soulSpread = 0.4f;           // phạm vi random vị trí soul
+    [Range(0f, 1f)]
+    public float soulDropChance = 1f;         // 1 = luôn rớt, <1 = % rớt
+
+    private bool hasDroppedLoot = false;      // đảm bảo chỉ rớt 1 lần
 
     /*=========== 2. SUMMON MINION ==================*/
     [Header("Summon")]
@@ -25,6 +33,7 @@ public class HugeMushroom : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private float chaseSpeed = 2.5f;
     [SerializeField] private float stopDistance = 1.0f;
+    [SerializeField] private bool canChase = false;
 
     /*=========== 4. FLIP WALL ======================*/
     [SerializeField] private float flipCooldown = 0.2f;
@@ -109,38 +118,67 @@ public class HugeMushroom : MonoBehaviour
     /*=========== B. COIN DROP WHEN DEAD ===========*/
     private void HandleDeathCoin()
     {
-        if (!IsAlive && !hasDroppedCoin)
+        if (!IsAlive && !hasDroppedLoot)
         {
             DropCoins();
-            hasDroppedCoin = true;
+            DropSouls();
+            hasDroppedLoot = true;
         }
     }
 
-    private void DropCoins()
+    void DropCoins()
     {
         for (int i = 0; i < coinCount; i++)
         {
-            Vector2 offset = new Vector2(Random.Range(-coinSpread, coinSpread), 0.5f);
-            Vector3 pos = transform.position + (Vector3)offset;
+            Vector3 pos = transform.position + (Vector3)new Vector2(
+                UnityEngine.Random.Range(-coinSpread, coinSpread), 0.5f);
 
-            GameObject c = Instantiate(coinPrefab, pos, Quaternion.identity);
-            if (c.TryGetComponent(out Rigidbody2D cRb))
-                cRb.AddForce(new Vector2(Random.Range(-2f, 2f), Random.Range(2f, 4f)),
-                             ForceMode2D.Impulse);
+            SpawnWithImpulse(coinPrefab, pos);
+        }
+    }
+    void DropSouls()
+    {
+        if (soulPrefab == null) return;                          // quên gán Prefab
+        if (UnityEngine.Random.value > soulDropChance) return;   // rớt theo % 
+
+        for (int i = 0; i < soulCount; i++)
+        {
+            Vector3 pos = transform.position + (Vector3)new Vector2(
+                UnityEngine.Random.Range(-soulSpread, soulSpread), 0.6f);
+
+            SpawnWithImpulse(soulPrefab, pos);
+        }
+    }
+    /* ───────────── tiện ích chung ───────────── */
+    void SpawnWithImpulse(GameObject prefab, Vector3 position)
+    {
+        GameObject obj = Instantiate(prefab, position, Quaternion.identity);
+
+        Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.AddForce(new Vector2(
+                UnityEngine.Random.Range(-2f, 2f),              // X force
+                UnityEngine.Random.Range(2f, 4f)),              // Y force
+                ForceMode2D.Impulse);
         }
     }
 
     /*=========== C. CHASE + MOVEMENT ==============*/
     private void UpdateHasTargetFlag()
     {
-        if (player != null)
-            HasTarget = Mathf.Abs(player.position.x - transform.position.x) <= stopDistance;
-        else
+        if (!canChase || player == null)
+        {
             HasTarget = false;
+            return;
+        }
+
+        HasTarget = Mathf.Abs(player.position.x - transform.position.x) <= stopDistance;
     }
 
     private void ChasePlayer()
     {
+        if (!canChase) return;
         if (damageable.LockVelocity || !CanMove || !IsAlive || !touchingDirections.IsGrounded) return;
 
         if (player != null)
@@ -197,5 +235,10 @@ public class HugeMushroom : MonoBehaviour
     {
         if (touchingDirections.IsGrounded) FlipDirection();
     }
-
+    /*=========== PUBLIC API =======================*/
+    public void ActivateChase()
+    {
+        canChase = true;
+        Debug.Log(name + " canChase = TRUE");
+    }
 }

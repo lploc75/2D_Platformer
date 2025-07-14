@@ -489,9 +489,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c8aecbe0c3d148b78196cdac93788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 0}
+  coinPrefab: {fileID: 6341476448709006985, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
   coinCount: 1
   coinSpread: 0.5
+  soulPrefab: {fileID: 6599476591866995934, guid: 4b2c2272e7741364ca2aefeda6165dc6, type: 3}
+  soulCount: 1
+  soulSpread: 0.4
+  soulDropChance: 1
   walkSpeed: 2
   flipCooldown: 0.2
   attackZone: {fileID: 1937935060676719728}

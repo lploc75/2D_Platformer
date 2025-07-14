@@ -194,14 +194,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 030427c912fb06c459512ff669f06120, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 0}
+  coinPrefab: {fileID: 6341476448709006985, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
   coinCount: 1
   coinSpread: 0.5
+  soulPrefab: {fileID: 6599476591866995934, guid: 4b2c2272e7741364ca2aefeda6165dc6, type: 3}
+  soulCount: 1
+  soulSpread: 0.4
+  soulDropChance: 1
   minionPrefab: {fileID: 5266629926043923616, guid: 7819e40bed618b9448daea0105755178, type: 3}
   summonOffsetY: -0.5
   player: {fileID: 0}
   chaseSpeed: 2.5
   stopDistance: 1
+  canChase: 0
   flipCooldown: 0.2
 --- !u!114 &413303027833557879
 MonoBehaviour:
