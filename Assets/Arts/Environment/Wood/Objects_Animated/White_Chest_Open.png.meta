@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 6bd23001d4d800f46b96a17a5277a282
+guid: 3d8848232134c89449f33af6aee51806
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4880212730713047097
-    second: Silver_Chest_Open_0
+      213: -2549459372484653262
+    second: White_Chest_Open_0
   - first:
-      213: -9032345834768348350
-    second: Silver_Chest_Open_1
+      213: 508654185594264554
+    second: White_Chest_Open_1
   - first:
-      213: 5175113736337847151
-    second: Silver_Chest_Open_2
+      213: -6108071433062067345
+    second: White_Chest_Open_2
   - first:
-      213: -8000100486038749492
-    second: Silver_Chest_Open_3
+      213: 3456886712544586595
+    second: White_Chest_Open_3
   - first:
-      213: 5283085325587426281
-    second: Silver_Chest_Open_4
+      213: 8577581332632452967
+    second: White_Chest_Open_4
   - first:
-      213: -4194083058701474491
-    second: Silver_Chest_Open_5
+      213: -5275374472681877526
+    second: White_Chest_Open_5
   - first:
-      213: -4035194783003813217
-    second: Silver_Chest_Open_6
+      213: -8934130721286287160
+    second: White_Chest_Open_6
   - first:
-      213: -4736241949601940171
-    second: Silver_Chest_Open_7
+      213: -6692206271064841443
+    second: White_Chest_Open_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -134,7 +134,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Silver_Chest_Open_0
+      name: White_Chest_Open_0
       rect:
         serializedVersion: 2
         x: 0
@@ -149,14 +149,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9308d724f9ff9b340800000000000000
-      internalID: 4880212730713047097
+      spriteID: 23f03c555308e9cd0800000000000000
+      internalID: -2549459372484653262
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Silver_Chest_Open_1
+      name: White_Chest_Open_1
       rect:
         serializedVersion: 2
         x: 31
@@ -171,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 24b47269159a6a280800000000000000
-      internalID: -9032345834768348350
+      spriteID: aeb9cdd694a1f0700800000000000000
+      internalID: 508654185594264554
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Silver_Chest_Open_2
+      name: White_Chest_Open_2
       rect:
         serializedVersion: 2
         x: 63
@@ -193,14 +193,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f6379a63682b1d740800000000000000
-      internalID: 5175113736337847151
+      spriteID: f63df91c465cb3ba0800000000000000
+      internalID: -6108071433062067345
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Silver_Chest_Open_3
+      name: White_Chest_Open_3
       rect:
         serializedVersion: 2
         x: 95
@@ -215,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ccefa3a8efee9f090800000000000000
-      internalID: -8000100486038749492
+      spriteID: 36becf1562459ff20800000000000000
+      internalID: 3456886712544586595
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Silver_Chest_Open_4
+      name: White_Chest_Open_4
       rect:
         serializedVersion: 2
         x: 127
@@ -237,14 +237,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9eba7b5dc1a415940800000000000000
-      internalID: 5283085325587426281
+      spriteID: 76f349ba6c0b90770800000000000000
+      internalID: 8577581332632452967
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Silver_Chest_Open_5
+      name: White_Chest_Open_5
       rect:
         serializedVersion: 2
         x: 159
@@ -259,14 +259,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5456d97edaf9bc5c0800000000000000
-      internalID: -4194083058701474491
+      spriteID: aef02a20eda1ac6b0800000000000000
+      internalID: -5275374472681877526
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Silver_Chest_Open_6
+      name: White_Chest_Open_6
       rect:
         serializedVersion: 2
         x: 191
@@ -281,14 +281,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f9a5c8769bb1008c0800000000000000
-      internalID: -4035194783003813217
+      spriteID: 8c093dca177930480800000000000000
+      internalID: -8934130721286287160
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Silver_Chest_Open_7
+      name: White_Chest_Open_7
       rect:
         serializedVersion: 2
         x: 223
@@ -303,8 +303,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 53d3caf5a0d754eb0800000000000000
-      internalID: -4736241949601940171
+      spriteID: d13e9817ad18023a0800000000000000
+      internalID: -6692206271064841443
       vertices: []
       indices: 
       edges: []
@@ -323,14 +323,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Silver_Chest_Open_0: 4880212730713047097
-      Silver_Chest_Open_1: -9032345834768348350
-      Silver_Chest_Open_2: 5175113736337847151
-      Silver_Chest_Open_3: -8000100486038749492
-      Silver_Chest_Open_4: 5283085325587426281
-      Silver_Chest_Open_5: -4194083058701474491
-      Silver_Chest_Open_6: -4035194783003813217
-      Silver_Chest_Open_7: -4736241949601940171
+      White_Chest_Open_0: -2549459372484653262
+      White_Chest_Open_1: 508654185594264554
+      White_Chest_Open_2: -6108071433062067345
+      White_Chest_Open_3: 3456886712544586595
+      White_Chest_Open_4: 8577581332632452967
+      White_Chest_Open_5: -5275374472681877526
+      White_Chest_Open_6: -8934130721286287160
+      White_Chest_Open_7: -6692206271064841443
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

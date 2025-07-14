@@ -17,6 +17,11 @@ public class InventoryTooltipUI : MonoBehaviour
     public GameObject healthBonusRow, armorCritChanceRow;
     public TextMeshProUGUI healthBonusValue, armorCritChanceValue;
 
+    [Header("Potion Panel")]
+    public GameObject potionPanel;
+    public GameObject restoreAmountRow, effectRow;
+    public TextMeshProUGUI restoreAmountValue, effectValue;
+
     [Header("Tooltip Offset")]
     public Vector2 tooltipOffset = new Vector2(12, 8);
     public float tooltipHideDelay = 0.1f;
@@ -47,12 +52,15 @@ public class InventoryTooltipUI : MonoBehaviour
         ShowTooltip(item, pos);
         hideTooltipTimer = -1f;
     }
+
     public void OnSlotPointerExit()
     {
         pointerOnSlot = false;
         TryHideTooltip();
     }
+
     public void OnTooltipPointerEnter() { pointerOnTooltip = true; }
+
     public void OnTooltipPointerExit() { pointerOnTooltip = false; TryHideTooltip(); }
 
     private void TryHideTooltip()
@@ -95,9 +103,12 @@ public class InventoryTooltipUI : MonoBehaviour
         }
         if (descText) descText.text = item.description;
 
+        // Ẩn tất cả các panel trước khi hiển thị panel tương ứng
         if (weaponPanel) weaponPanel.SetActive(false);
         if (armorPanel) armorPanel.SetActive(false);
+        if (potionPanel) potionPanel.SetActive(false); // Đảm bảo PotionPanel được ẩn trước
 
+        // Kiểm tra và hiển thị thông tin vũ khí
         if (item.itemType == ItemType.Weapon)
         {
             WeaponData weapon = item as WeaponData;
@@ -144,6 +155,25 @@ public class InventoryTooltipUI : MonoBehaviour
                 }
             }
         }
+        else if (item.itemType == ItemType.Potion)
+        {
+            PotionData potion = item as PotionData;
+            if (potionPanel && potion != null)
+            {
+                potionPanel.SetActive(true);
+                // Hiển thị thông tin của potion (ví dụ: lượng hồi phục và hiệu quả)
+                if (restoreAmountRow && restoreAmountValue)
+                {
+                    restoreAmountRow.SetActive(true);
+                    restoreAmountValue.text = potion.restoreAmount.ToString();
+                }
+                if (effectRow && effectValue)
+                {
+                    effectRow.SetActive(true);
+                    effectValue.text = potion.effect;
+                }
+            }
+        }
 
         // Vị trí tooltip (trên canvas riêng)
         Canvas canvas = tooltipPanel.GetComponentInParent<Canvas>();
@@ -172,6 +202,7 @@ public class InventoryTooltipUI : MonoBehaviour
 
         tooltipRect.anchoredPosition = anchoredPos;
     }
+
     public void HideTooltipImmediate()
     {
         tooltipPanel.SetActive(false);
@@ -179,5 +210,4 @@ public class InventoryTooltipUI : MonoBehaviour
         pointerOnTooltip = false;
         hideTooltipTimer = -1f;
     }
-
 }
