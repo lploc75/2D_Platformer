@@ -73,25 +73,38 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    private ItemData FindCurrencyItem(CurrencyType type)
+    private CurrencyData FindCurrencyItem(CurrencyType type)
     {
         foreach (var item in currencyItemDataList)
         {
-            if (item.itemType == ItemType.Currency && item.currencyType == type)
-                return item;
+            if (item is CurrencyData currencyItem && currencyItem.currencyType == type)
+                return currencyItem;
         }
         return null;
     }
 
+
     public void AddCurrency(CurrencyType type, int amount)
     {
-        ItemData currencyItem = FindCurrencyItem(type);
+        // Tìm asset CurrencyData đúng loại
+        CurrencyData currencyItem = FindCurrencyItem(type);
         if (currencyItem == null)
         {
-            Debug.LogError("Chưa có ItemData cho loại tiền: " + type);
+            Debug.LogError("Chưa có asset CurrencyData cho loại tiền: " + type);
             return;
         }
-        AddItem(currencyItem, amount); // Gọi AddItem để thêm vào inventory như item bình thường
+        AddItem(currencyItem, amount);
     }
+
+    public int GetCurrencyAmount(CurrencyType type)
+    {
+        foreach (var slot in inventoryItems)
+        {
+            if (slot.item is CurrencyData currencyItem && currencyItem.currencyType == type)
+                return slot.amount;
+        }
+        return 0;
+    }
+
 
 }

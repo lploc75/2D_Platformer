@@ -1401,6 +1401,10 @@ MonoBehaviour:
   coinPrefab: {fileID: 6341476448709006985, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
   coinCount: 1
   coinSpread: 0.5
+  soulPrefab: {fileID: 0}
+  soulCount: 1
+  soulSpread: 0.4
+  soulDropChance: 1
   walkSpeed: 2
   flipCooldown: 0.2
   attackZone: {fileID: 1848989398}
@@ -1957,6 +1961,10 @@ MonoBehaviour:
   coinPrefab: {fileID: 837126815}
   coinCount: 1
   coinSpread: 0.5
+  soulPrefab: {fileID: 0}
+  soulCount: 1
+  soulSpread: 0.4
+  soulDropChance: 1
   walkSpeed: 2
   flipCooldown: 0.2
   attackZone: {fileID: 840285618}
@@ -3523,11 +3531,11 @@ PrefabInstance:
       objectReference: {fileID: 7022884558154076834, guid: 33066c308771c344e99672a0af7a9fb4, type: 3}
     - target: {fileID: 4570059390151256665, guid: 4b2c2272e7741364ca2aefeda6165dc6, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.56
+      value: 2.56
       objectReference: {fileID: 0}
     - target: {fileID: 4570059390151256665, guid: 4b2c2272e7741364ca2aefeda6165dc6, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.58
+      value: 2.56
       objectReference: {fileID: 0}
     - target: {fileID: 6599476591866995934, guid: 4b2c2272e7741364ca2aefeda6165dc6, type: 3}
       propertyPath: m_Name
@@ -6935,6 +6943,10 @@ MonoBehaviour:
   coinPrefab: {fileID: 6341476448709006985, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
   coinCount: 1
   coinSpread: 0.5
+  soulPrefab: {fileID: 0}
+  soulCount: 1
+  soulSpread: 0.4
+  soulDropChance: 1
   walkSpeed: 2
   flipCooldown: 0.2
   attackZone: {fileID: 2049464115}
@@ -9305,6 +9317,10 @@ MonoBehaviour:
   coinPrefab: {fileID: 6341476448709006985, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
   coinCount: 1
   coinSpread: 0.5
+  soulPrefab: {fileID: 0}
+  soulCount: 1
+  soulSpread: 0.4
+  soulDropChance: 1
   walkSpeed: 2
   flipCooldown: 0.2
   attackZone: {fileID: 2095230951}
@@ -9771,7 +9787,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -13.104858, y: -8.573563}
+  m_AnchoredPosition: {x: -13.104858, y: -8.573578}
   m_SizeDelta: {x: -62.8256, y: -52.6271}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &588397017
@@ -11724,6 +11740,10 @@ MonoBehaviour:
   coinPrefab: {fileID: 6341476448709006985, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
   coinCount: 1
   coinSpread: 0.5
+  soulPrefab: {fileID: 0}
+  soulCount: 1
+  soulSpread: 0.4
+  soulDropChance: 1
   walkSpeed: 2
   flipCooldown: 0.2
   attackZone: {fileID: 619789642}
@@ -35645,6 +35665,10 @@ MonoBehaviour:
   coinPrefab: {fileID: 6341476448709006985, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
   coinCount: 1
   coinSpread: 0.5
+  soulPrefab: {fileID: 0}
+  soulCount: 1
+  soulSpread: 0.4
+  soulDropChance: 1
   walkSpeed: 2
   flipCooldown: 0.2
   attackZone: {fileID: 81697362}
@@ -43450,27 +43474,32 @@ MonoBehaviour:
     animationIndex: 1
     magicDamage: 10
     knockback: {x: 5, y: 5}
+    shootSFX: {fileID: 0}
   - skillID: 2
     skillName: Explosion
     manaCost: 1
     animationIndex: 1
     magicDamage: 30
     knockback: {x: 5, y: 5}
+    shootSFX: {fileID: 0}
   - skillID: 3
     skillName: Lighting Bolt
     manaCost: 1
     animationIndex: 3
     magicDamage: 80
     knockback: {x: 5, y: 5}
+    shootSFX: {fileID: 0}
   - skillID: 4
     skillName: Spike
     manaCost: 1
     animationIndex: 3
     magicDamage: 80
     knockback: {x: 5, y: 5}
+    shootSFX: {fileID: 0}
   manaManager: {fileID: 1082824928}
   staminaManager: {fileID: 1082824925}
   projectileLauncher: {fileID: 1514299885}
+  touchingDirections: {fileID: 0}
   _isMoving: 0
   _isRunning: 1
   _isFacingRight: 1
@@ -44234,6 +44263,10 @@ MonoBehaviour:
   coinPrefab: {fileID: 6341476448709006985, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
   coinCount: 1
   coinSpread: 0.5
+  soulPrefab: {fileID: 0}
+  soulCount: 1
+  soulSpread: 0.4
+  soulDropChance: 1
   walkSpeed: 2
   flipCooldown: 0.2
   attackZone: {fileID: 1651596495}
@@ -46129,6 +46162,10 @@ MonoBehaviour:
   coinPrefab: {fileID: 6341476448709006985, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
   coinCount: 1
   coinSpread: 0.5
+  soulPrefab: {fileID: 0}
+  soulCount: 1
+  soulSpread: 0.4
+  soulDropChance: 1
   walkSpeed: 2
   flipCooldown: 0.2
   attackZone: {fileID: 1296777582}
@@ -49147,6 +49184,10 @@ MonoBehaviour:
   coinPrefab: {fileID: 6341476448709006985, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
   coinCount: 1
   coinSpread: 0.5
+  soulPrefab: {fileID: 0}
+  soulCount: 1
+  soulSpread: 0.4
+  soulDropChance: 1
   walkSpeed: 2
   flipCooldown: 0.2
   attackZone: {fileID: 1798717904}
@@ -53639,6 +53680,10 @@ MonoBehaviour:
   coinPrefab: {fileID: 6341476448709006985, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
   coinCount: 1
   coinSpread: 0.5
+  soulPrefab: {fileID: 0}
+  soulCount: 1
+  soulSpread: 0.4
+  soulDropChance: 1
   walkSpeed: 2
   flipCooldown: 0.2
   attackZone: {fileID: 926549980}
@@ -55919,6 +55964,10 @@ MonoBehaviour:
   coinPrefab: {fileID: 837126815}
   coinCount: 1
   coinSpread: 0.5
+  soulPrefab: {fileID: 0}
+  soulCount: 1
+  soulSpread: 0.4
+  soulDropChance: 1
   walkSpeed: 2
   flipCooldown: 0.2
   attackZone: {fileID: 1972637064}
@@ -59212,6 +59261,10 @@ PrefabInstance:
     - target: {fileID: 7876740882447811659, guid: 4b2c2272e7741364ca2aefeda6165dc6, type: 3}
       propertyPath: amount
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876740882447811659, guid: 4b2c2272e7741364ca2aefeda6165dc6, type: 3}
+      propertyPath: currencyType
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
