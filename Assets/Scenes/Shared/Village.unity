@@ -2724,6 +2724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a3e21574b1bd84eaef9422851003bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLight: {fileID: 0}
 --- !u!114 &101986256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10085,6 +10086,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6c325e13f5f8fe4cb0b50bb323cf4a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statType: 0
+  tooltip: {fileID: 0}
+  statsManager: {fileID: 0}
 --- !u!1 &153204082
 GameObject:
   m_ObjectHideFlags: 0
@@ -21955,6 +21959,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d00240ab9da5044eba8a68a50769183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  portalLight: {fileID: 0}
+  flashMax: 400
+  flashDuration: 1
 --- !u!1 &422664726
 GameObject:
   m_ObjectHideFlags: 0
@@ -25345,7 +25352,6 @@ MonoBehaviour:
   manaManager: {fileID: 1541745904}
   damageable: {fileID: 1275586792}
   staminaManager: {fileID: 1541745899}
-  totalPoint: 60
   currentSTR: 0
   currentINT: 0
   currentDUR: 0
@@ -28645,6 +28651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a3e21574b1bd84eaef9422851003bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLight: {fileID: 0}
 --- !u!114 &713249806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30899,6 +30906,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d00240ab9da5044eba8a68a50769183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  portalLight: {fileID: 0}
+  flashMax: 400
+  flashDuration: 1
 --- !u!1 &767658836
 GameObject:
   m_ObjectHideFlags: 0
@@ -36736,6 +36746,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6c325e13f5f8fe4cb0b50bb323cf4a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statType: 0
+  tooltip: {fileID: 0}
+  statsManager: {fileID: 0}
 --- !u!1 &1026196646
 GameObject:
   m_ObjectHideFlags: 0
@@ -37113,6 +37126,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d00240ab9da5044eba8a68a50769183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  portalLight: {fileID: 0}
+  flashMax: 400
+  flashDuration: 1
 --- !u!1 &1039950733
 GameObject:
   m_ObjectHideFlags: 0
@@ -37247,6 +37263,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6c325e13f5f8fe4cb0b50bb323cf4a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statType: 0
+  tooltip: {fileID: 0}
+  statsManager: {fileID: 0}
 --- !u!1 &1040729054
 GameObject:
   m_ObjectHideFlags: 0
@@ -38106,6 +38125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a3e21574b1bd84eaef9422851003bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLight: {fileID: 0}
 --- !u!114 &1097600934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45381,6 +45401,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3883a4a365a8e2428a687de5024c344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tooltipPanel: {fileID: 0}
+  tooltipText: {fileID: 0}
 --- !u!224 &1207031628
 RectTransform:
   m_ObjectHideFlags: 0
@@ -45842,6 +45864,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35b6c9b0724654747ab78ef6791b90be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalTimeText: {fileID: 0}
+  totalKillText: {fileID: 0}
+  totalDeathText: {fileID: 0}
+  totalGoldText: {fileID: 0}
 --- !u!1 &1227346096
 GameObject:
   m_ObjectHideFlags: 0
@@ -46639,10 +46665,10 @@ MonoBehaviour:
     maxNormalAngle: 0
   groundDistance: 0.05
   wallDistance: 0.05
-  cellingDistance: 0.05
+  ceilingDistance: 0.05
   _isGrounded: 1
   _isOnWall: 0
-  _isOnCelling: 0
+  _isOnCeiling: 0
 --- !u!95 &1275586794
 Animator:
   serializedVersion: 7
@@ -46959,27 +46985,32 @@ MonoBehaviour:
     animationIndex: 1
     magicDamage: 10
     knockback: {x: 5, y: 5}
+    shootSFX: {fileID: 0}
   - skillID: 2
     skillName: Explosion
     manaCost: 1
     animationIndex: 1
     magicDamage: 30
     knockback: {x: 5, y: 5}
+    shootSFX: {fileID: 0}
   - skillID: 3
     skillName: Lighting Bolt
     manaCost: 1
     animationIndex: 3
     magicDamage: 80
     knockback: {x: 5, y: 5}
+    shootSFX: {fileID: 0}
   - skillID: 4
     skillName: Spike
     manaCost: 1
     animationIndex: 3
     magicDamage: 80
     knockback: {x: 5, y: 5}
+    shootSFX: {fileID: 0}
   manaManager: {fileID: 1541745904}
   staminaManager: {fileID: 1541745899}
   projectileLauncher: {fileID: 1275586801}
+  touchingDirections: {fileID: 0}
   _isMoving: 0
   _isRunning: 1
   _isFacingRight: 1
@@ -47118,6 +47149,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b20e9ef28adac6479aacf06a6b44bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkClips: []
+  runClips: []
+  pitchVariance: 0.05
+  walkInterval: 0.56
+  runInterval: 0.25
+  landClips: []
+  minLandVelocity: 1
 --- !u!82 &1275586803
 AudioSource:
   m_ObjectHideFlags: 0
@@ -52090,6 +52128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6c325e13f5f8fe4cb0b50bb323cf4a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statType: 0
+  tooltip: {fileID: 0}
+  statsManager: {fileID: 0}
 --- !u!1 &1489385527
 GameObject:
   m_ObjectHideFlags: 0
@@ -54316,6 +54357,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d00240ab9da5044eba8a68a50769183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  portalLight: {fileID: 0}
+  flashMax: 400
+  flashDuration: 1
 --- !u!1 &1586302757
 GameObject:
   m_ObjectHideFlags: 0
@@ -54837,6 +54881,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6c325e13f5f8fe4cb0b50bb323cf4a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  statType: 0
+  tooltip: {fileID: 0}
+  statsManager: {fileID: 0}
 --- !u!1 &1599360706
 GameObject:
   m_ObjectHideFlags: 0
@@ -62045,6 +62092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a3e21574b1bd84eaef9422851003bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetLight: {fileID: 0}
 --- !u!114 &1689038112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72465,7 +72513,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1885576152
@@ -74791,6 +74839,37 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &1987183613
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1987183614}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1987183614
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1987183613}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2013668940
 GameObject:
   m_ObjectHideFlags: 0
@@ -78362,3 +78441,4 @@ SceneRoots:
   - {fileID: 453337344}
   - {fileID: 798560278}
   - {fileID: 1219970317}
+  - {fileID: 1987183614}
