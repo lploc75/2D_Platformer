@@ -21,6 +21,7 @@ public class StatUpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerEx
             case StatType.VIT: level = statsManager.vitLevel; break;
         }
         Debug.Log($"{statType} hover, level = {level}"); // <-- Thêm dòng này
+        Debug.Log("Purple Soul amount: " + (CurrencyManager.Instance != null ? CurrencyManager.Instance.GetCurrency(CurrencyType.PurpleSoul).ToString() : "CM is NULL"));
 
         int need = statsManager.GetPurpleSoulNeededForLevel(level);
         int purpleSoul = CurrencyManager.Instance.GetCurrency(CurrencyType.PurpleSoul);
