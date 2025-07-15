@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 4589587888609375068}
   - component: {fileID: 8314975051882919687}
   - component: {fileID: 9213428202732852566}
+  - component: {fileID: 5985803128151641209}
   m_Layer: 8
   m_Name: Hellhound_0
   m_TagString: Untagged
@@ -267,10 +268,10 @@ MonoBehaviour:
     maxNormalAngle: 0
   groundDistance: 0.05
   wallDistance: 0.2
-  cellingDistance: 0.05
+  ceilingDistance: 0.05
   _isGrounded: 1
   _isOnWall: 0
-  _isOnCelling: 0
+  _isOnCeiling: 0
 --- !u!114 &6057985757362205457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,6 +299,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   _maxHealth: 100
   _isAlive: 1
   isInvincible: 0
@@ -315,13 +319,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c8aecbe0c3d148b78196cdac93788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 0}
-  coinCount: 1
-  coinSpread: 0.5
-  soulPrefab: {fileID: 0}
-  soulCount: 1
-  soulSpread: 0.4
-  soulDropChance: 1
   walkSpeed: 2
   flipCooldown: 0.2
   attackZone: {fileID: 4175871607195543001}
@@ -385,6 +382,21 @@ SortingGroup:
   m_SortingLayer: 15
   m_SortingOrder: 0
   m_SortAtRoot: 0
+--- !u!114 &5985803128151641209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349953334114666514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4da3aabb3c87b5042ae7e13dd9c00787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currencies: 000000000300000002000000
+  minAmount: 1
+  maxAmount: 3
 --- !u!1 &1906087280744927097
 GameObject:
   m_ObjectHideFlags: 0
