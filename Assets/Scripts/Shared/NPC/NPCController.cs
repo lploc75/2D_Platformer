@@ -6,11 +6,19 @@ public class NPCController : MonoBehaviour
     public AdvancedDialogueProfile profile;
     public DialogueManager dialogueManager;
     public RewardPanelUI rewardPanel; // Kéo panel này vào Inspector
-
+    public ShopManager shopManager;
     // Đặt đúng quest ID đầu tiên của bạn
     private const string firstQuestId = "main_1_crystal";
     private const string chiefId = "chief"; // Đổi nếu npcId của trưởng làng khác!
+    public enum ShopType
+    {
+        None,
+        HealerShop,
+        WeaponShop,
+        BlacksmithShop
+    }
 
+    public ShopType shopType;
     public void Interact()
     {
         // 1. Thoại đặc biệt mở khóa sau khi hoàn thành một quest khác (nếu có)
@@ -215,4 +223,43 @@ public class NPCController : MonoBehaviour
             }
         );
     }
+    public void OpenShop()
+    {
+        // Only show the shop if the panel is not already active
+        if (!shopManager.shopPanel.activeSelf)
+        {
+            if (shopType != ShopType.None) // Check that the NPC has a shop
+            {
+                shopManager.shopPanel.SetActive(true);
+
+                // Based on the shop type, open the corresponding shop
+                switch (shopType)
+                {
+                    case ShopType.HealerShop:
+                        shopManager.OpenHealerShop();  // Open Healer Shop
+                        break;
+                    case ShopType.WeaponShop:
+                        shopManager.OpenWeaponShop();  // Open Weapon Shop
+                        break;
+                    case ShopType.BlacksmithShop:
+                        shopManager.OpenBlacksmithShop();  // Open Blacksmith Shop
+                        break;
+                    default:
+                        Debug.LogError("Unknown shop type!");
+                        break;
+                }
+                
+            }
+            else
+            {
+                Debug.LogWarning("NPC does not have a shop assigned.");
+            }
+        }
+        else
+        {
+            // Hide the panel if it's already open
+            shopManager.shopPanel.SetActive(false);
+        }
+    }
+
 }
