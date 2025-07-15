@@ -13,7 +13,11 @@ public class CurrencyPickup : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             CurrencyManager.Instance.AddCurrency(currencyType, amount);
-            Destroy(gameObject); // hủy ngay khi nhặt
+            InventoryManager.Instance.AddCurrency(currencyType, amount); // <-- THÊM DÒNG NÀY!
+
+            Destroy(gameObject);
         }
     }
+
+
 }

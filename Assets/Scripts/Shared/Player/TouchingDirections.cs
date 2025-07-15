@@ -1,84 +1,67 @@
-﻿using System.Runtime.CompilerServices;
-using UnityEngine;
+﻿using UnityEngine;
 
+[RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(Animator))]
 public class TouchingDirections : MonoBehaviour
 {
+    [Header("Cast settings")]
     public ContactFilter2D castFilter;
-    public float groundDistance = 0.05f; // Khoảng cách kiểm tra mặt đất
-    public float wallDistance = 0.2f; // khoảng cách kiểm tra tường
-    public float cellingDistance = 0.05f; // khoảng cách kiểm tra tường
+    public float groundDistance = 0.05f;
+    public float wallDistance = 0.20f;
+    public float ceilingDistance = 0.05f;
 
-    CapsuleCollider2D touchingCol;
-    Animator animator;
+    // ✨ dùng Collider2D chung
+    private Collider2D col;
+    private Animator animator;
 
-    RaycastHit2D[] groundHits = new RaycastHit2D[5];
-    RaycastHit2D[] wallHits = new RaycastHit2D[5];
-    RaycastHit2D[] cellingHits = new RaycastHit2D[5];
+    // Buffer kết quả cast
+    private readonly RaycastHit2D[] groundHits = new RaycastHit2D[5];
+    private readonly RaycastHit2D[] wallHits = new RaycastHit2D[5];
+    private readonly RaycastHit2D[] ceilingHits = new RaycastHit2D[5];
 
-    [SerializeField]
-    public bool _isGrounded = true;
-
+    /* ---------- Public trạng thái ---------- */
+    [SerializeField] private bool _isGrounded;
     public bool IsGrounded
     {
-        get
-        {
-            return _isGrounded;
-        }
-
-        private set
-        {
-            _isGrounded = value;
-            animator.SetBool(AnimationStrings.isGrounded, value); // "IsGrounded"
-        }
+        get => _isGrounded;
+        private set { _isGrounded = value; animator.SetBool(AnimationStrings.isGrounded, value); }
     }
 
-    [SerializeField]
-    private bool _isOnWall = false;
-
+    [SerializeField] private bool _isOnWall;
     public bool IsOnWall
     {
-        get { return _isOnWall; }
-        private set
-        {
-            _isOnWall = value;
-            animator.SetBool(AnimationStrings.isOnWall, value); // "IsOnWall"
-        }
+        get => _isOnWall;
+        private set { _isOnWall = value; animator.SetBool(AnimationStrings.isOnWall, value); }
     }
+
     public bool IsOnLeftWall { get; private set; }
     public bool IsOnRightWall { get; private set; }
 
-
-    [SerializeField]
-    private bool _isOnCelling = false;
-    private Vector2 wallCheckDirection => gameObject.transform.localScale.x > 0 ?
-        Vector2.right : Vector2.up;
-    public bool IsOnCelling
+    [SerializeField] private bool _isOnCeiling;
+    public bool IsOnCeiling
     {
-        get { return _isOnCelling; }
-        private set
-        {
-            _isOnCelling = value;
-            animator.SetBool(AnimationStrings.isOnCelling, value);
-        }
+        get => _isOnCeiling;
+        private set { _isOnCeiling = value; animator.SetBool(AnimationStrings.isOnCelling, value); }
     }
 
+    /* ---------- Mono ---------- */
     private void Awake()
     {
-        touchingCol = GetComponent<CapsuleCollider2D>();
+        col = GetComponent<Collider2D>(); // có thể là Box hoặc Capsule
         animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    private void FixedUpdate()
     {
-        IsGrounded = touchingCol.Cast(Vector2.down, castFilter, groundHits, groundDistance) > 0;
+        // Ground
+        IsGrounded = col.Cast(Vector2.down, castFilter, groundHits, groundDistance) > 0;
 
-        // Kiểm tra tường trái hoặc phải
-        IsOnLeftWall = touchingCol.Cast(Vector2.left, castFilter, wallHits, wallDistance) > 0;
-        IsOnRightWall = touchingCol.Cast(Vector2.right, castFilter, wallHits, wallDistance) > 0;
-
+        // Walls (trái/phải)
+        IsOnLeftWall = col.Cast(Vector2.left, castFilter, wallHits, wallDistance) > 0;
+        IsOnRightWall = col.Cast(Vector2.right, castFilter, wallHits, wallDistance) > 0;
         IsOnWall = IsOnLeftWall || IsOnRightWall;
 
-        IsOnCelling = touchingCol.Cast(Vector2.up, castFilter, cellingHits, cellingDistance) > 0;
+        // Ceiling
+        IsOnCeiling = col.Cast(Vector2.up, castFilter, ceilingHits, ceilingDistance) > 0;
     }
 }

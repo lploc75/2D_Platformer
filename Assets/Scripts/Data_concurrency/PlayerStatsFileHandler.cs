@@ -5,11 +5,12 @@ using Assets.Scripts.Data_concurrency;
 public static class PlayerStatsFileHandler
 {
     private static string SavePath => Path.Combine(Application.persistentDataPath, "player_data.json");
+
     public static void Save(PlayerStatsManager manager)
     {
         PlayerStatsDataModel data = new PlayerStatsDataModel
         {
-            totalPoint = manager.totalPoint,
+            // KHÔNG còn dòng totalPoint ở đây!
             currentSTR = manager.currentSTR,
             currentINT = manager.currentINT,
             currentDUR = manager.currentDUR,
@@ -38,7 +39,7 @@ public static class PlayerStatsFileHandler
         string json = File.ReadAllText(SavePath);
         PlayerStatsDataModel data = JsonUtility.FromJson<PlayerStatsDataModel>(json);
 
-        manager.totalPoint = data.totalPoint;
+        // KHÔNG còn dòng manager.totalPoint = data.totalPoint;
         manager.currentSTR = data.currentSTR;
         manager.currentINT = data.currentINT;
         manager.currentDUR = data.currentDUR;

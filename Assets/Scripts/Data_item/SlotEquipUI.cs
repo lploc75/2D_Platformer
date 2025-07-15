@@ -49,8 +49,55 @@ public class SlotEquipUI : MonoBehaviour
         {
             currentSelectedSlot = this;
             unequipPanel.SetActive(true);
+
+            RectTransform slotRect = GetComponent<RectTransform>();
+            RectTransform panelRect = unequipPanel.GetComponent<RectTransform>();
+            Canvas canvas = panelRect.GetComponentInParent<Canvas>();
+
+            // Lấy screen position của slot
+            Vector2 screenPos = RectTransformUtility.WorldToScreenPoint(
+                canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera,
+                slotRect.position
+            );
+
+            // Đổi sang local point trong canvas
+            Vector2 localPoint;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                canvas.transform as RectTransform,
+                screenPos,
+                canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera,
+                out localPoint
+            );
+
+            // Đặt unequipPanel ở vị trí này (cộng offset nếu muốn)
+            panelRect.anchoredPosition = localPoint + new Vector2(60, 0); // hoặc đổi offset theo ý muốn
         }
     }
+
+
+
+    private Vector2 ScreenPointToUIPoint(Vector2 screenPoint, RectTransform panelRect)
+    {
+        Canvas canvas = panelRect.GetComponentInParent<Canvas>();
+        Vector2 uiPos;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            canvas.transform as RectTransform,
+            screenPoint,
+            canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera,
+            out uiPos
+        );
+        // Clamp (nếu cần)
+        RectTransform canvasRect = canvas.transform as RectTransform;
+        Vector2 panelSize = panelRect.sizeDelta;
+        Vector2 canvasSize = canvasRect.sizeDelta;
+
+        uiPos.x = Mathf.Clamp(uiPos.x, -canvasSize.x / 2, canvasSize.x / 2 - panelSize.x);
+        uiPos.y = Mathf.Clamp(uiPos.y, -canvasSize.y / 2 + panelSize.y, canvasSize.y / 2);
+
+        return uiPos;
+    }
+
+
 
     // Được gán DUY NHẤT cho Button "Bỏ trang bị" trên Popup
     public static void OnUnequipButtonClicked()

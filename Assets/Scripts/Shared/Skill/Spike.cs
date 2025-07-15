@@ -42,7 +42,7 @@ namespace Assets.Scripts.Shared.Skill
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (!initialized) return; // tránh spike mẹ gây sát thương
+            //if (!initialized) return; // tránh spike mẹ gây sát thương
 
             Damageable damageable = collision.GetComponent<Damageable>();
             if (damageable != null)

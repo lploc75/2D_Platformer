@@ -4,7 +4,8 @@ public enum ItemType
 {
     Weapon,   // Vũ khí
     Armor,    // Áo giáp
-    Potion    // Bình thuốc
+    Potion,    // Bình thuốc
+    Currency
 }
 
 public enum ItemQuality

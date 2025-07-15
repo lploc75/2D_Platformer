@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 5266629926043923616}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 3.55, y: -2.2108, z: -98}
+  m_LocalPosition: {x: 3.55, y: -2.2108, z: -0.1}
   m_LocalScale: {x: 1.5122, y: 1.5375, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -131,8 +131,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_LinearDamping: 1
+  m_AngularDamping: 1
   m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -197,7 +197,11 @@ MonoBehaviour:
   coinPrefab: {fileID: 6341476448709006985, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
   coinCount: 1
   coinSpread: 0.5
-  walkSpeed: 4
+  soulPrefab: {fileID: 6599476591866995934, guid: 4b2c2272e7741364ca2aefeda6165dc6, type: 3}
+  soulCount: 1
+  soulSpread: 0.4
+  soulDropChance: 1
+  walkSpeed: 3
   flipCooldown: 0.2
   attackZone: {fileID: 3105572303196759124}
   cliffDetectionzone: {fileID: 8161904380470640945}
@@ -413,7 +417,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7528737590114327724}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
