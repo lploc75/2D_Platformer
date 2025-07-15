@@ -23,6 +23,7 @@ public class DialogueManager : MonoBehaviour
 
     private int index = 0;
     private bool isRunning = false;
+    public bool IsDialoguePlaying { get; private set; }
 
     // Input Action để next thoại
     private InputAction nextAction;
@@ -50,6 +51,8 @@ public class DialogueManager : MonoBehaviour
     // === PREBIND: CẬP NHẬT TOÀN BỘ UI TRƯỚC KHI PANEL HIỆN ===
     public void PreBindDialogue(string[] lines, string speakerName, Sprite avatar = null)
     {
+        Debug.Log($"[DialogueManager] PreBindDialogue: speaker={speakerName}, lines={lines?.Length}");
+
         // Lưu dữ liệu thoại
         currentLines = lines;
         currentSpeaker = speakerName;
@@ -85,9 +88,11 @@ public class DialogueManager : MonoBehaviour
         Sprite avatar = null,
         System.Action onFinish = null)
     {
+        Debug.Log($"[DialogueManager] StartDialogueFromLines: speaker={speakerName}, lines={lines?.Length}");
+
         if (lines == null || lines.Length == 0)
         {
-            Debug.LogWarning("No dialogue lines!");
+            Debug.LogWarning("[DialogueManager] No dialogue lines!");
             return;
         }
 
@@ -108,6 +113,8 @@ public class DialogueManager : MonoBehaviour
 
         index = 0;
         isRunning = true;
+        IsDialoguePlaying = true;
+        Debug.Log("[DialogueManager] IsDialoguePlaying = true");
         gameObject.SetActive(true);
 
         ShowNextSentence();
@@ -116,13 +123,22 @@ public class DialogueManager : MonoBehaviour
     private void OnNext(InputAction.CallbackContext ctx)
     {
         if (isRunning)
+        {
+            Debug.Log("[DialogueManager] Next thoại được gọi (phím/chuột).");
             ShowNextSentence();
+        }
+        else
+        {
+            Debug.Log("[DialogueManager] Đã kết thúc thoại, bấm tiếp bị bỏ qua.");
+        }
     }
 
     public void ShowNextSentence()
     {
         if (currentLines != null && index < currentLines.Length)
         {
+            Debug.Log($"[DialogueManager] Hiện thoại index={index}: {currentLines[index]}");
+
             if (nameText != null)
                 nameText.text = currentSpeaker;
 
@@ -146,13 +162,17 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
+            Debug.Log("[DialogueManager] Hết thoại, gọi EndDialogue().");
             EndDialogue();
         }
     }
 
     private void EndDialogue()
     {
+        Debug.Log("[DialogueManager] EndDialogue() gọi. Callback=" + (onDialogueFinish != null));
         isRunning = false;
+        IsDialoguePlaying = false;
+        Debug.Log("[DialogueManager] IsDialoguePlaying = false");
 
         if (healthUI != null)
             healthUI.SetActive(true);
@@ -172,6 +192,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogueByProfile(AdvancedDialogueProfile profile, string[] lines = null, System.Action onFinish = null)
     {
+        Debug.Log("[DialogueManager] StartDialogueByProfile.");
         StartDialogueFromLines(
             lines ?? profile.defaultLines,
             profile.characterName,

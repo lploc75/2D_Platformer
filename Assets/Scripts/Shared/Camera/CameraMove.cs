@@ -46,12 +46,9 @@ public class SimpleCameraMove : MonoBehaviour
             foreach (var ui in otherUIs)
                 if (ui != null) ui.SetActive(false);
 
-        // KHÓA INPUT
+        // KHÓA TOÀN BỘ INPUT
         if (playerInput != null)
-        {
-            var map = playerInput.actions.FindActionMap(actionMapName);
-            if (map != null) map.Disable();
-        }
+            playerInput.enabled = false;
 
         // SHOW CINEMATIC BARS nếu có
         if (useCinematicBars)
@@ -79,7 +76,7 @@ public class SimpleCameraMove : MonoBehaviour
 
     IEnumerator ShowDialogueWithFadeIn()
     {
-        // === HỆT THANH BAR TRƯỚC khi hiện thoại ===
+        // === ẨN CINEMATIC BARS TRƯỚC khi hiện thoại ===
         if (useCinematicBars)
             StartCoroutine(ShowCinematicBars(false));
 
@@ -129,22 +126,16 @@ public class SimpleCameraMove : MonoBehaviour
                 cutsceneProfile.avatar,
                 () =>
                 {
-                    // Kết thúc thoại, mở lại input
+                    // Kết thúc thoại, MỞ LẠI TOÀN BỘ INPUT
                     if (playerInput != null)
-                    {
-                        var map = playerInput.actions.FindActionMap(actionMapName);
-                        if (map != null) map.Enable();
-                    }
+                        playerInput.enabled = true;
                 }
             );
         }
         else
         {
             if (playerInput != null)
-            {
-                var map = playerInput.actions.FindActionMap(actionMapName);
-                if (map != null) map.Enable();
-            }
+                playerInput.enabled = true;
         }
     }
 
