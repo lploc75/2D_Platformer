@@ -1849,7 +1849,7 @@ MonoBehaviour:
   soulCount: 1
   soulSpread: 0.4
   soulDropChance: 1
-  walkSpeed: 3
+  walkSpeed: 4
   flipCooldown: 0.2
   attackZone: {fileID: 840285618}
   cliffDetectionzone: {fileID: 209847465}
