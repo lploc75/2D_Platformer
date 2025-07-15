@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Linq;
 using System.Collections.Generic;
 
 public class InventoryManager : MonoBehaviour
@@ -10,6 +11,12 @@ public class InventoryManager : MonoBehaviour
     {
         public ItemData item;
         public int amount;
+
+        public InventorySlot(ItemData item, int amount)
+        {
+            this.item = item;
+            this.amount = amount;
+        }
     }
 
     public List<InventorySlot> inventoryItems = new List<InventorySlot>();
@@ -33,44 +40,47 @@ public class InventoryManager : MonoBehaviour
     /// <summary>
     /// Thêm item, nếu đã có thì cộng dồn số lượng, không thì add slot mới
     /// </summary>
+    // Thêm vật phẩm vào kho (nếu vật phẩm đã có thì tăng số lượng)
     public void AddItem(ItemData item, int amount = 1)
     {
-        InventorySlot slot = inventoryItems.Find(x => x.item == item);
-        if (slot != null)
+        // Kiểm tra xem vật phẩm đã có trong kho chưa
+        var existingSlot = inventoryItems.FirstOrDefault(slot => slot.item == item);
+
+        if (existingSlot != null)
         {
-            slot.amount += amount;
+            // Nếu vật phẩm đã có, tăng số lượng (stack)
+            existingSlot.amount += amount;
         }
         else
         {
-            if (inventoryItems.Count >= maxInventorySize)
-            {
-                Debug.Log("Túi đồ đầy rồi!");
-                return;
-            }
-            slot = new InventorySlot { item = item, amount = amount };
-            inventoryItems.Add(slot);
+            // Nếu vật phẩm chưa có, thêm một slot mới với số lượng là amount
+            inventoryItems.Add(new InventorySlot(item, amount));
         }
 
-        if (uiController != null)
-            uiController.UpdateInventorySlots();
-        Debug.Log($"Đã nhận: {item.itemName} x{amount}");
+        // Cập nhật lại UI kho sau khi thêm vật phẩm
+        InventoryStaticUIController.Instance.UpdateInventorySlots();
     }
 
     /// <summary>
     /// Xóa 1 số lượng item khỏi slot (ví dụ khi dùng hoặc vứt)
-    /// </summary>
+    // Xóa vật phẩm khỏi kho (giảm số lượng hoặc xóa hẳn nếu số lượng = 0)
     public void RemoveItem(ItemData item, int amount = 1)
     {
-        InventorySlot slot = inventoryItems.Find(x => x.item == item);
-        if (slot != null)
-        {
-            slot.amount -= amount;
-            if (slot.amount <= 0)
-                inventoryItems.Remove(slot);
+        var existingSlot = inventoryItems.FirstOrDefault(slot => slot.item == item);
 
-            if (uiController != null)
-                uiController.UpdateInventorySlots();
+        if (existingSlot != null)
+        {
+            existingSlot.amount -= amount;
+
+            // Nếu số lượng bằng 0, xóa vật phẩm khỏi kho
+            if (existingSlot.amount <= 0)
+            {
+                inventoryItems.Remove(existingSlot);
+            }
         }
+
+        // Cập nhật lại UI kho sau khi xóa vật phẩm
+        InventoryStaticUIController.Instance.UpdateInventorySlots();
     }
 
     private CurrencyData FindCurrencyItem(CurrencyType type)
