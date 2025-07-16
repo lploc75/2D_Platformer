@@ -9829,7 +9829,7 @@ GameObject:
   - component: {fileID: 148705549}
   - component: {fileID: 148705548}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Green Soul Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13045,7 +13045,7 @@ GameObject:
   - component: {fileID: 222333373}
   - component: {fileID: 222333372}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Coin Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29399,10 +29399,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 171f6d47e85a47b428d99fce91f8456a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinText: {fileID: 0}
+  coinText: {fileID: 222333372}
   gemText: {fileID: 0}
-  blueSoulText: {fileID: 0}
-  purpleSoulText: {fileID: 0}
+  blueSoulText: {fileID: 148705548}
+  purpleSoulText: {fileID: 2123700543}
 --- !u!4 &730697580
 Transform:
   m_ObjectHideFlags: 0
@@ -47089,28 +47089,28 @@ MonoBehaviour:
     animationIndex: 1
     magicDamage: 10
     knockback: {x: 5, y: 5}
-    shootSFX: {fileID: 0}
+    shootSFX: {fileID: 8300000, guid: a652877b012108e41871f867ada9f176, type: 3}
   - skillID: 2
     skillName: Explosion
     manaCost: 1
     animationIndex: 1
     magicDamage: 30
     knockback: {x: 5, y: 5}
-    shootSFX: {fileID: 0}
+    shootSFX: {fileID: 8300000, guid: a652877b012108e41871f867ada9f176, type: 3}
   - skillID: 3
     skillName: Lighting Bolt
     manaCost: 1
     animationIndex: 3
     magicDamage: 80
     knockback: {x: 5, y: 5}
-    shootSFX: {fileID: 0}
+    shootSFX: {fileID: 8300000, guid: f1cb5d83282f2904a85f73111d068616, type: 3}
   - skillID: 4
     skillName: Spike
     manaCost: 1
     animationIndex: 3
     magicDamage: 80
     knockback: {x: 5, y: 5}
-    shootSFX: {fileID: 0}
+    shootSFX: {fileID: 8300000, guid: b7f8695cf65a4f24eb37544298821146, type: 3}
   manaManager: {fileID: 1541745904}
   staminaManager: {fileID: 1541745899}
   projectileLauncher: {fileID: 1275586801}
@@ -47253,8 +47253,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b20e9ef28adac6479aacf06a6b44bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkClips: []
-  runClips: []
+  walkClips:
+  - {fileID: 8300000, guid: 551d550ab98e3cc4bb7793e752fe8628, type: 3}
+  - {fileID: 8300000, guid: 18e761ff5ef14fd4588d9283fcc9b829, type: 3}
+  - {fileID: 8300000, guid: 9c0c1f9411026f749bcb3746cd557bec, type: 3}
+  - {fileID: 8300000, guid: 38cb68a2a49e89c46bea091d75b27976, type: 3}
+  - {fileID: 8300000, guid: a62172e6f7275ff4f94c17edc8dfdd0d, type: 3}
+  - {fileID: 8300000, guid: 6a0b4267ac8ee8448b619bc9a3bca6d9, type: 3}
+  - {fileID: 8300000, guid: fc32c6fd07980144996b811e5d1f2971, type: 3}
+  - {fileID: 8300000, guid: 030e6a43a7d08bd4581668d53a9808f4, type: 3}
+  - {fileID: 8300000, guid: 56ea356e65429294f9098ef523fdb70b, type: 3}
+  - {fileID: 8300000, guid: 5799109e817d3704889f0499d06a23be, type: 3}
+  runClips:
+  - {fileID: 8300000, guid: 9a30499e47789df48aa9bdb1ec7b0982, type: 3}
+  - {fileID: 8300000, guid: 1d7e7e6569aab5a45a837f470eaddc8b, type: 3}
+  - {fileID: 8300000, guid: 31be579b280d0bc459635877e8c45aee, type: 3}
+  - {fileID: 8300000, guid: c3f3efc1106f84643a38bd21f6826aaf, type: 3}
+  - {fileID: 8300000, guid: 2de8329adc6f9b944a5ab0875fb59924, type: 3}
+  - {fileID: 8300000, guid: f39f1d43c5b9fbf449e7b39d056e5aad, type: 3}
+  - {fileID: 8300000, guid: d3ea0567dbe95714eb0ca07f43a37a96, type: 3}
+  - {fileID: 8300000, guid: 161d5a427e88d594f9906708ccdc5663, type: 3}
+  - {fileID: 8300000, guid: 7a5ff4a806216b14ab9dba35a4fb258c, type: 3}
+  - {fileID: 8300000, guid: bd5653e52c4636e4aa3b0ced8f49a18d, type: 3}
   pitchVariance: 0.05
   walkInterval: 0.56
   runInterval: 0.25
@@ -77881,7 +77901,7 @@ GameObject:
   - component: {fileID: 2123700544}
   - component: {fileID: 2123700543}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: Red Soul Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78581,5 +78601,4 @@ SceneRoots:
   - {fileID: 798560278}
   - {fileID: 1219970317}
   - {fileID: 2127427869}
-  - {fileID: 1987183614}
   - {fileID: 646519753}
