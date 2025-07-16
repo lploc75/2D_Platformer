@@ -63,6 +63,7 @@ public class NPCController : MonoBehaviour
                             Debug.Log("[NPCController] Callback nhận quest!");
                             QuestManager.Instance.AcceptQuest(profile.questId);
                             FindObjectOfType<QuestUIController>()?.BuildQuestList();
+                            // **KHÔNG GỌI SAVE Ở ĐÂY** (chỉ nhận quest, chưa phải trạng thái ổn định!)
                         }
                     );
                     return;
@@ -96,6 +97,7 @@ public class NPCController : MonoBehaviour
                             Debug.Log("[NPCController] Đã nói chuyện với chief (quest step).");
                             QuestManager.Instance.MarkTalkedWithNpc(profile.questId, chiefId);
                             FindObjectOfType<QuestUIController>()?.BuildQuestList();
+                            // KHÔNG save ở đây (vẫn đang làm quest)
                         }
                     );
                     return;
@@ -148,6 +150,7 @@ public class NPCController : MonoBehaviour
                                 }
                                 QuestManager.Instance.MarkTalkedWithNpc(profile.questId, profile.npcId);
                                 FindObjectOfType<QuestUIController>()?.BuildQuestList();
+                                // KHÔNG SAVE ở đây!
                             }
                         );
                         return;
@@ -170,31 +173,36 @@ public class NPCController : MonoBehaviour
                 if (profile.isQuestGiver)
                 {
                     dialogueManager.StartDialogueFromLines(
-        profile.questCompletedLines.Length > 0 ? profile.questCompletedLines : profile.defaultLines,
-        profile.characterName,
-        profile.avatar,
-        () =>
-        {
-            Debug.Log("[NPCController] Callback hoàn thành quest!");
-            QuestManager.Instance.CompleteQuest(profile.questId);
-            QuestManager.Instance.RemoveReadyToComplete(profile.questId);
-            FindObjectOfType<QuestUIController>()?.BuildQuestList();
+                        profile.questCompletedLines.Length > 0 ? profile.questCompletedLines : profile.defaultLines,
+                        profile.characterName,
+                        profile.avatar,
+                        () =>
+                        {
+                            Debug.Log("[NPCController] Callback hoàn thành quest!");
+                            QuestManager.Instance.CompleteQuest(profile.questId);
+                            QuestManager.Instance.RemoveReadyToComplete(profile.questId);
+                            FindObjectOfType<QuestUIController>()?.BuildQuestList();
 
-            if (profile.questId == "main_1_crystal")
-            {
-                Debug.Log("[NPCController] Nhận quest tiếp theo: main_2_crystal");
-                QuestManager.Instance.AcceptQuest("main_2_crystal");
-                FindObjectOfType<QuestUIController>()?.BuildQuestList();
-            }
-            // ==== FIX ĐÁNH DẤU LUÔN ====
-            string key = profile.npcId + "_" + profile.questId;
-            if (!questCompletedTalked.Contains(key)) questCompletedTalked.Add(key);
+                            if (profile.questId == "main_1_crystal")
+                            {
+                                Debug.Log("[NPCController] Nhận quest tiếp theo: main_2_crystal");
+                                QuestManager.Instance.AcceptQuest("main_2_crystal");
+                                FindObjectOfType<QuestUIController>()?.BuildQuestList();
 
-            // ==== TỰ ĐỘNG SAVE NGAY SAU KHI HOÀN THÀNH ====
-            QuestManager.Instance.SaveQuestProgress();
-        }
-    );
+                                // ====== CHỈ GỌI SAVE Ở ĐÂY SAU KHI ĐÃ NHẬN QUEST 2! ======
+                                GameSaveManager.Instance.SaveGame();
+                            }
+                            else
+                            {
+                                // Với các quest khác, save sau khi complete và trả xong
+                                GameSaveManager.Instance.SaveGame();
+                            }
 
+                            // ==== FIX ĐÁNH DẤU LUÔN ====
+                            string key = profile.npcId + "_" + profile.questId;
+                            if (!questCompletedTalked.Contains(key)) questCompletedTalked.Add(key);
+                        }
+                    );
                 }
                 else
                 {

@@ -9,10 +9,7 @@ public class QuestUIController : MonoBehaviour
     public GameObject questButtonPrefab;
     public TextMeshProUGUI questDetailText;
 
-    void Start()
-    {
-        BuildQuestList();
-    }
+
 
     public void BuildQuestList()
     {
@@ -85,4 +82,16 @@ public class QuestUIController : MonoBehaviour
             $"<b>{quest.questName}</b>\n\n{quest.questDescription}\n\n" +
             $"<size=90%>Status: <color=yellow>{QuestManager.Instance.GetQuestStatus(quest.questId)}</color></size>";
     }
+    void Start()
+{
+    BuildQuestList();
+    QuestManager.Instance.OnQuestChanged += BuildQuestList;
+}
+
+void OnDestroy()
+{
+    if (QuestManager.Instance != null)
+        QuestManager.Instance.OnQuestChanged -= BuildQuestList;
+}
+
 }
