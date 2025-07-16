@@ -37,6 +37,7 @@ public class InventoryManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+
     /// <summary>
     /// Thêm item, nếu đã có thì cộng dồn số lượng, không thì add slot mới
     /// </summary>
@@ -44,22 +45,31 @@ public class InventoryManager : MonoBehaviour
     public void AddItem(ItemData item, int amount = 1)
     {
         // Kiểm tra xem vật phẩm đã có trong kho chưa
-        var existingSlot = inventoryItems.FirstOrDefault(slot => slot.item == item);
+        var existingSlot = inventoryItems.FirstOrDefault(slot => slot.item.itemName == item.itemName);  // Compare by itemName instead of the whole object
 
         if (existingSlot != null)
         {
             // Nếu vật phẩm đã có, tăng số lượng (stack)
             existingSlot.amount += amount;
+            Debug.Log($"Vật phẩm {item.itemName} đã có, cộng dồn {amount} vào kho, tổng số lượng: {existingSlot.amount}");
         }
         else
         {
             // Nếu vật phẩm chưa có, thêm một slot mới với số lượng là amount
             inventoryItems.Add(new InventorySlot(item, amount));
+            // Thêm vật phẩm vào ItemDatabase
+            ItemDatabase.AddItem(item);
+            Debug.Log($"Thêm mới vật phẩm {item.itemName} vào kho với số lượng: {amount}");
         }
 
         // Cập nhật lại UI kho sau khi thêm vật phẩm
         InventoryStaticUIController.Instance.UpdateInventorySlots();
+
+        // Lưu kho vào tệp JSON sau khi thay đổi
+        InventoryFileHandler.SaveInventoryToFile(inventoryItems);
     }
+
+
 
     /// <summary>
     /// Xóa 1 số lượng item khỏi slot (ví dụ khi dùng hoặc vứt)
