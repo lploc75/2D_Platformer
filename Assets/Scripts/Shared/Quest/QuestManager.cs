@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿
+using UnityEngine;
 using System;
 using System.Collections.Generic;
 
@@ -7,6 +8,24 @@ using System.Collections.Generic;
 /// </summary>
 public class QuestManager : MonoBehaviour
 {
+
+    [System.Serializable]
+    public class QuestSaveData
+    {
+        public List<string> acceptedQuests = new List<string>();
+        public List<string> completedQuests = new List<string>();
+        public List<string> readyToCompleteQuests = new List<string>();
+        public List<QuestNpcTalkedData> questNpcTalkedWith = new List<QuestNpcTalkedData>();
+    }
+
+    [System.Serializable]
+    public class QuestNpcTalkedData
+    {
+        public string questId;
+        public List<string> npcIds = new List<string>();
+    }
+
+
     public static QuestManager Instance;
 
     [Header("Database tập hợp tất cả các QuestData")]
@@ -38,10 +57,12 @@ public class QuestManager : MonoBehaviour
 
     void Start()
     {
-        // Tự động nhận quest mở đầu nếu chưa có
+        LoadQuestProgress();  // Thêm dòng này đầu Start!
+                              // Tự động nhận quest mở đầu nếu chưa có
         if (!string.IsNullOrEmpty(autoStartQuestId) && !IsQuestAccepted(autoStartQuestId))
             AcceptQuest(autoStartQuestId);
     }
+
 
     // Lấy QuestData từ questId
     public QuestData GetQuestById(string questId)
@@ -141,4 +162,62 @@ public class QuestManager : MonoBehaviour
 
         OnQuestChanged?.Invoke(); // Gọi event update marker
     }
+    public void SaveQuestProgress()
+    {
+        QuestSaveData data = new QuestSaveData();
+        data.acceptedQuests.AddRange(acceptedQuests);
+        data.completedQuests.AddRange(completedQuests);
+        data.readyToCompleteQuests.AddRange(readyToCompleteQuests);
+
+        foreach (var pair in questNpcTalkedWith)
+        {
+            data.questNpcTalkedWith.Add(new QuestNpcTalkedData
+            {
+                questId = pair.Key,
+                npcIds = new List<string>(pair.Value)
+            });
+        }
+
+        string json = JsonUtility.ToJson(data, true);
+
+        // === Thêm dòng này để log vị trí file ===
+        Debug.Log("Save file path: " + Application.persistentDataPath + "/questsave.json");
+
+        System.IO.File.WriteAllText(Application.persistentDataPath + "/questsave.json", json);
+        Debug.Log("Quest progress saved!");
+    }
+
+    public void LoadQuestProgress()
+    {
+        string path = Application.persistentDataPath + "/questsave.json";
+        if (!System.IO.File.Exists(path))
+        {
+            Debug.LogWarning("No quest save file found.");
+            return;
+        }
+
+        string json = System.IO.File.ReadAllText(path);
+        QuestSaveData data = JsonUtility.FromJson<QuestSaveData>(json);
+
+        acceptedQuests = new HashSet<string>(data.acceptedQuests);
+        completedQuests = new HashSet<string>(data.completedQuests);
+        readyToCompleteQuests = new HashSet<string>(data.readyToCompleteQuests);
+
+        questNpcTalkedWith = new Dictionary<string, HashSet<string>>();
+        foreach (var q in data.questNpcTalkedWith)
+        {
+            questNpcTalkedWith[q.questId] = new HashSet<string>(q.npcIds);
+        }
+
+        Debug.Log("Quest progress loaded!");
+        OnQuestChanged?.Invoke(); // Để update UI, marker, v.v...
+    }
+    [ContextMenu("Open Save Folder")]
+    public void OpenSaveFolder()
+    {
+        string path = Application.persistentDataPath;
+        Debug.Log("Open folder: " + path);
+        Application.OpenURL("file:///" + path);
+    }
+
 }

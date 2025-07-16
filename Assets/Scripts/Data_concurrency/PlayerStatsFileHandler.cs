@@ -20,7 +20,13 @@ public static class PlayerStatsFileHandler
             intLevel = manager.intLevel,
             durLevel = manager.durLevel,
             perLevel = manager.perLevel,
-            vitLevel = manager.vitLevel
+            vitLevel = manager.vitLevel,
+
+            // Tiền
+            coin = CurrencyManager.Instance.GetCurrency(CurrencyType.Coin),
+            gem = CurrencyManager.Instance.GetCurrency(CurrencyType.Gem),
+            blueSoul = CurrencyManager.Instance.GetCurrency(CurrencyType.BlueSoul),
+            purpleSoul = CurrencyManager.Instance.GetCurrency(CurrencyType.PurpleSoul)
         };
 
         string json = JsonUtility.ToJson(data, true);
@@ -50,6 +56,12 @@ public static class PlayerStatsFileHandler
         manager.durLevel = data.durLevel;
         manager.perLevel = data.perLevel;
         manager.vitLevel = data.vitLevel;
+
+
+        CurrencyManager.Instance.SetCurrency(CurrencyType.Coin, data.coin);
+        CurrencyManager.Instance.SetCurrency(CurrencyType.Gem, data.gem);
+        CurrencyManager.Instance.SetCurrency(CurrencyType.BlueSoul, data.blueSoul);
+        CurrencyManager.Instance.SetCurrency(CurrencyType.PurpleSoul, data.purpleSoul);
 
         Debug.Log("✅ Stats loaded from file.");
         return true;

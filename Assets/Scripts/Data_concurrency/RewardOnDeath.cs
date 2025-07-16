@@ -19,14 +19,25 @@ public class RewardOnDeath : MonoBehaviour
 
     void GiveReward()
     {
-        int amount = Random.Range(minAmount, maxAmount + 1);
 
         foreach (var cur in currencies)
         {
+            int amount = Random.Range(minAmount, maxAmount + 1);
             CurrencyManager.Instance.AddCurrency(cur, amount);
-            InventoryManager.Instance.AddCurrency(cur, amount);
+            //InventoryManager.Instance.AddCurrency(cur, amount); // nếu dùng inventory
         }
 
-        // AudioManager.Play("CoinPickup"); …
+        // Lưu sau khi nhận thưởng
+        PlayerStatsManager playerStats = FindObjectOfType<PlayerStatsManager>();
+        if (playerStats != null)
+        {
+            PlayerStatsFileHandler.Save(playerStats);
+        }
+        else
+        {
+            Debug.LogWarning("⚠️ Không tìm thấy PlayerStatsManager để lưu dữ liệu!");
+        }
     }
+
+
 }
