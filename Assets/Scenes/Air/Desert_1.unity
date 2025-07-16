@@ -1319,13 +1319,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c8aecbe0c3d148b78196cdac93788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 6341476448709006985, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
-  coinCount: 1
-  coinSpread: 0.5
-  soulPrefab: {fileID: 0}
-  soulCount: 1
-  soulSpread: 0.4
-  soulDropChance: 1
   walkSpeed: 2
   flipCooldown: 0.2
   attackZone: {fileID: 1848989398}
@@ -1358,6 +1351,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   _maxHealth: 100
   _isAlive: 1
   isInvincible: 0
@@ -1842,13 +1838,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c8aecbe0c3d148b78196cdac93788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 837126815}
-  coinCount: 1
-  coinSpread: 0.5
-  soulPrefab: {fileID: 0}
-  soulCount: 1
-  soulSpread: 0.4
-  soulDropChance: 1
   walkSpeed: 4
   flipCooldown: 0.2
   attackZone: {fileID: 840285618}
@@ -1881,6 +1870,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   _maxHealth: 100
   _isAlive: 1
   isInvincible: 0
@@ -6763,13 +6755,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c8aecbe0c3d148b78196cdac93788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 6341476448709006985, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
-  coinCount: 1
-  coinSpread: 0.5
-  soulPrefab: {fileID: 0}
-  soulCount: 1
-  soulSpread: 0.4
-  soulDropChance: 1
   walkSpeed: 2
   flipCooldown: 0.2
   attackZone: {fileID: 2049464115}
@@ -6802,6 +6787,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   _maxHealth: 100
   _isAlive: 1
   isInvincible: 0
@@ -9230,13 +9218,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c8aecbe0c3d148b78196cdac93788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 6341476448709006985, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
-  coinCount: 1
-  coinSpread: 0.5
-  soulPrefab: {fileID: 0}
-  soulCount: 1
-  soulSpread: 0.4
-  soulDropChance: 1
   walkSpeed: 2
   flipCooldown: 0.2
   attackZone: {fileID: 2095230951}
@@ -9269,6 +9250,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   _maxHealth: 100
   _isAlive: 1
   isInvincible: 0
@@ -11760,13 +11744,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c8aecbe0c3d148b78196cdac93788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 6341476448709006985, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
-  coinCount: 1
-  coinSpread: 0.5
-  soulPrefab: {fileID: 0}
-  soulCount: 1
-  soulSpread: 0.4
-  soulDropChance: 1
   walkSpeed: 2
   flipCooldown: 0.2
   attackZone: {fileID: 619789642}
@@ -11799,6 +11776,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   _maxHealth: 100
   _isAlive: 1
   isInvincible: 0
@@ -18873,13 +18853,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c8aecbe0c3d148b78196cdac93788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 837126815}
-  coinCount: 1
-  coinSpread: 0.5
-  soulPrefab: {fileID: 0}
-  soulCount: 1
-  soulSpread: 0.4
-  soulDropChance: 1
   walkSpeed: 3
   flipCooldown: 0.2
   attackZone: {fileID: 1176198637}
@@ -18912,6 +18885,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   _maxHealth: 100
   _isAlive: 1
   isInvincible: 0
@@ -19437,11 +19413,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 833962725}
   m_CullTransparentMesh: 1
---- !u!1 &837126815 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6341476448709006985, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
-  m_PrefabInstance: {fileID: 354202138}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &840285615
 GameObject:
   m_ObjectHideFlags: 0
@@ -35871,13 +35842,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c8aecbe0c3d148b78196cdac93788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 6341476448709006985, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
-  coinCount: 1
-  coinSpread: 0.5
-  soulPrefab: {fileID: 0}
-  soulCount: 1
-  soulSpread: 0.4
-  soulDropChance: 1
   walkSpeed: 2
   flipCooldown: 0.2
   attackZone: {fileID: 81697362}
@@ -35910,6 +35874,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   _maxHealth: 100
   _isAlive: 1
   isInvincible: 0
@@ -43750,6 +43717,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   _maxHealth: 100
   _isAlive: 1
   isInvincible: 0
@@ -44176,6 +44146,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: dd600634-7aaf-49ce-9b3d-d0655f6d55ec
     m_ActionName: 'Player/Select Skill 4[/Keyboard/4]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dfcd4e6b-a56f-482b-9450-b1327b12c3b6
+    m_ActionName: 'Player/OpenShop[/Keyboard/b]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -44564,13 +44538,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c8aecbe0c3d148b78196cdac93788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 6341476448709006985, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
-  coinCount: 1
-  coinSpread: 0.5
-  soulPrefab: {fileID: 0}
-  soulCount: 1
-  soulSpread: 0.4
-  soulDropChance: 1
   walkSpeed: 2
   flipCooldown: 0.2
   attackZone: {fileID: 1651596495}
@@ -44603,6 +44570,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   _maxHealth: 100
   _isAlive: 1
   isInvincible: 0
@@ -45808,7 +45778,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1576784416
 RectTransform:
   m_ObjectHideFlags: 0
@@ -46463,13 +46433,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c8aecbe0c3d148b78196cdac93788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 6341476448709006985, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
-  coinCount: 1
-  coinSpread: 0.5
-  soulPrefab: {fileID: 0}
-  soulCount: 1
-  soulSpread: 0.4
-  soulDropChance: 1
   walkSpeed: 2
   flipCooldown: 0.2
   attackZone: {fileID: 1296777582}
@@ -46502,6 +46465,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   _maxHealth: 100
   _isAlive: 1
   isInvincible: 0
@@ -49485,13 +49451,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c8aecbe0c3d148b78196cdac93788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 6341476448709006985, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
-  coinCount: 1
-  coinSpread: 0.5
-  soulPrefab: {fileID: 0}
-  soulCount: 1
-  soulSpread: 0.4
-  soulDropChance: 1
   walkSpeed: 2
   flipCooldown: 0.2
   attackZone: {fileID: 1798717904}
@@ -49524,6 +49483,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   _maxHealth: 100
   _isAlive: 1
   isInvincible: 0
@@ -53981,13 +53943,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c8aecbe0c3d148b78196cdac93788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 6341476448709006985, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
-  coinCount: 1
-  coinSpread: 0.5
-  soulPrefab: {fileID: 0}
-  soulCount: 1
-  soulSpread: 0.4
-  soulDropChance: 1
   walkSpeed: 2
   flipCooldown: 0.2
   attackZone: {fileID: 926549980}
@@ -54020,6 +53975,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   _maxHealth: 100
   _isAlive: 1
   isInvincible: 0
@@ -58442,9 +58400,6 @@ MonoBehaviour:
   typeText: {fileID: 576608806}
   qualityText: {fileID: 2087633230}
   descText: {fileID: 748048190}
-  statTitle: {fileID: 1284405827}
-  rarityObj: {fileID: 376382334}
-  amountTitleText: {fileID: 1723528282}
   weaponPanel: {fileID: 1391577548}
   baseDamageRow: {fileID: 1667368239}
   critChanceRow: {fileID: 738880881}
@@ -58457,11 +58412,11 @@ MonoBehaviour:
   armorCritChanceRow: {fileID: 1156598404}
   healthBonusValue: {fileID: 1518418299}
   armorCritChanceValue: {fileID: 905997303}
-  currencyPanel: {fileID: 732411280}
-  currencyNameText: {fileID: 2093582283}
-  currencyDescText: {fileID: 748048190}
-  currencyAmountText: {fileID: 1940677110}
-  currencyTypeText: {fileID: 576608806}
+  potionPanel: {fileID: 0}
+  restoreAmountRow: {fileID: 0}
+  effectRow: {fileID: 0}
+  restoreAmountValue: {fileID: 0}
+  effectValue: {fileID: 0}
   tooltipOffset: {x: 0, y: -40}
   tooltipHideDelay: 0.12
 --- !u!224 &2101404656
