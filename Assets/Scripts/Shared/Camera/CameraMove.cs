@@ -4,6 +4,9 @@ using System.Collections;
 
 public class SimpleCameraMove : MonoBehaviour
 {
+    [Header("Cutscene ID để save/load trạng thái xem")]
+    public string cutsceneId = "intro_cutscene"; // Đặt ID duy nhất cho mỗi cutscene!
+
     public Vector3 startPos;
     public Vector3 endPos;
     public float moveDuration = 2f;
@@ -24,14 +27,40 @@ public class SimpleCameraMove : MonoBehaviour
     public string actionMapName = "Player";
 
     [Header("Hide UI During Cutscene")]
-    public GameObject healthUI;        // Kéo UI cần ẩn (Health) vào đây
-    public GameObject[] otherUIs;      // Nếu muốn ẩn nhiều UI khác nữa
+    public GameObject healthUI;
+    public GameObject[] otherUIs;
 
     private float timer = 0f;
     private bool moving = false;
 
     void Start()
     {
+        // Đăng ký event: chỉ chạy cutscene sau khi GameSaveManager cho phép
+        if (GameSaveManager.Instance != null)
+            GameSaveManager.Instance.OnAfterSavePrompt += TryStartCutscene;
+        else
+            TryStartCutscene(); // Không có manager thì chạy luôn (debug)
+    }
+
+    void OnDestroy()
+    {
+        if (GameSaveManager.Instance != null)
+            GameSaveManager.Instance.OnAfterSavePrompt -= TryStartCutscene;
+    }
+
+    void TryStartCutscene()
+    {
+        // --- CHECK: Nếu đã xem cutscene này thì SKIP ---
+        if (GameSaveManager.Instance != null && GameSaveManager.Instance.IsCutsceneWatched(cutsceneId))
+        {
+            Debug.Log($"[SimpleCameraMove] Đã xem cutscene {cutsceneId}, skip!");
+            // TODO: Nếu bạn cần làm logic khác khi skip, xử lý ở đây.
+            return;
+        }
+
+        // --- CHƯA XEM: BẮT ĐẦU CUTSCENE ---
+        if (moving) return;
+
         transform.position = startPos;
         if (followCameraScript != null)
             followCameraScript.enabled = false;
@@ -129,6 +158,14 @@ public class SimpleCameraMove : MonoBehaviour
                     // Kết thúc thoại, MỞ LẠI TOÀN BỘ INPUT
                     if (playerInput != null)
                         playerInput.enabled = true;
+
+                    // === Đánh dấu đã xem cutscene và lưu lại ===
+                    if (GameSaveManager.Instance != null)
+                    {
+                        GameSaveManager.Instance.MarkCutsceneWatched(cutsceneId);
+                        GameSaveManager.Instance.SaveGame();
+                        Debug.Log($"[SimpleCameraMove] Đã đánh dấu watched + lưu cutscene: {cutsceneId}");
+                    }
                 }
             );
         }
@@ -136,6 +173,13 @@ public class SimpleCameraMove : MonoBehaviour
         {
             if (playerInput != null)
                 playerInput.enabled = true;
+
+            // Đánh dấu nếu không có thoại vẫn lưu là watched
+            if (GameSaveManager.Instance != null)
+            {
+                GameSaveManager.Instance.MarkCutsceneWatched(cutsceneId);
+                GameSaveManager.Instance.SaveGame();
+            }
         }
     }
 

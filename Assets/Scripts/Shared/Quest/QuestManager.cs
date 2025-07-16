@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 using System.Collections.Generic;
 
@@ -8,7 +7,6 @@ using System.Collections.Generic;
 /// </summary>
 public class QuestManager : MonoBehaviour
 {
-
     [System.Serializable]
     public class QuestSaveData
     {
@@ -25,7 +23,6 @@ public class QuestManager : MonoBehaviour
         public List<string> npcIds = new List<string>();
     }
 
-
     public static QuestManager Instance;
 
     [Header("Database tập hợp tất cả các QuestData")]
@@ -36,14 +33,14 @@ public class QuestManager : MonoBehaviour
     private HashSet<string> completedQuests = new HashSet<string>();
     private HashSet<string> readyToCompleteQuests = new HashSet<string>(); // Quest đã xong mọi bước, chờ gặp lại questgiver
 
-    // (Tuỳ chọn) Nếu quest yêu cầu gặp nhiều NPC, quản lý tiến trình qua từ điển
+    // Nếu quest yêu cầu gặp nhiều NPC, quản lý tiến trình qua từ điển
     private Dictionary<string, HashSet<string>> questNpcTalkedWith = new Dictionary<string, HashSet<string>>();
 
-    // === BỔ SUNG: Quest mở đầu tự nhận khi start game ===
+    // === Quest mở đầu tự nhận khi start game ===
     [Header("ID nhiệm vụ mở đầu (nhận tự động)")]
     public string autoStartQuestId = "main_1_crystal";
 
-    // === BỔ SUNG: Event cho NPC marker (và UI, nếu muốn) ===
+    // Event cho NPC marker (và UI, nếu muốn)
     public event Action OnQuestChanged;
 
     void Awake()
@@ -57,12 +54,10 @@ public class QuestManager : MonoBehaviour
 
     void Start()
     {
-        LoadQuestProgress();  // Thêm dòng này đầu Start!
-                              // Tự động nhận quest mở đầu nếu chưa có
+        // Tự động nhận quest mở đầu nếu chưa có
         if (!string.IsNullOrEmpty(autoStartQuestId) && !IsQuestAccepted(autoStartQuestId))
             AcceptQuest(autoStartQuestId);
     }
-
 
     // Lấy QuestData từ questId
     public QuestData GetQuestById(string questId)
@@ -162,7 +157,10 @@ public class QuestManager : MonoBehaviour
 
         OnQuestChanged?.Invoke(); // Gọi event update marker
     }
-    public void SaveQuestProgress()
+
+    // --- SAVE/LOAD DỮ LIỆU QUEST ĐỂ TÍCH HỢP VỚI GAME SAVE MANAGER ---
+
+    public QuestSaveData GetSaveData()
     {
         QuestSaveData data = new QuestSaveData();
         data.acceptedQuests.AddRange(acceptedQuests);
@@ -177,28 +175,12 @@ public class QuestManager : MonoBehaviour
                 npcIds = new List<string>(pair.Value)
             });
         }
-
-        string json = JsonUtility.ToJson(data, true);
-
-        // === Thêm dòng này để log vị trí file ===
-        Debug.Log("Save file path: " + Application.persistentDataPath + "/questsave.json");
-
-        System.IO.File.WriteAllText(Application.persistentDataPath + "/questsave.json", json);
-        Debug.Log("Quest progress saved!");
+        return data;
     }
 
-    public void LoadQuestProgress()
+    public void LoadFromSaveData(QuestSaveData data)
     {
-        string path = Application.persistentDataPath + "/questsave.json";
-        if (!System.IO.File.Exists(path))
-        {
-            Debug.LogWarning("No quest save file found.");
-            return;
-        }
-
-        string json = System.IO.File.ReadAllText(path);
-        QuestSaveData data = JsonUtility.FromJson<QuestSaveData>(json);
-
+        if (data == null) return;
         acceptedQuests = new HashSet<string>(data.acceptedQuests);
         completedQuests = new HashSet<string>(data.completedQuests);
         readyToCompleteQuests = new HashSet<string>(data.readyToCompleteQuests);
@@ -208,16 +190,6 @@ public class QuestManager : MonoBehaviour
         {
             questNpcTalkedWith[q.questId] = new HashSet<string>(q.npcIds);
         }
-
-        Debug.Log("Quest progress loaded!");
-        OnQuestChanged?.Invoke(); // Để update UI, marker, v.v...
+        OnQuestChanged?.Invoke(); // Để update UI, marker
     }
-    [ContextMenu("Open Save Folder")]
-    public void OpenSaveFolder()
-    {
-        string path = Application.persistentDataPath;
-        Debug.Log("Open folder: " + path);
-        Application.OpenURL("file:///" + path);
-    }
-
 }
