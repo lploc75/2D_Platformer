@@ -170,27 +170,31 @@ public class NPCController : MonoBehaviour
                 if (profile.isQuestGiver)
                 {
                     dialogueManager.StartDialogueFromLines(
-                        profile.questCompletedLines.Length > 0 ? profile.questCompletedLines : profile.defaultLines,
-                        profile.characterName,
-                        profile.avatar,
-                        () =>
-                        {
-                            Debug.Log("[NPCController] Callback hoàn thành quest!");
-                            QuestManager.Instance.CompleteQuest(profile.questId);
-                            QuestManager.Instance.RemoveReadyToComplete(profile.questId);
-                            FindObjectOfType<QuestUIController>()?.BuildQuestList();
+        profile.questCompletedLines.Length > 0 ? profile.questCompletedLines : profile.defaultLines,
+        profile.characterName,
+        profile.avatar,
+        () =>
+        {
+            Debug.Log("[NPCController] Callback hoàn thành quest!");
+            QuestManager.Instance.CompleteQuest(profile.questId);
+            QuestManager.Instance.RemoveReadyToComplete(profile.questId);
+            FindObjectOfType<QuestUIController>()?.BuildQuestList();
 
-                            if (profile.questId == "main_1_crystal")
-                            {
-                                Debug.Log("[NPCController] Nhận quest tiếp theo: main_2_crystal");
-                                QuestManager.Instance.AcceptQuest("main_2_crystal");
-                                FindObjectOfType<QuestUIController>()?.BuildQuestList();
-                            }
-                            // ==== FIX ĐÁNH DẤU LUÔN ====
-                            string key = profile.npcId + "_" + profile.questId;
-                            if (!questCompletedTalked.Contains(key)) questCompletedTalked.Add(key);
-                        }
-                    );
+            if (profile.questId == "main_1_crystal")
+            {
+                Debug.Log("[NPCController] Nhận quest tiếp theo: main_2_crystal");
+                QuestManager.Instance.AcceptQuest("main_2_crystal");
+                FindObjectOfType<QuestUIController>()?.BuildQuestList();
+            }
+            // ==== FIX ĐÁNH DẤU LUÔN ====
+            string key = profile.npcId + "_" + profile.questId;
+            if (!questCompletedTalked.Contains(key)) questCompletedTalked.Add(key);
+
+            // ==== TỰ ĐỘNG SAVE NGAY SAU KHI HOÀN THÀNH ====
+            QuestManager.Instance.SaveQuestProgress();
+        }
+    );
+
                 }
                 else
                 {
