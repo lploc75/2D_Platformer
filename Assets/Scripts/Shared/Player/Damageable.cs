@@ -1,21 +1,30 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.Events;
-
+/// <summary>
+/// Thành phần quản lý máu, bất tử ngắn, Hit‑stun, và
+/// phát sự kiện khi chết (OnDeath).
+/// Dùng được cho cả Player lẫn Enemy.
+/// </summary>
 public class Damageable : MonoBehaviour
 {
+    [Header("Events")]
+    /// <summary>Gọi khi bị đánh trúng (damage, knockback).</summary>
     public UnityEvent<int, Vector2> damageableHit;
+    /// <summary>Gọi duy nhất một lần khi máu tụt về 0.</summary>
+    public UnityEvent OnDeath;
 
     Animator animator;
 
+    /* ───────────── Thuộc tính máu ───────────── */
     [SerializeField] private int _maxHealth;
     [SerializeField] private bool _isAlive = true;
     [SerializeField] private bool isInvincible = false;
-
     private int _health;
     private float timeSinceHit = 0;
     public float invincibilityTime = 0.25f;
 
+    [Header("UI")]
     public HealthBar healthBar; // Gán trong Inspector
 
     public int MaxHealth
@@ -40,6 +49,7 @@ public class Damageable : MonoBehaviour
             if (_health <= 0)
             {
                 IsAlive = false;
+                OnDeath?.Invoke();
             }
         }
     }
@@ -79,10 +89,23 @@ public class Damageable : MonoBehaviour
         if (healthBar != null)
         {
             healthBar.SetMaxHealth(MaxHealth);
-         
+
         }
     }
 
+    private void Update()
+    {
+        if (isInvincible)
+        {
+            if (timeSinceHit > invincibilityTime)
+            {
+                isInvincible = false;
+                timeSinceHit = 0;
+            }
+            timeSinceHit += Time.deltaTime;
+        }
+    }
+    /* ───────────── API bị đánh ───────────── */
     public bool Hit(int damage, Vector2 knockback)
     {
         if (IsAlive && !isInvincible)
@@ -99,19 +122,6 @@ public class Damageable : MonoBehaviour
             return true;
         }
         return false;
-    }
-
-    private void Update()
-    {
-        if (isInvincible)
-        {
-            if (timeSinceHit > invincibilityTime)
-            {
-                isInvincible = false;
-                timeSinceHit = 0;
-            }
-            timeSinceHit += Time.deltaTime;
-        }
     }
     // Tắt Lockvelocity cho phép di chuyển
     private System.Collections.IEnumerator UnlockVelocityAfterDelay(float delay)
@@ -138,6 +148,6 @@ public class Damageable : MonoBehaviour
             healthBar.SetHealth(Health); // cập nhật UI
         }
 
-        Debug.Log($"[Damageable] 🔁 SetMaxHealth = {MaxHealth}, currentHealth = {Health}");
+        Debug.Log($"[Damageable]  SetMaxHealth = {MaxHealth}, currentHealth = {Health}");
     }
 }

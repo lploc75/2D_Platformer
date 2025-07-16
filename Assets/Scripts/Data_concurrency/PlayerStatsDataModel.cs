@@ -9,8 +9,6 @@ namespace Assets.Scripts.Data_concurrency
     [System.Serializable]
     public class PlayerStatsDataModel
     {
-        public int totalPoint;
-
         public int currentSTR;
         public int currentINT;
         public int currentDUR;
@@ -22,6 +20,12 @@ namespace Assets.Scripts.Data_concurrency
         public int durLevel;
         public int perLevel;
         public int vitLevel;
+
+        // --- Tiền ---
+        public int coin;
+        public int gem;
+        public int blueSoul;
+        public int purpleSoul;
     }
 
 }

@@ -242,6 +242,8 @@ public class PlayerController : MonoBehaviour
 
     public void OnAttack(InputAction.CallbackContext context)
     {
+        if (!canControl) return; // CHẶN bắn phép khi pause!
+
         if (context.started && manaManager != null)
         {
             if (manaManager.ConsumeMana(manaCost))
@@ -256,6 +258,7 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
 
     // Bị tấn công -> nhận damage và knockback
     public void OnHit(int damage, Vector2 knockback)
@@ -311,6 +314,54 @@ public class PlayerController : MonoBehaviour
             audioSource = GetComponent<AudioSource>() ?? gameObject.AddComponent<AudioSource>();
 
         audioSource.PlayOneShot(data.shootSFX);
+    }
+    public void ResetActionState()
+    {
+        // Reset input di chuyển
+        moveInput = Vector2.zero;
+
+        // Reset trạng thái chạy/di chuyển
+        IsMoving = false;
+        IsRunning = false;
+
+        // Reset velocity vật lý
+        if (rb != null)
+            rb.linearVelocity = Vector2.zero;
+
+        // Reset double jump
+        canDoubleJump = false;
+
+        // Reset animation về Idle, không nhảy, không chạy, không tấn công, không skill
+        if (animator != null)
+        {
+            animator.SetBool(AnimationStrings.isMoving, false);
+            animator.SetBool(AnimationStrings.isRunning, false);
+            animator.SetBool(AnimationStrings.canMove, true);
+            animator.SetBool(AnimationStrings.isAlive, true);
+            animator.SetFloat(AnimationStrings.yVelocity, 0f);
+            animator.ResetTrigger(AnimationStrings.jumpTrigger);
+            animator.ResetTrigger(AnimationStrings.attackTrigger);
+            // Reset các trigger hoặc parameter khác nếu có (ví dụ skill, dash...)
+            // Ví dụ:
+            // animator.ResetTrigger("dashTrigger");
+            // animator.SetInteger(AnimationStrings.SkillID, 0);
+            // animator.SetInteger(AnimationStrings.AttackIndex, 0);
+        }
+
+        // Nếu có trạng thái tấn công/đang cast/đang charge, reset tại đây
+        // Ví dụ nếu có biến isAttacking, isCharging, v.v.
+        // isAttacking = false;
+        // isCharging = false;
+
+        // Nếu có lock velocity từ Damageable, mở lại nếu muốn
+        // damageable.LockVelocity = false;
+
+        // Nếu đang dùng stamina/mana cho skill, tắt luôn
+        if (staminaManager != null)
+            staminaManager.SetUsingStamina(false);
+
+        // Nếu có launcher/skill đang charge, reset luôn
+        // projectileLauncher.CancelCurrentSkill(); // Nếu bạn có hàm này
     }
 
 

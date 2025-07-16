@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,10 +11,10 @@ public class CurrencyManager : MonoBehaviour
     private Dictionary<CurrencyType, int> currencyAmounts = new Dictionary<CurrencyType, int>();
 
     // UI cho từng loại tiền (kéo vào Inspector)
-    public Text coinText;
-    public Text gemText;
-    public Text blueSoulText;
-    public Text purpleSoulText;
+    public TextMeshProUGUI coinText;
+    public TextMeshProUGUI gemText;
+    public TextMeshProUGUI blueSoulText;
+    public TextMeshProUGUI purpleSoulText;
 
     // Nếu thêm loại mới, khai báo UI ở đây
 
@@ -45,6 +46,11 @@ public class CurrencyManager : MonoBehaviour
     public int GetCurrency(CurrencyType type)
     {
         return currencyAmounts[type];
+    }
+    public void SetCurrency(CurrencyType type, int amount)
+    {
+        currencyAmounts[type] = amount;
+        UpdateCurrencyUI(type);
     }
 
     private void UpdateCurrencyUI(CurrencyType type)

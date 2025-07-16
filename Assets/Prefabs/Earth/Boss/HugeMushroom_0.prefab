@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6256079033992282052}
   - component: {fileID: 413303027833557879}
   - component: {fileID: 4106585726921950194}
+  - component: {fileID: -5116201373149085498}
   m_Layer: 8
   m_Name: HugeMushroom_0
   m_TagString: Untagged
@@ -236,10 +237,10 @@ MonoBehaviour:
     maxNormalAngle: 0
   groundDistance: 0.05
   wallDistance: 0.05
-  cellingDistance: 0.05
+  ceilingDistance: 0.05
   _isGrounded: 1
   _isOnWall: 0
-  _isOnCelling: 0
+  _isOnCeiling: 0
 --- !u!114 &4106585726921950194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,11 +268,29 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   _maxHealth: 100
   _isAlive: 1
   isInvincible: 0
   invincibilityTime: 0.25
   healthBar: {fileID: 0}
+--- !u!114 &-5116201373149085498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4986644487309876264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4da3aabb3c87b5042ae7e13dd9c00787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currencies: 000000000300000002000000
+  minAmount: 1
+  maxAmount: 3
 --- !u!1 &6916162571752309688
 GameObject:
   m_ObjectHideFlags: 0

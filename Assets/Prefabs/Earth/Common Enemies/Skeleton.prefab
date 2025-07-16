@@ -311,6 +311,7 @@ GameObject:
   - component: {fileID: 3873321821222246878}
   - component: {fileID: 7643372982682351848}
   - component: {fileID: 974887735720636733}
+  - component: {fileID: 2384809325045153626}
   m_Layer: 8
   m_Name: Skeleton
   m_TagString: Untagged
@@ -489,13 +490,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c8aecbe0c3d148b78196cdac93788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 6341476448709006985, guid: 17249ec4ecdcff34aa16f7b5e51fb4e1, type: 3}
-  coinCount: 1
-  coinSpread: 0.5
-  soulPrefab: {fileID: 6599476591866995934, guid: 4b2c2272e7741364ca2aefeda6165dc6, type: 3}
-  soulCount: 1
-  soulSpread: 0.4
-  soulDropChance: 1
   walkSpeed: 2
   flipCooldown: 0.2
   attackZone: {fileID: 1937935060676719728}
@@ -529,10 +523,10 @@ MonoBehaviour:
     maxNormalAngle: 0
   groundDistance: 0.05
   wallDistance: 0.2
-  cellingDistance: 0.05
+  ceilingDistance: 0.05
   _isGrounded: 1
   _isOnWall: 0
-  _isOnCelling: 0
+  _isOnCeiling: 0
 --- !u!114 &974887735720636733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,8 +554,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
   _maxHealth: 100
   _isAlive: 1
   isInvincible: 0
   invincibilityTime: 0.25
   healthBar: {fileID: 0}
+--- !u!114 &2384809325045153626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9136841540669522472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4da3aabb3c87b5042ae7e13dd9c00787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currencies: 000000000300000002000000
+  minAmount: 1
+  maxAmount: 3
