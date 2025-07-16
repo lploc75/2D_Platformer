@@ -108,6 +108,17 @@ public class InventoryTooltipUI : MonoBehaviour
         if (armorPanel) armorPanel.SetActive(false);
         if (potionPanel) potionPanel.SetActive(false); // Đảm bảo PotionPanel được ẩn trước
 
+        // Ẩn toàn bộ dòng con trước khi bật lại cái nào cần
+        if (baseDamageRow) baseDamageRow.SetActive(false);
+        if (critChanceRow) critChanceRow.SetActive(false);
+        if (critDamageRow) critDamageRow.SetActive(false);
+
+        if (healthBonusRow) healthBonusRow.SetActive(false);
+        if (armorCritChanceRow) armorCritChanceRow.SetActive(false);
+
+        if (restoreAmountRow) restoreAmountRow.SetActive(false);
+        if (effectRow) effectRow.SetActive(false);
+
         // Kiểm tra và hiển thị thông tin vũ khí
         if (item.itemType == ItemType.Weapon)
         {

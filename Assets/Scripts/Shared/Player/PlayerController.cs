@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public float jumpImpulse = 10f;
     private bool canDoubleJump;
     private AudioSource audioSource;
+    public GameOverUI gameOverUI;
 
     private float manaCost = 1f; // mana của skill default
     [Header("Skill")]
@@ -362,6 +363,32 @@ public class PlayerController : MonoBehaviour
 
         // Nếu có launcher/skill đang charge, reset luôn
         // projectileLauncher.CancelCurrentSkill(); // Nếu bạn có hàm này
+    }
+    private void OnEnable()
+    {
+        if (damageable != null)
+            damageable.OnDeath.AddListener(OnPlayerDeath);
+    }
+
+    private void OnDisable()
+    {
+        if (damageable != null)
+            damageable.OnDeath.RemoveListener(OnPlayerDeath);
+    }
+
+    private void OnPlayerDeath()
+    {
+        // Gọi respawn từ GameManager
+        gameOverUI.ShowGameOver();
+    }
+
+    private System.Collections.IEnumerator RespawnDelay()
+    {
+        yield return new WaitForSeconds(1.0f); // Có thể chờ 1s cho hiệu ứng chết
+        GameManager.Instance.RespawnPlayer();
+        damageable.Health = damageable.MaxHealth; // Reset máu cho player
+        damageable.IsAlive = true; // Đánh dấu sống lại (bắt buộc)
+        ResetActionState();        // Reset input, di chuyển, animation
     }
 
 
