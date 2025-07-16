@@ -22794,7 +22794,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3470596643813840162, guid: 623998f4d56ccc148b62e7311d9afe31, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4300786351638925433, guid: 623998f4d56ccc148b62e7311d9afe31, type: 3}
       propertyPath: m_LocalScale.y
@@ -23985,7 +23985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -30030,7 +30030,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -32246,7 +32246,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9192678958636418266, guid: b092a8e56f3c837428af62b04f81deaf, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -44821,11 +44821,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4079667804371223899, guid: 67b7628a672588242be432846872e366, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7544210282737066090, guid: 67b7628a672588242be432846872e366, type: 3}
       propertyPath: rewardPanel
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7544210282737066090, guid: 67b7628a672588242be432846872e366, type: 3}
+      propertyPath: rewardItems.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7544210282737066090, guid: 67b7628a672588242be432846872e366, type: 3}
+      propertyPath: 'rewardItems.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: dcf4e3be436ba8143bec4afb50b90e72, type: 2}
+    - target: {fileID: 7544210282737066090, guid: 67b7628a672588242be432846872e366, type: 3}
+      propertyPath: 'rewardItems.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: dcf4e3be436ba8143bec4afb50b90e72, type: 2}
+    - target: {fileID: 7544210282737066090, guid: 67b7628a672588242be432846872e366, type: 3}
+      propertyPath: 'rewardItems.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: dcf4e3be436ba8143bec4afb50b90e72, type: 2}
+    - target: {fileID: 7544210282737066090, guid: 67b7628a672588242be432846872e366, type: 3}
+      propertyPath: 'rewardAmounts.Array.data[0]'
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7805164942157469394, guid: 67b7628a672588242be432846872e366, type: 3}
       propertyPath: m_LocalScale.y
@@ -46930,7 +46950,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4193534633509037096, guid: 8bc3c9f1ccac1b84caef874109de7238, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5222390055334460809, guid: 8bc3c9f1ccac1b84caef874109de7238, type: 3}
       propertyPath: animator
@@ -47599,7 +47619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.9308176, g: 0.9308176, b: 0.9308176, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -51933,7 +51953,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -65994,7 +66014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -66745,7 +66765,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -78047,7 +78067,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.9308176, g: 0.9308176, b: 0.9308176, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
