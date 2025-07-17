@@ -22831,9 +22831,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d00240ab9da5044eba8a68a50769183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portalLight: {fileID: 0}
+  portalLight: {fileID: 1465720463}
   flashMax: 400
   flashDuration: 1
+  targetSceneName: Desert_1
 --- !u!1 &422664726
 GameObject:
   m_ObjectHideFlags: 0
@@ -32005,9 +32006,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d00240ab9da5044eba8a68a50769183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portalLight: {fileID: 0}
+  portalLight: {fileID: 83424901}
   flashMax: 400
   flashDuration: 1
+  targetSceneName: HuyTHCE181180_B4
 --- !u!1 &767658836
 GameObject:
   m_ObjectHideFlags: 0
@@ -38233,9 +38235,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d00240ab9da5044eba8a68a50769183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portalLight: {fileID: 0}
+  portalLight: {fileID: 2046716013}
   flashMax: 400
   flashDuration: 1
+  targetSceneName: woodscence_1
 --- !u!1 &1039950733
 GameObject:
   m_ObjectHideFlags: 0
@@ -55702,9 +55705,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d00240ab9da5044eba8a68a50769183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portalLight: {fileID: 0}
+  portalLight: {fileID: 816329371}
   flashMax: 400
   flashDuration: 1
+  targetSceneName: Map1
 --- !u!1 &1586302757
 GameObject:
   m_ObjectHideFlags: 0

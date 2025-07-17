@@ -2,12 +2,14 @@
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal; 
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PortalLightController : MonoBehaviour
 {
     public Light2D portalLight;    // Gán Light2D trong Inspector
     public float flashMax = 400f;  // Giá trị lóe tối đa
     public float flashDuration = 1f; // Tổng thời gian lóe (từ 0->max->0)
+    public string targetSceneName;
 
     bool playerInZone = false;
     bool isFlashing = false;
@@ -52,6 +54,12 @@ public class PortalLightController : MonoBehaviour
         }
         portalLight.intensity = 0;
         isFlashing = false;
+
+        // Load scene sau khi flash xong
+        if (!string.IsNullOrEmpty(targetSceneName))
+        {
+            SceneManager.LoadScene(targetSceneName);
+        }
     }
 
     // Check người chơi vào/ra vùng trigger
