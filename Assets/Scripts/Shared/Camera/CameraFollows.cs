@@ -9,6 +9,8 @@ public class CameraFollows : MonoBehaviour
     public float minX = -11.97f; // Giới hạn trái camera
     public float minY = -1f;     // Giới hạn dưới camera (Y)
 
+    public Vector3 shakeOffset = Vector3.zero; // THÊM DÒNG NÀY
+
     void LateUpdate()
     {
         if (target == null) return;
@@ -19,6 +21,8 @@ public class CameraFollows : MonoBehaviour
 
         Vector3 desiredPosition = new Vector3(desiredX, desiredY, transform.position.z);
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-        transform.position = smoothedPosition;
+
+        // THÊM shakeOffset vào vị trí cuối
+        transform.position = smoothedPosition + shakeOffset;
     }
 }
