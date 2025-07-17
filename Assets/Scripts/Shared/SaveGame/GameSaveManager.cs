@@ -53,7 +53,6 @@ public class GameSaveManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        DontDestroyOnLoad(gameObject);
     }
 
     void Start()

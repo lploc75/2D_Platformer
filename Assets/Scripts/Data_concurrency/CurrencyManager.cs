@@ -23,7 +23,6 @@ public class CurrencyManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
 
             // Khởi tạo số dư mặc định
             foreach (CurrencyType type in System.Enum.GetValues(typeof(CurrencyType)))

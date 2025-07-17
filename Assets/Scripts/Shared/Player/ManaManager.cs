@@ -21,7 +21,6 @@ namespace Assets.Scripts.Shared.Player
 
         void Start()
         {
-
             if (manaSlider != null)
             {
                 currentMana = maxMana;
