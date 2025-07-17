@@ -24,13 +24,20 @@ public static class ItemDatabase
     {
         ItemData item = allItems.Find(i => i.itemName == itemName);
 
+        // Kiểm tra cả danh sách trang bị nếu vật phẩm không tìm thấy trong ItemDatabase
         if (item == null)
         {
-            Debug.LogError($"Item {itemName} không tìm thấy trong ItemDatabase.");
+            item = EquipmentManager.Instance.equippedItems.Find(i => i.itemName == itemName);
+        }
+
+        if (item == null)
+        {
+            Debug.LogError($"Item {itemName} không tìm thấy trong ItemDatabase và trang bị.");
         }
 
         return item;
     }
+
 
     // Nạp tất cả vật phẩm vào ItemDatabase
     public static void LoadAllItems(List<ItemData> items)
@@ -46,32 +53,42 @@ public static class ItemDatabase
 
     public static void LoadItemsFromJson(string filePath)
     {
-        // Đọc dữ liệu từ tệp JSON
         string json = System.IO.File.ReadAllText(filePath);
         InventoryDataModel inventoryData = JsonUtility.FromJson<InventoryDataModel>(json);
 
-        // In ra dữ liệu tệp JSON để kiểm tra
         Debug.Log("Dữ liệu tệp JSON đã được tải: " + json);
 
-        // Nạp vật phẩm vào ItemDatabase
         List<ItemData> items = new List<ItemData>();
 
         foreach (var itemData in inventoryData.items)
         {
-            // Tạo ItemData từ itemData trong tệp JSON
-            ItemData item = new WeaponData();  // Giả sử vật phẩm là WeaponData, bạn cần kiểm tra loại vật phẩm khác
+            ItemType type = (ItemType)System.Enum.Parse(typeof(ItemType), itemData.itemType);
+
+            ItemData item = null;
+
+            // Tạo vật phẩm theo loại (vũ khí hay giáp)
+            if (type == ItemType.Weapon)
+                item = new WeaponData();
+            else if (type == ItemType.Armor)
+                item = new ArmorData();  // Khởi tạo ArmorData nếu là Armor
+
+            if (item == null)
+            {
+                Debug.LogWarning($"Không hỗ trợ loại item {type}");
+                continue;
+            }
+
+            // Gán thông tin cho vật phẩm từ JSON
             item.itemName = itemData.itemName;
-            item.itemType = ItemType.Weapon;  // Giả sử ItemType của vật phẩm là "Weapon"
-            item.quality = (ItemQuality)System.Enum.Parse(typeof(ItemQuality), itemData.quality);  // Chuyển đổi quality từ chuỗi
+            item.itemType = type;
+            item.quality = (ItemQuality)System.Enum.Parse(typeof(ItemQuality), itemData.quality);
             item.description = itemData.description;
+            item.icon = Resources.Load<Sprite>(itemData.iconPath);
 
-            // Tải icon từ đường dẫn iconPath
-            item.icon = Resources.Load<Sprite>(itemData.iconPath);  // Lấy icon từ thư mục Resources
-
-            // Cập nhật các thuộc tính của WeaponData từ tệp JSON
+            // Gán thêm thông tin chi tiết cho các vật phẩm cụ thể (Weapon, Armor)
             if (item is WeaponData weapon)
             {
-                weapon.baseDamage = (int)itemData.baseDamage; // Chuyển đổi từ float sang int
+                weapon.baseDamage = (int)itemData.baseDamage;
                 weapon.critDamage = itemData.critDamage;
                 weapon.critChance = itemData.critChance;
                 weapon.hp = itemData.hp;
@@ -79,13 +96,22 @@ public static class ItemDatabase
                 weapon.mp = itemData.mp;
             }
 
-            // Thêm vật phẩm vào danh sách
+            if (item is ArmorData armor)
+            {
+                armor.healthBonus = itemData.healthBonus;
+                armor.baseDamage = (int)itemData.baseDamage;
+                armor.critDamage = itemData.critDamage;
+                armor.critChance = itemData.critChance;
+                armor.sp = itemData.sp;
+                armor.mp = itemData.mp;
+            }
+
             items.Add(item);
+            ItemDatabase.AddItem(item);  // Đảm bảo vật phẩm được thêm vào ItemDatabase
         }
 
-        // Nạp các vật phẩm vào ItemDatabase
-        LoadAllItems(items);
         Debug.Log("Đã nạp tất cả vật phẩm vào ItemDatabase.");
     }
+
 
 }

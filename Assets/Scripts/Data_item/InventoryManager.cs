@@ -76,7 +76,8 @@ public class InventoryManager : MonoBehaviour
     // Xóa vật phẩm khỏi kho (giảm số lượng hoặc xóa hẳn nếu số lượng = 0)
     public void RemoveItem(ItemData item, int amount = 1)
     {
-        var existingSlot = inventoryItems.FirstOrDefault(slot => slot.item == item);
+        Debug.Log("Phương thức Remove được gọi cho vật phẩm: " + item.itemName);
+        var existingSlot = inventoryItems.FirstOrDefault(slot => slot.item.itemName == item.itemName);
 
         if (existingSlot != null)
         {
@@ -87,11 +88,23 @@ public class InventoryManager : MonoBehaviour
             {
                 inventoryItems.Remove(existingSlot);
             }
-        }
 
-        // Cập nhật lại UI kho sau khi xóa vật phẩm
-        InventoryStaticUIController.Instance.UpdateInventorySlots();
+            // Debug để kiểm tra số lượng
+            Debug.Log($"Số lượng {item.itemName} còn lại trong inventory: {existingSlot.amount}");
+
+            // Cập nhật lại UI kho sau khi xóa vật phẩm
+            InventoryStaticUIController.Instance.UpdateInventorySlots();
+
+            // Lưu lại inventory vào file JSON sau khi thay đổi
+            InventoryFileHandler.SaveInventoryToFile(inventoryItems);
+        }
+        else
+        {
+            Debug.LogWarning("Vật phẩm không có trong inventory.");
+        }
     }
+
+
 
     private CurrencyData FindCurrencyItem(CurrencyType type)
     {

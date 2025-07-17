@@ -37,9 +37,12 @@ public class InventoryStaticUIController : MonoBehaviour
             if (rightClick == null) rightClick = btn.gameObject.AddComponent<InventorySlotRightClick>();
             rightClick.Init(i);
         }
+
         // Load inventory when the game starts
         LoadInventory();
         UpdateInventorySlots();
+        EquipmentManager.Instance.LoadEquipStatus();
+
     }
 
 
@@ -217,7 +220,6 @@ public class InventoryStaticUIController : MonoBehaviour
         {
             var slot = inventoryItems[lastRightClickSlot];
             EquipmentManager.Instance.Equip(slot.item);
-            inventoryManager.RemoveItem(slot.item, 1);
             HideEquipMenu();
         }
     }
