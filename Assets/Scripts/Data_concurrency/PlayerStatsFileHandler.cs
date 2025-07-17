@@ -28,7 +28,7 @@ public static class PlayerStatsFileHandler
             gem = CurrencyManager.Instance.GetCurrency(CurrencyType.Gem),
             blueSoul = CurrencyManager.Instance.GetCurrency(CurrencyType.BlueSoul),
             purpleSoul = CurrencyManager.Instance.GetCurrency(CurrencyType.PurpleSoul),
-             // Kỹ năng đã mở
+            // Kỹ năng đã mở
             unlockedSkillIndices = new List<int>()
         };
 
@@ -42,6 +42,7 @@ public static class PlayerStatsFileHandler
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(SavePath, json);
         Debug.Log("💾 Stats saved to " + SavePath);
+
     }
 
     public static bool Load(PlayerStatsManager manager)
@@ -86,3 +87,4 @@ public static class PlayerStatsFileHandler
         return true;
     }
 }
+

@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;  // Thêm vào đầu file
 
 public class SlotEquipUI : MonoBehaviour
 {
@@ -74,31 +77,6 @@ public class SlotEquipUI : MonoBehaviour
         }
     }
 
-
-
-    private Vector2 ScreenPointToUIPoint(Vector2 screenPoint, RectTransform panelRect)
-    {
-        Canvas canvas = panelRect.GetComponentInParent<Canvas>();
-        Vector2 uiPos;
-        RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            canvas.transform as RectTransform,
-            screenPoint,
-            canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera,
-            out uiPos
-        );
-        // Clamp (nếu cần)
-        RectTransform canvasRect = canvas.transform as RectTransform;
-        Vector2 panelSize = panelRect.sizeDelta;
-        Vector2 canvasSize = canvasRect.sizeDelta;
-
-        uiPos.x = Mathf.Clamp(uiPos.x, -canvasSize.x / 2, canvasSize.x / 2 - panelSize.x);
-        uiPos.y = Mathf.Clamp(uiPos.y, -canvasSize.y / 2 + panelSize.y, canvasSize.y / 2);
-
-        return uiPos;
-    }
-
-
-
     // Được gán DUY NHẤT cho Button "Bỏ trang bị" trên Popup
     public static void OnUnequipButtonClicked()
     {
@@ -125,11 +103,30 @@ public class SlotEquipUI : MonoBehaviour
         }
     }
 
-    // Cho nút đóng popup (nếu có)
-    public static void OnClosePopupButtonClicked()
+    // Lưu trạng thái trang bị vào tệp JSON
+    public void SaveEquipStatus()
     {
-        if (currentSelectedSlot != null && currentSelectedSlot.unequipPanel != null)
-            currentSelectedSlot.unequipPanel.SetActive(false);
-        currentSelectedSlot = null;
+        List<SlotEquipUIData> equipSlots = new List<SlotEquipUIData>();
+
+        // Lưu trạng thái của vũ khí nếu có
+        if (EquipmentManager.Instance.weaponSlotUI.GetCurrentItem() != null)
+        {
+            equipSlots.Add(new SlotEquipUIData(EquipmentManager.Instance.weaponSlotUI));  // Lưu trạng thái của weapon slot
+        }
+
+        // Lưu trạng thái của giáp nếu có
+        if (EquipmentManager.Instance.armorSlotUI.GetCurrentItem() != null)
+        {
+            equipSlots.Add(new SlotEquipUIData(EquipmentManager.Instance.armorSlotUI));  // Lưu trạng thái của armor slot
+        }
+
+        // Lưu tất cả các trạng thái vào tệp JSON
+        EquipmentSaveData saveData = new EquipmentSaveData(equipSlots);
+        string savePath = Path.Combine(Application.persistentDataPath, "equip_status.json");
+        string json = JsonUtility.ToJson(saveData, true);
+        File.WriteAllText(savePath, json);
+
+        Debug.Log("Trang bị đã được lưu vào " + savePath);
     }
+
 }

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Linq;
 using System.Collections.Generic;
 
 public class InventoryManager : MonoBehaviour
@@ -10,6 +11,12 @@ public class InventoryManager : MonoBehaviour
     {
         public ItemData item;
         public int amount;
+
+        public InventorySlot(ItemData item, int amount)
+        {
+            this.item = item;
+            this.amount = amount;
+        }
     }
 
     public List<InventorySlot> inventoryItems = new List<InventorySlot>();
@@ -29,48 +36,74 @@ public class InventoryManager : MonoBehaviour
         Instance = this;
     }
 
+
     /// <summary>
     /// Thêm item, nếu đã có thì cộng dồn số lượng, không thì add slot mới
     /// </summary>
+    // Thêm vật phẩm vào kho (nếu vật phẩm đã có thì tăng số lượng)
     public void AddItem(ItemData item, int amount = 1)
     {
-        InventorySlot slot = inventoryItems.Find(x => x.item == item);
-        if (slot != null)
+        // Kiểm tra xem vật phẩm đã có trong kho chưa
+        var existingSlot = inventoryItems.FirstOrDefault(slot => slot.item.itemName == item.itemName);  // Compare by itemName instead of the whole object
+
+        if (existingSlot != null)
         {
-            slot.amount += amount;
+            // Nếu vật phẩm đã có, tăng số lượng (stack)
+            existingSlot.amount += amount;
+            Debug.Log($"Vật phẩm {item.itemName} đã có, cộng dồn {amount} vào kho, tổng số lượng: {existingSlot.amount}");
         }
         else
         {
-            if (inventoryItems.Count >= maxInventorySize)
-            {
-                Debug.Log("Túi đồ đầy rồi!");
-                return;
-            }
-            slot = new InventorySlot { item = item, amount = amount };
-            inventoryItems.Add(slot);
+            // Nếu vật phẩm chưa có, thêm một slot mới với số lượng là amount
+            inventoryItems.Add(new InventorySlot(item, amount));
+            // Thêm vật phẩm vào ItemDatabase
+            ItemDatabase.AddItem(item);
+            Debug.Log($"Thêm mới vật phẩm {item.itemName} vào kho với số lượng: {amount}");
         }
 
-        if (uiController != null)
-            uiController.UpdateInventorySlots();
-        Debug.Log($"Đã nhận: {item.itemName} x{amount}");
+        // Cập nhật lại UI kho sau khi thêm vật phẩm
+        InventoryStaticUIController.Instance.UpdateInventorySlots();
+
+        // Lưu kho vào tệp JSON sau khi thay đổi
+        InventoryFileHandler.SaveInventoryToFile(inventoryItems);
     }
+
+
 
     /// <summary>
     /// Xóa 1 số lượng item khỏi slot (ví dụ khi dùng hoặc vứt)
-    /// </summary>
+    // Xóa vật phẩm khỏi kho (giảm số lượng hoặc xóa hẳn nếu số lượng = 0)
     public void RemoveItem(ItemData item, int amount = 1)
     {
-        InventorySlot slot = inventoryItems.Find(x => x.item == item);
-        if (slot != null)
-        {
-            slot.amount -= amount;
-            if (slot.amount <= 0)
-                inventoryItems.Remove(slot);
+        Debug.Log("Phương thức Remove được gọi cho vật phẩm: " + item.itemName);
+        var existingSlot = inventoryItems.FirstOrDefault(slot => slot.item.itemName == item.itemName);
 
-            if (uiController != null)
-                uiController.UpdateInventorySlots();
+        if (existingSlot != null)
+        {
+            existingSlot.amount -= amount;
+
+            // Nếu số lượng bằng 0, xóa vật phẩm khỏi kho
+            if (existingSlot.amount <= 0)
+            {
+                inventoryItems.Remove(existingSlot);
+            }
+
+            // Debug để kiểm tra số lượng
+            Debug.Log($"Số lượng {item.itemName} còn lại trong inventory: {existingSlot.amount}");
+
+            // Cập nhật lại UI kho sau khi xóa vật phẩm
+            InventoryStaticUIController.Instance.UpdateInventorySlots();
+
+            // Lưu lại inventory vào file JSON sau khi thay đổi
+            InventoryFileHandler.SaveInventoryToFile(inventoryItems);
+        }
+        else
+        {
+            Debug.LogWarning("Vật phẩm không có trong inventory.");
         }
     }
+
+
 
     private CurrencyData FindCurrencyItem(CurrencyType type)
     {
