@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.IO;
 using Assets.Scripts.Data_concurrency;
+using System.Collections.Generic;
 
 public static class PlayerStatsFileHandler
 {
@@ -26,9 +27,18 @@ public static class PlayerStatsFileHandler
             coin = CurrencyManager.Instance.GetCurrency(CurrencyType.Coin),
             gem = CurrencyManager.Instance.GetCurrency(CurrencyType.Gem),
             blueSoul = CurrencyManager.Instance.GetCurrency(CurrencyType.BlueSoul),
-            purpleSoul = CurrencyManager.Instance.GetCurrency(CurrencyType.PurpleSoul)
+            purpleSoul = CurrencyManager.Instance.GetCurrency(CurrencyType.PurpleSoul),
+             // Kỹ năng đã mở
+            unlockedSkillIndices = new List<int>()
         };
 
+        for (int i = 0; i < SkillTreeManager.Instance.skills.Count; i++)
+        {
+            if (SkillTreeManager.Instance.skills[i].isUnlocked)
+            {
+                data.unlockedSkillIndices.Add(i);
+            }
+        }
         string json = JsonUtility.ToJson(data, true);
         File.WriteAllText(SavePath, json);
         Debug.Log("💾 Stats saved to " + SavePath);
@@ -63,6 +73,15 @@ public static class PlayerStatsFileHandler
         CurrencyManager.Instance.SetCurrency(CurrencyType.BlueSoul, data.blueSoul);
         CurrencyManager.Instance.SetCurrency(CurrencyType.PurpleSoul, data.purpleSoul);
 
+        for (int i = 0; i < data.unlockedSkillIndices.Count; i++)
+        {
+            int idx = data.unlockedSkillIndices[i];
+            if (idx >= 0 && idx < SkillTreeManager.Instance.skills.Count)
+            {
+                SkillTreeManager.Instance.skills[idx].isUnlocked = true;
+            }
+        }
+        SkillTreeManager.Instance.UpdateUI(); // cập nhật giao diện
         Debug.Log("✅ Stats loaded from file.");
         return true;
     }

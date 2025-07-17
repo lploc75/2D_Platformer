@@ -26,6 +26,8 @@ namespace Assets.Scripts.Data_concurrency
         public int gem;
         public int blueSoul;
         public int purpleSoul;
+
+        public List<int> unlockedSkillIndices = new List<int>();
     }
 
 }

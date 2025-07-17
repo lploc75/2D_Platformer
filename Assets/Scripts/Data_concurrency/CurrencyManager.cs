@@ -51,6 +51,18 @@ public class CurrencyManager : MonoBehaviour
         currencyAmounts[type] = amount;
         UpdateCurrencyUI(type);
     }
+    public bool RemoveCurrency(CurrencyType type, int amount)
+    {
+        if (!currencyAmounts.ContainsKey(type))
+            return false;
+
+        if (currencyAmounts[type] < amount)
+            return false; // Không đủ tiền
+
+        currencyAmounts[type] -= amount;
+        UpdateCurrencyUI(type);
+        return true;
+    }
 
     private void UpdateCurrencyUI(CurrencyType type)
     {

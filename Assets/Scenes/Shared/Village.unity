@@ -23358,6 +23358,28 @@ MonoBehaviour:
   - {fileID: 478880224}
   - {fileID: 903358666}
   - {fileID: 883960}
+--- !u!114 &468240944 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3515828882239116030, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+  m_PrefabInstance: {fileID: 2044598329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &471175094 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5891987824773489127, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+  m_PrefabInstance: {fileID: 2044598329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &473441489
 GameObject:
   m_ObjectHideFlags: 0
@@ -25432,7 +25454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillId: 1
-  skillIcon: {fileID: 21300000, guid: 458edb66adf385a4fa7af68128cd9ebe, type: 3}
+  skillIcon: {fileID: 21300000, guid: 76be8fb82048e0040a07b79d5688f3b0, type: 3}
   openButton: {fileID: 1327025996}
 --- !u!1 &563959340
 GameObject:
@@ -26739,7 +26761,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 245fe0b905ada284d9165e241dd310e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillId: 3
+  skillId: 4
   skillIcon: {fileID: 21300000, guid: 76be8fb82048e0040a07b79d5688f3b0, type: 3}
   openButton: {fileID: 862155495}
 --- !u!1 &618966623
@@ -39924,6 +39946,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &885169115 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5877175629852232791, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+  m_PrefabInstance: {fileID: 2044598329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &899645063
 GameObject:
   m_ObjectHideFlags: 0
@@ -50478,6 +50511,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163974602}
   m_CullTransparentMesh: 1
+--- !u!114 &1169235666 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4812960617695386335, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+  m_PrefabInstance: {fileID: 2044598329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1170690615
 GameObject:
   m_ObjectHideFlags: 0
@@ -57748,6 +57792,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1253736641}
   m_CullTransparentMesh: 1
+--- !u!114 &1255820733 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6746144034373877411, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+  m_PrefabInstance: {fileID: 2044598329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1256520957
 GameObject:
   m_ObjectHideFlags: 0
@@ -57765,7 +57820,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1256520958
 RectTransform:
   m_ObjectHideFlags: 0
@@ -61141,6 +61196,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1416279077}
   m_CullTransparentMesh: 1
+--- !u!114 &1417318266 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 189771584809891391, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+  m_PrefabInstance: {fileID: 2044598329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1426747081
 GameObject:
   m_ObjectHideFlags: 0
@@ -73383,6 +73449,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1682087118}
   m_CullTransparentMesh: 1
+--- !u!114 &1684830381 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 124785274695401766, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+  m_PrefabInstance: {fileID: 2044598329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1685200278
 GameObject:
   m_ObjectHideFlags: 0
@@ -89474,6 +89551,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1921827152}
   m_CullTransparentMesh: 1
+--- !u!114 &1924054788 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7743113554025711702, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+  m_PrefabInstance: {fileID: 2044598329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1925934844 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7376788390609092743, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+  m_PrefabInstance: {fileID: 2044598329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1928390182
 GameObject:
   m_ObjectHideFlags: 0
@@ -91550,7 +91649,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7.02977, y: -7}
+  m_AnchoredPosition: {x: -7.029785, y: -7}
   m_SizeDelta: {x: -34.1337, y: -39.931488}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2013668942
@@ -92269,6 +92368,50 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1803536044}
     m_Modifications:
+    - target: {fileID: 573634051726654176, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Name
+      value: Explosion Info Popup
+      objectReference: {fileID: 0}
+    - target: {fileID: 757966571936167233, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1223575945637306368, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Name
+      value: Lighting Bolt Info Popup
+      objectReference: {fileID: 0}
+    - target: {fileID: 1365058182211105376, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607813264964342871, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_text
+      value: Explosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 1850076120740617656, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Name
+      value: Explosion Upgrade Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 2398336674032369266, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Name
+      value: Spike Bolt Info Popup
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476117504544296521, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Name
+      value: Lighting Bolt
+      objectReference: {fileID: 0}
+    - target: {fileID: 2671742914521679734, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Name
+      value: Spike Upgrade Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 2764443679640849919, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3173829133020610508, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Name
+      value: Fireball
+      objectReference: {fileID: 0}
     - target: {fileID: 3201195307374929131, guid: 29d8980e072613f4d913487083a27e43, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -92349,21 +92492,281 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3309141659130473445, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Name
+      value: Spike
+      objectReference: {fileID: 0}
+    - target: {fileID: 3344684303566163552, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748167901265660594, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Name
+      value: Lighting Bolt Image
+      objectReference: {fileID: 0}
+    - target: {fileID: 3808001140643209179, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Name
+      value: Fire Ball Upgrade Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 3910810094515179806, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4064992289800420839, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Name
+      value: Spike Soul Quantity
+      objectReference: {fileID: 0}
+    - target: {fileID: 4515849773554910314, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4648243231225747958, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Name
+      value: Fireball Image
+      objectReference: {fileID: 0}
+    - target: {fileID: 4659364339222128651, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Name
+      value: Lighting Bolt Soul Quantity
+      objectReference: {fileID: 0}
+    - target: {fileID: 5127653038128313073, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Name
+      value: Explosion Soul Quantity
+      objectReference: {fileID: 0}
+    - target: {fileID: 5285598263668621871, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Name
+      value: Fireball Soul Quantity
+      objectReference: {fileID: 0}
+    - target: {fileID: 5825097011752231527, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5877175629852232791, guid: 29d8980e072613f4d913487083a27e43, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 76be8fb82048e0040a07b79d5688f3b0, type: 3}
+    - target: {fileID: 6108710802716583453, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Name
+      value: Explosion Image
+      objectReference: {fileID: 0}
+    - target: {fileID: 6158569714411350755, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_text
+      value: Spike
+      objectReference: {fileID: 0}
+    - target: {fileID: 6582431930184001906, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_text
+      value: Lighting Bolt
+      objectReference: {fileID: 0}
     - target: {fileID: 6829166543068224165, guid: 29d8980e072613f4d913487083a27e43, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 458edb66adf385a4fa7af68128cd9ebe, type: 3}
+    - target: {fileID: 7328784018949937380, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893095562010034470, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Name
+      value: Spike Image
+      objectReference: {fileID: 0}
+    - target: {fileID: 7994633768569993087, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Name
+      value: Info Popup
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203869626116388931, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Name
+      value: Fireball Info Popup
+      objectReference: {fileID: 0}
     - target: {fileID: 8249410822441424935, guid: 29d8980e072613f4d913487083a27e43, type: 3}
       propertyPath: m_Name
       value: SkillContentPanel
       objectReference: {fileID: 0}
     - target: {fileID: 8249410822441424935, guid: 29d8980e072613f4d913487083a27e43, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493578748430036110, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8497854856675355234, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Name
+      value: Lighting Bolt Upgrade Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 8612453628358207314, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8612453628358207314, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8612453628358207314, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8641522161649514430, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_text
+      value: Spike
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778733476811855216, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Name
+      value: Explosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 8925762948067924170, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[1].icon
+      value: 
+      objectReference: {fileID: 468240944}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[2].icon
+      value: 
+      objectReference: {fileID: 885169115}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[3].icon
+      value: 
+      objectReference: {fileID: 1924054788}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[4].icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[5].icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[6].icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[7].icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[8].icon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[1].soulText
+      value: 
+      objectReference: {fileID: 1925934844}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[2].soulText
+      value: 
+      objectReference: {fileID: 2058602944}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[3].soulText
+      value: 
+      objectReference: {fileID: 1417318266}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[4].soulText
+      value: 
+      objectReference: {fileID: 1169235666}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[5].soulText
+      value: 
+      objectReference: {fileID: 1255820733}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[6].soulText
+      value: 
+      objectReference: {fileID: 471175094}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[7].soulText
+      value: 
+      objectReference: {fileID: 1684830381}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[1].skillName
+      value: Explosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[2].skillName
+      value: Lighting Bolt
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[3].skillName
+      value: Spike
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[4].skillName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[5].skillName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[6].skillName
+      value: vine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[7].skillName
+      value: ice
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[1].upgradeButton
+      value: 
+      objectReference: {fileID: 1372353561}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[2].upgradeButton
+      value: 
+      objectReference: {fileID: 1327025996}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[3].upgradeButton
+      value: 
+      objectReference: {fileID: 185708263}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[4].upgradeButton
+      value: 
+      objectReference: {fileID: 309749810}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[5].upgradeButton
+      value: 
+      objectReference: {fileID: 821038584}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[6].upgradeButton
+      value: 
+      objectReference: {fileID: 323707689}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[7].upgradeButton
+      value: 
+      objectReference: {fileID: 1515763443}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[4].prerequisiteSkillIndices.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: skills.Array.data[5].prerequisiteSkillIndices.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: 'skills.Array.data[2].prerequisiteSkillIndices.Array.data[0]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: 'skills.Array.data[3].prerequisiteSkillIndices.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: 'skills.Array.data[4].prerequisiteSkillIndices.Array.data[0]'
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: 'skills.Array.data[4].prerequisiteSkillIndices.Array.data[1]'
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: 'skills.Array.data[5].prerequisiteSkillIndices.Array.data[0]'
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070385578140930161, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: 'skills.Array.data[6].prerequisiteSkillIndices.Array.data[0]'
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -92715,6 +93118,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047960932}
   m_CullTransparentMesh: 1
+--- !u!114 &2058602944 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2143798835289175681, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+  m_PrefabInstance: {fileID: 2044598329}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2061349973
 GameObject:
   m_ObjectHideFlags: 0
@@ -98101,7 +98515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2069114904
 RectTransform:
   m_ObjectHideFlags: 0
@@ -99569,7 +99983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 245fe0b905ada284d9165e241dd310e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillId: 4
+  skillId: 3
   skillIcon: {fileID: 21300000, guid: 3ed13e7acdb36b64ab1aca07289b0751, type: 3}
   openButton: {fileID: 185708263}
 --- !u!1 &2129145050

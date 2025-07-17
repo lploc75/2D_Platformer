@@ -259,64 +259,57 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-
-
     // Bị tấn công -> nhận damage và knockback
     public void OnHit(int damage, Vector2 knockback)
     {
         rb.linearVelocity = new Vector2(knockback.x, rb.linearVelocity.y + knockback.y);
         Debug.Log("onhit");
     }
+    // Logic chọn kĩ năng
+    private void SelectSkill(int skillIndex, int unlockIndex = -1)
+    {
+        // Nếu có kiểm tra unlock (unlockIndex >= 0), thì kiểm tra
+        if (unlockIndex >= 0 && !SkillTreeManager.Instance.IsSkillUnlocked(unlockIndex)) return;
+
+        currentSkillData = skills[skillIndex];
+        Debug.Log("currentSkillData: " + currentSkillData);
+
+        manaCost = currentSkillData.manaCost;
+        animator.SetInteger(AnimationStrings.AttackIndex, currentSkillData.animationIndex);
+        animator.SetInteger(AnimationStrings.SkillID, currentSkillData.skillID);
+    }
+
+    // Default
     public void OnSelectSkill1(InputAction.CallbackContext context)
     {
         if (context.started)
-        {
-            currentSkillData = skills[0];
-            manaCost = currentSkillData.manaCost;
-            animator.SetInteger(AnimationStrings.AttackIndex, currentSkillData.animationIndex);
-            animator.SetInteger(AnimationStrings.SkillID, currentSkillData.skillID);
-        }
+            SelectSkill(0); // Không cần kiểm tra unlock
     }
+    // Fireball
     public void OnSelectSkill2(InputAction.CallbackContext context)
     {
         if (context.started)
-        {
-            currentSkillData = skills[1];
-            manaCost = currentSkillData.manaCost;
-            animator.SetInteger(AnimationStrings.AttackIndex, currentSkillData.animationIndex);
-            animator.SetInteger(AnimationStrings.SkillID, currentSkillData.skillID);
-        }
+            SelectSkill(1, 0); // Fireball → unlockIndex = 0
     }
+    // Explosion
     public void OnSelectSkill3(InputAction.CallbackContext context)
     {
         if (context.started)
-        {
-            currentSkillData = skills[2];
-            manaCost = currentSkillData.manaCost;
-            animator.SetInteger(AnimationStrings.AttackIndex, currentSkillData.animationIndex);
-            animator.SetInteger(AnimationStrings.SkillID, currentSkillData.skillID);
-        }
+            SelectSkill(2, 1); // Explosion → unlockIndex = 1
     }
+    // Lightning Strike
     public void OnSelectSkill4(InputAction.CallbackContext context)
     {
         if (context.started)
-        {
-            currentSkillData = skills[3];
-            manaCost = currentSkillData.manaCost;
-            animator.SetInteger(AnimationStrings.AttackIndex, currentSkillData.animationIndex);
-            animator.SetInteger(AnimationStrings.SkillID, currentSkillData.skillID);
-        }
+            SelectSkill(3, 2); // Lightning → unlockIndex = 2
     }
+    // Spike
     public void OnSelectSkill5(InputAction.CallbackContext context)
     {
         if (context.started)
-        {
-            currentSkillData = skills[4];
-            manaCost = currentSkillData.manaCost;
-            animator.SetInteger(AnimationStrings.AttackIndex, currentSkillData.animationIndex);
-            animator.SetInteger(AnimationStrings.SkillID, currentSkillData.skillID);
-        }
+            SelectSkill(4, 3); // Spike → unlockIndex = 3
     }
+
     void PlaySkillSFX(SkillData data)
     {
         if (data.shootSFX == null) return;
