@@ -123,6 +123,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Select Skill 5",
+                    "type": "Button",
+                    "id": "3a474a20-4a66-496a-9481-9e2998a7ce50",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "OpenShop",
                     "type": "Button",
                     "id": "dfcd4e6b-a56f-482b-9450-b1327b12c3b6",
@@ -548,6 +557,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Select Skill 4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "016f31e5-612d-46f4-a01e-4b23df114681",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Select Skill 5",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

@@ -58492,6 +58492,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: dfcd4e6b-a56f-482b-9450-b1327b12c3b6
     m_ActionName: 'Player/OpenShop[/Keyboard/b]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1275586797}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnSelectSkill5
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3a474a20-4a66-496a-9481-9e2998a7ce50
+    m_ActionName: 'Player/Select Skill 5[/Keyboard/5]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -58516,27 +58532,34 @@ MonoBehaviour:
   gameOverUI: {fileID: 0}
   skills:
   - skillID: 1
-    skillName: Fireball
+    skillName: Default
     manaCost: 5
     animationIndex: 1
     magicDamage: 10
     knockback: {x: 5, y: 5}
     shootSFX: {fileID: 8300000, guid: a652877b012108e41871f867ada9f176, type: 3}
   - skillID: 2
-    skillName: Explosion
+    skillName: Fireball
     manaCost: 1
     animationIndex: 1
     magicDamage: 30
     knockback: {x: 5, y: 5}
     shootSFX: {fileID: 8300000, guid: a652877b012108e41871f867ada9f176, type: 3}
   - skillID: 3
+    skillName: Explosion
+    manaCost: 1
+    animationIndex: 1
+    magicDamage: 80
+    knockback: {x: 5, y: 5}
+    shootSFX: {fileID: 8300000, guid: f1cb5d83282f2904a85f73111d068616, type: 3}
+  - skillID: 4
     skillName: Lighting Bolt
     manaCost: 1
     animationIndex: 3
     magicDamage: 80
     knockback: {x: 5, y: 5}
-    shootSFX: {fileID: 8300000, guid: f1cb5d83282f2904a85f73111d068616, type: 3}
-  - skillID: 4
+    shootSFX: {fileID: 8300000, guid: b7f8695cf65a4f24eb37544298821146, type: 3}
+  - skillID: 5
     skillName: Spike
     manaCost: 1
     animationIndex: 3
@@ -58665,8 +58688,10 @@ MonoBehaviour:
   luanchPoint: {fileID: 474243832}
   groundLuanchPoint: {fileID: 473441490}
   skillPrefabs:
-  - skillName: Fireball
+  - skillName: Default
     prefab: {fileID: 573951642884682776, guid: 5e6123aecc03d3f488450d132462dd5f, type: 3}
+  - skillName: Fireball
+    prefab: {fileID: 4569870078143139417, guid: 78b154f0d33d91947bf2a68035effee8, type: 3}
   - skillName: Explosion
     prefab: {fileID: 5130456855862703593, guid: 869ad7e276f97bd408d7bb990c8a659c, type: 3}
   - skillName: Lighting Bolt
@@ -81850,7 +81875,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1803536044
 RectTransform:
   m_ObjectHideFlags: 0
@@ -92596,16 +92621,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5877175629852232791, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 76be8fb82048e0040a07b79d5688f3b0, type: 3}
+    - target: {fileID: 6829166543068224165, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 458edb66adf385a4fa7af68128cd9ebe, type: 3}
     - target: {fileID: 8249410822441424935, guid: 29d8980e072613f4d913487083a27e43, type: 3}
       propertyPath: m_Name
       value: SkillContentPanel
       objectReference: {fileID: 0}
     - target: {fileID: 8249410822441424935, guid: 29d8980e072613f4d913487083a27e43, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4076907925717116436, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+    - {fileID: 737937852699332554, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+    - {fileID: 4053853098469021059, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+    - {fileID: 6646367608851103491, guid: 29d8980e072613f4d913487083a27e43, type: 3}
+    - {fileID: 1998914806566032296, guid: 29d8980e072613f4d913487083a27e43, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3173829133020610508, guid: 29d8980e072613f4d913487083a27e43, type: 3}
@@ -98335,7 +98373,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2069114904
 RectTransform:
   m_ObjectHideFlags: 0

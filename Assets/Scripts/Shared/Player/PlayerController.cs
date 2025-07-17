@@ -307,6 +307,16 @@ public class PlayerController : MonoBehaviour
             animator.SetInteger(AnimationStrings.SkillID, currentSkillData.skillID);
         }
     }
+    public void OnSelectSkill5(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            currentSkillData = skills[4];
+            manaCost = currentSkillData.manaCost;
+            animator.SetInteger(AnimationStrings.AttackIndex, currentSkillData.animationIndex);
+            animator.SetInteger(AnimationStrings.SkillID, currentSkillData.skillID);
+        }
+    }
     void PlaySkillSFX(SkillData data)
     {
         if (data.shootSFX == null) return;
