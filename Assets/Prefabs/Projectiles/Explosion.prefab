@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dfe8e4e9eb89e34091a7dc1d88918fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: {x: 15, y: 0}
+  moveSpeed: {x: 20, y: 0}
   knockback: {x: 2, y: 2}
   lifetime: 1.2
   destroyDelayAfterCollide: 0.2

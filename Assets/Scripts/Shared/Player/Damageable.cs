@@ -43,7 +43,7 @@ public class Damageable : MonoBehaviour
             if (healthBar != null)
             {
                 healthBar.SetHealth(_health);
-                Debug.Log("Slider change: " + _health);
+                Debug.Log("Health Slider change: " + _health);
             }
 
             if (_health <= 0)

@@ -7,6 +7,22 @@ using System.Collections.Generic;
 /// </summary>
 public class QuestManager : MonoBehaviour
 {
+    [System.Serializable]
+    public class QuestSaveData
+    {
+        public List<string> acceptedQuests = new List<string>();
+        public List<string> completedQuests = new List<string>();
+        public List<string> readyToCompleteQuests = new List<string>();
+        public List<QuestNpcTalkedData> questNpcTalkedWith = new List<QuestNpcTalkedData>();
+    }
+
+    [System.Serializable]
+    public class QuestNpcTalkedData
+    {
+        public string questId;
+        public List<string> npcIds = new List<string>();
+    }
+
     public static QuestManager Instance;
 
     [Header("Database tập hợp tất cả các QuestData")]
@@ -17,14 +33,14 @@ public class QuestManager : MonoBehaviour
     private HashSet<string> completedQuests = new HashSet<string>();
     private HashSet<string> readyToCompleteQuests = new HashSet<string>(); // Quest đã xong mọi bước, chờ gặp lại questgiver
 
-    // (Tuỳ chọn) Nếu quest yêu cầu gặp nhiều NPC, quản lý tiến trình qua từ điển
+    // Nếu quest yêu cầu gặp nhiều NPC, quản lý tiến trình qua từ điển
     private Dictionary<string, HashSet<string>> questNpcTalkedWith = new Dictionary<string, HashSet<string>>();
 
-    // === BỔ SUNG: Quest mở đầu tự nhận khi start game ===
+    // === Quest mở đầu tự nhận khi start game ===
     [Header("ID nhiệm vụ mở đầu (nhận tự động)")]
     public string autoStartQuestId = "main_1_crystal";
 
-    // === BỔ SUNG: Event cho NPC marker (và UI, nếu muốn) ===
+    // Event cho NPC marker (và UI, nếu muốn)
     public event Action OnQuestChanged;
 
     void Awake()
@@ -140,5 +156,40 @@ public class QuestManager : MonoBehaviour
             readyToCompleteQuests.Remove(questId);
 
         OnQuestChanged?.Invoke(); // Gọi event update marker
+    }
+
+    // --- SAVE/LOAD DỮ LIỆU QUEST ĐỂ TÍCH HỢP VỚI GAME SAVE MANAGER ---
+
+    public QuestSaveData GetSaveData()
+    {
+        QuestSaveData data = new QuestSaveData();
+        data.acceptedQuests.AddRange(acceptedQuests);
+        data.completedQuests.AddRange(completedQuests);
+        data.readyToCompleteQuests.AddRange(readyToCompleteQuests);
+
+        foreach (var pair in questNpcTalkedWith)
+        {
+            data.questNpcTalkedWith.Add(new QuestNpcTalkedData
+            {
+                questId = pair.Key,
+                npcIds = new List<string>(pair.Value)
+            });
+        }
+        return data;
+    }
+
+    public void LoadFromSaveData(QuestSaveData data)
+    {
+        if (data == null) return;
+        acceptedQuests = new HashSet<string>(data.acceptedQuests);
+        completedQuests = new HashSet<string>(data.completedQuests);
+        readyToCompleteQuests = new HashSet<string>(data.readyToCompleteQuests);
+
+        questNpcTalkedWith = new Dictionary<string, HashSet<string>>();
+        foreach (var q in data.questNpcTalkedWith)
+        {
+            questNpcTalkedWith[q.questId] = new HashSet<string>(q.npcIds);
+        }
+        OnQuestChanged?.Invoke(); // Để update UI, marker
     }
 }
