@@ -99519,7 +99519,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -8.0000305, y: 4.9999847}
+  m_AnchoredPosition: {x: -8.0000305, y: 5}
   m_SizeDelta: {x: 75, y: 42.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &413289187
@@ -124284,9 +124284,6 @@ MonoBehaviour:
   typeText: {fileID: 1419396910}
   qualityText: {fileID: 399363918}
   descText: {fileID: 1276366705}
-  statTitle: {fileID: 168725403}
-  rarityObj: {fileID: 1121775991}
-  amountTitleText: {fileID: 1259782850}
   weaponPanel: {fileID: 2053582453}
   baseDamageRow: {fileID: 706724222}
   critChanceRow: {fileID: 900362103}
@@ -124299,11 +124296,11 @@ MonoBehaviour:
   armorCritChanceRow: {fileID: 1166075022}
   healthBonusValue: {fileID: 1885616255}
   armorCritChanceValue: {fileID: 219802590}
-  currencyPanel: {fileID: 1360920592}
-  currencyNameText: {fileID: 1253458664}
-  currencyDescText: {fileID: 1276366705}
-  currencyAmountText: {fileID: 1179546606}
-  currencyTypeText: {fileID: 1419396910}
+  potionPanel: {fileID: 0}
+  restoreAmountRow: {fileID: 0}
+  effectRow: {fileID: 0}
+  restoreAmountValue: {fileID: 0}
+  effectValue: {fileID: 0}
   tooltipOffset: {x: 0, y: -40}
   tooltipHideDelay: 0.12
 --- !u!114 &1411249001
@@ -136520,6 +136517,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5079837229402422572, guid: 9bd9dcc2ca6bfbc43a1df3f1e9b37fbf, type: 3}
+      propertyPath: skillPrefabs.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 4569870078143139417, guid: 78b154f0d33d91947bf2a68035effee8, type: 3}
     - target: {fileID: 6195040374602271216, guid: 9bd9dcc2ca6bfbc43a1df3f1e9b37fbf, type: 3}
       propertyPath: manaManager
       value: 
@@ -136528,6 +136529,10 @@ PrefabInstance:
       propertyPath: staminaManager
       value: 
       objectReference: {fileID: 1094371906}
+    - target: {fileID: 6195040374602271216, guid: 9bd9dcc2ca6bfbc43a1df3f1e9b37fbf, type: 3}
+      propertyPath: skills.Array.data[3].magicDamage
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6419600171176302091, guid: 9bd9dcc2ca6bfbc43a1df3f1e9b37fbf, type: 3}
       propertyPath: m_Name
       value: Wizard 2
