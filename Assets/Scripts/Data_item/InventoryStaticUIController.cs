@@ -1,46 +1,91 @@
 ﻿using UnityEngine;
-    using UnityEngine.UI;
-    using System.Collections.Generic;
-using TMPro;  // Thêm dòng này để sử dụng TextMeshProUGUI
+using UnityEngine.UI;
+using System.Collections.Generic;
+using System.IO;  // Thêm dòng này
 
 public class InventoryStaticUIController : MonoBehaviour
+{
+    public static InventoryStaticUIController Instance;
+    public List<Button> slotButtons;
+    public InventoryTooltipUI tooltipUI;
+    public GameObject equipMenuPanel;
+    public Button equipBtn;
+    int lastRightClickSlot = -1;
+
+    private InventoryManager inventoryManager;
+
+    void Awake()
     {
-        public static InventoryStaticUIController Instance;
-        public List<Button> slotButtons;                 // Kéo các Button slot vào đây (phải đủ số slot)
-        public InventoryTooltipUI tooltipUI;
-        public GameObject equipMenuPanel;
-        public Button equipBtn;
-        int lastRightClickSlot = -1;
+        Instance = this;
+    }
 
-        // Reference tới InventoryManager
-        private InventoryManager inventoryManager;
+    void Start()
+    {
+        inventoryManager = InventoryManager.Instance;
 
-        void Awake()
+        if (equipBtn != null)
+            equipBtn.onClick.AddListener(OnEquipBtnClick);
+
+        // Add hover & right click scripts
+        for (int i = 0; i < slotButtons.Count; i++)
         {
-            Instance = this;
+            var btn = slotButtons[i];
+            var hover = btn.GetComponent<InventorySlotHover>();
+            if (hover == null) hover = btn.gameObject.AddComponent<InventorySlotHover>();
+
+            var rightClick = btn.GetComponent<InventorySlotRightClick>();
+            if (rightClick == null) rightClick = btn.gameObject.AddComponent<InventorySlotRightClick>();
+            rightClick.Init(i);
         }
 
-        void Start()
+        // Load inventory when the game starts
+        LoadInventory();
+        UpdateInventorySlots();
+        EquipmentManager.Instance.LoadEquipStatus();
+
+    }
+
+
+    /// <summary>
+    /// Load inventory từ tệp JSON
+    /// </summary>
+    public void LoadInventory()
+    {
+        Debug.Log("Đã chạy LoadInventory()");
+
+        string savePath = Path.Combine(Application.persistentDataPath, "inventory_data.json");
+        Debug.Log("Đọc tệp JSON từ: " + savePath);
+
+        // Kiểm tra nếu tệp JSON tồn tại trước khi tải
+        if (File.Exists(savePath))
         {
-            inventoryManager = InventoryManager.Instance;
+            // Nạp vật phẩm vào ItemDatabase trước khi tải kho
+            ItemDatabase.LoadItemsFromJson(savePath); // Đảm bảo gọi trước
 
-            if (equipBtn != null)
-                equipBtn.onClick.AddListener(OnEquipBtnClick);
+            // Tải kho từ tệp JSON
+            InventoryFileHandler.LoadInventoryFromFile(ref inventoryManager.inventoryItems);  // Không cần lưu kết quả
 
-            // Đảm bảo mỗi slot đều có hover/right click script
-            for (int i = 0; i < slotButtons.Count; i++)
+            // Kiểm tra nếu kho có vật phẩm
+            if (inventoryManager.inventoryItems.Count > 0)
             {
-                var btn = slotButtons[i];
-                var hover = btn.GetComponent<InventorySlotHover>();
-                if (hover == null) hover = btn.gameObject.AddComponent<InventorySlotHover>();
-
-                var rightClick = btn.GetComponent<InventorySlotRightClick>();
-                if (rightClick == null) rightClick = btn.gameObject.AddComponent<InventorySlotRightClick>();
-                rightClick.Init(i);
+                Debug.Log("Kho đã được tải thành công.");
             }
-
-            UpdateInventorySlots();
+            else
+            {
+                Debug.LogWarning("Không có vật phẩm trong kho hoặc lỗi khi tải kho.");
+                // Nếu kho trống, hiển thị trạng thái trống cho giao diện
+            }
         }
+        else
+        {
+            Debug.LogWarning("Không tìm thấy tệp kho. Sử dụng kho trống.");
+            // Nếu không có tệp JSON, hiển thị kho trống
+            inventoryManager.inventoryItems.Clear();  // Đảm bảo kho trống nếu không có tệp
+        }
+
+        // Cập nhật UI kho sau khi tải
+        UpdateInventorySlots();
+    }
 
     // Cập nhật các ô kho trong UI
     public void UpdateInventorySlots()
@@ -49,36 +94,48 @@ public class InventoryStaticUIController : MonoBehaviour
         for (int i = 0; i < slotButtons.Count; i++)
         {
             var btn = slotButtons[i];
-            var iconImg = btn.transform.Find("Icon").GetComponent<Image>();
-            var amountText = btn.transform.Find("amount")?.GetComponent<TextMeshProUGUI>();  // Tìm TextMeshPro (TMP_Text)
-            var qualityUI = btn.GetComponentInChildren<ItemQualityUI>();
+            var iconImg = btn.transform.Find("Icon")?.GetComponent<Image>();  // Kiểm tra sự tồn tại của Icon
+            var amountText = btn.transform.Find("amount")?.GetComponent<TMPro.TMP_Text>();  // Kiểm tra TextMeshPro (TMP_Text)
+            var qualityUI = btn.GetComponentInChildren<ItemQualityUI>();  // Cập nhật chất lượng
 
             InventoryManager.InventorySlot slot = (inventoryItems != null && i < inventoryItems.Count) ? inventoryItems[i] : null;
 
+            // Xóa sự kiện cũ trước khi thêm mới
             btn.onClick.RemoveAllListeners();
 
             // Gán lại sự kiện hover cho mỗi slot
             var hover = btn.GetComponent<InventorySlotHover>();
             if (hover == null) hover = btn.gameObject.AddComponent<InventorySlotHover>();
 
+            // Gán lại sự kiện right-click cho mỗi slot
+            var rightClick = btn.GetComponent<InventorySlotRightClick>();
+            if (rightClick == null) rightClick = btn.gameObject.AddComponent<InventorySlotRightClick>();
+
             // Nếu slot có vật phẩm
             if (slot != null && slot.item != null)
             {
-                iconImg.sprite = slot.item.icon;
-                iconImg.enabled = true;
-                iconImg.preserveAspect = true;
+                // Hiển thị icon vật phẩm
+                if (iconImg != null)
+                {
+                    iconImg.sprite = slot.item.icon;
+                    iconImg.enabled = true;
+                    iconImg.preserveAspect = true;  // Đảm bảo tỷ lệ khung hình icon
+                }
 
                 // Hiển thị số lượng chồng (stack) nếu số lượng > 1
                 if (amountText != null)
                 {
                     amountText.text = slot.amount > 1 ? slot.amount.ToString() : "";  // Hiển thị số lượng stack lên nút
                 }
-if (qualityUI != null)
+
+                // Cập nhật chất lượng vật phẩm
+                if (qualityUI != null)
                 {
                     qualityUI.itemData = slot.item;
-                    qualityUI.UpdateQualityFrame();
+                    qualityUI.UpdateQualityFrame();  // Cập nhật khung chất lượng
                 }
 
+                // Thiết lập sự kiện cho button
                 int idx = i;
                 btn.onClick.AddListener(() =>
                 {
@@ -88,34 +145,40 @@ if (qualityUI != null)
 
                 // Cập nhật hover cho vật phẩm
                 hover.Setup(slot.item, tooltipUI);
+                rightClick.UpdateItem(slot.item);  // Cập nhật sự kiện right-click cho vật phẩm
             }
             else
             {
-                // Slot trống
-                iconImg.sprite = null;
-                iconImg.enabled = false;
+                // Slot trống: ẩn icon và số lượng
+                if (iconImg != null)
+                {
+                    iconImg.sprite = null;  // Đặt sprite icon là null
+                    iconImg.enabled = false;  // Ẩn icon
+                }
 
                 if (amountText != null)
-                    amountText.text = "";
+                {
+                    amountText.text = "";  // Ẩn số lượng
+                }
 
                 if (qualityUI != null)
                 {
                     qualityUI.itemData = null;
-                    qualityUI.UpdateQualityFrame();
+                    qualityUI.UpdateQualityFrame();  // Cập nhật chất lượng (không có vật phẩm)
                 }
 
-                hover.Setup(null, tooltipUI);  // Xử lý khi không có vật phẩm trong slot
+                hover.Setup(null, tooltipUI);  // Cập nhật hover khi không có vật phẩm trong slot
+                rightClick.UpdateItem(null);  // Cập nhật sự kiện right-click khi không có vật phẩm
             }
         }
     }
-
 
     public void ShowEquipMenu(int slotIndex, Vector3 screenPosition)
     {
         var slot = inventoryManager.inventoryItems[slotIndex];
         if (slot != null && slot.item.itemType == ItemType.Currency)
         {
-            equipMenuPanel.SetActive(false); // Không hiện menu Equip cho currency
+            equipMenuPanel.SetActive(false);
             return;
         }
         lastRightClickSlot = slotIndex;
@@ -126,8 +189,7 @@ if (qualityUI != null)
         RectTransform canvasRect = canvas.GetComponent<RectTransform>();
         RectTransform menuRect = equipMenuPanel.GetComponent<RectTransform>();
 
-        // Thêm offset cho popup để không che vào chuột
-        Vector2 offset = new Vector2(24, -24); // X lệch sang phải, Y lệch xuống, có thể chỉnh
+        Vector2 offset = new Vector2(24, -24);
 
         Vector2 localPoint;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
@@ -140,34 +202,31 @@ if (qualityUI != null)
         Vector2 size = menuRect.sizeDelta;
         Vector2 canvasSize = canvasRect.sizeDelta;
 
-        // Giới hạn để menu không tràn ra ngoài canvas
         localPoint.x = Mathf.Clamp(localPoint.x, size.x / 2, canvasSize.x / 2 - size.x / 2);
         localPoint.y = Mathf.Clamp(localPoint.y, -canvasSize.y / 2 + size.y / 2, canvasSize.y / 2 - size.y / 2);
 
         menuRect.anchoredPosition = localPoint;
     }
 
-
     public void HideEquipMenu()
-        {
-            equipMenuPanel.SetActive(false);
-        }
+    {
+        equipMenuPanel.SetActive(false);
+    }
 
     void OnEquipBtnClick()
     {
         var inventoryItems = inventoryManager.inventoryItems;
         if (inventoryItems != null && inventoryItems.Count > lastRightClickSlot && inventoryItems[lastRightClickSlot] != null)
         {
-var slot = inventoryItems[lastRightClickSlot];
+            var slot = inventoryItems[lastRightClickSlot];
             EquipmentManager.Instance.Equip(slot.item);
-            inventoryManager.RemoveItem(slot.item, 1);  // Giảm số lượng hoặc xóa khỏi inventory nếu amount = 1
             HideEquipMenu();
         }
     }
 
     void OnClickItem(ItemData item)
-        {
-            Debug.Log("Đã chọn item: " + item.itemName);
-            // Xử lý hiện detail hoặc dùng item, tuỳ nhu cầu
-        }
+    {
+        Debug.Log("Đã chọn item: " + item.itemName);
+        // Xử lý hiện detail hoặc dùng item, tuỳ nhu cầu
     }
+}
