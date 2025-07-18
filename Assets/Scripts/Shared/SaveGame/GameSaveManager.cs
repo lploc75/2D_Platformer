@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System;
+using Assets.Scripts.Data_concurrency;
 
 [System.Serializable]
 public class SpriteFadeStatus
@@ -39,7 +40,6 @@ public class GameSaveManager : MonoBehaviour
     private Dictionary<string, bool> spriteColors = new Dictionary<string, bool>();
 
     // --- Đảm bảo chỉ load/skip một lần ---
-    private bool loadedOrSkipped = false;
     private bool waitingForInput = true;
 
     public event Action OnAfterSavePrompt;
@@ -58,30 +58,23 @@ public class GameSaveManager : MonoBehaviour
     void Start()
     {
         Debug.Log("<color=yellow>Nhấn phím L để LOAD file save tổng, hoặc N để bỏ qua và chơi mới.</color>");
-        waitingForInput = true;
-        loadedOrSkipped = false;
     }
 
     void Update()
     {
-        if (waitingForInput && !loadedOrSkipped)
-        {
             if (Input.GetKeyDown(KeyCode.L))
             {
                 LoadGame();
                 Debug.Log("<color=cyan>Đã load file save tổng!</color>");
-                waitingForInput = false;
-                loadedOrSkipped = true;
                 OnAfterSavePrompt?.Invoke();
             }
             else if (Input.GetKeyDown(KeyCode.N))
             {
                 Debug.Log("<color=yellow>Bạn đã chọn bỏ qua (không load file save).</color>");
-                waitingForInput = false;
-                loadedOrSkipped = true;
+                DeleteAllSaveFiles(); // <-- Thêm dòng này để xóa file save
+                ResetRuntimeData(); // <-- Reset luôn dữ liệu trong bộ nhớ
                 OnAfterSavePrompt?.Invoke();
             }
-        }
     }
 
     // --- API cho SpriteFade, SpritesFadeToColor ---
@@ -173,4 +166,51 @@ public class GameSaveManager : MonoBehaviour
         Debug.Log("Open folder: " + path);
         Application.OpenURL("file:///" + path);
     }
+    private void DeleteAllSaveFiles()
+    {
+        string dir = Application.persistentDataPath;
+
+        string[] filesToDelete = new string[]
+        {
+        Path.Combine(dir, "gamesave.json"),
+        Path.Combine(dir, "inventory_data.json"),
+        Path.Combine(dir, "player_data.json")
+        };
+
+        foreach (string filePath in filesToDelete)
+        {
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+                Debug.Log("[GameSaveManager] Đã xóa: " + filePath);
+            }
+            else
+            {
+                Debug.Log("[GameSaveManager] Không tìm thấy để xóa: " + filePath);
+            }
+        }
+    }
+    private void ResetRuntimeData()
+    {
+        // Reset Equipment
+        EquipmentManager.Instance?.ResetEquipment();
+        // Reset Inventory
+        InventoryManager.Instance?.ResetInventory();
+        // Reset Currency
+        CurrencyManager.Instance?.ResetCurrency();
+
+        // Reset Skill Tree
+        SkillTreeManager.Instance?.ResetSkills();
+
+        // Reset Player Stats
+        PlayerStatsManager.Instance?.ResetStats();
+
+        // Reset watched cutscenes, sprite fades/colors trong chính GameSaveManager
+        watchedCutscenes.Clear();
+        spriteFades.Clear();
+        spriteColors.Clear();
+
+        Debug.Log("[GameSaveManager] Đã reset toàn bộ dữ liệu trong phiên chơi.");
+    }
+
 }
