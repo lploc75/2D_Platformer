@@ -22644,7 +22644,7 @@ MonoBehaviour:
   flashMax: 400
   flashDuration: 1
   targetSceneName: Desert_1
-  requiredQuestId: main_1_crystal
+  requiredQuestId: main_5_crystal
   dialogueManager: {fileID: 1492051973}
   selfTalkProfile: {fileID: 11400000, guid: b91f6d5263a108b4990ea262476880f1, type: 2}
 --- !u!1 &422664726
@@ -32374,7 +32374,7 @@ MonoBehaviour:
   flashMax: 400
   flashDuration: 1
   targetSceneName: HuyTHCE181180_B4
-  requiredQuestId: main_2_crystal
+  requiredQuestId: main_4_crystal
   dialogueManager: {fileID: 1492051973}
   selfTalkProfile: {fileID: 11400000, guid: b91f6d5263a108b4990ea262476880f1, type: 2}
 --- !u!1 &767658836
@@ -44025,7 +44025,7 @@ MonoBehaviour:
   flashMax: 400
   flashDuration: 1
   targetSceneName: woodscence_1
-  requiredQuestId: main_1_crystal
+  requiredQuestId: main_3_crystal
   dialogueManager: {fileID: 1492051973}
   selfTalkProfile: {fileID: 11400000, guid: b91f6d5263a108b4990ea262476880f1, type: 2}
 --- !u!1 &1039950733
@@ -66802,7 +66802,7 @@ MonoBehaviour:
   flashMax: 400
   flashDuration: 1
   targetSceneName: Map1
-  requiredQuestId: main_1_crystal
+  requiredQuestId: main_2_crystal
   dialogueManager: {fileID: 1492051973}
   selfTalkProfile: {fileID: 11400000, guid: b91f6d5263a108b4990ea262476880f1, type: 2}
 --- !u!1 &1586302757
