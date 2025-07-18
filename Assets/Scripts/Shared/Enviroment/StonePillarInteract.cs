@@ -28,6 +28,11 @@ public class StonePillarInteract : MonoBehaviour
 
     public PlayerInput playerInput;            // Kéo PlayerInput vào đây
 
+    [Header("Quest check & Self-talk")]
+    public string requiredQuestId = "main_2_crystal";         // Quest phải "ready to complete" mới cho dùng trụ
+    public DialogueManager dialogueManager;                   // Kéo DialogueManager vào đây
+    public AdvancedDialogueProfile selfTalkProfile;           // Kéo prefab thoại vào đây
+
     private bool playerInZone = false;
     private bool hasActivated = false;
     private Vector3 squareTargetPosition;
@@ -70,11 +75,30 @@ public class StonePillarInteract : MonoBehaviour
     {
         if (!hasActivated && playerInZone && Keyboard.current.eKey.wasPressedThisFrame)
         {
-            StartCoroutine(DoInteractEffect());
+            if (CanInteractWithPillar())
+            {
+                StartCoroutine(DoInteractEffectAndCompleteQuest());
+            }
+            else
+            {
+                // --- Chỉ hiện thoại prefab nếu không đủ điều kiện (quest chưa ready to complete) ---
+                if (dialogueManager != null && selfTalkProfile != null && !dialogueManager.IsDialoguePlaying)
+                {
+                    dialogueManager.StartDialogueByProfile(selfTalkProfile);
+                }
+            }
         }
     }
 
-    IEnumerator DoInteractEffect()
+    bool CanInteractWithPillar()
+    {
+        if (QuestManager.Instance == null)
+            return false;
+        // Chỉ cho kích hoạt nếu quest đang ở trạng thái ready to complete
+        return QuestManager.Instance.IsQuestReadyToComplete(requiredQuestId);
+    }
+
+    IEnumerator DoInteractEffectAndCompleteQuest()
     {
         hasActivated = true;
 
@@ -133,6 +157,14 @@ public class StonePillarInteract : MonoBehaviour
         portalLight.pointLightOuterRadius = normalOuter;
 
         if (breathScript) breathScript.enabled = true;
+
+        // === (NEW) Mark quest as completed if it was ready ===
+        if (QuestManager.Instance != null && QuestManager.Instance.IsQuestReadyToComplete(requiredQuestId))
+        {
+            QuestManager.Instance.CompleteQuest(requiredQuestId);
+            QuestManager.Instance.RemoveReadyToComplete(requiredQuestId);
+            Debug.Log($"[StonePillarInteract] Quest '{requiredQuestId}' marked as completed!");
+        }
 
         // (5) Tắt bar và bật lại input sau hiệu ứng
         if (playerInput) playerInput.ActivateInput();
