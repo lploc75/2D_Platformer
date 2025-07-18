@@ -74,5 +74,21 @@ public class SkillTreeManager : MonoBehaviour
 
         return skills[index].isUnlocked;
     }
+    public void ResetSkills()
+    {
+        foreach (var skill in skills)
+        {
+            skill.isUnlocked = false;
+
+            // Reset giao diện nếu cần
+            skill.icon.color = Color.gray;
+            skill.soulText.text = $"{playerSouls}/{Skill.RequiredSouls}";
+            skill.upgradeButton.interactable = true; // hoặc false tùy logic unlock
+        }
+
+        UpdateUI();
+
+        Debug.Log("[SkillTreeManager] Đã reset toàn bộ kỹ năng.");
+    }
 
 }

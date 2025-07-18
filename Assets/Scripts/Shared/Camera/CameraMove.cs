@@ -35,17 +35,8 @@ public class SimpleCameraMove : MonoBehaviour
 
     void Start()
     {
-        // Đăng ký event: chỉ chạy cutscene sau khi GameSaveManager cho phép
-        if (GameSaveManager.Instance != null)
-            GameSaveManager.Instance.OnAfterSavePrompt += TryStartCutscene;
-        else
-            TryStartCutscene(); // Không có manager thì chạy luôn (debug)
-    }
-
-    void OnDestroy()
-    {
-        if (GameSaveManager.Instance != null)
-            GameSaveManager.Instance.OnAfterSavePrompt -= TryStartCutscene;
+        // LUÔN kiểm tra cutscene khi vào scene, không cần event nữa
+        TryStartCutscene();
     }
 
     void TryStartCutscene()

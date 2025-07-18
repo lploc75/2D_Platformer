@@ -103,8 +103,6 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-
-
     private CurrencyData FindCurrencyItem(CurrencyType type)
     {
         foreach (var item in currencyItemDataList)
@@ -136,6 +134,13 @@ public class InventoryManager : MonoBehaviour
                 return slot.amount;
         }
         return 0;
+    }
+    public void ResetInventory()
+    {
+        inventoryItems.Clear();
+        Debug.Log("[InventoryManager] Đã reset inventory.");
+        // Cập nhật lại UI kho sau khi thêm vật phẩm
+        InventoryStaticUIController.Instance.UpdateInventorySlots();
     }
 
 

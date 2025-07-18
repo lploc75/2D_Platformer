@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using TMPro;
 using Assets.Scripts.Shared.Player;
+using System.Collections.Generic;
 
 public class PlayerStatsManager : MonoBehaviour
 {
@@ -285,5 +286,21 @@ public class PlayerStatsManager : MonoBehaviour
 
         PlayerStatsFileHandler.Save(this); // Lưu dữ liệu vào file
     }
+    public void ResetStats()
+    {
+        // Reset chỉ số cộng
+        currentSTR = 0;
+        currentINT = 0;
+        currentDUR = 0;
+        currentPER = 0;
+        currentVIT = 0;
 
+        // Reset cấp độ
+        strLevel = 0;
+        intLevel = 0;
+        durLevel = 0;
+        perLevel = 0;
+        vitLevel = 0;
+        OnStatChanged();
+    }
 }

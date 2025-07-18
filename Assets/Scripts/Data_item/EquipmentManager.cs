@@ -248,5 +248,21 @@ public class EquipmentManager : MonoBehaviour
         }
     }
 
+    public void ResetEquipment()
+    {
+        // Gỡ bỏ vũ khí và giáp nếu có
+        Unequip(ItemType.Weapon);
+        Unequip(ItemType.Armor);
+
+        // Xóa file lưu trạng thái trang bị
+        string savePath = Path.Combine(Application.persistentDataPath, "equip_status.json");
+        if (File.Exists(savePath))
+        {
+            File.Delete(savePath);
+            Debug.Log("[EquipmentManager] Đã xóa file lưu equip_status.json.");
+        }
+
+        Debug.Log("[EquipmentManager] Đã reset toàn bộ trang bị.");
+    }
 
 }
