@@ -34,17 +34,14 @@ public class GameManager : MonoBehaviour
         lastCheckpointPosition = checkpointPos;
     }
 
-    public void RespawnPlayer()
+    public void RespawnPlayer() // Ch? d?ch chuy?n, không h?i máu
     {
         if (player != null)
         {
             player.transform.position = lastCheckpointPosition;
-
-            // Reset máu, tr?ng thái s?ng, animation
             var damageable = player.GetComponent<Damageable>();
             if (damageable != null)
             {
-                damageable.Health = damageable.MaxHealth;
                 damageable.IsAlive = true;
             }
 
@@ -55,4 +52,25 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    public void RevivePlayerAtCheckpoint()
+    {
+        if (player != null)
+        {
+            player.transform.position = lastCheckpointPosition;
+
+            var damageable = player.GetComponent<Damageable>();
+            if (damageable != null)
+            {
+                damageable.Health = damageable.MaxHealth; // H?i máu!
+                damageable.IsAlive = true;
+            }
+
+            var pc = player.GetComponent<PlayerController>();
+            if (pc != null)
+            {
+                pc.ResetActionState();
+            }
+        }
+    }
+
 }

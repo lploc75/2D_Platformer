@@ -36,7 +36,7 @@ public class GameOverUI : MonoBehaviour
     public void OnRetryClicked()
     {
         HideGameOver();
-        GameManager.Instance.RespawnPlayer();
+        GameManager.Instance.RevivePlayerAtCheckpoint();
         // Reset máu, tr?ng thái... n?u c?n
     }
 

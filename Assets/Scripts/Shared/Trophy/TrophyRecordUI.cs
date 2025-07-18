@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;  // Để sử dụng SceneManager
 
 public class TrophyRecordUI : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class TrophyRecordUI : MonoBehaviour
     public TMP_Text totalDeathText;
     public TMP_Text totalGoldText;
 
-    public float totalPlayTime; // In seconds
+    public float totalPlayTime; // Thời gian chơi tính bằng giây
     public int totalKill;
     public int totalDeath;
     public int totalGold;
@@ -19,25 +20,15 @@ public class TrophyRecordUI : MonoBehaviour
 
     void Awake()
     {
-        // Kiểm tra nếu đối tượng TrophyRecordUI đã tồn tại và hủy nó nếu cần thiết
-        if (FindObjectOfType<TrophyRecordUI>() != null && FindObjectOfType<TrophyRecordUI>() != this)
-        {
-            Destroy(gameObject);
-            Debug.LogError("TrophyRecordUI is not found in the scene!");
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);  // Đảm bảo đối tượng này không bị xóa khi chuyển scene
-            Debug.Log("TrophyRecordUI is found and active.");
-        }
+        DontDestroyOnLoad(gameObject);  // Đảm bảo đối tượng này không bị xóa khi chuyển scene
+        Debug.Log("TrophyRecordUI is found and active.");
+        StartGame();  // Bắt đầu đếm thời gian ngay khi script chạy
     }
 
     void Start()
     {
-        Debug.Log("Start method is called");
-        LoadRecord(); // Load record data when the game starts
-        UpdateUI(); // Update UI to display loaded data
-        StartGame();
+        LoadRecord(); // Load dữ liệu khi game bắt đầu
+        UpdateUI();   // Cập nhật UI với dữ liệu đã load
     }
 
     void Update()
@@ -45,7 +36,7 @@ public class TrophyRecordUI : MonoBehaviour
         // Nếu game đang hoạt động, tính toán thời gian và cập nhật UI liên tục
         if (isGameActive)
         {
-            totalPlayTime += Time.deltaTime; // Tính toán thời gian chơi
+            totalPlayTime += Time.deltaTime; // Cập nhật thời gian chơi
             UpdateUI();  // Cập nhật giao diện UI liên tục
             LogPlayTime();
         }
@@ -59,29 +50,38 @@ public class TrophyRecordUI : MonoBehaviour
         Debug.Log($"Time Played: {hours}h {minutes}m {seconds}s");
     }
 
-    // Call this when the game starts (e.g., when the player presses the "Start" button)
     public void StartGame()
     {
-        startTime = Time.time; // Record the start time
+        startTime = Time.time; // Lưu lại thời gian bắt đầu
         isGameActive = true;
     }
 
-    // Call this when the game ends or when switching scenes (e.g., when the player exits)
     public void EndGame()
     {
         if (isGameActive)
         {
-            totalPlayTime += Time.time - startTime; // Add the time spent during this session
-            SaveRecord(); // Save record data to PlayerPrefs
+            totalPlayTime += Time.time - startTime; // Cộng thời gian đã chơi vào tổng thời gian
+            SaveRecord();  // Lưu dữ liệu vào PlayerPrefs
             isGameActive = false;
         }
     }
 
-    // Load data from PlayerPrefs
+    public void SaveRecord()
+    {
+        Debug.Log("Saving data to PlayerPrefs...");
+        PlayerPrefs.SetFloat("TotalPlayTime", totalPlayTime);
+        PlayerPrefs.SetInt("TotalKill", totalKill);
+        PlayerPrefs.SetInt("TotalDeath", totalDeath);
+        PlayerPrefs.SetInt("TotalGold", totalGold);
+        PlayerPrefs.Save(); // Lưu vào disk
+
+        Debug.Log("Data saved successfully.");
+    }
+
     public void LoadRecord()
     {
         Debug.Log("Loading data from PlayerPrefs...");
-        totalPlayTime = PlayerPrefs.GetFloat("TotalPlayTime", 0f); // seconds
+        totalPlayTime = PlayerPrefs.GetFloat("TotalPlayTime", 0f);  // seconds
         totalKill = PlayerPrefs.GetInt("TotalKill", 0);
         totalDeath = PlayerPrefs.GetInt("TotalDeath", 0);
         totalGold = PlayerPrefs.GetInt("TotalGold", 0);
@@ -95,21 +95,6 @@ public class TrophyRecordUI : MonoBehaviour
         UpdateUI();  // Cập nhật lại UI với dữ liệu đã load
     }
 
-    // Save data to PlayerPrefs
-    public void SaveRecord()
-    {
-        Debug.Log("Saving data to PlayerPrefs...");
-
-        PlayerPrefs.SetFloat("TotalPlayTime", totalPlayTime);
-        PlayerPrefs.SetInt("TotalKill", totalKill);
-        PlayerPrefs.SetInt("TotalDeath", totalDeath);
-        PlayerPrefs.SetInt("TotalGold", totalGold);
-        PlayerPrefs.Save(); // Save to disk
-
-        Debug.Log("Data saved successfully.");
-    }
-
-    // Update the UI display
     public void UpdateUI()
     {
         int hours = Mathf.FloorToInt(totalPlayTime / 3600f);
@@ -122,7 +107,7 @@ public class TrophyRecordUI : MonoBehaviour
         totalGoldText.text = $"Total Gold Earned: <b>{totalGold}</b>";
     }
 
-    // Use this method to update the record and refresh the UI
+    // Dùng phương thức này để cập nhật giá trị và làm mới UI
     public void SetRecord(float playTime, int kill, int death, int gold)
     {
         totalPlayTime = playTime;
@@ -132,7 +117,7 @@ public class TrophyRecordUI : MonoBehaviour
         UpdateUI();
     }
 
-    // Call this method to update the kill, death, and gold values during the game
+    // Cập nhật stats trong game (khi người chơi giết quái, chết hoặc nhận vàng)
     public void UpdateGameStats(int kill, int death, int gold)
     {
         totalKill = kill;
@@ -141,10 +126,32 @@ public class TrophyRecordUI : MonoBehaviour
         UpdateUI();
     }
 
-    // This will be called when game quits
+    // Gọi phương thức này trước khi chuyển scene
+    public void SaveTimeBeforeSceneChange()
+    {
+        PlayerPrefs.SetFloat("TotalPlayTime", totalPlayTime);
+        PlayerPrefs.Save();  // Lưu thời gian khi chuyển scene
+        Debug.Log("Time saved before scene change: " + totalPlayTime);
+    }
+
+    // Gọi phương thức này khi vào map mới
+    public void LoadTimeAfterSceneChange()
+    {
+        totalPlayTime = PlayerPrefs.GetFloat("TotalPlayTime", 0f);  // Lấy thời gian đã lưu từ PlayerPrefs
+        Debug.Log("Time loaded after scene change: " + totalPlayTime);
+    }
+
+    // Phương thức này sẽ được gọi khi game tắt
     void OnApplicationQuit()
     {
         Debug.Log("Game is quitting. Saving data...");
-        SaveRecord(); // Ensure data is saved when quitting
+        SaveRecord(); // Lưu dữ liệu khi game tắt
+    }
+
+    // Phương thức này sẽ được gọi khi chuyển scene
+    public void ChangeScene()
+    {
+        SaveTimeBeforeSceneChange();  // Lưu thời gian trước khi chuyển scene
+        SceneManager.LoadScene("NextScene");  // Chuyển sang scene mới
     }
 }
