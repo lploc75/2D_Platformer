@@ -45,11 +45,17 @@ public class QuestManager : MonoBehaviour
 
     void Awake()
     {
-        // Singleton pattern
+        // Singleton pattern + giữ lại khi load scene mới
         if (Instance == null)
+        {
             Instance = this;
+            DontDestroyOnLoad(gameObject); // KHÔNG bị phá hủy khi load scene mới!
+        }
         else
+        {
             Destroy(gameObject);
+            return;
+        }
     }
 
     void Start()

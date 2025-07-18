@@ -82,5 +82,20 @@ public class CurrencyManager : MonoBehaviour
                 break;
         }
     }
+    public void ResetCurrency()
+    {
+        currencyAmounts.Clear();
+
+        // Đảm bảo tất cả các loại tiền được khởi tạo lại sau khi clear
+        foreach (CurrencyType type in System.Enum.GetValues(typeof(CurrencyType)))
+        {
+            currencyAmounts[type] = 0;
+            UpdateCurrencyUI(type);
+        }
+
+        Debug.Log("[CurrencyManager] Đã reset currency.");
+    }
+
+
 
 }

@@ -10,12 +10,11 @@ public class LoadSceneButton : MonoBehaviour
     [Tooltip("Chờ bao lâu trước khi load (để âm thanh click phát xong)")]
     public float delay = 0.5f;
 
+    // Gọi hàm này cho nút Load tiếp tục
     public void LoadGameScene()
     {
-        // Gọi âm thanh click (nếu dùng AudioManager)
         //AudioManager.Instance?.PlayClickSound();
 
-        // Nếu muốn đợi âm thanh kết thúc
         if (delay > 0f)
             StartCoroutine(LoadAfterDelay());
         else
@@ -34,5 +33,18 @@ public class LoadSceneButton : MonoBehaviour
             SceneManager.LoadScene(sceneName);
         else
             Debug.LogError("❌ Chưa cấu hình sceneName / sceneIndex!");
+    }
+
+    // Gọi hàm này cho nút NEW GAME
+    public void OnClickNewGame()
+    {
+        if (GameSaveManager.Instance != null)
+        {
+            GameSaveManager.Instance.StartNewGame(sceneName);
+        }
+        else
+        {
+            Debug.LogError("Không tìm thấy GameSaveManager.Instance!");
+        }
     }
 }
