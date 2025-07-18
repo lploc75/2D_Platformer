@@ -91,8 +91,22 @@ public class QuestManager : MonoBehaviour
         if (acceptedQuests.Contains(questId) && !completedQuests.Contains(questId))
         {
             completedQuests.Add(questId);
+            readyToCompleteQuests.Remove(questId); // Đảm bảo không còn trạng thái ready
             Debug.Log($"[QuestManager] Completed quest: {questId}");
             OnQuestChanged?.Invoke(); // Gọi event update marker
+        }
+    }
+
+    // Đánh dấu quest sẵn sàng hoàn thành (gặp lại questgiver để trả)
+    public void SetQuestReadyToComplete(string questId)
+    {
+        if (!IsQuestAccepted(questId) || IsQuestCompleted(questId))
+            return;
+        if (!readyToCompleteQuests.Contains(questId))
+        {
+            readyToCompleteQuests.Add(questId);
+            Debug.Log($"[QuestManager] Quest '{questId}' is now READY TO COMPLETE!");
+            OnQuestChanged?.Invoke();
         }
     }
 
@@ -143,6 +157,7 @@ public class QuestManager : MonoBehaviour
             if (allMet && !readyToCompleteQuests.Contains(questId) && !IsQuestCompleted(questId))
             {
                 readyToCompleteQuests.Add(questId); // Quest đã xong các bước, chờ gặp lại questgiver để hoàn thành chính thức
+                Debug.Log($"[QuestManager] Quest '{questId}' is now READY TO COMPLETE (all NPCs)!");
             }
         }
 
