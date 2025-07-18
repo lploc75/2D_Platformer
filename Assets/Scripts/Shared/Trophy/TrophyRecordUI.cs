@@ -9,26 +9,25 @@ public class TrophyRecordUI : MonoBehaviour
     public TMP_Text totalDeathText;
     public TMP_Text totalGoldText;
 
-    // Biến cần sửa lại thành public
     public float totalPlayTime; // In seconds
     public int totalKill;
     public int totalDeath;
     public int totalGold;
 
-    private float startTime; // Time when the game starts
-    private bool isGameActive = false; // Flag to track whether the game is active
+    private float startTime;
+    private bool isGameActive = false;
 
     void Awake()
     {
         // Kiểm tra nếu đối tượng TrophyRecordUI đã tồn tại và hủy nó nếu cần thiết
         if (FindObjectOfType<TrophyRecordUI>() != null && FindObjectOfType<TrophyRecordUI>() != this)
         {
-            Destroy(gameObject); // Hủy đối tượng trùng lặp nếu tồn tại
+            Destroy(gameObject);
             Debug.LogError("TrophyRecordUI is not found in the scene!");
         }
         else
         {
-            DontDestroyOnLoad(gameObject); // Đảm bảo đối tượng này không bị xóa khi scene thay đổi
+            DontDestroyOnLoad(gameObject);  // Đảm bảo đối tượng này không bị xóa khi chuyển scene
             Debug.Log("TrophyRecordUI is found and active.");
         }
     }
@@ -48,22 +47,16 @@ public class TrophyRecordUI : MonoBehaviour
         {
             totalPlayTime += Time.deltaTime; // Tính toán thời gian chơi
             UpdateUI();  // Cập nhật giao diện UI liên tục
-
-            // Log thời gian chơi mỗi frame
             LogPlayTime();
-        }
-        else
-        {
-            Debug.Log("isGameActive is false");
         }
     }
 
-    // Hàm log thời gian chơi khi game đang diễn ra
     void LogPlayTime()
     {
         int hours = Mathf.FloorToInt(totalPlayTime / 3600f);
         int minutes = Mathf.FloorToInt((totalPlayTime % 3600) / 60f);
         int seconds = Mathf.FloorToInt(totalPlayTime % 60);
+        Debug.Log($"Time Played: {hours}h {minutes}m {seconds}s");
     }
 
     // Call this when the game starts (e.g., when the player presses the "Start" button)
@@ -84,19 +77,15 @@ public class TrophyRecordUI : MonoBehaviour
         }
     }
 
-
     // Load data from PlayerPrefs
     public void LoadRecord()
     {
         Debug.Log("Loading data from PlayerPrefs...");
-
-        // Load dữ liệu từ PlayerPrefs
         totalPlayTime = PlayerPrefs.GetFloat("TotalPlayTime", 0f); // seconds
         totalKill = PlayerPrefs.GetInt("TotalKill", 0);
         totalDeath = PlayerPrefs.GetInt("TotalDeath", 0);
         totalGold = PlayerPrefs.GetInt("TotalGold", 0);
 
-        // Debug để kiểm tra giá trị
         Debug.Log("Loaded Record: ");
         Debug.Log("Total Play Time: " + totalPlayTime);
         Debug.Log("Monsters Defeated: " + totalKill);
@@ -111,7 +100,6 @@ public class TrophyRecordUI : MonoBehaviour
     {
         Debug.Log("Saving data to PlayerPrefs...");
 
-        // Lưu dữ liệu vào PlayerPrefs
         PlayerPrefs.SetFloat("TotalPlayTime", totalPlayTime);
         PlayerPrefs.SetInt("TotalKill", totalKill);
         PlayerPrefs.SetInt("TotalDeath", totalDeath);
@@ -151,5 +139,12 @@ public class TrophyRecordUI : MonoBehaviour
         totalDeath = death;
         totalGold = gold;
         UpdateUI();
+    }
+
+    // This will be called when game quits
+    void OnApplicationQuit()
+    {
+        Debug.Log("Game is quitting. Saving data...");
+        SaveRecord(); // Ensure data is saved when quitting
     }
 }
