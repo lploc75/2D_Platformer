@@ -15464,6 +15464,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &324256815
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 324256817}
+  - component: {fileID: 324256816}
+  m_Layer: 0
+  m_Name: TrophyObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &324256816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324256815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35b6c9b0724654747ab78ef6791b90be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalTimeText: {fileID: 1717054279}
+  totalKillText: {fileID: 1876306869}
+  totalDeathText: {fileID: 675580410}
+  totalGoldText: {fileID: 2131878622}
+  totalPlayTime: 0
+  totalKill: 0
+  totalDeath: 0
+  totalGold: 0
+--- !u!4 &324256817
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324256815}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &329806894
 GameObject:
   m_ObjectHideFlags: 0
@@ -57996,7 +58048,6 @@ GameObject:
   - component: {fileID: 1222069615}
   - component: {fileID: 1222069617}
   - component: {fileID: 1222069616}
-  - component: {fileID: 1222069618}
   m_Layer: 5
   m_Name: TrophyContentPanel
   m_TagString: Untagged
@@ -58065,22 +58116,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1222069614}
   m_CullTransparentMesh: 1
---- !u!114 &1222069618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1222069614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35b6c9b0724654747ab78ef6791b90be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalTimeText: {fileID: 1717054279}
-  totalKillText: {fileID: 1876306869}
-  totalDeathText: {fileID: 675580410}
-  totalGoldText: {fileID: 2131878622}
 --- !u!1 &1227346096
 GameObject:
   m_ObjectHideFlags: 0
@@ -102352,3 +102387,4 @@ SceneRoots:
   - {fileID: 1190967539}
   - {fileID: 575607752}
   - {fileID: 1797041238}
+  - {fileID: 324256817}
