@@ -8,15 +8,15 @@ public class MushroomBossCutscene : MonoBehaviour
 {
     public HugeMushroom boss;
     public Transform player;
-    public Transform playerBody;
+    public Transform playerBody; // Gán body (transform con) của player
     public GameObject magicStone;
-    public string questIdToComplete = "main_1_crystal";
+    public string questIdToReady = "main_2_crystal";
 
     [Header("Cinematic Bars")]
-    public RectTransform topBar;     // Kéo RectTransform của Image trên vào đây
-    public RectTransform bottomBar;  // Kéo RectTransform của Image dưới vào đây
+    public RectTransform topBar;
+    public RectTransform bottomBar;
     public float barSlideTime = 0.4f;
-    public float barTargetHeight = 100f; // Chiều cao bar khi hiện
+    public float barTargetHeight = 100f;
 
     [Header("Fly Config")]
     public float flyUpHeight = 2f;
@@ -31,7 +31,6 @@ public class MushroomBossCutscene : MonoBehaviour
         if (magicStone != null)
             magicStone.SetActive(false);
 
-        // Hide bar (set height = 0)
         if (topBar != null) SetBarHeight(topBar, 0f);
         if (bottomBar != null) SetBarHeight(bottomBar, 0f);
     }
@@ -40,13 +39,21 @@ public class MushroomBossCutscene : MonoBehaviour
     {
         if (!cutsceneStarted && boss != null && !IsBossAlive())
         {
+            Debug.Log("<color=yellow>[Cutscene] Boss is dead. Starting cutscene.</color>");
             StartCoroutine(PlayStoneFlyCutscene());
         }
     }
 
     bool IsBossAlive()
     {
-        return boss.GetComponent<Animator>().GetBool(EnemiesAnimationStrings.isAlive);
+        var anim = boss.GetComponent<Animator>();
+        if (anim == null)
+        {
+            Debug.LogError("Boss Animator not found!");
+            return false;
+        }
+        bool alive = anim.GetBool(EnemiesAnimationStrings.isAlive);
+        return alive;
     }
 
     IEnumerator PlayStoneFlyCutscene()
@@ -61,7 +68,7 @@ public class MushroomBossCutscene : MonoBehaviour
         PlayerInput input = player.GetComponent<PlayerInput>();
         if (input != null) input.enabled = false;
 
-        // Viên đá xuất hiện tại đúng vị trí
+        // Viên đá xuất hiện tại đúng vị trí (nên là con của boss)
         magicStone.SetActive(true);
         Vector3 start = magicStone.transform.position;
         magicStone.transform.SetParent(null);
@@ -102,9 +109,25 @@ public class MushroomBossCutscene : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         magicStone.SetActive(false);
 
-        // Đánh dấu hoàn thành nhiệm vụ
-        if (QuestManager.Instance != null)
-            QuestManager.Instance.CompleteQuest(questIdToComplete);
+        // ======= Đánh dấu quest ready to complete ==========
+        if (QuestManager.Instance == null)
+        {
+            Debug.LogError("QuestManager.Instance is NULL!");
+        }
+        else
+        {
+            Debug.Log("[Cutscene] About to set quest ready to complete: " + questIdToReady);
+            foreach (var q in QuestManager.Instance.GetAllAcceptedQuestIds())
+                Debug.Log("[Cutscene] Accepted quest: " + q);
+
+            QuestManager.Instance.SetQuestReadyToComplete(questIdToReady);
+
+            // Kiểm tra trạng thái sau khi gọi
+            if (QuestManager.Instance.IsQuestReadyToComplete(questIdToReady))
+                Debug.Log("<color=lime>[Cutscene] Quest marked as READY TO COMPLETE!</color>");
+            else
+                Debug.LogWarning("[Cutscene] Quest NOT marked as ready to complete!");
+        }
 
         // Save game nếu muốn
         if (GameSaveManager.Instance != null)
@@ -118,7 +141,6 @@ public class MushroomBossCutscene : MonoBehaviour
         if (input != null) input.enabled = true;
     }
 
-    // Helper: set height bar
     void SetBarHeight(RectTransform rt, float h)
     {
         rt.sizeDelta = new Vector2(rt.sizeDelta.x, h);

@@ -96558,6 +96558,53 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.078149796, y: 1.1557883}
   m_EdgeRadius: 0
+--- !u!1 &198294839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 198294841}
+  - component: {fileID: 198294840}
+  m_Layer: 0
+  m_Name: QuestUIController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &198294840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198294839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 622d7876189aec64bbdbf0156e876dd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questListParent: {fileID: 375123878}
+  questButtonPrefab: {fileID: 5892937923408877835, guid: e123e08332c42874badea910e0bd66e1, type: 3}
+  questDetailText: {fileID: 202556857}
+--- !u!4 &198294841
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198294839}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &200533375
 GameObject:
   m_ObjectHideFlags: 0
@@ -126915,7 +126962,7 @@ MonoBehaviour:
   player: {fileID: 1571686917}
   playerBody: {fileID: 1009972779}
   magicStone: {fileID: 569469170}
-  questIdToComplete: main_1_crystal
+  questIdToComplete: main_2_crystal
   topBar: {fileID: 1996427894}
   bottomBar: {fileID: 1172929443}
   barSlideTime: 0.4
@@ -132799,7 +132846,7 @@ Transform:
   m_GameObject: {fileID: 1571686913}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 179.88, y: -3.9, z: 0}
+  m_LocalPosition: {x: 126.2, y: -4.7, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -148520,3 +148567,4 @@ SceneRoots:
   - {fileID: 1416299356}
   - {fileID: 1298634805}
   - {fileID: 1147735549}
+  - {fileID: 198294841}

@@ -30547,6 +30547,9 @@ MonoBehaviour:
   topBar: {fileID: 0}
   bottomBar: {fileID: 0}
   playerInput: {fileID: 0}
+  requiredQuestId: main_2_crystal
+  dialogueManager: {fileID: 0}
+  selfTalkProfile: {fileID: 0}
 --- !u!1 &719652329
 GameObject:
   m_ObjectHideFlags: 0
@@ -52134,6 +52137,9 @@ MonoBehaviour:
   topBar: {fileID: 965925457}
   bottomBar: {fileID: 207389071}
   playerInput: {fileID: 1275586796}
+  requiredQuestId: main_2_crystal
+  dialogueManager: {fileID: 1492051973}
+  selfTalkProfile: {fileID: 11400000, guid: d2d4c3fef3c11134489159f68db140cc, type: 2}
 --- !u!1 &1194946568
 GameObject:
   m_ObjectHideFlags: 0
@@ -76039,6 +76045,9 @@ MonoBehaviour:
   topBar: {fileID: 0}
   bottomBar: {fileID: 0}
   playerInput: {fileID: 0}
+  requiredQuestId: main_2_crystal
+  dialogueManager: {fileID: 0}
+  selfTalkProfile: {fileID: 0}
 --- !u!1 &1701190660
 GameObject:
   m_ObjectHideFlags: 0
@@ -91884,6 +91893,9 @@ MonoBehaviour:
   topBar: {fileID: 0}
   bottomBar: {fileID: 0}
   playerInput: {fileID: 0}
+  requiredQuestId: main_2_crystal
+  dialogueManager: {fileID: 0}
+  selfTalkProfile: {fileID: 0}
 --- !u!1 &1946053226
 GameObject:
   m_ObjectHideFlags: 0
