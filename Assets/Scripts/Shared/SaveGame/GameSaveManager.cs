@@ -39,42 +39,20 @@ public class GameSaveManager : MonoBehaviour
     private Dictionary<string, bool> spriteFades = new Dictionary<string, bool>();
     private Dictionary<string, bool> spriteColors = new Dictionary<string, bool>();
 
-    // --- Đảm bảo chỉ load/skip một lần ---
-    private bool waitingForInput = true;
-
     public event Action OnAfterSavePrompt;
 
     void Awake()
     {
         if (Instance == null)
+        {
             Instance = this;
+            DontDestroyOnLoad(gameObject); // Giữ lại manager khi load scene mới
+        }
         else
         {
             Destroy(gameObject);
             return;
         }
-    }
-
-    void Start()
-    {
-        Debug.Log("<color=yellow>Nhấn phím L để LOAD file save tổng, hoặc N để bỏ qua và chơi mới.</color>");
-    }
-
-    void Update()
-    {
-            if (Input.GetKeyDown(KeyCode.L))
-            {
-                LoadGame();
-                Debug.Log("<color=cyan>Đã load file save tổng!</color>");
-                OnAfterSavePrompt?.Invoke();
-            }
-            else if (Input.GetKeyDown(KeyCode.N))
-            {
-                Debug.Log("<color=yellow>Bạn đã chọn bỏ qua (không load file save).</color>");
-                DeleteAllSaveFiles(); // <-- Thêm dòng này để xóa file save
-                ResetRuntimeData(); // <-- Reset luôn dữ liệu trong bộ nhớ
-                OnAfterSavePrompt?.Invoke();
-            }
     }
 
     // --- API cho SpriteFade, SpritesFadeToColor ---
@@ -113,11 +91,9 @@ public class GameSaveManager : MonoBehaviour
         data.questData = QuestManager.Instance.GetSaveData();
         data.watchedCutscenes = new List<string>(watchedCutscenes);
 
-        // Lưu sprite fade
         foreach (var kv in spriteFades)
             data.spriteFades.Add(new SpriteFadeStatus { key = kv.Key, faded = kv.Value });
 
-        // Lưu sprite color
         foreach (var kv in spriteColors)
             data.spriteColors.Add(new SpriteColorStatus { key = kv.Key, changedColor = kv.Value });
 
@@ -142,7 +118,6 @@ public class GameSaveManager : MonoBehaviour
         QuestManager.Instance.LoadFromSaveData(data.questData);
         watchedCutscenes = data.watchedCutscenes ?? new List<string>();
 
-        // Load sprite fade/color
         spriteFades.Clear();
         spriteColors.Clear();
         if (data.spriteFades != null)
@@ -166,15 +141,28 @@ public class GameSaveManager : MonoBehaviour
         Debug.Log("Open folder: " + path);
         Application.OpenURL("file:///" + path);
     }
+
+    // ----------- NEW GAME SUPPORT -----------
+    public void StartNewGame(string sceneName)
+    {
+        DeleteAllSaveFiles();
+        ResetRuntimeData();
+        if (!string.IsNullOrEmpty(sceneName))
+            UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+        else
+            Debug.LogError("❌ Chưa cấu hình sceneName để load!");
+    }
+
+    // ----------- PRIVATE HELPER FUNCTIONS -----------
     private void DeleteAllSaveFiles()
     {
         string dir = Application.persistentDataPath;
 
         string[] filesToDelete = new string[]
         {
-        Path.Combine(dir, "gamesave.json"),
-        Path.Combine(dir, "inventory_data.json"),
-        Path.Combine(dir, "player_data.json")
+            Path.Combine(dir, "gamesave.json"),
+            Path.Combine(dir, "inventory_data.json"),
+            Path.Combine(dir, "player_data.json")
         };
 
         foreach (string filePath in filesToDelete)
@@ -212,5 +200,4 @@ public class GameSaveManager : MonoBehaviour
 
         Debug.Log("[GameSaveManager] Đã reset toàn bộ dữ liệu trong phiên chơi.");
     }
-
 }
