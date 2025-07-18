@@ -9,29 +9,108 @@ public class TrophyRecordUI : MonoBehaviour
     public TMP_Text totalDeathText;
     public TMP_Text totalGoldText;
 
-    // Variables to hold record data
-    private float totalPlayTime; // In seconds
-    private int totalKill;
-    private int totalDeath;
-    private int totalGold;
+    public float totalPlayTime; // In seconds
+    public int totalKill;
+    public int totalDeath;
+    public int totalGold;
+
+    private float startTime;
+    private bool isGameActive = false;
+
+    void Awake()
+    {
+        // Kiểm tra nếu đối tượng TrophyRecordUI đã tồn tại và hủy nó nếu cần thiết
+        if (FindObjectOfType<TrophyRecordUI>() != null && FindObjectOfType<TrophyRecordUI>() != this)
+        {
+            Destroy(gameObject);
+            Debug.LogError("TrophyRecordUI is not found in the scene!");
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);  // Đảm bảo đối tượng này không bị xóa khi chuyển scene
+            Debug.Log("TrophyRecordUI is found and active.");
+        }
+    }
 
     void Start()
     {
-        LoadRecord();
-        UpdateUI();
+        Debug.Log("Start method is called");
+        LoadRecord(); // Load record data when the game starts
+        UpdateUI(); // Update UI to display loaded data
+        StartGame();
     }
 
-    // Load data from PlayerPrefs (or from your own save file system)
+    void Update()
+    {
+        // Nếu game đang hoạt động, tính toán thời gian và cập nhật UI liên tục
+        if (isGameActive)
+        {
+            totalPlayTime += Time.deltaTime; // Tính toán thời gian chơi
+            UpdateUI();  // Cập nhật giao diện UI liên tục
+            LogPlayTime();
+        }
+    }
+
+    void LogPlayTime()
+    {
+        int hours = Mathf.FloorToInt(totalPlayTime / 3600f);
+        int minutes = Mathf.FloorToInt((totalPlayTime % 3600) / 60f);
+        int seconds = Mathf.FloorToInt(totalPlayTime % 60);
+        Debug.Log($"Time Played: {hours}h {minutes}m {seconds}s");
+    }
+
+    // Call this when the game starts (e.g., when the player presses the "Start" button)
+    public void StartGame()
+    {
+        startTime = Time.time; // Record the start time
+        isGameActive = true;
+    }
+
+    // Call this when the game ends or when switching scenes (e.g., when the player exits)
+    public void EndGame()
+    {
+        if (isGameActive)
+        {
+            totalPlayTime += Time.time - startTime; // Add the time spent during this session
+            SaveRecord(); // Save record data to PlayerPrefs
+            isGameActive = false;
+        }
+    }
+
+    // Load data from PlayerPrefs
     public void LoadRecord()
     {
+        Debug.Log("Loading data from PlayerPrefs...");
         totalPlayTime = PlayerPrefs.GetFloat("TotalPlayTime", 0f); // seconds
         totalKill = PlayerPrefs.GetInt("TotalKill", 0);
         totalDeath = PlayerPrefs.GetInt("TotalDeath", 0);
         totalGold = PlayerPrefs.GetInt("TotalGold", 0);
+
+        Debug.Log("Loaded Record: ");
+        Debug.Log("Total Play Time: " + totalPlayTime);
+        Debug.Log("Monsters Defeated: " + totalKill);
+        Debug.Log("Total Deaths: " + totalDeath);
+        Debug.Log("Total Gold Earned: " + totalGold);
+
+        UpdateUI();  // Cập nhật lại UI với dữ liệu đã load
+    }
+
+    // Save data to PlayerPrefs
+    public void SaveRecord()
+    {
+        Debug.Log("Saving data to PlayerPrefs...");
+
+        PlayerPrefs.SetFloat("TotalPlayTime", totalPlayTime);
+        PlayerPrefs.SetInt("TotalKill", totalKill);
+        PlayerPrefs.SetInt("TotalDeath", totalDeath);
+        PlayerPrefs.SetInt("TotalGold", totalGold);
+        PlayerPrefs.Save(); // Save to disk
+
+        Debug.Log("Data saved successfully.");
     }
 
     // Update the UI display
-    void UpdateUI()
+    public void UpdateUI()
     {
         int hours = Mathf.FloorToInt(totalPlayTime / 3600f);
         int minutes = Mathf.FloorToInt((totalPlayTime % 3600) / 60f);
@@ -43,7 +122,7 @@ public class TrophyRecordUI : MonoBehaviour
         totalGoldText.text = $"Total Gold Earned: <b>{totalGold}</b>";
     }
 
-    // Use this method to update the record and refresh the UI if you need to
+    // Use this method to update the record and refresh the UI
     public void SetRecord(float playTime, int kill, int death, int gold)
     {
         totalPlayTime = playTime;
@@ -51,5 +130,21 @@ public class TrophyRecordUI : MonoBehaviour
         totalDeath = death;
         totalGold = gold;
         UpdateUI();
+    }
+
+    // Call this method to update the kill, death, and gold values during the game
+    public void UpdateGameStats(int kill, int death, int gold)
+    {
+        totalKill = kill;
+        totalDeath = death;
+        totalGold = gold;
+        UpdateUI();
+    }
+
+    // This will be called when game quits
+    void OnApplicationQuit()
+    {
+        Debug.Log("Game is quitting. Saving data...");
+        SaveRecord(); // Ensure data is saved when quitting
     }
 }

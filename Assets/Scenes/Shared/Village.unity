@@ -9973,9 +9973,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6c325e13f5f8fe4cb0b50bb323cf4a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statType: 0
-  tooltip: {fileID: 0}
-  statsManager: {fileID: 0}
+  statType: 3
+  tooltip: {fileID: 1207031627}
+  statsManager: {fileID: 589568124}
 --- !u!1 &153204082
 GameObject:
   m_ObjectHideFlags: 0
@@ -22644,6 +22644,9 @@ MonoBehaviour:
   flashMax: 400
   flashDuration: 1
   targetSceneName: Desert_1
+  requiredQuestId: main_5_crystal
+  dialogueManager: {fileID: 1492051973}
+  selfTalkProfile: {fileID: 11400000, guid: b91f6d5263a108b4990ea262476880f1, type: 2}
 --- !u!1 &422664726
 GameObject:
   m_ObjectHideFlags: 0
@@ -30544,6 +30547,9 @@ MonoBehaviour:
   topBar: {fileID: 0}
   bottomBar: {fileID: 0}
   playerInput: {fileID: 0}
+  requiredQuestId: main_2_crystal
+  dialogueManager: {fileID: 0}
+  selfTalkProfile: {fileID: 0}
 --- !u!1 &719652329
 GameObject:
   m_ObjectHideFlags: 0
@@ -32371,6 +32377,9 @@ MonoBehaviour:
   flashMax: 400
   flashDuration: 1
   targetSceneName: HuyTHCE181180_B4
+  requiredQuestId: main_4_crystal
+  dialogueManager: {fileID: 1492051973}
+  selfTalkProfile: {fileID: 11400000, guid: b91f6d5263a108b4990ea262476880f1, type: 2}
 --- !u!1 &767658836
 GameObject:
   m_ObjectHideFlags: 0
@@ -43546,8 +43555,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statType: 0
-  tooltip: {fileID: 0}
-  statsManager: {fileID: 0}
+  tooltip: {fileID: 1207031627}
+  statsManager: {fileID: 589568124}
 --- !u!1 &1026196646
 GameObject:
   m_ObjectHideFlags: 0
@@ -43698,52 +43707,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027443433}
   m_CullTransparentMesh: 1
---- !u!1 &1031729672
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1031729674}
-  - component: {fileID: 1031729673}
-  m_Layer: 0
-  m_Name: QuestManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1031729673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031729672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 763a9dc14e917604ba60a79a960157e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  questDatabase: {fileID: 11400000, guid: 7b651acf5f1f23340b286eaaed4f1083, type: 2}
-  autoStartQuestId: main_1_crystal
---- !u!4 &1031729674
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1031729672}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.65608, y: -0.90409, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1034164438
 GameObject:
   m_ObjectHideFlags: 0
@@ -44065,6 +44028,9 @@ MonoBehaviour:
   flashMax: 400
   flashDuration: 1
   targetSceneName: woodscence_1
+  requiredQuestId: main_3_crystal
+  dialogueManager: {fileID: 1492051973}
+  selfTalkProfile: {fileID: 11400000, guid: b91f6d5263a108b4990ea262476880f1, type: 2}
 --- !u!1 &1039950733
 GameObject:
   m_ObjectHideFlags: 0
@@ -44199,9 +44165,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6c325e13f5f8fe4cb0b50bb323cf4a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statType: 0
-  tooltip: {fileID: 0}
-  statsManager: {fileID: 0}
+  statType: 4
+  tooltip: {fileID: 1207031627}
+  statsManager: {fileID: 589568124}
 --- !u!1 &1040729054
 GameObject:
   m_ObjectHideFlags: 0
@@ -52171,6 +52137,9 @@ MonoBehaviour:
   topBar: {fileID: 965925457}
   bottomBar: {fileID: 207389071}
   playerInput: {fileID: 1275586796}
+  requiredQuestId: main_2_crystal
+  dialogueManager: {fileID: 1492051973}
+  selfTalkProfile: {fileID: 11400000, guid: d2d4c3fef3c11134489159f68db140cc, type: 2}
 --- !u!1 &1194946568
 GameObject:
   m_ObjectHideFlags: 0
@@ -58570,50 +58539,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235291986}
   m_CullTransparentMesh: 1
---- !u!1 &1236097782
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1236097783}
-  - component: {fileID: 1236097784}
-  m_Layer: 0
-  m_Name: SaveGameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1236097783
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1236097782}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1236097784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1236097782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d94e352a5ca08dd4481451b35e4dbd6f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1253736641
 GameObject:
   m_ObjectHideFlags: 0
@@ -64539,9 +64464,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6c325e13f5f8fe4cb0b50bb323cf4a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statType: 0
-  tooltip: {fileID: 0}
-  statsManager: {fileID: 0}
+  statType: 2
+  tooltip: {fileID: 1207031627}
+  statsManager: {fileID: 589568124}
 --- !u!1 &1489385527
 GameObject:
   m_ObjectHideFlags: 0
@@ -66883,6 +66808,9 @@ MonoBehaviour:
   flashMax: 400
   flashDuration: 1
   targetSceneName: Map1
+  requiredQuestId: main_2_crystal
+  dialogueManager: {fileID: 1492051973}
+  selfTalkProfile: {fileID: 11400000, guid: b91f6d5263a108b4990ea262476880f1, type: 2}
 --- !u!1 &1586302757
 GameObject:
   m_ObjectHideFlags: 0
@@ -67404,9 +67332,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6c325e13f5f8fe4cb0b50bb323cf4a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statType: 0
-  tooltip: {fileID: 0}
-  statsManager: {fileID: 0}
+  statType: 1
+  tooltip: {fileID: 1207031627}
+  statsManager: {fileID: 589568124}
 --- !u!1 &1599360706
 GameObject:
   m_ObjectHideFlags: 0
@@ -76117,6 +76045,9 @@ MonoBehaviour:
   topBar: {fileID: 0}
   bottomBar: {fileID: 0}
   playerInput: {fileID: 0}
+  requiredQuestId: main_2_crystal
+  dialogueManager: {fileID: 0}
+  selfTalkProfile: {fileID: 0}
 --- !u!1 &1701190660
 GameObject:
   m_ObjectHideFlags: 0
@@ -91962,6 +91893,9 @@ MonoBehaviour:
   topBar: {fileID: 0}
   bottomBar: {fileID: 0}
   playerInput: {fileID: 0}
+  requiredQuestId: main_2_crystal
+  dialogueManager: {fileID: 0}
+  selfTalkProfile: {fileID: 0}
 --- !u!1 &1946053226
 GameObject:
   m_ObjectHideFlags: 0
@@ -94498,7 +94432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8249410822441424935, guid: 29d8980e072613f4d913487083a27e43, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8493578748430036110, guid: 29d8980e072613f4d913487083a27e43, type: 3}
       propertyPath: m_Enabled
@@ -102387,7 +102321,6 @@ SceneRoots:
   - {fileID: 1769467346}
   - {fileID: 1333697053}
   - {fileID: 1856489185}
-  - {fileID: 1031729674}
   - {fileID: 656120187}
   - {fileID: 589568125}
   - {fileID: 1541745903}
@@ -102417,6 +102350,5 @@ SceneRoots:
   - {fileID: 1700750535}
   - {fileID: 1943569915}
   - {fileID: 1190967539}
-  - {fileID: 1236097783}
   - {fileID: 575607752}
   - {fileID: 1797041238}
