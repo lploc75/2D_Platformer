@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class LoadSceneButton : MonoBehaviour
 {
@@ -66,12 +66,17 @@ public class LoadSceneButton : MonoBehaviour
     // Gọi hàm này cho nút NEW GAME
     public void OnClickNewGame()
     {
+        Debug.Log("OnClickNewGame triggered!");  // Log để kiểm tra phương thức có được gọi hay không
+
         if (GameSaveManager.Instance != null)
         {
+            Debug.Log("GameSaveManager.Instance found.");  // Kiểm tra xem GameSaveManager có tồn tại không
+
             // Lưu dữ liệu trước khi reset
             TrophyRecordUI trophyRecordUI = FindObjectOfType<TrophyRecordUI>();
             if (trophyRecordUI != null)
             {
+                Debug.Log("Saving current game data...");  // Log khi lưu dữ liệu
                 trophyRecordUI.SaveRecord();  // Lưu dữ liệu trước khi reset
             }
 
@@ -79,6 +84,7 @@ public class LoadSceneButton : MonoBehaviour
             ResetGameData();
 
             // Bắt đầu game mới
+            Debug.Log("Starting new game...");
             GameSaveManager.Instance.StartNewGame(sceneName);
         }
         else
@@ -87,7 +93,6 @@ public class LoadSceneButton : MonoBehaviour
         }
     }
 
-
     // Hàm reset lại dữ liệu (có thể dùng PlayerPrefs hoặc file JSON tùy nhu cầu)
     private void ResetGameData()
     {
@@ -95,6 +100,17 @@ public class LoadSceneButton : MonoBehaviour
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();  // Đảm bảo rằng dữ liệu đã được xóa và lưu
 
-        Debug.Log("Dữ liệu game đã được đặt lại!");
+        Debug.Log("Dữ liệu game đã được đặt lại!");  // Log khi reset dữ liệu
+
+        // Kiểm tra xem dữ liệu đã được xóa chưa
+        float totalPlayTime = PlayerPrefs.GetFloat("TotalPlayTime", -1);
+        if (totalPlayTime == -1)
+        {
+            Debug.Log("No data found for TotalPlayTime after reset.");
+        }
+        else
+        {
+            Debug.Log("TotalPlayTime after reset: " + totalPlayTime);
+        }
     }
 }
