@@ -4,12 +4,18 @@ using System.Collections.Generic;
 
 public class SkillTreeManager : MonoBehaviour
 {
+    public static SkillTreeManager Instance { get; private set; }
+
     public List<Skill> skills;
-    public int playerSouls = 0;
+    int playerSouls => CurrencyManager.Instance.GetCurrency(CurrencyType.PurpleSoul);
 
-    
-
-
+    void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     void Start()
     {
@@ -20,22 +26,22 @@ public class SkillTreeManager : MonoBehaviour
         }
         UpdateUI();
     }
-
     public void UpgradeSkill(int skillIndex)
     {
         if (!CanUpgrade(skillIndex)) return;
 
-        playerSouls -= Skill.RequiredSouls;
+        CurrencyManager.Instance.RemoveCurrency(CurrencyType.PurpleSoul, Skill.RequiredSouls);
         skills[skillIndex].isUnlocked = true;
         skills[skillIndex].icon.color = Color.white;
+        // Gọi lưu
+        PlayerStatsFileHandler.Save(PlayerStatsManager.Instance);
         UpdateUI();
     }
-
     bool CanUpgrade(int skillIndex)
     {
         var skill = skills[skillIndex];
         if (skill.isUnlocked) return false;
-        if (playerSouls < Skill.RequiredSouls) return false;
+        if (CurrencyManager.Instance.GetCurrency(CurrencyType.PurpleSoul) < Skill.RequiredSouls) return false;
 
         // OR logic cho prerequisite
         if (skill.prerequisiteSkillIndices == null || skill.prerequisiteSkillIndices.Count == 0)
@@ -44,26 +50,29 @@ public class SkillTreeManager : MonoBehaviour
             if (skills[prereqIdx].isUnlocked) return true;
         return false;
     }
-
-
-    void UpdateUI()
+    public void UpdateUI()
     {
+        int purpleSouls = CurrencyManager.Instance.GetCurrency(CurrencyType.PurpleSoul);
+
         for (int i = 0; i < skills.Count; i++)
         {
             var skill = skills[i];
             if (skill.isUnlocked)
                 skill.soulText.text = "Opened";
             else
-                skill.soulText.text = $"{playerSouls}/{Skill.RequiredSouls}";
+                skill.soulText.text = $"{purpleSouls}/{Skill.RequiredSouls}";
 
             skill.upgradeButton.interactable = CanUpgrade(i);
             skill.icon.color = skill.isUnlocked ? Color.white : Color.gray1;
         }
     }
-
-    public void AddSouls(int amount)
+    // Trong SkillTreeManager.cs
+    public bool IsSkillUnlocked(int index)
     {
-        playerSouls += amount;
-        UpdateUI();
+        if (index < 0 || index >= skills.Count)
+            return false;
+
+        return skills[index].isUnlocked;
     }
+
 }
