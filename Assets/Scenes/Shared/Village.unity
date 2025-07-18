@@ -9973,9 +9973,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6c325e13f5f8fe4cb0b50bb323cf4a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statType: 0
-  tooltip: {fileID: 0}
-  statsManager: {fileID: 0}
+  statType: 3
+  tooltip: {fileID: 1207031627}
+  statsManager: {fileID: 589568124}
 --- !u!1 &153204082
 GameObject:
   m_ObjectHideFlags: 0
@@ -43555,8 +43555,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statType: 0
-  tooltip: {fileID: 0}
-  statsManager: {fileID: 0}
+  tooltip: {fileID: 1207031627}
+  statsManager: {fileID: 589568124}
 --- !u!1 &1026196646
 GameObject:
   m_ObjectHideFlags: 0
@@ -44165,9 +44165,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6c325e13f5f8fe4cb0b50bb323cf4a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statType: 0
-  tooltip: {fileID: 0}
-  statsManager: {fileID: 0}
+  statType: 4
+  tooltip: {fileID: 1207031627}
+  statsManager: {fileID: 589568124}
 --- !u!1 &1040729054
 GameObject:
   m_ObjectHideFlags: 0
@@ -64464,9 +64464,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6c325e13f5f8fe4cb0b50bb323cf4a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statType: 0
-  tooltip: {fileID: 0}
-  statsManager: {fileID: 0}
+  statType: 2
+  tooltip: {fileID: 1207031627}
+  statsManager: {fileID: 589568124}
 --- !u!1 &1489385527
 GameObject:
   m_ObjectHideFlags: 0
@@ -67332,9 +67332,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6c325e13f5f8fe4cb0b50bb323cf4a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statType: 0
-  tooltip: {fileID: 0}
-  statsManager: {fileID: 0}
+  statType: 1
+  tooltip: {fileID: 1207031627}
+  statsManager: {fileID: 589568124}
 --- !u!1 &1599360706
 GameObject:
   m_ObjectHideFlags: 0
@@ -94432,7 +94432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8249410822441424935, guid: 29d8980e072613f4d913487083a27e43, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8493578748430036110, guid: 29d8980e072613f4d913487083a27e43, type: 3}
       propertyPath: m_Enabled

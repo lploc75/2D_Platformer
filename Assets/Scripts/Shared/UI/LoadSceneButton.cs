@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class LoadSceneButton : MonoBehaviour
 {
@@ -13,8 +13,6 @@ public class LoadSceneButton : MonoBehaviour
     // Gọi hàm này cho nút Load tiếp tục
     public void LoadGameScene()
     {
-        //AudioManager.Instance?.PlayClickSound();
-
         if (delay > 0f)
             StartCoroutine(LoadAfterDelay());
         else
@@ -30,21 +28,89 @@ public class LoadSceneButton : MonoBehaviour
     void DoLoad()
     {
         if (!string.IsNullOrEmpty(sceneName))
+        {
+            // Thêm log trước khi load scene
+            Debug.Log("Starting to load scene: " + sceneName);
+
+            // Đăng ký hàm xử lý khi scene được tải
+            SceneManager.sceneLoaded += OnSceneLoaded;
+
+            // Tải scene
             SceneManager.LoadScene(sceneName);
+        }
         else
+        {
             Debug.LogError("❌ Chưa cấu hình sceneName / sceneIndex!");
+        }
+    }
+
+    // Xử lý khi scene được load xong
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Đảm bảo sự kiện chỉ được xử lý một lần
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+
+        // Log khi scene đã được load xong
+        Debug.Log("Scene loaded: " + scene.name);
+
+        // Cập nhật thời gian và dữ liệu
+        TrophyRecordUI trophyRecordUI = FindObjectOfType<TrophyRecordUI>();
+        if (trophyRecordUI != null)
+        {
+            // Set lại thời gian khi vào scene
+            trophyRecordUI.LoadRecord();  // Load lại dữ liệu từ PlayerPrefs (hoặc JSON)
+            trophyRecordUI.UpdateUI();   // Cập nhật UI với dữ liệu đã load
+        }
     }
 
     // Gọi hàm này cho nút NEW GAME
     public void OnClickNewGame()
     {
+        Debug.Log("OnClickNewGame triggered!");  // Log để kiểm tra phương thức có được gọi hay không
+
         if (GameSaveManager.Instance != null)
         {
+            Debug.Log("GameSaveManager.Instance found.");  // Kiểm tra xem GameSaveManager có tồn tại không
+
+            // Lưu dữ liệu trước khi reset
+            TrophyRecordUI trophyRecordUI = FindObjectOfType<TrophyRecordUI>();
+            if (trophyRecordUI != null)
+            {
+                Debug.Log("Saving current game data...");  // Log khi lưu dữ liệu
+                trophyRecordUI.SaveRecord();  // Lưu dữ liệu trước khi reset
+            }
+
+            // Xóa hoặc reset dữ liệu khi bắt đầu game mới
+            ResetGameData();
+
+            // Bắt đầu game mới
+            Debug.Log("Starting new game...");
             GameSaveManager.Instance.StartNewGame(sceneName);
         }
         else
         {
             Debug.LogError("Không tìm thấy GameSaveManager.Instance!");
+        }
+    }
+
+    // Hàm reset lại dữ liệu (có thể dùng PlayerPrefs hoặc file JSON tùy nhu cầu)
+    private void ResetGameData()
+    {
+        // Xóa dữ liệu lưu trữ trong PlayerPrefs
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();  // Đảm bảo rằng dữ liệu đã được xóa và lưu
+
+        Debug.Log("Dữ liệu game đã được đặt lại!");  // Log khi reset dữ liệu
+
+        // Kiểm tra xem dữ liệu đã được xóa chưa
+        float totalPlayTime = PlayerPrefs.GetFloat("TotalPlayTime", -1);
+        if (totalPlayTime == -1)
+        {
+            Debug.Log("No data found for TotalPlayTime after reset.");
+        }
+        else
+        {
+            Debug.Log("TotalPlayTime after reset: " + totalPlayTime);
         }
     }
 }
