@@ -30593,15 +30593,16 @@ MonoBehaviour:
   effectDuration: 3
   dropDuration: 5
   dropOffsetY: 20
-  cameraFollows: {fileID: 0}
+  cameraFollows: {fileID: 89241912}
   shakeDuration: 0.3
   shakeMagnitude: 0.5
-  topBar: {fileID: 0}
-  bottomBar: {fileID: 0}
-  playerInput: {fileID: 0}
-  requiredQuestId: main_2_crystal
-  dialogueManager: {fileID: 0}
-  selfTalkProfile: {fileID: 0}
+  topBar: {fileID: 965925457}
+  bottomBar: {fileID: 207389071}
+  playerInput: {fileID: 1275586796}
+  requiredQuestId: main_4_crystal
+  dialogueManager: {fileID: 1492051973}
+  selfTalkProfile: {fileID: 11400000, guid: 94dd8dff1f2158e4abb69aca10932b3e, type: 2}
+  stoneKey: pillar_003
 --- !u!1 &719652329
 GameObject:
   m_ObjectHideFlags: 0
@@ -32429,7 +32430,7 @@ MonoBehaviour:
   flashMax: 400
   flashDuration: 1
   targetSceneName: HuyTHCE181180_B4
-  requiredQuestId: main_4_crystal
+  requiredQuestId: main_3_crystal
   dialogueManager: {fileID: 1492051973}
   selfTalkProfile: {fileID: 11400000, guid: b91f6d5263a108b4990ea262476880f1, type: 2}
 --- !u!1 &767658836
@@ -44080,7 +44081,7 @@ MonoBehaviour:
   flashMax: 400
   flashDuration: 1
   targetSceneName: woodscence_1
-  requiredQuestId: main_3_crystal
+  requiredQuestId: main_4_crystal
   dialogueManager: {fileID: 1492051973}
   selfTalkProfile: {fileID: 11400000, guid: b91f6d5263a108b4990ea262476880f1, type: 2}
 --- !u!1 &1039950733
@@ -52196,6 +52197,7 @@ MonoBehaviour:
   requiredQuestId: main_2_crystal
   dialogueManager: {fileID: 1492051973}
   selfTalkProfile: {fileID: 11400000, guid: d2d4c3fef3c11134489159f68db140cc, type: 2}
+  stoneKey: pillar_001
 --- !u!1 &1194946568
 GameObject:
   m_ObjectHideFlags: 0
@@ -62662,7 +62664,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -52.2, y: -1.1774591}
+  m_AnchoredPosition: {x: -52.3, y: -1.17}
   m_SizeDelta: {x: 0.8526, y: 0.8898}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1452678497
@@ -76078,15 +76080,16 @@ MonoBehaviour:
   effectDuration: 3
   dropDuration: 5
   dropOffsetY: 20
-  cameraFollows: {fileID: 0}
+  cameraFollows: {fileID: 89241912}
   shakeDuration: 0.3
   shakeMagnitude: 0.5
-  topBar: {fileID: 0}
-  bottomBar: {fileID: 0}
-  playerInput: {fileID: 0}
-  requiredQuestId: main_2_crystal
-  dialogueManager: {fileID: 0}
-  selfTalkProfile: {fileID: 0}
+  topBar: {fileID: 965925457}
+  bottomBar: {fileID: 207389071}
+  playerInput: {fileID: 1275586796}
+  requiredQuestId: main_3_crystal
+  dialogueManager: {fileID: 1492051973}
+  selfTalkProfile: {fileID: 11400000, guid: a16ef88b4ce9ccc419aa8187d458cb06, type: 2}
+  stoneKey: pillar_002
 --- !u!1 &1701190660
 GameObject:
   m_ObjectHideFlags: 0
@@ -78250,6 +78253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf6f507a9559b94bbeb31188ae58f9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layoutGroup: {fileID: 1778909578}
 --- !u!114 &1778909578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -91926,15 +91930,16 @@ MonoBehaviour:
   effectDuration: 3
   dropDuration: 5
   dropOffsetY: 20
-  cameraFollows: {fileID: 0}
+  cameraFollows: {fileID: 89241912}
   shakeDuration: 0.3
   shakeMagnitude: 0.5
-  topBar: {fileID: 0}
-  bottomBar: {fileID: 0}
-  playerInput: {fileID: 0}
-  requiredQuestId: main_2_crystal
-  dialogueManager: {fileID: 0}
-  selfTalkProfile: {fileID: 0}
+  topBar: {fileID: 965925457}
+  bottomBar: {fileID: 207389071}
+  playerInput: {fileID: 1275586796}
+  requiredQuestId: main_5_crystal
+  dialogueManager: {fileID: 1492051973}
+  selfTalkProfile: {fileID: 11400000, guid: de4ca0d5389e0744fb73c663b58237e3, type: 2}
+  stoneKey: pillar_004
 --- !u!1 &1946053226
 GameObject:
   m_ObjectHideFlags: 0

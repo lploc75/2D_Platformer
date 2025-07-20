@@ -28,15 +28,28 @@ public class QuestManager : MonoBehaviour
     [Header("Database tập hợp tất cả các QuestData")]
     public QuestDatabase questDatabase;
 
+    // Danh sách main quest theo thứ tự, dùng cho auto nhận quest tiếp theo
+    [Header("Chuỗi main quest (thứ tự)")]
+    public List<string> mainQuestChain = new List<string>
+    {
+        "main_1_crystal",
+        "main_2_crystal",
+        "main_3_crystal",
+                "main_4_crystal",
+                                "main_5_crystal",
+
+
+        // Thêm quest mới tại đây!
+    };
+
     // Trạng thái nhiệm vụ
     private HashSet<string> acceptedQuests = new HashSet<string>();
     private HashSet<string> completedQuests = new HashSet<string>();
-    private HashSet<string> readyToCompleteQuests = new HashSet<string>(); // Quest đã xong mọi bước, chờ gặp lại questgiver
+    private HashSet<string> readyToCompleteQuests = new HashSet<string>();
 
     // Nếu quest yêu cầu gặp nhiều NPC, quản lý tiến trình qua từ điển
     private Dictionary<string, HashSet<string>> questNpcTalkedWith = new Dictionary<string, HashSet<string>>();
 
-    // === Quest mở đầu tự nhận khi start game ===
     [Header("ID nhiệm vụ mở đầu (nhận tự động)")]
     public string autoStartQuestId = "main_1_crystal";
 
@@ -45,11 +58,10 @@ public class QuestManager : MonoBehaviour
 
     void Awake()
     {
-        // Singleton pattern + giữ lại khi load scene mới
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // KHÔNG bị phá hủy khi load scene mới!
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -65,14 +77,12 @@ public class QuestManager : MonoBehaviour
             AcceptQuest(autoStartQuestId);
     }
 
-    // Lấy QuestData từ questId
     public QuestData GetQuestById(string questId)
     {
         if (questDatabase == null) return null;
         return questDatabase.allQuests.Find(q => q.questId == questId);
     }
 
-    // Nhận nhiệm vụ
     public void AcceptQuest(string questId)
     {
         if (!acceptedQuests.Contains(questId))
@@ -81,23 +91,39 @@ public class QuestManager : MonoBehaviour
             Debug.Log($"[QuestManager] Accepted quest: {questId}");
             if (!questNpcTalkedWith.ContainsKey(questId))
                 questNpcTalkedWith[questId] = new HashSet<string>();
-            OnQuestChanged?.Invoke(); // Gọi event update marker
+            OnQuestChanged?.Invoke();
         }
     }
 
-    // Hoàn thành nhiệm vụ
+    // Tự động nhận quest tiếp theo trong chuỗi main quest khi hoàn thành quest hiện tại
+    private void AutoAcceptNextMainQuest(string completedQuestId)
+    {
+        int idx = mainQuestChain.IndexOf(completedQuestId);
+        if (idx != -1 && idx < mainQuestChain.Count - 1)
+        {
+            string nextQuest = mainQuestChain[idx + 1];
+            if (!IsQuestAccepted(nextQuest))
+            {
+                AcceptQuest(nextQuest);
+                Debug.Log($"[QuestManager] Auto-accepted next main quest: {nextQuest}");
+            }
+        }
+    }
+
     public void CompleteQuest(string questId)
     {
         if (acceptedQuests.Contains(questId) && !completedQuests.Contains(questId))
         {
             completedQuests.Add(questId);
-            readyToCompleteQuests.Remove(questId); // Đảm bảo không còn trạng thái ready
+            readyToCompleteQuests.Remove(questId);
             Debug.Log($"[QuestManager] Completed quest: {questId}");
-            OnQuestChanged?.Invoke(); // Gọi event update marker
+            OnQuestChanged?.Invoke();
+
+            // --- Tự động nhận main quest tiếp theo ---
+            AutoAcceptNextMainQuest(questId);
         }
     }
 
-    // Đánh dấu quest sẵn sàng hoàn thành (gặp lại questgiver để trả)
     public void SetQuestReadyToComplete(string questId)
     {
         if (!IsQuestAccepted(questId) || IsQuestCompleted(questId))
@@ -110,17 +136,14 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    // Trạng thái nhiệm vụ
     public bool IsQuestAccepted(string questId) => acceptedQuests.Contains(questId);
     public bool IsQuestInProgress(string questId) =>
         acceptedQuests.Contains(questId) && !completedQuests.Contains(questId) && !readyToCompleteQuests.Contains(questId);
     public bool IsQuestCompleted(string questId) => completedQuests.Contains(questId);
     public bool IsQuestReadyToComplete(string questId) => readyToCompleteQuests.Contains(questId);
 
-    // Lấy tất cả quest đang nhận
     public IEnumerable<string> GetAllAcceptedQuestIds() => acceptedQuests;
 
-    // Lấy trạng thái hiển thị ("Đang làm", "Chờ hoàn thành", "Đã hoàn thành", "Chưa nhận")
     public string GetQuestStatus(string questId)
     {
         if (IsQuestCompleted(questId)) return "Completed";
@@ -129,9 +152,6 @@ public class QuestManager : MonoBehaviour
         return "Not Accepted";
     }
 
-    // --- Hỗ trợ quest nhiều bước (gặp đủ NPC) ---
-
-    // Đánh dấu đã nói chuyện với 1 NPC trong quest
     public void MarkTalkedWithNpc(string questId, string npcId)
     {
         if (!IsQuestAccepted(questId)) return;
@@ -141,7 +161,6 @@ public class QuestManager : MonoBehaviour
 
         questNpcTalkedWith[questId].Add(npcId);
 
-        // Kiểm tra nếu đã nói chuyện đủ các NPC yêu cầu -> sẵn sàng hoàn thành
         var questData = GetQuestById(questId);
         if (questData != null && questData.requiredNpcIds != null && questData.requiredNpcIds.Length > 0)
         {
@@ -156,27 +175,25 @@ public class QuestManager : MonoBehaviour
             }
             if (allMet && !readyToCompleteQuests.Contains(questId) && !IsQuestCompleted(questId))
             {
-                readyToCompleteQuests.Add(questId); // Quest đã xong các bước, chờ gặp lại questgiver để hoàn thành chính thức
+                readyToCompleteQuests.Add(questId);
                 Debug.Log($"[QuestManager] Quest '{questId}' is now READY TO COMPLETE (all NPCs)!");
             }
         }
 
-        OnQuestChanged?.Invoke(); // Gọi event update marker
+        OnQuestChanged?.Invoke();
     }
 
-    // Kiểm tra đã nói chuyện với NPC nào chưa trong 1 quest
     public bool HasTalkedWithNpc(string questId, string npcId)
     {
         return questNpcTalkedWith.ContainsKey(questId) && questNpcTalkedWith[questId].Contains(npcId);
     }
 
-    // Khi complete chính thức, loại khỏi readyToCompleteQuests
     public void RemoveReadyToComplete(string questId)
     {
         if (readyToCompleteQuests.Contains(questId))
             readyToCompleteQuests.Remove(questId);
 
-        OnQuestChanged?.Invoke(); // Gọi event update marker
+        OnQuestChanged?.Invoke();
     }
 
     // --- SAVE/LOAD DỮ LIỆU QUEST ĐỂ TÍCH HỢP VỚI GAME SAVE MANAGER ---
@@ -211,6 +228,6 @@ public class QuestManager : MonoBehaviour
         {
             questNpcTalkedWith[q.questId] = new HashSet<string>(q.npcIds);
         }
-        OnQuestChanged?.Invoke(); // Để update UI, marker
+        OnQuestChanged?.Invoke();
     }
 }
