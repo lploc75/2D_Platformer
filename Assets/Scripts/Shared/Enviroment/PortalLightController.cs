@@ -15,8 +15,8 @@ public class PortalLightController : MonoBehaviour
     public string requiredQuestId = "main_1_crystal";
 
     [Header("Self-talk when not allowed (English)")]
-    public DialogueManager dialogueManager;                  // Drag your DialogueManager here
-    public AdvancedDialogueProfile selfTalkProfile;          // Drag your English self-talk profile here
+    public DialogueManager dialogueManager;
+    public AdvancedDialogueProfile selfTalkProfile;
 
     bool playerInZone = false;
     bool isFlashing = false;
@@ -32,7 +32,7 @@ public class PortalLightController : MonoBehaviour
         {
             if (CanInteractWithPortal())
             {
-                StartCoroutine(FlashLight());
+                StartCoroutine(FlashLightAndSaveGame());
             }
             else
             {
@@ -49,13 +49,12 @@ public class PortalLightController : MonoBehaviour
     {
         if (QuestManager.Instance == null)
             return false;
-
         // Allow interaction if quest accepted or completed
         return QuestManager.Instance.IsQuestAccepted(requiredQuestId)
             || QuestManager.Instance.IsQuestCompleted(requiredQuestId);
     }
 
-    private IEnumerator FlashLight()
+    private IEnumerator FlashLightAndSaveGame()
     {
         isFlashing = true;
         float timer = 0f;
@@ -82,14 +81,21 @@ public class PortalLightController : MonoBehaviour
         portalLight.intensity = 0;
         isFlashing = false;
 
-        // Load scene after flash
+        // ===== SAVE GAME BEFORE SCENE CHANGE =====
+        if (GameSaveManager.Instance != null)
+        {
+            GameSaveManager.Instance.SaveGame();
+            // Optional: Đợi 1 frame nếu cần đảm bảo ghi file xong (hiếm khi cần trong Unity, chỉ khi quá nhanh)
+            yield return null;
+        }
+
+        // Load scene after flash and save
         if (!string.IsNullOrEmpty(targetSceneName))
         {
             SceneManager.LoadScene(targetSceneName);
         }
     }
 
-    // Check player entering trigger
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Player"))

@@ -19,25 +19,25 @@ public class StonePillarInteract : MonoBehaviour
     public float dropOffsetY = 10f;
 
     [Header("Camera, UI, Input")]
-    public CameraFollows cameraFollows;        // Kéo script CameraFollows vào đây
+    public CameraFollows cameraFollows;
     public float shakeDuration = 0.3f;
     public float shakeMagnitude = 0.5f;
 
-    public UnityEngine.UI.Image topBar;        // Kéo image bar trên vào đây
-    public UnityEngine.UI.Image bottomBar;     // Kéo image bar dưới vào đây
-
-    public PlayerInput playerInput;            // Kéo PlayerInput vào đây
+    public UnityEngine.UI.Image topBar;
+    public UnityEngine.UI.Image bottomBar;
+    public PlayerInput playerInput;
 
     [Header("Quest check & Self-talk")]
-    public string requiredQuestId = "main_2_crystal";         // Quest phải "ready to complete" mới cho dùng trụ
-    public DialogueManager dialogueManager;                   // Kéo DialogueManager vào đây
-    public AdvancedDialogueProfile selfTalkProfile;           // Kéo prefab thoại vào đây
+    public string requiredQuestId = "main_2_crystal";
+    public DialogueManager dialogueManager;
+    public AdvancedDialogueProfile selfTalkProfile;
+
+    [Header("Save Key")]
+    public string stoneKey = "pillar_001";   // Nhớ đặt key khác nhau cho mỗi viên đá!
 
     private bool playerInZone = false;
     private bool hasActivated = false;
     private Vector3 squareTargetPosition;
-
-    // Cài đặt hiệu ứng bar
     private float barSizePercent = 0.15f;
     private float barAnimTime = 0.4f;
 
@@ -51,22 +51,49 @@ public class StonePillarInteract : MonoBehaviour
 
     void Start()
     {
+        // Lưu vị trí đỉnh cột ngay từ đầu để luôn đảm bảo đúng vị trí
+        if (square)
+            squareTargetPosition = square.transform.position;
+
+        // Đã trả đá => Đá & hiệu ứng luôn hiện trên cột vĩnh viễn
+        if (GameSaveManager.Instance != null && GameSaveManager.Instance.GetSpriteFadeStatus(stoneKey))
+        {
+            if (square)
+            {
+                square.transform.position = squareTargetPosition;
+                square.SetActive(true);
+            }
+            if (particle && !particle.isPlaying)
+                particle.Play();
+            if (portalLight)
+            {
+                portalLight.enabled = true;
+                portalLight.pointLightOuterRadius = normalOuter;
+            }
+            if (breathScript)
+                breathScript.enabled = true;
+
+            if (topBar) topBar.gameObject.SetActive(false);
+            if (bottomBar) bottomBar.gameObject.SetActive(false);
+
+            // Không cho tương tác lại nhưng vẫn giữ hiệu ứng
+            enabled = false;
+            return;
+        }
+
+        // Nếu chưa trả đá, setup như cũ
         if (square)
         {
-            squareTargetPosition = square.transform.position;
             square.transform.position = squareTargetPosition + Vector3.up * dropOffsetY;
             square.SetActive(true);
         }
         if (particle) particle.Stop();
         if (breathScript) breathScript.enabled = false;
-
         if (portalLight)
         {
             portalLight.enabled = false;
             portalLight.pointLightOuterRadius = normalOuter;
         }
-
-        // Đảm bảo 2 thanh đen ẩn mặc định
         if (topBar) topBar.gameObject.SetActive(false);
         if (bottomBar) bottomBar.gameObject.SetActive(false);
     }
@@ -81,11 +108,8 @@ public class StonePillarInteract : MonoBehaviour
             }
             else
             {
-                // --- Chỉ hiện thoại prefab nếu không đủ điều kiện (quest chưa ready to complete) ---
                 if (dialogueManager != null && selfTalkProfile != null && !dialogueManager.IsDialoguePlaying)
-                {
                     dialogueManager.StartDialogueByProfile(selfTalkProfile);
-                }
             }
         }
     }
@@ -94,7 +118,6 @@ public class StonePillarInteract : MonoBehaviour
     {
         if (QuestManager.Instance == null)
             return false;
-        // Chỉ cho kích hoạt nếu quest đang ở trạng thái ready to complete
         return QuestManager.Instance.IsQuestReadyToComplete(requiredQuestId);
     }
 
@@ -102,12 +125,10 @@ public class StonePillarInteract : MonoBehaviour
     {
         hasActivated = true;
 
-        // (1) Camera shake + hiện bar NGAY LẬP TỨC
         if (cameraFollows) StartCoroutine(CameraShake());
         StartCoroutine(ShowBars(true));
         if (playerInput) playerInput.DeactivateInput();
 
-        // (2) Đá rơi trong lúc đang shake & bar hiện
         if (square)
         {
             float timer = 0f;
@@ -124,15 +145,12 @@ public class StonePillarInteract : MonoBehaviour
             square.transform.position = endPos;
         }
 
-        // (3) Đợi hết shake
         yield return new WaitForSeconds(shakeDuration);
 
-        // (4) Các hiệu ứng khác
         if (particle) particle.Play();
         if (portalLight) portalLight.enabled = true;
         if (breathScript) breathScript.enabled = false;
 
-        // Light nở ra
         float timer2 = 0f;
         float startOuter = portalLight.pointLightOuterRadius;
         while (timer2 < effectDuration / 2f)
@@ -144,7 +162,6 @@ public class StonePillarInteract : MonoBehaviour
         }
         portalLight.pointLightOuterRadius = highlightOuter;
 
-        // Co lại về normalOuter
         timer2 = 0f;
         startOuter = portalLight.pointLightOuterRadius;
         while (timer2 < effectDuration / 2f)
@@ -158,7 +175,7 @@ public class StonePillarInteract : MonoBehaviour
 
         if (breathScript) breathScript.enabled = true;
 
-        // === (NEW) Mark quest as completed if it was ready ===
+        // Đánh dấu hoàn thành quest
         if (QuestManager.Instance != null && QuestManager.Instance.IsQuestReadyToComplete(requiredQuestId))
         {
             QuestManager.Instance.CompleteQuest(requiredQuestId);
@@ -166,9 +183,31 @@ public class StonePillarInteract : MonoBehaviour
             Debug.Log($"[StonePillarInteract] Quest '{requiredQuestId}' marked as completed!");
         }
 
-        // (5) Tắt bar và bật lại input sau hiệu ứng
+        // Lưu trạng thái đã trả đá vĩnh viễn và SAVE GAME
+        if (GameSaveManager.Instance != null)
+        {
+            GameSaveManager.Instance.SetSpriteFadeStatus(stoneKey, true);
+            GameSaveManager.Instance.SaveGame();
+        }
+
+        // Sau khi trả đá, viên đá và particle sẽ luôn hiện, tắt script tương tác
+        if (square)
+        {
+            square.transform.position = squareTargetPosition;
+            square.SetActive(true);
+        }
+        if (particle && !particle.isPlaying) particle.Play();
+        if (portalLight)
+        {
+            portalLight.enabled = true;
+            portalLight.pointLightOuterRadius = normalOuter;
+        }
+        if (breathScript) breathScript.enabled = true;
+
         if (playerInput) playerInput.ActivateInput();
         StartCoroutine(ShowBars(false));
+
+        enabled = false; // Không cho tương tác lại nhưng vẫn giữ effect
     }
 
     IEnumerator CameraShake()
@@ -194,7 +233,6 @@ public class StonePillarInteract : MonoBehaviour
         RectTransform rtTop = topBar.GetComponent<RectTransform>();
         RectTransform rtBot = bottomBar.GetComponent<RectTransform>();
 
-        // Bật object bar lên để chắc chắn luôn hiện!
         topBar.gameObject.SetActive(true);
         bottomBar.gameObject.SetActive(true);
 
@@ -219,7 +257,6 @@ public class StonePillarInteract : MonoBehaviour
         rtBot.anchorMin = new Vector2(0, 0f);
         rtBot.anchorMax = new Vector2(1, to);
 
-        // Ẩn object bar hoàn toàn sau khi thu về 0
         if (!show)
         {
             topBar.gameObject.SetActive(false);
