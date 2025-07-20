@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class ChestController : MonoBehaviour
 {
+    [Header("Currency Reward")]
+    [Tooltip("Các loại tiền sẽ cộng khi mở rương (cùng một lượng).")]
+    public CurrencyType[] currencies = { CurrencyType.Coin };
     public Animator animator;
     public List<ItemData> rewardItems;
     public List<int> rewardAmounts;
@@ -13,18 +16,15 @@ public class ChestController : MonoBehaviour
     private void Awake()
     {
         if (animator == null) animator = GetComponent<Animator>();
-        // Ở đây bạn cần gán lại isOpened nếu có hệ thống load riêng (vd: từ GameManager)
         if (rewardPanel == null)
             rewardPanel = FindFirstObjectByType<RewardPanelUI>();
-
     }
 
     private void Start()
     {
-        // Nếu đã mở thì chuyển Animator về trạng thái "Opened"
         if (isOpened)
         {
-            animator.Play("Opened"); // Đảm bảo "Opened" là tên state mở hoàn toàn
+            animator.Play("Opened");
         }
     }
 
@@ -42,23 +42,55 @@ public class ChestController : MonoBehaviour
         isOpened = true;
 
         animator.SetTrigger("Open");
-        // Ở đây bạn nên gọi hàm lưu trạng thái rương nếu có hệ thống save riêng
 
         ShowRewardPanel();
     }
 
-    private void ShowRewardPanel()
+    public void ShowRewardPanel()
     {
         List<(ItemData, int)> rewards = new List<(ItemData, int)>();
+
+        // Add items from the rewardItems list and their respective amounts
         for (int i = 0; i < rewardItems.Count; i++)
         {
             rewards.Add((rewardItems[i], rewardAmounts[i]));
-            InventoryManager.Instance.AddItem(rewardItems[i], rewardAmounts[i]);
+
+            // Check if the item is a currency and handle it accordingly
+            if (rewardItems[i].itemType != ItemType.Currency)
+            {
+                // If it's not currency, add it to the inventory
+                InventoryManager.Instance.AddItem(rewardItems[i], rewardAmounts[i]);
+            }
         }
 
+        // Handle currency separately
+        for (int i = 0; i < currencies.Length; i++)
+        {
+            if (i < rewardAmounts.Count)  // Ensure there's a matching entry in rewardAmounts for this currency
+            {
+                int amount = rewardAmounts[i];
+               // TrophyRecordUI.Instance.AddGoldToTrophy(amount);
+                if (currencies[i] == CurrencyType.Coin)
+                {
+                    // Add coin to the Coin UI section (like the coin icon)
+                    CurrencyManager.Instance.AddCurrency(currencies[i], amount);
+                }
+                else
+                {
+                    // Handle other currencies if needed
+                    CurrencyManager.Instance.AddCurrency(currencies[i], amount);
+                }
+            }
+        }
+
+        // Show the rewards in the UI
         if (rewardPanel != null)
+        {
             rewardPanel.ShowRewards(rewards);
+        }
         else
+        {
             Debug.LogWarning("RewardPanel chưa được gán vào ChestController!");
+        }
     }
 }

@@ -116,6 +116,7 @@ public class InventoryManager : MonoBehaviour
 
     public void AddCurrency(CurrencyType type, int amount)
     {
+        Debug.Log($"Adding {amount} {type} to inventory.");
         // Tìm asset CurrencyData đúng loại
         CurrencyData currencyItem = FindCurrencyItem(type);
         if (currencyItem == null)

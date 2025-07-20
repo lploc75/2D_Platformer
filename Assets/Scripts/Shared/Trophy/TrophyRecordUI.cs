@@ -15,11 +15,14 @@ public class TrophyRecordUI : MonoBehaviour
     public int totalDeath;
     public int totalGold;
 
+    // Thêm Instance static để tham chiếu đối tượng TrophyRecordUI
+    public static TrophyRecordUI Instance;
     private float startTime;
     private bool isGameActive = false;
 
     void Awake()
     {
+        Instance = this;
         DontDestroyOnLoad(gameObject);  // Đảm bảo đối tượng này không bị xóa khi chuyển scene
         Debug.Log("TrophyRecordUI is found and active.");
         StartGame();  // Bắt đầu đếm thời gian ngay khi script chạy
@@ -42,13 +45,47 @@ public class TrophyRecordUI : MonoBehaviour
         }
     }
 
+    // Thêm vàng vào Trophy khi nhận tiền
+    public void AddGoldToTrophy(int amount)
+    {
+        Debug.Log($"AddGoldToTrophy called with amount: {amount}");
+        Debug.Log($"Previous Total Gold: {totalGold}");
+
+        totalGold += amount;  // Cộng vàng vào Trophy
+
+        // Debug thông báo sau khi cộng vàng vào Trophy
+        Debug.Log($"New Total Gold: {totalGold}");
+
+        // Lưu lại số vàng vào PlayerPrefs để không mất khi chuyển scene
+        SaveRecord();
+    }
+
+
     void LogPlayTime()
     {
         int hours = Mathf.FloorToInt(totalPlayTime / 3600f);
         int minutes = Mathf.FloorToInt((totalPlayTime % 3600) / 60f);
-        int seconds = Mathf.FloorToInt(totalPlayTime % 60);
-        Debug.Log($"Time Played: {hours}h {minutes}m {seconds}s");
+        int seconds = Mathf.FloorToInt(totalPlayTime % 60);        
     }
+
+    // Phương thức này sẽ được gọi khi nhân vật chết
+    public void AddDeath()
+    {
+        totalDeath++;  // Tăng số lần chết lên 1
+        Debug.Log($"Death count updated: {totalDeath}");  // Log khi số lần chết thay đổi
+        SaveRecord();  // Lưu số lần chết vào PlayerPrefs
+    }
+
+    // Trong GameSaveManagerTrophy
+    public void AddKill()
+    {
+        totalKill++;  // Tăng số quái giết được
+        PlayerPrefs.SetInt("TotalKill", totalKill);
+        PlayerPrefs.Save();
+        SaveRecord();
+        Debug.Log($"TotalKill increased: {totalKill}");
+    }
+
 
     public void StartGame()
     {

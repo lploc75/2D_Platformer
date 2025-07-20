@@ -40,6 +40,7 @@ public class CurrencyManager : MonoBehaviour
             currencyAmounts[type] = 0;
         currencyAmounts[type] += amount;
         UpdateCurrencyUI(type);
+        TrophyRecordUI.Instance.AddGoldToTrophy(amount);
     }
 
     public int GetCurrency(CurrencyType type)
