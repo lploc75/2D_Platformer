@@ -19,7 +19,7 @@ public class RewardOnDeath : MonoBehaviour
 
     void GiveReward()
     {
-
+        Debug.LogWarning("GiveReward đã được gọi");
         foreach (var cur in currencies)
         {
             int amount = Random.Range(minAmount, maxAmount + 1);
@@ -27,7 +27,7 @@ public class RewardOnDeath : MonoBehaviour
             //InventoryManager.Instance.AddCurrency(cur, amount); // nếu dùng inventory
             TrophyRecordUI.Instance.AddGoldToTrophy(amount);
         }
-
+        TrophyRecordUI.Instance.AddKill();
         // Lưu sau khi nhận thưởng
         PlayerStatsManager playerStats = FindObjectOfType<PlayerStatsManager>();
         if (playerStats != null)
@@ -38,6 +38,7 @@ public class RewardOnDeath : MonoBehaviour
         {
             Debug.LogWarning("⚠️ Không tìm thấy PlayerStatsManager để lưu dữ liệu!");
         }
+
     }
 
 

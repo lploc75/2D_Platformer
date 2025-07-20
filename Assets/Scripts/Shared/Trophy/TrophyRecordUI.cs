@@ -76,6 +76,16 @@ public class TrophyRecordUI : MonoBehaviour
         SaveRecord();  // Lưu số lần chết vào PlayerPrefs
     }
 
+    // Trong GameSaveManagerTrophy
+    public void AddKill()
+    {
+        totalKill++;  // Tăng số quái giết được
+        PlayerPrefs.SetInt("TotalKill", totalKill);
+        PlayerPrefs.Save();
+        SaveRecord();
+        Debug.Log($"TotalKill increased: {totalKill}");
+    }
+
 
     public void StartGame()
     {

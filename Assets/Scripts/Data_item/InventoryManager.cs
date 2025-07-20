@@ -125,7 +125,6 @@ public class InventoryManager : MonoBehaviour
             return;
         }
         AddItem(currencyItem, amount);
-        TrophyRecordUI.Instance.AddGoldToTrophy(amount);  // Cộng vàng vào Trophy
     }
 
     public int GetCurrencyAmount(CurrencyType type)
