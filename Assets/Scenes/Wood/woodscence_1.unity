@@ -1469,6 +1469,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1654347987753055349, guid: 623998f4d56ccc148b62e7311d9afe31, type: 3}
+      propertyPath: rewardPanel
+      value: 
+      objectReference: {fileID: 782367018}
+    - target: {fileID: 1654347987753055349, guid: 623998f4d56ccc148b62e7311d9afe31, type: 3}
       propertyPath: rewardItems.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -24433,6 +24437,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1654347987753055349, guid: 623998f4d56ccc148b62e7311d9afe31, type: 3}
+      propertyPath: rewardPanel
+      value: 
+      objectReference: {fileID: 782367018}
     - target: {fileID: 1654347987753055349, guid: 623998f4d56ccc148b62e7311d9afe31, type: 3}
       propertyPath: rewardItems.Array.size
       value: 4
