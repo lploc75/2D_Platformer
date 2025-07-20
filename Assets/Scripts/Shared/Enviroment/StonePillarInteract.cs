@@ -2,6 +2,7 @@
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.Universal;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class StonePillarInteract : MonoBehaviour
 {
@@ -35,6 +36,10 @@ public class StonePillarInteract : MonoBehaviour
     [Header("Save Key")]
     public string stoneKey = "pillar_001";   // Nhớ đặt key khác nhau cho mỗi viên đá!
 
+    [Header("End Game Settings")]
+    public bool isLastPillar = false;              // Đánh dấu đây là trụ cuối!
+    public string endGameScene = "EndGameScene";   // Tên scene end game
+
     private bool playerInZone = false;
     private bool hasActivated = false;
     private Vector3 squareTargetPosition;
@@ -51,11 +56,9 @@ public class StonePillarInteract : MonoBehaviour
 
     void Start()
     {
-        // Lưu vị trí đỉnh cột ngay từ đầu để luôn đảm bảo đúng vị trí
         if (square)
             squareTargetPosition = square.transform.position;
 
-        // Đã trả đá => Đá & hiệu ứng luôn hiện trên cột vĩnh viễn
         if (GameSaveManager.Instance != null && GameSaveManager.Instance.GetSpriteFadeStatus(stoneKey))
         {
             if (square)
@@ -76,12 +79,10 @@ public class StonePillarInteract : MonoBehaviour
             if (topBar) topBar.gameObject.SetActive(false);
             if (bottomBar) bottomBar.gameObject.SetActive(false);
 
-            // Không cho tương tác lại nhưng vẫn giữ hiệu ứng
             enabled = false;
             return;
         }
 
-        // Nếu chưa trả đá, setup như cũ
         if (square)
         {
             square.transform.position = squareTargetPosition + Vector3.up * dropOffsetY;
@@ -190,7 +191,6 @@ public class StonePillarInteract : MonoBehaviour
             GameSaveManager.Instance.SaveGame();
         }
 
-        // Sau khi trả đá, viên đá và particle sẽ luôn hiện, tắt script tương tác
         if (square)
         {
             square.transform.position = squareTargetPosition;
@@ -207,7 +207,15 @@ public class StonePillarInteract : MonoBehaviour
         if (playerInput) playerInput.ActivateInput();
         StartCoroutine(ShowBars(false));
 
-        enabled = false; // Không cho tương tác lại nhưng vẫn giữ effect
+        // ==== THÊM ĐOẠN CHUYỂN SCENE END GAME Ở ĐÂY ====
+        if (isLastPillar)
+        {
+            yield return new WaitForSeconds(1f); // Cho hiệu ứng chạy xong
+            SceneManager.LoadScene(endGameScene);
+        }
+        // ================================================
+
+        enabled = false;
     }
 
     IEnumerator CameraShake()

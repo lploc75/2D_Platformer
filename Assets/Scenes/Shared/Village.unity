@@ -28209,7 +28209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21593e1f426a3454a99eea442fcdb472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speedUpScale: 2
+  speedUpScale: 4
 --- !u!4 &656120187
 Transform:
   m_ObjectHideFlags: 0
@@ -31114,7 +31114,7 @@ MonoBehaviour:
   normalOuter: 3
   highlightOuter: 100
   effectDuration: 3
-  dropDuration: 5
+  dropDuration: 4
   dropOffsetY: 20
   cameraFollows: {fileID: 89241912}
   shakeDuration: 0.3
@@ -31126,6 +31126,8 @@ MonoBehaviour:
   dialogueManager: {fileID: 1492051973}
   selfTalkProfile: {fileID: 11400000, guid: 94dd8dff1f2158e4abb69aca10932b3e, type: 2}
   stoneKey: pillar_003
+  isLastPillar: 0
+  endGameScene: EndGameScene
 --- !u!1 &719652329
 GameObject:
   m_ObjectHideFlags: 0
@@ -52901,7 +52903,7 @@ MonoBehaviour:
   normalOuter: 3
   highlightOuter: 100
   effectDuration: 3
-  dropDuration: 5
+  dropDuration: 4
   dropOffsetY: 20
   cameraFollows: {fileID: 89241912}
   shakeDuration: 5
@@ -52913,6 +52915,8 @@ MonoBehaviour:
   dialogueManager: {fileID: 1492051973}
   selfTalkProfile: {fileID: 11400000, guid: d2d4c3fef3c11134489159f68db140cc, type: 2}
   stoneKey: pillar_001
+  isLastPillar: 0
+  endGameScene: EndGameScene
 --- !u!1 &1194946568
 GameObject:
   m_ObjectHideFlags: 0
@@ -77403,7 +77407,7 @@ MonoBehaviour:
   normalOuter: 3
   highlightOuter: 50
   effectDuration: 3
-  dropDuration: 5
+  dropDuration: 4
   dropOffsetY: 20
   cameraFollows: {fileID: 89241912}
   shakeDuration: 0.3
@@ -77415,6 +77419,8 @@ MonoBehaviour:
   dialogueManager: {fileID: 1492051973}
   selfTalkProfile: {fileID: 11400000, guid: a16ef88b4ce9ccc419aa8187d458cb06, type: 2}
   stoneKey: pillar_002
+  isLastPillar: 0
+  endGameScene: EndGameScene
 --- !u!1 &1701190660
 GameObject:
   m_ObjectHideFlags: 0
@@ -93389,10 +93395,10 @@ MonoBehaviour:
   normalOuter: 3
   highlightOuter: 100
   effectDuration: 3
-  dropDuration: 5
+  dropDuration: 4
   dropOffsetY: 20
   cameraFollows: {fileID: 89241912}
-  shakeDuration: 0.3
+  shakeDuration: 5
   shakeMagnitude: 0.5
   topBar: {fileID: 965925457}
   bottomBar: {fileID: 207389071}
@@ -93401,6 +93407,8 @@ MonoBehaviour:
   dialogueManager: {fileID: 1492051973}
   selfTalkProfile: {fileID: 11400000, guid: de4ca0d5389e0744fb73c663b58237e3, type: 2}
   stoneKey: pillar_004
+  isLastPillar: 1
+  endGameScene: EndGameScene
 --- !u!1 &1946053226
 GameObject:
   m_ObjectHideFlags: 0
