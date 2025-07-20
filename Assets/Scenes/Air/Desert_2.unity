@@ -10356,6 +10356,10 @@ PrefabInstance:
       value: Golden_Chest_Open_0 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5222390055334460809, guid: 8bc3c9f1ccac1b84caef874109de7238, type: 3}
+      propertyPath: rewardPanel
+      value: 
+      objectReference: {fileID: 1540048769}
+    - target: {fileID: 5222390055334460809, guid: 8bc3c9f1ccac1b84caef874109de7238, type: 3}
       propertyPath: rewardItems.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -19360,6 +19364,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Golden_Chest_Open_0
       objectReference: {fileID: 0}
+    - target: {fileID: 5222390055334460809, guid: 8bc3c9f1ccac1b84caef874109de7238, type: 3}
+      propertyPath: rewardPanel
+      value: 
+      objectReference: {fileID: 1540048769}
     - target: {fileID: 5222390055334460809, guid: 8bc3c9f1ccac1b84caef874109de7238, type: 3}
       propertyPath: rewardItems.Array.size
       value: 3
