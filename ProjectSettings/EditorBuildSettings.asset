@@ -29,5 +29,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Wood/woodscence_1.unity
     guid: 97e3ee0642c40d343863c1035bb378d4
+  - enabled: 1
+    path: Assets/Scenes/Shared/EndGameScene.unity
+    guid: ed76bb97de799a24f8b868b27982e12f
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
