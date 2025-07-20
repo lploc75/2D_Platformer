@@ -50844,16 +50844,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4079667804371223899, guid: 67b7628a672588242be432846872e366, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7544210282737066090, guid: 67b7628a672588242be432846872e366, type: 3}
       propertyPath: rewardPanel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 821197200}
     - target: {fileID: 7544210282737066090, guid: 67b7628a672588242be432846872e366, type: 3}
       propertyPath: rewardItems.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7544210282737066090, guid: 67b7628a672588242be432846872e366, type: 3}
+      propertyPath: 'rewardItems.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 57d8bd4c5ad769e428d9a56a80966719, type: 2}
     - target: {fileID: 7544210282737066090, guid: 67b7628a672588242be432846872e366, type: 3}
       propertyPath: 'rewardItems.Array.data[1]'
       value: 
@@ -50868,7 +50872,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: dcf4e3be436ba8143bec4afb50b90e72, type: 2}
     - target: {fileID: 7544210282737066090, guid: 67b7628a672588242be432846872e366, type: 3}
       propertyPath: 'rewardAmounts.Array.data[0]'
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7805164942157469394, guid: 67b7628a672588242be432846872e366, type: 3}
       propertyPath: m_LocalScale.x
@@ -50880,11 +50884,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7805164942157469394, guid: 67b7628a672588242be432846872e366, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.3389
+      value: -74.35906
       objectReference: {fileID: 0}
     - target: {fileID: 7805164942157469394, guid: 67b7628a672588242be432846872e366, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.4403
+      value: -3.5765529
       objectReference: {fileID: 0}
     - target: {fileID: 7805164942157469394, guid: 67b7628a672588242be432846872e366, type: 3}
       propertyPath: m_LocalPosition.z

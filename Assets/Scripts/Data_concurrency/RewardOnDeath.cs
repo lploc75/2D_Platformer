@@ -25,6 +25,7 @@ public class RewardOnDeath : MonoBehaviour
             int amount = Random.Range(minAmount, maxAmount + 1);
             CurrencyManager.Instance.AddCurrency(cur, amount);
             //InventoryManager.Instance.AddCurrency(cur, amount); // nếu dùng inventory
+            TrophyRecordUI.Instance.AddGoldToTrophy(amount);
         }
 
         // Lưu sau khi nhận thưởng

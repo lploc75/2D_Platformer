@@ -116,6 +116,7 @@ public class InventoryManager : MonoBehaviour
 
     public void AddCurrency(CurrencyType type, int amount)
     {
+        Debug.Log($"Adding {amount} {type} to inventory.");
         // Tìm asset CurrencyData đúng loại
         CurrencyData currencyItem = FindCurrencyItem(type);
         if (currencyItem == null)
@@ -124,6 +125,7 @@ public class InventoryManager : MonoBehaviour
             return;
         }
         AddItem(currencyItem, amount);
+        TrophyRecordUI.Instance.AddGoldToTrophy(amount);  // Cộng vàng vào Trophy
     }
 
     public int GetCurrencyAmount(CurrencyType type)

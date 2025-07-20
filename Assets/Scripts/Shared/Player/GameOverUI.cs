@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -14,7 +14,7 @@ public class GameOverUI : MonoBehaviour
         if (gameOverPanel != null)
             gameOverPanel.SetActive(false);
 
-        // G�n s? ki?n click cho n�t
+        // Gán s? ki?n click cho nút
         retryButton.onClick.AddListener(OnRetryClicked);
         returnVillageButton.onClick.AddListener(OnReturnVillageClicked);
     }
@@ -24,26 +24,29 @@ public class GameOverUI : MonoBehaviour
         if (gameOverPanel != null)
             gameOverPanel.SetActive(true);
         // D?ng game n?u mu?n: Time.timeScale = 0;
+        Debug.Log("ShowGameOver() event triggered."); // Kiểm tra khi OnDeath được gọi
+        Debug.Log($"TrophyRecordUI.Instance: {TrophyRecordUI.Instance}");
+        TrophyRecordUI.Instance.AddDeath();  // Gọi AddDeath() khi nhân vật chết
     }
 
     public void HideGameOver()
     {
         if (gameOverPanel != null)
             gameOverPanel.SetActive(false);
-        // N?u c� d?ng game: Time.timeScale = 1;
+        // N?u có d?ng game: Time.timeScale = 1;
     }
 
     public void OnRetryClicked()
     {
         HideGameOver();
         GameManager.Instance.RevivePlayerAtCheckpoint();
-        // Reset m�u, tr?ng th�i... n?u c?n
+        // Reset máu, tr?ng thái... n?u c?n
     }
 
     public void OnReturnVillageClicked()
     {
         HideGameOver();
-        // ??i "VillageSceneName" th�nh t�n scene c?a l�ng
+        // ??i "VillageSceneName" thành tên scene c?a làng
         SceneManager.LoadScene("Village");
     }
 }
