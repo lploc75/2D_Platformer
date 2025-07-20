@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30c79ee82ae03e840868c46e9d6b4fc9, type: 3}
-  m_Name: Q_Crystal_002
+  m_Name: Q_Crystal_004
   m_EditorClassIdentifier: 
-  questId: main_2_crystal
-  questName: Finding the Darkness Stone
+  questId: main_4_crystal
+  questName: Finding the Nature Stone
   questDescription: "Having gathered clues from the villagers, Arin now knows about
     the hidden Light Crystal. Head to the Forgotten Cave in the east, search for
     the crystal, and return it.\r"
