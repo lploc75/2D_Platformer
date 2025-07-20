@@ -58564,8 +58564,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3883a4a365a8e2428a687de5024c344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tooltipPanel: {fileID: 0}
-  tooltipText: {fileID: 0}
+  tooltipPanel: {fileID: 1207031626}
+  tooltipText: {fileID: 1956912880}
 --- !u!224 &1207031628
 RectTransform:
   m_ObjectHideFlags: 0
