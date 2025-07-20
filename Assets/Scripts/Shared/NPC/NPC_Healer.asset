@@ -33,8 +33,10 @@ MonoBehaviour:
   - "Here, take these potions\u2014one for your health, one for your magic. Stay
     safe, Arin.\r\n"
   rewardList:
-  - item: {fileID: 11400000, guid: 6fc95c4be75353b4ea72fa8565111067, type: 2}
-    amount: 1
+  - item: {fileID: 11400000, guid: 647b77454efd35b4fa1b282068d7b001, type: 2}
+    amount: 3
+  - item: {fileID: 11400000, guid: 34f2610a793ee8e4e9d04836d6d1d31f, type: 2}
+    amount: 3
   questCompletedLines: []
   unlockAfterQuestId: 
   unlockedLines: []

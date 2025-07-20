@@ -32,9 +32,7 @@ MonoBehaviour:
   - Here, take this wand and a spellbook. It's not much, but it should help if anything
     strange happens.
   rewardList:
-  - item: {fileID: 11400000, guid: 8769d9897027f8e4ba026609a4bd32cb, type: 2}
-    amount: 1
-  - item: {fileID: 11400000, guid: a8e3d47183f14d04e87e619a7d348ae2, type: 2}
+  - item: {fileID: 11400000, guid: 532221cc1c2094042b58275a2eb424a8, type: 2}
     amount: 1
   questCompletedLines: []
   unlockAfterQuestId: 

@@ -30,7 +30,7 @@ MonoBehaviour:
   - The whole village feels off.
   - "Take these boots and a cloak\u2014just to be safe while you're looking around.\r\n"
   rewardList:
-  - item: {fileID: 11400000, guid: 8769d9897027f8e4ba026609a4bd32cb, type: 2}
+  - item: {fileID: 11400000, guid: edacb5449f80a7349ac642857b17a811, type: 2}
     amount: 1
   questCompletedLines: []
   unlockAfterQuestId: 

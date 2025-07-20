@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56f00f65f072c2a42880677ca8d217c1, type: 3}
   m_Name: ManaPotion
   m_EditorClassIdentifier: 
-  itemName: Health Potion
+  itemName: Mana Potion
   itemType: 2
   quality: 0
   icon: {fileID: 21300000, guid: 271a772d115be4f4995911362142997a, type: 3}
