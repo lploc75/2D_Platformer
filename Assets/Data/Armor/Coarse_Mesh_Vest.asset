@@ -9,17 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04c3c3d28d2f55f44b5b3e9457269dbb, type: 3}
-  m_Name: Icon_13_01
+  m_Script: {fileID: 11500000, guid: bc72dac7726285d408291e3ca3c7b90a, type: 3}
+  m_Name: Coarse_Mesh_Vest
   m_EditorClassIdentifier: 
-  itemName: Wooden stick
-  itemType: 0
+  itemName: Coarse Mesh Vest
+  itemType: 1
   quality: 0
-  icon: {fileID: 21300000, guid: d4886a7e25135ad45a862bde87239c6b, type: 3}
-  description: Made from old tree branches. Great for kindling.
-  baseDamage: 2
-  critDamage: 0
+  icon: {fileID: 21300000, guid: 809a221e9c015ad4f97913537bfc93ab, type: 3}
+  description: Rough mesh armor for blocking light attacks.
+  healthBonus: 10
+  baseDamage: 0
+  critDamage: 0.01
   critChance: 0
-  hp: 0
   sp: 0
   mp: 0

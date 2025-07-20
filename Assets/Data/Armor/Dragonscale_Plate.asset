@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc72dac7726285d408291e3ca3c7b90a, type: 3}
-  m_Name: Icons_25_54
+  m_Name: Dragonscale_Plate
   m_EditorClassIdentifier: 
-  itemName: Sand cloak
+  itemName: Dragonscale Plate
   itemType: 1
-  quality: 0
-  icon: {fileID: 21300000, guid: 6213fbe4f38260a42a0694b97787109f, type: 3}
-  description: "\xC1o cho\xE0ng c\xE1t t\u0103ng r\u1EA5t nhi\u1EC1u sinh l\u1EF1c"
-  currencyType: 0
-  healthBonus: 20
+  quality: 3
+  icon: {fileID: 21300000, guid: f2fd38a309786864790e651f5da3d8f1, type: 3}
+  description: Armor forged from legendary dragon scales.
+  healthBonus: 36
   baseDamage: 0
-  critDamage: 0
+  critDamage: 0.06
   critChance: 0
   sp: 0
   mp: 0
