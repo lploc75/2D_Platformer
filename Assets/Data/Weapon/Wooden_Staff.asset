@@ -10,17 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04c3c3d28d2f55f44b5b3e9457269dbb, type: 3}
-  m_Name: Icon_42
+  m_Name: Wooden_Staff
   m_EditorClassIdentifier: 
-  itemName: Chaos wand
+  itemName: Wooden Staff
   itemType: 0
-  quality: 2
-  icon: {fileID: 21300000, guid: b533d2e89ed1cf948928cdcf42cc804e, type: 3}
-  description: "S\u1EE9c m\u1EA1nh kh\u1ED5ng l\u1ED3, gi\xFAp ng\u01B0\u1EDDi n\u1EAFm
-    gi\u1EEF t\u0103ng s\u1EE9c m\u1EA1nh \u0111\xE1ng k\u1EC3"
-  baseDamage: 5
-  critDamage: 0.8
-  critChance: 0.4
+  quality: 0
+  icon: {fileID: 21300000, guid: b1b9b7b12b3228849ada7c7804f5a712, type: 3}
+  description: A worn wooden staff for novice spellcasters.
+  baseDamage: 2
+  critDamage: 0.01
+  critChance: 0
   hp: 0
-  sp: 0
+  sp: 4
   mp: 0

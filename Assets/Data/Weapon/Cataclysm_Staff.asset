@@ -10,13 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 04c3c3d28d2f55f44b5b3e9457269dbb, type: 3}
-  m_Name: Icon_13_23
+  m_Name: Cataclysm_Staff
   m_EditorClassIdentifier: 
-  itemName: Starlight Scepter
+  itemName: Cataclysm Staff
   itemType: 0
   quality: 3
-  icon: {fileID: 21300000, guid: ccb0875688c108a49875f53c68e60bb3, type: 3}
-  description: Appearing in the darkest of lands, this is a gift for the worthy.
-  baseDamage: 6
-  critDamage: 1.5
-  critChance: 0.5
+  icon: {fileID: 21300000, guid: 46d177875fbc35a4f8ed6fa14e47f9c3, type: 3}
+  description: A mythic staff whose spells shake the earth.
+  baseDamage: 9
+  critDamage: 0.06
+  critChance: 0
+  hp: 0
+  sp: 19
+  mp: 0
