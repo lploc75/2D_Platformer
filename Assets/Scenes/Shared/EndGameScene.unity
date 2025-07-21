@@ -21921,6 +21921,8 @@ MonoBehaviour:
   dialogueManager: {fileID: 1492051973}
   selfTalkProfile: {fileID: 11400000, guid: 94dd8dff1f2158e4abb69aca10932b3e, type: 2}
   stoneKey: pillar_003
+  isLastPillar: 0
+  endGameScene: EndGameScene
 --- !u!1 &719652329
 GameObject:
   m_ObjectHideFlags: 0
@@ -37672,6 +37674,8 @@ MonoBehaviour:
   dialogueManager: {fileID: 1492051973}
   selfTalkProfile: {fileID: 11400000, guid: d2d4c3fef3c11134489159f68db140cc, type: 2}
   stoneKey: pillar_001
+  isLastPillar: 0
+  endGameScene: EndGameScene
 --- !u!1 &1194946568
 GameObject:
   m_ObjectHideFlags: 0
@@ -54726,6 +54730,8 @@ MonoBehaviour:
   dialogueManager: {fileID: 1492051973}
   selfTalkProfile: {fileID: 11400000, guid: a16ef88b4ce9ccc419aa8187d458cb06, type: 2}
   stoneKey: pillar_002
+  isLastPillar: 0
+  endGameScene: EndGameScene
 --- !u!1 &1722322010 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5266629926043923616, guid: 7819e40bed618b9448daea0105755178, type: 3}
@@ -67370,6 +67376,8 @@ MonoBehaviour:
   dialogueManager: {fileID: 1492051973}
   selfTalkProfile: {fileID: 11400000, guid: de4ca0d5389e0744fb73c663b58237e3, type: 2}
   stoneKey: pillar_004
+  isLastPillar: 0
+  endGameScene: EndGameScene
 --- !u!1 &1946986244
 GameObject:
   m_ObjectHideFlags: 0
