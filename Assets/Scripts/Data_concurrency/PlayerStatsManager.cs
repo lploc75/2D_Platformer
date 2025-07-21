@@ -182,9 +182,11 @@ public class PlayerStatsManager : MonoBehaviour
         if (vitPointText != null) vitPointText.text = vitLevel.ToString();
     }
 
-    private void UpdateButtonInteractable()
+    public void UpdateButtonInteractable()
     {
         int purpleSoul = CurrencyManager.Instance.GetCurrency(CurrencyType.PurpleSoul);
+
+        Debug.Log($"[UpdateButtonInteractable] PurpleSoul = {purpleSoul}");
 
         if (buttonSTR != null) buttonSTR.interactable = (purpleSoul >= GetPurpleSoulNeededForLevel(strLevel) && strLevel < 15);
         if (buttonINT != null) buttonINT.interactable = (purpleSoul >= GetPurpleSoulNeededForLevel(intLevel) && intLevel < 15);

@@ -9,6 +9,27 @@ public static class PlayerStatsFileHandler
 
     public static void Save(PlayerStatsManager manager)
     {
+        if (manager == null)
+        {
+            Debug.LogError("PlayerStatsManager is NULL");
+            return;
+        }
+        if (CurrencyManager.Instance == null)
+        {
+            Debug.LogError("CurrencyManager.Instance is NULL");
+            return;
+        }
+        if (SkillTreeManager.Instance == null)
+        {
+            Debug.LogError("SkillTreeManager.Instance is NULL");
+            return;
+        }
+        if (SkillTreeManager.Instance.skills == null)
+        {
+            Debug.LogError("SkillTreeManager.Instance.skills is NULL");
+            return;
+        }
+
         PlayerStatsDataModel data = new PlayerStatsDataModel
         {
             // KHÔNG còn dòng totalPoint ở đây!
