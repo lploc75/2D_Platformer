@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PortalLightController : MonoBehaviour
 {
+    [Header("Portal Light Settings")]
     public Light2D portalLight;      // Assign Light2D in Inspector
     public float flashMax = 400f;    // Flash peak intensity
     public float flashDuration = 1f; // Total flash time (0 -> max -> 0)
@@ -13,6 +14,9 @@ public class PortalLightController : MonoBehaviour
 
     [Header("Quest requirement")]
     public string requiredQuestId = "main_1_crystal";
+
+    [Header("Is this a return portal? (Allow always)")]
+    public bool isReturnPortal = false;
 
     [Header("Self-talk when not allowed (English)")]
     public DialogueManager dialogueManager;
@@ -36,7 +40,7 @@ public class PortalLightController : MonoBehaviour
             }
             else
             {
-                // Play self-talk in English when quest not accepted/completed
+                // Play self-talk in English when quest not in progress or not accepted
                 if (dialogueManager != null && selfTalkProfile != null && !dialogueManager.IsDialoguePlaying)
                 {
                     dialogueManager.StartDialogueByProfile(selfTalkProfile);
@@ -45,13 +49,21 @@ public class PortalLightController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Only allow teleport if:
+    /// - isReturnPortal == true (always allow)
+    /// - Quest is in progress (accepted but not ready to complete and not completed)
+    /// </summary>
     bool CanInteractWithPortal()
     {
+        if (isReturnPortal)
+            return true;
+
         if (QuestManager.Instance == null)
             return false;
-        // Allow interaction if quest accepted or completed
-        return QuestManager.Instance.IsQuestAccepted(requiredQuestId)
-            || QuestManager.Instance.IsQuestCompleted(requiredQuestId);
+
+        // Only allow when quest is "In Progress"
+        return QuestManager.Instance.IsQuestInProgress(requiredQuestId);
     }
 
     private IEnumerator FlashLightAndSaveGame()
@@ -85,7 +97,6 @@ public class PortalLightController : MonoBehaviour
         if (GameSaveManager.Instance != null)
         {
             GameSaveManager.Instance.SaveGame();
-            // Optional: Đợi 1 frame nếu cần đảm bảo ghi file xong (hiếm khi cần trong Unity, chỉ khi quá nhanh)
             yield return null;
         }
 

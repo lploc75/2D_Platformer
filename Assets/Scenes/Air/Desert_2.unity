@@ -26681,6 +26681,7 @@ MonoBehaviour:
   flashDuration: 1
   targetSceneName: Village
   requiredQuestId: main_5_crystal
+  isReturnPortal: 1
   dialogueManager: {fileID: 0}
   selfTalkProfile: {fileID: 0}
 --- !u!210 &1633018385
