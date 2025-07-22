@@ -16,14 +16,16 @@ public class SpriteColorStatus
     public string key;
     public bool changedColor; // true nếu đã đổi màu xong
 }
+[System.Serializable]
+public class PlayerSettingData
+{
+    public float musicVolume = 1f;
+    public bool isFullscreen = true;
+}
 
 [System.Serializable]
 public class GameSaveData
 {
-    // ==== ADD THESE LINES for setting ====
-    public float musicVolume = 1f;
-    public bool isFullscreen = true;
-
     // ==== Other Data ====
     public QuestManager.QuestSaveData questData;
     public List<string> watchedCutscenes = new List<string>();
@@ -36,6 +38,7 @@ public class GameSaveManager : MonoBehaviour
     public static GameSaveManager Instance;
 
     private string saveFileName = "gamesave.json";
+    private string settingFileName = "player_setting.json";
     private List<string> watchedCutscenes = new List<string>();
     private Dictionary<string, bool> spriteFades = new Dictionary<string, bool>();
     private Dictionary<string, bool> spriteColors = new Dictionary<string, bool>();
@@ -84,23 +87,45 @@ public class GameSaveManager : MonoBehaviour
     {
         return watchedCutscenes.Contains(cutsceneId);
     }
+    public void SaveSetting()
+    {
+        if (VolumeManager.Instance == null) return;
+
+        PlayerSettingData setting = new PlayerSettingData
+        {
+            musicVolume = VolumeManager.Instance.GetCurrentVolume(),
+            isFullscreen = VolumeManager.Instance.GetCurrentFullscreen()
+        };
+
+        string json = JsonUtility.ToJson(setting, true);
+        string path = Path.Combine(Application.persistentDataPath, settingFileName);
+        File.WriteAllText(path, json);
+        Debug.Log("[GameSaveManager] Đã lưu player setting: " + path);
+    }
+
+    public void LoadSetting()
+    {
+        string path = Path.Combine(Application.persistentDataPath, settingFileName);
+        if (!File.Exists(path))
+        {
+            Debug.LogWarning("[GameSaveManager] Không tìm thấy player setting.");
+            return;
+        }
+
+        string json = File.ReadAllText(path);
+        PlayerSettingData setting = JsonUtility.FromJson<PlayerSettingData>(json);
+
+        if (VolumeManager.Instance != null)
+        {
+            VolumeManager.Instance.ApplyLoadedSetting(setting.musicVolume, setting.isFullscreen);
+            Debug.Log("[GameSaveManager] Đã load player setting.");
+        }
+    }
 
     // SAVE GAME TO FILE
     public void SaveGame()
     {
         GameSaveData data = new GameSaveData();
-
-        // ==== Lưu setting ====
-        if (VolumeManager.Instance != null)
-        {
-            data.musicVolume = VolumeManager.Instance.GetCurrentVolume();
-            data.isFullscreen = VolumeManager.Instance.GetCurrentFullscreen();
-        }
-        else
-        {
-            data.musicVolume = 1f;
-            data.isFullscreen = true;
-        }
 
         // ==== Lưu các phần khác ====
         data.questData = QuestManager.Instance != null ? QuestManager.Instance.GetSaveData() : null;
@@ -130,12 +155,6 @@ public class GameSaveManager : MonoBehaviour
 
         string json = File.ReadAllText(path);
         GameSaveData data = JsonUtility.FromJson<GameSaveData>(json);
-
-        // ==== Load setting ====
-        if (VolumeManager.Instance != null)
-        {
-            VolumeManager.Instance.ApplyLoadedSetting(data.musicVolume, data.isFullscreen);
-        }
 
         // ==== Load các phần khác ====
         if (QuestManager.Instance != null && data.questData != null)

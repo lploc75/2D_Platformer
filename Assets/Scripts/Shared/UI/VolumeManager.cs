@@ -58,15 +58,13 @@ public class VolumeManager : MonoBehaviour
     // ===== LOAD FILE SETTING =====
     public void LoadSettingFromSaveFile()
     {
-        string path = Path.Combine(Application.persistentDataPath, "gamesave.json");
+        string path = Path.Combine(Application.persistentDataPath, "player_setting.json");
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
-            var data = JsonUtility.FromJson<GameSaveData>(json);
-
-            // Sync UI và Audio
-            SetVolumeFromLoad(data.musicVolume);
-            SetFullscreenFromLoad(data.isFullscreen);
+            var setting = JsonUtility.FromJson<PlayerSettingData>(json);
+            SetVolumeFromLoad(setting.musicVolume);
+            SetFullscreenFromLoad(setting.isFullscreen);
         }
         else
         {
@@ -148,17 +146,17 @@ public class VolumeManager : MonoBehaviour
     {
         if (GameSaveManager.Instance != null)
         {
-            GameSaveManager.Instance.SaveGame();
+            GameSaveManager.Instance.SaveSetting();
         }
         else
         {
-            var data = new GameSaveData
+            var data = new PlayerSettingData
             {
                 musicVolume = GetCurrentVolume(),
                 isFullscreen = GetCurrentFullscreen()
             };
             string json = JsonUtility.ToJson(data, true);
-            string path = Path.Combine(Application.persistentDataPath, "gamesave.json");
+            string path = Path.Combine(Application.persistentDataPath, "player_setting.json");
             File.WriteAllText(path, json);
         }
     }
