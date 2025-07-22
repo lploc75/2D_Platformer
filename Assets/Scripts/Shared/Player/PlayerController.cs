@@ -18,6 +18,10 @@ public class PlayerController : MonoBehaviour
     private AudioSource audioSource;
     public GameOverUI gameOverUI;
 
+    [Header("Potion ItemData")]
+    public ItemData healthPotionData;
+    public ItemData manaPotionData;
+
     private float manaCost = 1f; // mana của skill default
     [Header("Skill")]
     public SkillData[] skills; // Set từ Inspector, 0 = Skill1, 1 = Skill2, 2 = Skill3...
@@ -384,6 +388,32 @@ public class PlayerController : MonoBehaviour
         // Gọi respawn từ GameManager
         gameOverUI.ShowGameOver();
     }
+    public void OnUseHealthPotion(InputAction.CallbackContext context)
+    {
+        if (context.started && InventoryManager.Instance != null && healthPotionData != null)
+        {
+            InventoryManager.Instance.RemoveItem(healthPotionData, 1);
+            Debug.Log("Dùng Health Potion!");
+            if (PotionUI.Instance != null) PotionUI.Instance.UpdatePotionUI();
+
+            var dmg = GetComponent<Damageable>();
+            if (dmg != null) dmg.Heal(30); // Tùy chỉnh lượng hồi máu
+        }
+    }
+
+
+    public void OnUseManaPotion(InputAction.CallbackContext context)
+    {
+        if (context.started && InventoryManager.Instance != null && manaPotionData != null)
+        {
+            InventoryManager.Instance.RemoveItem(manaPotionData, 1);
+            Debug.Log("Dùng Mana Potion!");
+            if (PotionUI.Instance != null) PotionUI.Instance.UpdatePotionUI();
+
+            if (manaManager != null) manaManager.AddMana(30); // Tùy chỉnh lượng hồi mana
+        }
+    }
+
 
     private System.Collections.IEnumerator RespawnDelay()
     {

@@ -899,15 +899,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: CutSceneIntro
   delay: 0.5
-  CurrentData:
-    questData:
-      acceptedQuests: []
-      completedQuests: []
-      readyToCompleteQuests: []
-      questNpcTalkedWith: []
-    watchedCutscenes: []
-    spriteFades: []
-    spriteColors: []
 --- !u!114 &76221354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2864,7 +2855,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.794998, y: -159.30418}
+  m_AnchoredPosition: {x: 7.794998, y: -159.12585}
   m_SizeDelta: {x: 553.30005, y: 713.77264}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &299422677
@@ -32305,7 +32296,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.794998, y: -159.30418}
+  m_AnchoredPosition: {x: 7.794998, y: -159.12585}
   m_SizeDelta: {x: 553.30005, y: 713.77264}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1325334671
@@ -34152,15 +34143,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: CutSceneIntro
   delay: 0.5
-  CurrentData:
-    questData:
-      acceptedQuests: []
-      completedQuests: []
-      readyToCompleteQuests: []
-      questNpcTalkedWith: []
-    watchedCutscenes: []
-    spriteFades: []
-    spriteColors: []
 --- !u!1 &1609648260
 GameObject:
   m_ObjectHideFlags: 0
