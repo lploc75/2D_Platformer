@@ -162,7 +162,8 @@ public class GameSaveManager : MonoBehaviour
         {
             Path.Combine(dir, "gamesave.json"),
             Path.Combine(dir, "inventory_data.json"),
-            Path.Combine(dir, "player_data.json")
+            Path.Combine(dir, "player_data.json"),
+            Path.Combine(dir, "equip_status.json")
         };
 
         foreach (string filePath in filesToDelete)
@@ -181,17 +182,24 @@ public class GameSaveManager : MonoBehaviour
     private void ResetRuntimeData()
     {
         // Reset Equipment
-        EquipmentManager.Instance?.ResetEquipment();
+        if (EquipmentManager.Instance != null)
+            EquipmentManager.Instance.ResetEquipment();
+
         // Reset Inventory
-        InventoryManager.Instance?.ResetInventory();
+        if (InventoryManager.Instance != null)
+            InventoryManager.Instance.ResetInventory();
+
         // Reset Currency
-        CurrencyManager.Instance?.ResetCurrency();
+        if (CurrencyManager.Instance != null)
+            CurrencyManager.Instance.ResetCurrency();
 
         // Reset Skill Tree
-        SkillTreeManager.Instance?.ResetSkills();
+        if (SkillTreeManager.Instance != null)
+            SkillTreeManager.Instance.ResetSkills();
 
         // Reset Player Stats
-        PlayerStatsManager.Instance?.ResetStats();
+        if (PlayerStatsManager.Instance != null)
+            PlayerStatsManager.Instance.ResetStats();
 
         // Reset watched cutscenes, sprite fades/colors trong chính GameSaveManager
         watchedCutscenes.Clear();
