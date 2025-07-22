@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System;
-using Assets.Scripts.Data_concurrency;
 
 [System.Serializable]
 public class SpriteFadeStatus
@@ -21,20 +20,23 @@ public class SpriteColorStatus
 [System.Serializable]
 public class GameSaveData
 {
+    // ==== ADD THESE LINES for setting ====
+    public float musicVolume = 1f;
+    public bool isFullscreen = true;
+
+    // ==== Other Data ====
     public QuestManager.QuestSaveData questData;
     public List<string> watchedCutscenes = new List<string>();
     public List<SpriteFadeStatus> spriteFades = new List<SpriteFadeStatus>();
     public List<SpriteColorStatus> spriteColors = new List<SpriteColorStatus>();
-    // Thêm các phần khác nếu cần
 }
+
 public class GameSaveManager : MonoBehaviour
 {
     public static GameSaveManager Instance;
 
     private string saveFileName = "gamesave.json";
     private List<string> watchedCutscenes = new List<string>();
-
-    // Lưu trạng thái từng SpriteFade/SpritesFadeToColor
     private Dictionary<string, bool> spriteFades = new Dictionary<string, bool>();
     private Dictionary<string, bool> spriteColors = new Dictionary<string, bool>();
 
@@ -87,7 +89,21 @@ public class GameSaveManager : MonoBehaviour
     public void SaveGame()
     {
         GameSaveData data = new GameSaveData();
-        data.questData = QuestManager.Instance.GetSaveData();
+
+        // ==== Lưu setting ====
+        if (VolumeManager.Instance != null)
+        {
+            data.musicVolume = VolumeManager.Instance.GetCurrentVolume();
+            data.isFullscreen = VolumeManager.Instance.GetCurrentFullscreen();
+        }
+        else
+        {
+            data.musicVolume = 1f;
+            data.isFullscreen = true;
+        }
+
+        // ==== Lưu các phần khác ====
+        data.questData = QuestManager.Instance != null ? QuestManager.Instance.GetSaveData() : null;
         data.watchedCutscenes = new List<string>(watchedCutscenes);
 
         foreach (var kv in spriteFades)
@@ -114,7 +130,17 @@ public class GameSaveManager : MonoBehaviour
 
         string json = File.ReadAllText(path);
         GameSaveData data = JsonUtility.FromJson<GameSaveData>(json);
-        QuestManager.Instance.LoadFromSaveData(data.questData);
+
+        // ==== Load setting ====
+        if (VolumeManager.Instance != null)
+        {
+            VolumeManager.Instance.ApplyLoadedSetting(data.musicVolume, data.isFullscreen);
+        }
+
+        // ==== Load các phần khác ====
+        if (QuestManager.Instance != null && data.questData != null)
+            QuestManager.Instance.LoadFromSaveData(data.questData);
+
         watchedCutscenes = data.watchedCutscenes ?? new List<string>();
 
         spriteFades.Clear();
@@ -180,30 +206,20 @@ public class GameSaveManager : MonoBehaviour
     }
     private void ResetRuntimeData()
     {
-        // Reset Equipment
+        // Reset các data runtime (tùy dự án)
         if (EquipmentManager.Instance != null)
             EquipmentManager.Instance.ResetEquipment();
-
-        // Reset Inventory
         if (InventoryManager.Instance != null)
             InventoryManager.Instance.ResetInventory();
-
-        // Reset Currency
         if (CurrencyManager.Instance != null)
             CurrencyManager.Instance.ResetCurrency();
-
-        // Reset Skill Tree
         if (SkillTreeManager.Instance != null)
             SkillTreeManager.Instance.ResetSkills();
-
-        // Reset Player Stats
         if (PlayerStatsManager.Instance != null)
             PlayerStatsManager.Instance.ResetStats();
-        // Reset Player Stats
         if (QuestManager.Instance != null)
-            QuestManager.Instance.ResetQuests(); ;
+            QuestManager.Instance.ResetQuests();
 
-        // Reset watched cutscenes, sprite fades/colors trong chính GameSaveManager
         watchedCutscenes.Clear();
         spriteFades.Clear();
         spriteColors.Clear();

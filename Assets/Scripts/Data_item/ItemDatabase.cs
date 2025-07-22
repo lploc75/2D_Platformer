@@ -71,7 +71,8 @@ public static class ItemDatabase
                 item = new WeaponData();
             else if (type == ItemType.Armor)
                 item = new ArmorData();  // Khởi tạo ArmorData nếu là Armor
-
+            else if (type == ItemType.Potion) // khởi tạo PotionData nếu là potion
+                item = new PotionData();
             if (item == null)
             {
                 Debug.LogWarning($"Không hỗ trợ loại item {type}");
@@ -105,7 +106,11 @@ public static class ItemDatabase
                 armor.sp = itemData.sp;
                 armor.mp = itemData.mp;
             }
-
+            if (item is PotionData potion)
+            {
+                potion.restoreAmount = itemData.restoreAmount;
+                potion.effect = itemData.effect;
+            }
             items.Add(item);
             ItemDatabase.AddItem(item);  // Đảm bảo vật phẩm được thêm vào ItemDatabase
         }
