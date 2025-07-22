@@ -14079,6 +14079,7 @@ MonoBehaviour:
   smoothSpeed: 0.125
   offset: {x: 0, y: 0, z: 0}
   minX: -1.9
+  maxX: 118.56
   minY: -19.07
   shakeOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &582251713
@@ -19114,10 +19115,6 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 5cbe07966ce75c04bba3411095abea6f, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: 074b65dfd507a644099b1728c488672c, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 56
     m_Data:
@@ -19569,24 +19566,6 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 0
-    m_Data:
-      e00: 1.1690163e+25
-      e01: 0
-      e02: 1.1690384e+25
-      e03: -4.5000076
-      e10: 1.93e-43
-      e11: 0
-      e12: 1.93e-43
-      e13: 6.4e-43
-      e20: -2011716
-      e21: 0
-      e22: 2.9745076e+29
-      e23: 1.0258901e-18
-      e30: 4.5911e-41
-      e31: 0
-      e32: 6.45e-43
-      e33: 6.42e-43
   m_TileColorArray:
   - m_RefCount: 80
     m_Data: {r: 1, g: 1, b: 1, a: 1}
@@ -26734,10 +26713,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35b6c9b0724654747ab78ef6791b90be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalTimeText: {fileID: 0}
-  totalKillText: {fileID: 0}
-  totalDeathText: {fileID: 0}
-  totalGoldText: {fileID: 0}
+  totalTimeText: {fileID: 1268352717}
+  totalKillText: {fileID: 1106725675}
+  totalDeathText: {fileID: 1420096755}
+  totalGoldText: {fileID: 1258003858}
   totalPlayTime: 0
   totalKill: 0
   totalDeath: 0
@@ -47903,7 +47882,7 @@ PrefabInstance:
     - target: {fileID: 6943126384253239183, guid: 26723cdcbebe5844eb8789f256d9a810, type: 3}
       propertyPath: inventoryCanvas
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1385509470}
     - target: {fileID: 6943126384253239183, guid: 26723cdcbebe5844eb8789f256d9a810, type: 3}
       propertyPath: inventoryUIController
       value: 

@@ -1,20 +1,26 @@
-using UnityEngine;
+Ôªøusing UnityEngine;
 
 public class DeadZone : MonoBehaviour
 {
-    public int damage = 20; // S? m·u b? tr? khi r?t h?
+    public int damage = 20; // S? m√°u b? tr? khi r?t h?
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            // D?ch chuy?n player v? checkpoint thÙng qua GameManager
+            // D?ch chuy?n player v? checkpoint th√¥ng qua GameManager
             if (GameManager.Instance != null)
             {
+                Debug.Log("quay l·∫°i check point");
+                Debug.Log("Player in GameManager: " + GameManager.Instance.player);
                 GameManager.Instance.RespawnPlayer();
             }
+            else 
+            {
+                Debug.Log("game manager null");
+            }
 
-            // Sau ?Û tr? m·u (player ?„ "h?i sinh" l?i)
+            // Sau ?√≥ tr? m√°u (player ?√£ "h?i sinh" l?i)
             Damageable damageable = other.GetComponent<Damageable>();
             if (damageable != null)
             {
