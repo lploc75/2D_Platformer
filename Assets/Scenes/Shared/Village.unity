@@ -22944,6 +22944,7 @@ MonoBehaviour:
   flashDuration: 1
   targetSceneName: Desert_1
   requiredQuestId: main_5_crystal
+  isReturnPortal: 0
   dialogueManager: {fileID: 1492051973}
   selfTalkProfile: {fileID: 11400000, guid: b91f6d5263a108b4990ea262476880f1, type: 2}
 --- !u!1 &422664726
@@ -32780,6 +32781,7 @@ MonoBehaviour:
   flashDuration: 1
   targetSceneName: HuyTHCE181180_B4
   requiredQuestId: main_3_crystal
+  isReturnPortal: 0
   dialogueManager: {fileID: 1492051973}
   selfTalkProfile: {fileID: 11400000, guid: b91f6d5263a108b4990ea262476880f1, type: 2}
 --- !u!1 &767658836
@@ -44201,6 +44203,7 @@ MonoBehaviour:
   flashDuration: 1
   targetSceneName: woodscence_1
   requiredQuestId: main_4_crystal
+  isReturnPortal: 0
   dialogueManager: {fileID: 1492051973}
   selfTalkProfile: {fileID: 11400000, guid: b91f6d5263a108b4990ea262476880f1, type: 2}
 --- !u!1 &1039950733
@@ -67531,6 +67534,7 @@ MonoBehaviour:
   flashDuration: 1
   targetSceneName: Map1
   requiredQuestId: main_2_crystal
+  isReturnPortal: 0
   dialogueManager: {fileID: 1492051973}
   selfTalkProfile: {fileID: 11400000, guid: b91f6d5263a108b4990ea262476880f1, type: 2}
 --- !u!1 &1586302757
