@@ -16,7 +16,8 @@ public class InventorySlotDataModel
     public float hp;
     public float sp;
     public float mp;
-
+    public int restoreAmount; // Chỉ dùng cho PotionData, nếu không phải thì để 0
+    public string effect;
     // Thêm thông tin giáp
     public float healthBonus;   // Lưu thông tin máu cộng thêm từ giáp
 
@@ -50,6 +51,16 @@ public class InventorySlotDataModel
             sp = armor.GetSp();                   // Lưu stamina từ giáp
             mp = armor.GetMp();                   // Lưu mana từ giáp
         }
+        if(inventorySlot.item is PotionData potion)
+        {
+            restoreAmount = potion.restoreAmount; // Chỉ dùng cho PotionData
+            effect = potion.effect; // Chỉ dùng cho PotionData
+        }
+        //else
+        //{
+        //    restoreAmount = 0; // Nếu không phải Potion, để 0
+        //    effect = string.Empty; // Nếu không phải Potion, để rỗng
+        //}
     }
 }
 
@@ -62,7 +73,8 @@ public class InventoryDataModel
     public InventoryDataModel(List<InventoryManager.InventorySlot> inventoryItems)
     {
         items = inventoryItems
-            .Where(item => item.item.itemType == ItemType.Weapon || item.item.itemType == ItemType.Armor)  // Lọc chỉ vũ khí và áo giáp
+            .Where(item => item.item.itemType == ItemType.Weapon || item.item.itemType == ItemType.Armor 
+            || item.item.itemType == ItemType.Potion)  // Lọc chỉ vũ khí và áo giáp
             .Select(item => new InventorySlotDataModel(item))  // Chuyển sang InventorySlotDataModel
             .ToList();
     }
