@@ -1,8 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 public class VolumeManager : MonoBehaviour
 {
+    public static VolumeManager Instance;
+
     [Header("Volume")]
     public Slider volumeSlider;
     public Toggle volumeToggle;
@@ -24,9 +27,17 @@ public class VolumeManager : MonoBehaviour
     private Coroutine animRoutineVolume;
     private Coroutine animRoutineFullscreen;
 
-    void OnEnable()
+    void Awake()
     {
-        LoadSettingFromPlayerPrefs();
+        if (Instance == null)
+            Instance = this;
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        // SỬA: Load setting NGAY KHI VÀO GAME
+        LoadSettingFromSaveFile();
     }
 
     void Start()
@@ -35,26 +46,57 @@ public class VolumeManager : MonoBehaviour
         if (musicPlayer != null)
             musicSource = musicPlayer.GetComponent<AudioSource>();
 
+        // Đăng ký listener
         volumeSlider.onValueChanged.AddListener(OnSliderChange);
         volumeToggle.onValueChanged.AddListener(OnVolumeToggleChange);
         fullscreenToggle.onValueChanged.AddListener(OnFullscreenToggleChange);
+
+        // Quan trọng: luôn load lại setting khi scene load lên!
+        LoadSettingFromSaveFile();
     }
 
-    public void LoadSettingFromPlayerPrefs()
+    // ===== LOAD FILE SETTING =====
+    public void LoadSettingFromSaveFile()
     {
-        float savedVolume = PlayerPrefs.GetFloat("MusicVolume", 1f);
-        lastVolume = savedVolume > 0 ? savedVolume : 1f;
-        volumeSlider.value = savedVolume;
-        volumeToggle.isOn = savedVolume > 0;
-        SetCheckmarkPosition(volumeCheckmark, volumeToggle.isOn, volumePosX_On, volumePosX_Off, false);
+        string path = Path.Combine(Application.persistentDataPath, "gamesave.json");
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            var data = JsonUtility.FromJson<GameSaveData>(json);
 
-        bool isFullscreen = PlayerPrefs.GetInt("IsFullscreen", 1) == 1;
-        fullscreenToggle.isOn = isFullscreen;
+            // Sync UI và Audio
+            SetVolumeFromLoad(data.musicVolume);
+            SetFullscreenFromLoad(data.isFullscreen);
+        }
+        else
+        {
+            SetVolumeFromLoad(1f);
+            SetFullscreenFromLoad(true);
+        }
+    }
+
+    public float GetCurrentVolume() => volumeSlider ? volumeSlider.value : 1f;
+    public bool GetCurrentFullscreen() => fullscreenToggle ? fullscreenToggle.isOn : Screen.fullScreen;
+    public void ApplyLoadedSetting(float volume, bool fullscreen)
+    {
+        SetVolumeFromLoad(volume);
+        SetFullscreenFromLoad(fullscreen);
+    }
+
+    public void SetVolumeFromLoad(float value)
+    {
+        lastVolume = value > 0 ? value : 1f;
+        if (volumeSlider != null) volumeSlider.value = value;
+        if (volumeToggle != null) volumeToggle.isOn = value > 0;
+        if (musicSource != null) musicSource.volume = value;
+        SetCheckmarkPosition(volumeCheckmark, value > 0, volumePosX_On, volumePosX_Off, false);
+    }
+
+    public void SetFullscreenFromLoad(bool isFullscreen)
+    {
+        if (fullscreenToggle != null) fullscreenToggle.isOn = isFullscreen;
         Screen.fullScreen = isFullscreen;
-        SetCheckmarkPosition(fullscreenCheckmark, fullscreenToggle.isOn, fullscreenPosX_On, fullscreenPosX_Off, false);
-
-        if (musicSource != null)
-            musicSource.volume = savedVolume;
+        SetCheckmarkPosition(fullscreenCheckmark, isFullscreen, fullscreenPosX_On, fullscreenPosX_Off, false);
     }
 
     void OnSliderChange(float value)
@@ -66,7 +108,8 @@ public class VolumeManager : MonoBehaviour
             if (!volumeToggle.isOn) volumeToggle.isOn = true;
             lastVolume = value;
         }
-        SaveVolume(value);
+        ApplyVolume(value);
+        SaveSettingToFile();
     }
 
     void OnVolumeToggleChange(bool isOn)
@@ -77,21 +120,20 @@ public class VolumeManager : MonoBehaviour
         {
             float restoreVol = lastVolume > 0 ? lastVolume : 1f;
             if (volumeSlider.value == 0) volumeSlider.value = restoreVol;
-            SaveVolume(volumeSlider.value);
+            ApplyVolume(volumeSlider.value);
         }
         else
         {
             volumeSlider.value = 0;
-            SaveVolume(0);
+            ApplyVolume(0);
         }
+        SaveSettingToFile();
     }
 
-    void SaveVolume(float value)
+    void ApplyVolume(float value)
     {
         if (musicSource != null)
             musicSource.volume = value;
-        PlayerPrefs.SetFloat("MusicVolume", value);
-        PlayerPrefs.Save();
     }
 
     void OnFullscreenToggleChange(bool isOn)
@@ -99,14 +141,32 @@ public class VolumeManager : MonoBehaviour
         SetCheckmarkPosition(fullscreenCheckmark, isOn, fullscreenPosX_On, fullscreenPosX_Off, true);
 
         Screen.fullScreen = isOn;
-        PlayerPrefs.SetInt("IsFullscreen", isOn ? 1 : 0);
-        PlayerPrefs.Save();
+        SaveSettingToFile();
     }
 
+    void SaveSettingToFile()
+    {
+        if (GameSaveManager.Instance != null)
+        {
+            GameSaveManager.Instance.SaveGame();
+        }
+        else
+        {
+            var data = new GameSaveData
+            {
+                musicVolume = GetCurrentVolume(),
+                isFullscreen = GetCurrentFullscreen()
+            };
+            string json = JsonUtility.ToJson(data, true);
+            string path = Path.Combine(Application.persistentDataPath, "gamesave.json");
+            File.WriteAllText(path, json);
+        }
+    }
+
+    // ... các hàm còn lại như cũ ...
     void SetCheckmarkPosition(RectTransform checkmark, bool isOn, float posX_On, float posX_Off, bool animate)
     {
         float targetX = isOn ? posX_On : posX_Off;
-
         if (checkmark == volumeCheckmark)
         {
             if (animate)
@@ -121,7 +181,7 @@ public class VolumeManager : MonoBehaviour
                 checkmark.anchoredPosition = pos;
             }
         }
-        else // fullscreenCheckmark
+        else
         {
             if (animate)
             {
