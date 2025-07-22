@@ -10,6 +10,7 @@ public class LoadSceneButton : MonoBehaviour
     [Tooltip("Chờ bao lâu trước khi load (để âm thanh click phát xong)")]
     public float delay = 0.5f;
 
+
     // Gọi hàm này cho nút Load tiếp tục
     public void LoadGameScene()
     {
@@ -34,7 +35,29 @@ public class LoadSceneButton : MonoBehaviour
 
             // Đăng ký hàm xử lý khi scene được tải
             SceneManager.sceneLoaded += OnSceneLoaded;
+            if (GameSaveManager.Instance == null)
+            {
+                Debug.LogError("Không tìm thấy GameSaveManager.");
+                return;
+            }
 
+            // Load dữ liệu trước khi quyết định scene nào
+            GameSaveManager.Instance.LoadGame();
+            string nextScene;
+
+            // Nếu đã xem intro thì vào thẳng scene chính
+            if (GameSaveManager.Instance.HasWatchedIntro())
+            {
+                nextScene = "Village";  // hoặc scene bạn muốn load sau khi đã xem intro
+            }
+            else
+            {
+                nextScene = "CutSceneIntro";
+            }
+
+            // Set lại sceneName và gọi LoadGameScene()
+            sceneName = nextScene;
+           
             // Tải scene
             SceneManager.LoadScene(sceneName);
         }
@@ -113,4 +136,6 @@ public class LoadSceneButton : MonoBehaviour
             Debug.Log("TotalPlayTime after reset: " + totalPlayTime);
         }
     }
+   
+
 }

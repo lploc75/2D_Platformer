@@ -210,4 +210,11 @@ public class GameSaveManager : MonoBehaviour
 
         Debug.Log("[GameSaveManager] Đã reset toàn bộ dữ liệu trong phiên chơi.");
     }
+    public bool HasWatchedIntro()
+    {
+        if (watchedCutscenes == null)
+            return false;
+
+        return watchedCutscenes.Contains("intro_cutscene");
+    }
 }
