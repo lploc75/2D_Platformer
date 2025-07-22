@@ -14079,6 +14079,7 @@ MonoBehaviour:
   smoothSpeed: 0.125
   offset: {x: 0, y: 0, z: 0}
   minX: -1.9
+  maxX: 118.56
   minY: -19.07
   shakeOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &582251713
@@ -26899,10 +26900,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35b6c9b0724654747ab78ef6791b90be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalTimeText: {fileID: 0}
-  totalKillText: {fileID: 0}
-  totalDeathText: {fileID: 0}
-  totalGoldText: {fileID: 0}
+  totalTimeText: {fileID: 1268352717}
+  totalKillText: {fileID: 1106725675}
+  totalDeathText: {fileID: 1420096755}
+  totalGoldText: {fileID: 1258003858}
   totalPlayTime: 0
   totalKill: 0
   totalDeath: 0
@@ -48069,7 +48070,7 @@ PrefabInstance:
     - target: {fileID: 6943126384253239183, guid: 26723cdcbebe5844eb8789f256d9a810, type: 3}
       propertyPath: inventoryCanvas
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1385509470}
     - target: {fileID: 6943126384253239183, guid: 26723cdcbebe5844eb8789f256d9a810, type: 3}
       propertyPath: inventoryUIController
       value: 
