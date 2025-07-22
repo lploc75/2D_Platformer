@@ -230,4 +230,21 @@ public class QuestManager : MonoBehaviour
         }
         OnQuestChanged?.Invoke();
     }
+    public void ResetQuests()
+    {
+        acceptedQuests.Clear();
+        completedQuests.Clear();
+        readyToCompleteQuests.Clear();
+        questNpcTalkedWith.Clear();
+
+        Debug.Log("[QuestManager] Reset all quests.");
+        OnQuestChanged?.Invoke();
+
+        // Tự động nhận lại quest mở đầu (nếu muốn)
+        if (!string.IsNullOrEmpty(autoStartQuestId))
+        {
+            AcceptQuest(autoStartQuestId);
+        }
+    }
+
 }

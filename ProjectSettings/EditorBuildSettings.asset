@@ -32,5 +32,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Shared/EndGameScene.unity
     guid: ed76bb97de799a24f8b868b27982e12f
+  - enabled: 1
+    path: Assets/Scenes/Shared/CutSceneIntro.unity
+    guid: 81faafde84732b9458ac7bdf20b71fda
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

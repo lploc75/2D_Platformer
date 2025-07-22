@@ -27,7 +27,6 @@ public class GameSaveData
     public List<SpriteColorStatus> spriteColors = new List<SpriteColorStatus>();
     // Thêm các phần khác nếu cần
 }
-
 public class GameSaveManager : MonoBehaviour
 {
     public static GameSaveManager Instance;
@@ -200,6 +199,9 @@ public class GameSaveManager : MonoBehaviour
         // Reset Player Stats
         if (PlayerStatsManager.Instance != null)
             PlayerStatsManager.Instance.ResetStats();
+        // Reset Player Stats
+        if (QuestManager.Instance != null)
+            QuestManager.Instance.ResetQuests(); ;
 
         // Reset watched cutscenes, sprite fades/colors trong chính GameSaveManager
         watchedCutscenes.Clear();
