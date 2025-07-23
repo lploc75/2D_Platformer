@@ -17,7 +17,9 @@ MonoBehaviour:
   avatar: {fileID: 21300000, guid: fe9ac768ef6b2d649b0a5c85bab6c3cd, type: 3}
   isQuestGiver: 0
   defaultLines:
-  - "The pillar does not react\u2026 \r\n"
+  - 'The pillar does not react.
+
+'
   - 'Maybe I should look for the fire crystal first.
 
 '
