@@ -34,7 +34,7 @@ public class PotionUI : MonoBehaviour
         yield return new WaitForSeconds(3f); // Delay 3 giây
         InventoryFileHandler.LoadInventoryFromFile(ref inventoryItems);
         UpdatePotionUI();
-        //Debug.Log($"[PotionUI]: Đã nạp kho với {inventoryItems.Count} vật phẩm--------------------");
+        Debug.Log($"[PotionUI]: Đã nạp kho với {inventoryItems.Count} vật phẩm--------------------");
     }
     public void UpdatePotionUI()
     {

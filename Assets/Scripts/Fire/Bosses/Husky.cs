@@ -9,6 +9,10 @@ public class Husky : MonoBehaviour
     public float walkSpeed = 2f;
     private bool canFlip = true;
     public float flipCooldown = 0.2f;
+    [Header("Chase Settings")]
+    public float chaseSpeed = 3f;
+    private Transform targetPlayer;
+    private bool isChasing = false;
 
     Rigidbody2D rb;
     Animator animator;
@@ -138,4 +142,18 @@ public class Husky : MonoBehaviour
             FlipDirection();
         }
     }
+    public void StartChasingPlayer(Transform player)
+    {
+        targetPlayer = player;
+        isChasing = true;
+        animator.SetBool("isChasing", true); // nếu có animation
+    }
+
+    public void StopChasingPlayer()
+    {
+        isChasing = false;
+        targetPlayer = null;
+        animator.SetBool("isChasing", false); // nếu có animation
+    }
+
 }
