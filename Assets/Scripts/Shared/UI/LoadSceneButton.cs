@@ -91,6 +91,17 @@ public class LoadSceneButton : MonoBehaviour
     {
         Debug.Log("OnClickNewGame triggered!");  // Log để kiểm tra phương thức có được gọi hay không
 
+        // 1. Xóa dữ liệu cũ
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+
+        // 2. Reset biến trong RAM
+        if (TrophyRecordUI.Instance != null)
+        {
+            TrophyRecordUI.Instance.SetRecord(0, 0, 0, 0);
+            TrophyRecordUI.Instance.SaveRecord();
+        }
+
         if (GameSaveManager.Instance != null)
         {
             Debug.Log("GameSaveManager.Instance found.");  // Kiểm tra xem GameSaveManager có tồn tại không
@@ -103,9 +114,6 @@ public class LoadSceneButton : MonoBehaviour
                 trophyRecordUI.SaveRecord();  // Lưu dữ liệu trước khi reset
             }
 
-            // Xóa hoặc reset dữ liệu khi bắt đầu game mới
-            ResetGameData();
-
             // Bắt đầu game mới
             Debug.Log("Starting new game...");
             GameSaveManager.Instance.StartNewGame(sceneName);
@@ -117,25 +125,25 @@ public class LoadSceneButton : MonoBehaviour
     }
 
     // Hàm reset lại dữ liệu (có thể dùng PlayerPrefs hoặc file JSON tùy nhu cầu)
-    private void ResetGameData()
-    {
-        // Xóa dữ liệu lưu trữ trong PlayerPrefs
-        PlayerPrefs.DeleteAll();
-        PlayerPrefs.Save();  // Đảm bảo rằng dữ liệu đã được xóa và lưu
+    //private void ResetGameData()
+    //{
+    //    // Xóa dữ liệu lưu trữ trong PlayerPrefs
+    //    PlayerPrefs.DeleteAll();
+    //    PlayerPrefs.Save();  // Đảm bảo rằng dữ liệu đã được xóa và lưu
 
-        Debug.Log("Dữ liệu game đã được đặt lại!");  // Log khi reset dữ liệu
+    //    Debug.Log("Dữ liệu game đã được đặt lại!");  // Log khi reset dữ liệu
 
-        // Kiểm tra xem dữ liệu đã được xóa chưa
-        float totalPlayTime = PlayerPrefs.GetFloat("TotalPlayTime", -1);
-        if (totalPlayTime == -1)
-        {
-            Debug.Log("No data found for TotalPlayTime after reset.");
-        }
-        else
-        {
-            Debug.Log("TotalPlayTime after reset: " + totalPlayTime);
-        }
-    }
+    //    // Kiểm tra xem dữ liệu đã được xóa chưa
+    //    float totalPlayTime = PlayerPrefs.GetFloat("TotalPlayTime", -1);
+    //    if (totalPlayTime == -1)
+    //    {
+    //        Debug.Log("No data found for TotalPlayTime after reset.");
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("TotalPlayTime after reset: " + totalPlayTime);
+    //    }
+    //}
    
 
 }
