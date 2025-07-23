@@ -45,11 +45,9 @@ public class Projectile : MonoBehaviour
 
         if(damageable != null)
         {
-            Vector2 deliveredKnockback = transform.localScale.x > 0 ? 
-                knockback : new Vector2(-knockback.x, knockback.y);
-            bool gotHit = damageable.Hit(damage, deliveredKnockback);
+            bool gotHit = damageable.Hit(damage, knockback);
             //bool gotHit = damageable.Hit(damage);
-            Debug.Log("Damge và knockback từ Projectile " + damage + " -- " + deliveredKnockback);
+            Debug.Log("Damge và knockback từ Projectile " + damage + " -- " + knockback);
             if (gotHit)
             {
                 Debug.Log(collision.name + "hit for " + damage);

@@ -150,4 +150,16 @@ public class Damageable : MonoBehaviour
 
         Debug.Log($"[Damageable]  SetMaxHealth = {MaxHealth}, currentHealth = {Health}");
     }
+    /// <summary>
+    /// Hồi máu (có thể vượt quá máu hiện tại nhưng không vượt max)
+    /// </summary>
+    public void Heal(int amount)
+    {
+        if (IsAlive && amount > 0)
+        {
+            Health += amount; // Setter đã tự Clamp
+            Debug.Log($"[Damageable] Hồi {amount} máu, máu hiện tại: {Health}");
+        }
+    }
+
 }

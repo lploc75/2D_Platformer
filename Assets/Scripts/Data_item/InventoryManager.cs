@@ -60,10 +60,17 @@ public class InventoryManager : MonoBehaviour
             ItemDatabase.AddItem(item);
             Debug.Log($"Thêm mới vật phẩm {item.itemName} vào kho với số lượng: {amount}");
         }
-
+        // Gọi UI nếu có
+        if (PotionUI.Instance != null)
+        {
+            PotionUI.Instance.UpdatePotionUI();
+        }
+        else
+        {
+            Debug.LogWarning("⚠️ PotionUI.Instance chưa được gán");
+        }
         // Cập nhật lại UI kho sau khi thêm vật phẩm
         InventoryStaticUIController.Instance.UpdateInventorySlots();
-
         // Lưu kho vào tệp JSON sau khi thay đổi
         InventoryFileHandler.SaveInventoryToFile(inventoryItems);
     }
