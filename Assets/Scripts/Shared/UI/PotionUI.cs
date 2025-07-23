@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
@@ -26,10 +27,15 @@ public class PotionUI : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(InitPotionUI());
+    }
+    IEnumerator InitPotionUI()
+    {
+        yield return new WaitForSeconds(3f); // Delay 3 giây
         InventoryFileHandler.LoadInventoryFromFile(ref inventoryItems);
         UpdatePotionUI();
+        //Debug.Log($"[PotionUI]: Đã nạp kho với {inventoryItems.Count} vật phẩm--------------------");
     }
-
     public void UpdatePotionUI()
     {
         var inventory = InventoryManager.Instance.inventoryItems; // ✅ Lấy từ phiên chơi (RAM)
