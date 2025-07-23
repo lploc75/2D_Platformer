@@ -22,11 +22,20 @@ public class TrophyRecordUI : MonoBehaviour
 
     void Awake()
     {
-        Instance = this;
-        DontDestroyOnLoad(gameObject);  // Đảm bảo đối tượng này không bị xóa khi chuyển scene
-        Debug.Log("TrophyRecordUI is found and active.");
-        StartGame();  // Bắt đầu đếm thời gian ngay khi script chạy
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            Debug.Log("TrophyRecordUI created and active.");
+            StartGame();
+        }
+        else if (Instance != this)
+        {
+            Debug.LogWarning("Duplicate TrophyRecordUI destroyed!");
+            Destroy(gameObject); // Nếu object mới được tạo ở scene sau, huỷ luôn object này
+        }
     }
+
 
     void Start()
     {
@@ -48,7 +57,7 @@ public class TrophyRecordUI : MonoBehaviour
     // Thêm vàng vào Trophy khi nhận tiền
     public void AddGoldToTrophy(int amount)
     {
-        Debug.Log($"AddGoldToTrophy called with amount: {amount}");
+        Debug.Log($"AddGoldToTrophy called with amount: {amount}"); 
         Debug.Log($"Previous Total Gold: {totalGold}");
 
         totalGold += amount;  // Cộng vàng vào Trophy
@@ -191,4 +200,13 @@ public class TrophyRecordUI : MonoBehaviour
         SaveTimeBeforeSceneChange();  // Lưu thời gian trước khi chuyển scene
         SceneManager.LoadScene("NextScene");  // Chuyển sang scene mới
     }
+
+    public void PrintTextReferences()
+    {
+        Debug.Log($"totalTimeText: {(totalTimeText == null ? "NULL" : totalTimeText.name)}");
+        Debug.Log($"totalKillText: {(totalKillText == null ? "NULL" : totalKillText.name)}");
+        Debug.Log($"totalDeathText: {(totalDeathText == null ? "NULL" : totalDeathText.name)}");
+        Debug.Log($"totalGoldText: {(totalGoldText == null ? "NULL" : totalGoldText.name)}");
+    }
+
 }
