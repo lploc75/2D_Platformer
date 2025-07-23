@@ -25,6 +25,8 @@ public class RewardOnDeath : MonoBehaviour
             int amount = Random.Range(minAmount, maxAmount + 1);
             CurrencyManager.Instance.AddCurrency(cur, amount);
             PlayerStatsManager.Instance?.UpdateButtonInteractable();
+
+
         }
         TrophyRecordUI.Instance.AddKill();
 

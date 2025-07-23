@@ -21,17 +21,19 @@ MonoBehaviour:
   questId: main_1_crystal
   questOfferLines: []
   questInProgressLines:
-  - 'If you run out of potions, come back and I''ll brew more for you.
+  - 'If you run out of potions, come back and I will brew more for you.
 
 '
   questSpecialLines:
-  - "I've never seen the herbs wilt overnight like this, not even in the coldest
+  - "I have never seen the herbs wilt overnight like this, not even in the coldest
     winters.\r"
-  - 'Some villagers are feeling weak, but I''m doing what I can.
+  - 'Some villagers are feeling weak, but I am doing what I can.
 
 '
-  - "Here, take these potions\u2014one for your health, one for your magic. Stay
-    safe, Arin.\r\n"
+  - 'Here, take these potions - one for your health, one for your magic. Stay safe,
+    Arin.
+
+'
   rewardList:
   - item: {fileID: 11400000, guid: 647b77454efd35b4fa1b282068d7b001, type: 2}
     amount: 3
