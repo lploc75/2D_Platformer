@@ -26,9 +26,7 @@ public class RewardOnDeath : MonoBehaviour
             CurrencyManager.Instance.AddCurrency(cur, amount);
             PlayerStatsManager.Instance?.UpdateButtonInteractable();
 
-            // Chỉ cộng trophy nếu là Coin
-            if (type == CurrencyType.Coin)
-                TrophyRecordUI.Instance.AddGoldToTrophy(amount);
+
         }
         TrophyRecordUI.Instance.AddKill();
 
