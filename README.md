@@ -33,7 +33,7 @@
 1. **Mở bằng Unity Hub**
 
    - Mở **Unity Hub**
-   - Chọn **Add** → Trỏ đến thư mục `shard-of-light`
+   - Chọn **Add** → Trỏ đến thư mục `2D_Platformer`
    - Chọn phiên bản Unity **6000.1.2f1** để mở dự án
 
 2. **Build và chạy**
