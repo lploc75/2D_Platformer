@@ -9,7 +9,7 @@
 - **Thể loại**: Platformer | Phiêu lưu | Fantasy  
 - **Engine**: Unity `6000.1.2f1` (Unity 6)  
 - **Ngôn ngữ lập trình**: C#  
-- **Tình trạng**: Đang phát triển  
+- **Tình trạng**: Tạm ngưng phát triển
 - **Hỗ trợ nền tảng**: Windows  
 
 ---
